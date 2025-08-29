@@ -1,0 +1,76 @@
+MUST
+
+Abgleichen mit dem Lehrplan
+
+Unterlagen und Übungen für simple library Einbindung
+https://my.skilldisplay.eu/en/skill/3333/0
+
+Folgende Skills noch in den Kurs einbinden
+Naming conventions: https://my.skilldisplay.eu/en/skill/3335/0
+systematic test cases: https://my.skilldisplay.eu/en/skill/3334/0
+Simple Sort Algorithm: https://my.skilldisplay.eu/en/skill/3336/0
+Simple Search algorithm: https://my.skilldisplay.eu/en/skill/3337/0
+
+offen
+
+JavaDoc -> unbedingt
+Java API nochmals erklären -> wie finde ich Methoden für Arrays oder String?
+
+Funktionen überladen -> auch eher OOP?
+
+printf
+Bedingungs-Operator : ?
+i++ vs ++i;
+Debugger
+null  -> eher zu 2. Klasse oop
+
+
+
+
+varargs -> in der zweiten noch einbauen? wird bei UE Schaltungen gebraucht
+
+Stringbuilder für fortgeschrittene?
+https://www.digitalocean.com/community/tutorials/string-vs-stringbuffer-vs-stringbuilder
+
+
+Videos einbauen?
+https://www.youtube.com/playlist?list=PLglgr37NjmD5at_Ty5fRSr1JC_fntFZ--
+
+https://www.youtube.com/c/BroCodez/playlists
+
+
+Reihenfolge chars in den Folien und in den Übungen passt im Moment noch nicht zusammen.
+
+zu Beginn einen Komplettüberblick geben was wir lernen werden ("Programm kann sich etwas merken" -> Variablen, wiederverwendbare Codeblöcke -> Funktionenen,....)
+
+zu Beginn von den Kapitel ein paar Anwendungsbeispiele aus der späteren Praxis (z.B. Strings -> prüfen von Passwörtern, Datenanalyse)
+
+styleguide
+
+früher auch deutsche Sprache nicht einheitlich - geprägt durch Gutenberg Bibel und Wörterbuch der Gebrüder Grimm (laut Franz)
+
+Die Java Code Conventions aus dem Jahr 1999 sind immer noch gültig. (sieh auch direkt unter den Naming Conventions)
+https://www.oracle.com/java/technologies/javase/codeconventions-contents.html
+https://www.oracle.com/java/technologies/javase/codeconventions-namingconventions.html#367
+
+In Wirklichkeit ist der Java-Compiler viel toleranter als die Java-Code-Conventions. Auch sind prinzipiell auch Umlaute und diverse andere Symbole erlaubt aber jedoch verpönt!! Will man wirklich den Java-Compiler voll ausreizen (wovon ich abrate) kann das erste Zeichen eines Java-Identifiers (= Name für eine Konstante, Variable, Methode, etc.) mit der Methode Character.isJavaIdentifierStart(ch), und jedes weitere Zeichen mit Character.isJavaIdentifierPart(ch) getestet werden.
+
+Bemerkung: Für Variablen-Namen gelten die gleichen Schreibregeln in Java wie für Methoden. Methoden tun jedoch etwas und haben daher meist ein Verb in ihrem Namen. Variablen häufig nicht. Die Ausnahme von dieser Regel sind boolesche Variablen. Diese haben meist ein is (oder has) im Namen. Beispiele für boolesche Variablen-Namen: isBlue, isRunning, isPrime, hasSurname, hasWon
+
+Für die Übungen oder Folien:
+
+main/setup ist die erste oder letzte Methode
+
+erkenne alle Buchstaben -> kann nicht einfach zwischen a und z 
+
+Palindromerkennung - toLowerCase statt to Uppercase verwenden (Beispiel ß -> wird in SS verwandelt)
+
+Folien um Codebeispiele ergänzen
+
+Spannendes Testtool:
+https://tmc.mooc.fi/
+http://testmycode.github.io/
+
+wird von folgendem Kurs verwendet: https://java-programming.mooc.fi
+
+System.out.print(ln) statt print(ln) gleich von Beginn weg verwenden?

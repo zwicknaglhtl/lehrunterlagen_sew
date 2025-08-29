@@ -1,0 +1,25 @@
+# Node modules
+node_modules/
+
+# Reveal.js build output
+dist/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code settings
+.vscode/
+
+# Logs
+*.log
+
+# Compiled files
+*.class
+*.pyc
+
+# Backup files
+*~
+
+# Other
+.env

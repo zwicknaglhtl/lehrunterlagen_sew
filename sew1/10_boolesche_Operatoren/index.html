@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Boolesche Operatoren</title>
+
+	<link rel="stylesheet" href="../../../../../dist/reset.css">
+	<link rel="stylesheet" href="../../../../../dist/reveal.css">
+	<link rel="stylesheet" href="../../../../../dist/theme/htl.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<!-- <link rel="stylesheet" href="../../../../../plugin/highlight/zenburn.css"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-light.css" onerror="this.onerror=null;this.href='../../../../../node_modules/highlight.js/styles/stackoverflow-light.css';">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<section>
+				<h1>Boolesche Operatoren</h1>
+				<h2> Softwareentwicklung 1</h2>
+			</section>
+
+			<section>
+			<h3>Logische Ausdrücke</h3>
+			<ul>
+				<li class="fragment">Kompliziertere Bedingungen können oft nicht mit einem einfachen Vergleich ausgedrückt werden.
+					<ul>
+						<li>Man kann z.B. nicht <code>3 &lt; a &gt; 5</code> schreiben.</li>
+					</ul>
+				</li>
+				<li class="fragment">Logische Ausdrücke verknüpfen Wahrheitswerte mit logischen (booleschen) Operatoren (UND, ODER, Negation) und liefern als Ergebnis wieder einen Wahrheitswert.</li>
+				<li class="fragment">Beispiele in Alltagssprache:
+					<ul>
+						<li>Wenn die Note größer gleich 1 <strong>UND</strong> kleiner gleich 5 ist , dann ist die Schulnote gültig.
+						</li>
+						<li>Wenn die Ampelfarbe gelb <strong>ODER</strong> grün ist, dann lasse den Schranken offen.
+						</li>
+					</ul>
+				</li>
+			</ul>
+			</section>
+
+
+<section>
+	<h3>Boolesche Operatoren</h3>
+	<p> 
+		Boolesche Operatoren, geordnet nach Rangfolge der Auswertung:</p>
+<table class="r-fit-text">
+	<thead>
+		<tr>
+			<th>Verknüpfung</th>
+			<th>Ergebnis ist <strong><code>true</code></strong>, wenn: </th>
+			<th>Allgemeine Form in Java</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>UND</td>
+			<td><strong>alle</strong> Wahrheitswerte <code>true</code> sind </td>
+			<td><i>Wahrheitswert1</i> <strong><code>&&</code></strong> <i>Wahrheitswert2</i>  </td>
+		</tr>
+		<tr>
+			<td>ODER</td>
+			<td><strong>mindestens ein</strong> Wahrheitswert <code>true</code> ist</td>
+			<td><i>Wahrheitswert1</i> <strong><code>||</code></strong> <i>Wahrheitswert2</i> </td>
+		</tr>
+		<tr>
+			<td>Negation</td>
+			<td>der Wahrheitswert <code>false</code> ist</td>
+			<td><strong><code>!</code></strong><i>Wahrheitswert1</i></td>
+		</tr>
+	</tbody>
+</table>
+<p class="small">Auch bei logischen Ausdrücken kann man runde Klammern ( ) setzen, um die Reihenfolge der Auswertung zu bestimmen.</p>
+<p class="small">Es gilt als guter Programmierstil, bei komplexeren logischen Ausdrücken immer Klammern für ein einfacheres Verständnis zu setzen.</p>
+</section>
+
+<section>
+<h3>Beispiel 1</h3>
+<div style="position: relative;">
+<pre><code data-trim>
+	int x = 350;
+	int speed = 5;
+	
+	if (x > 200 && x < 400) {
+	    speed = -5;
+	}
+	
+	println("Speed ist "+speed); 
+</code></pre>
+<div class="fragment code-annotation" style="position: absolute; left: 60px; top: 60px;">true</div>
+<div class="fragment code-annotation"  style="position: absolute; left: 175px; top: 60px;">true</div>
+<div class="fragment code-annotation" style="position: absolute; left: 260px; top: 60px;"> &#8680; true</div>
+</div>
+</section>
+
+<section>
+	<h3>Beispiel 2</h3>
+	<div style="position: relative;">
+	<pre><code data-trim>
+		int x = 450;
+		int speed = 5;
+		
+		if (x > 200 && x < 400) {
+		    speed = -5;
+		}
+		
+		println("Speed ist "+speed); 
+	</code></pre>
+	<div class="fragment code-annotation" style="position: absolute; left: 60px; top: 60px;">true</div>
+	<div class="fragment code-annotation"  style="position: absolute; left: 175px; top: 60px;">false</div>
+	<div class="fragment code-annotation" style="position: absolute; left: 260px; top: 60px;"> &#8680; false</div>
+	</div>
+	</section>
+
+	<section>
+		<h3>Beispiel 3</h3>
+		<div style="position: relative;">
+		<pre><code data-trim>
+			int x = 350;
+			int speed = 5;
+
+			if (x < 200 || x > 400) {
+			    speed = -5;
+			}
+			
+			println("Speed ist "+speed); 
+		</code></pre>
+		<div class="fragment code-annotation" style="position: absolute; left: 60px; top: 60px;">false</div>
+		<div class="fragment code-annotation"  style="position: absolute; left: 175px; top: 60px;">false</div>
+		<div class="fragment code-annotation" style="position: absolute; left: 260px; top: 60px;"> &#8680; false</div>
+		</div>
+		</section>
+
+		<section>
+			<h3>Beispiel 4</h3>
+			<div style="position: relative;">
+			<pre><code data-trim>
+				int x = 450;
+				int speed = 5;
+	
+				if (x < 200 || x > 400) {
+				    speed = -5;
+				}
+				
+				println("Speed ist "+speed); 
+			</code></pre>
+			<div class="fragment code-annotation" style="position: absolute; left: 60px; top: 60px;">false</div>
+			<div class="fragment code-annotation"  style="position: absolute; left: 175px; top: 60px;">true</div>
+			<div class="fragment code-annotation" style="position: absolute; left: 260px; top: 60px;"> &#8680; true</div>
+			</div>
+			</section>
+
+			<section>
+				<h3>Beispiel 5</h3>
+				<div style="position: relative;">
+				<pre><code data-trim>
+					int x = 450;
+					int speed = 5;
+				
+					if (!(x < 200)) {
+					    speed = -5;
+					}
+					
+					println("Speed ist "+speed); 
+				</code></pre>
+				<div class="fragment code-annotation" style="position: absolute; left: 80px; top: 60px;">false</div>
+				<div class="fragment code-annotation" style="position: absolute; left: 160px; top: 60px;"> &#8680; true</div>
+				</div>
+				</section>
+
+				<section>
+					<h3>Beispiel 6</h3>
+					<div style="position: relative;">
+					<pre><code data-trim>
+						int a = 1;
+						int b= 3;
+					
+						if ( ( (a <= 1) || (a > 3) ) &&  ( (b < 1) || (b > 3) ) ){
+						    println("Innerhalb von if");
+						} 
+					</code></pre>
+					</div>
+					<p>Wird das if-Statement ausgeführt? Probiere es selbst!</p>
+					</section>
+
+
+				<section>
+				<h3>Gleichwertige Ausdrücke</h3>
+				<p>Der linke und rechte logische Ausdruck sind jeweils gleichwertig.</p>
+				
+				<div class="columns">
+				<div class="col">
+					<table >
+						<thead>
+							<tr>
+								<th colspan="2" >jeweils gleichwertig</th>
+								
+							</tr>
+						</thead>
+						<tbody class="border cols inner">
+							<tr >
+								<td ><code>!(a == b)</code> </td>
+								<td><code>a != b</code></td>
+							</tr>
+							<tr >
+								<td ><code>!(a &lt; b)</code> </td>
+								<td><code>a &gt;= b</code></td>
+							</tr>
+							<tr >
+								<td ><code>!(a &gt; b)</code> </td>
+								<td><code>a &lt;= b</code></td>
+							</tr>
+							<tr >
+								<td ><code>x && true</code> </td>
+								<td><code>x</code></td>
+							</tr>
+							<tr >
+								<td ><code>x || true</code> </td>
+								<td><code>true</code></td>
+							</tr>
+							<tr >
+								<td ><code>!! x</code> </td>
+								<td><code>x</code></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col">
+					<table class="center">
+						<thead>
+							<tr>
+								<th colspan="2" >jeweils gleichwertig</th>
+								
+							</tr>
+						</thead>
+						<tbody class="border cols inner">
+							<tr >
+								<td ><code>!(a != b)</code> </td>
+								<td><code>a == b</code></td>
+							</tr>
+							<tr >
+								<td ><code>!(a &lt;= b)</code> </td>
+								<td><code>a &gt; b</code></td>
+							</tr>
+							<tr >
+								<td ><code>!( a&gt;= b)</code> </td>
+								<td><code>a &lt; b</code></td>
+							</tr>
+							<tr >
+								<td ><code>x && false</code> </td>
+								<td><code>false</code></td>
+							</tr>
+							<tr >
+								<td ><code>x || false</code> </td>
+								<td><code>x</code></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				</div>
+				</section>
+
+			<section>
+				<p class="center">
+					Fragen? <br>
+					Wünsche? <br>
+					Beschwerden? <br>
+					Anregungen?
+				</p>
+			</section>
+
+		</div>
+	</div>
+
+
+
+	<script src="../../../../node_modules/reveal.js/dist/reveal.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/notes/notes.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/markdown/markdown.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/search/search.js"></script>
+
+	<script src="../reveal-config.js"></script>
+</body>
+
+</html>

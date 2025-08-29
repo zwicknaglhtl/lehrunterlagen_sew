@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Arrays</title>
+
+	<link rel="stylesheet" href="../../../../../dist/reset.css">
+	<link rel="stylesheet" href="../../../../../dist/reveal.css">
+	<link rel="stylesheet" href="../../../../../dist/theme/htl.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<!-- <link rel="stylesheet" href="../../../../../plugin/highlight/zenburn.css"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-light.css" onerror="this.onerror=null;this.href='../../../../../node_modules/highlight.js/styles/stackoverflow-light.css';">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<section>
+				<h1> Arrays (Felder)</h1>
+				<h2> Softwareentwicklung 1</h2>
+			</section>
+
+<section>
+<h3>Was ist einfacher?</h3>
+<div class="columns">
+<div class="col">
+<h4>Viele einzelne Krüge <br> tragen
+</h4>
+<img src="images/biere.png" alt="Person trägt viele Bierkruge (Foto: Matthias Balk
+)">
+</div>
+<div class="col">
+<h4>Einen Kasten mit Krügen tragen
+</h4>
+<img src="images/kasten.png" alt="Ein Kasten mit Bier (Foto: clickoslo.com
+)">
+</div>
+</div>
+<p class="small center">Es wird davon ausgegangen, dass das Bier auf den Abbildungen alkoholfrei ist.
+	</p>
+</section>
+
+<section>
+<h3>Arrays (Felder)</h3>
+<p>Ein Array (deutsch: „Feld“) kann <strong>mehrere Variablen desselben Datentyps</strong> unter einem <strong>einzigen Variablennamen</strong> speichern.</p>
+<ul>
+	<li>Jeder Wert befindet sich in einem <strong>Element</strong> des Arrays. Jedes Element hat denselben Datentyp.</li>
+	<li>Die <strong>Anzahl der Elemente</strong> eines Arrays ist unveränderlich.</li>
+	<li>Jedes Element hat eine Nummer. Diese nennt man <strong>Index</strong>.</li>
+</ul>
+</section>
+
+<section>
+<h3>Beispiele</h3>
+<p>Viele einzelne (zusammenhängende) Variablen</p>
+<pre><code data-trim class="language-java">
+	float preis1 = 1;
+	float preis2 = 234;
+	float preis3 = 7;
+	float preis4 = 42.5;
+	
+	String farbe1 = "red";
+	String farbe2 = "green";
+	String farbe3 = "lightblue";
+	
+</code></pre>
+
+<p>vs. Array mit mehreren Speicherplätzen
+</p>
+<pre><code data-trim class="language-java">
+float[] preise = new float[]{1,234,7,42.5};
+
+String[] farben = new String[]{"red", "green", "lightblue"};
+</code></pre>
+</section>
+
+<section>
+<h3>Deklaration von Array-Variablen</h3>
+<p>Die Deklaration einer Array-Variablen ähnelt einer gewöhnlichen Deklaration, nur dass nach dem Datentyp eckige Klammern [] gesetzt werden.</p>
+<pre><code data-trim>
+Datentyp[] Variablenname;
+</code></pre>
+<p>Der Variablenname soll aussagen, was jedes Element enthält und steht im Normalfall in der Mehrzahl.</p>
+<p>Beispiele:</p>
+<pre><code data-trim class="language-java">
+int[] noten;
+String[] wochentage;
+float[] temperaturen;
+</code></pre>
+<p>Beachte: Diese Arrayvariablen sind leer – sie enthalten (noch) keine Arrays!</p>
+</section>
+
+<section id="create-arrays">
+<h3>Arrays erzeugen</h3>
+<div class="r-fit-text">
+<ul>
+	
+		<li>Ein Array mit einer bestimmten Länge erzeugen:
+		<pre><code data-trim class="big">
+		new Datentyp[Länge];
+		</code></pre>
+			<ul>
+				<li> Alle Elemente werden beim Erzeugen wie folgt initialisiert: <ul>
+					<li>Zahlen-Arrays (int, double, etc.) werden mit der Zahl 0 befüllt.</li>
+					<li>boolean-Arrays werden mit dem Wert false befüllt.</li>
+					<li>char-Arrays werden mit dem Code 0 befüllt. Achtung: das ist nicht das Ziffern-Zeichen für „0“! Dieses hat den Code 48.</li>
+					<li>Bei String-Arrays (und Arrays über andere Objekte) werden die Elemente mit „null“ befüllt.</li>
+				</ul></li>
+			</ul>
+		</li>
+		<li>Die Array-Größe kann nachträglich nicht mehr geändert werden!</li>
+		</ul>
+	</div>
+</section>
+
+<section>
+<h3>Arrays erzeugen</h3>
+<ul>
+	<li>Ein Array erzeugen, das aus bestimmten Elementen besteht:
+		<pre><code data-trim class="big">
+			new Datentyp[] { Wert0, Wert1, Wert2, ... }
+		</code></pre>
+		<ul>
+			<li>Alle Werte (Konstante oder Ausdrücke) müssen denselben
+				Datentyp haben.</li>
+			<li><code>new Datentyp[]</code> kann auch weggelassen werden.
+				<pre><code data-trim>
+				{ Wert0, Wert1, Wert2, ... }
+				</code></pre>
+			</li>
+		</ul>
+	</li>
+	<li>Die Array-Größe kann nachträglich nicht mehr geändert werden!</li>
+</ul>
+</section>
+
+<section>
+<h3>Beispiele</h3>
+<pre><code data-trim>
+String[] texte = new String[25]; // Array, das 25 Strings speichern kann
+
+String[] wochentage;
+wochentage = new String[]{"Mo","Di","Mi","Do","Fr","Sa","So"};
+
+int[] zahlen = {11, 22, 33}; //new int[] kann auch weggelassen werden
+</code></pre>
+</section>
+
+<section>
+<h3>Index</h3>
+<img src="images/index.png" alt="schematische Darstellung des Index eines Arrays">
+<ul>
+	<li>Der Index nummeriert die Speicherplätze. <ul>
+		<li>Vergleich: Spinde mit Nummern (Schule, Fitnessstudio)</li>
+	</ul>
+	<li>Das erste Element hat den <strong>Index 0</strong>!</li>
+	<li>Gleiches Prinzip wie der Index eines Zeichens bei einem String.</li>
+</ul>
+</section>
+
+<section>
+<h3>Elemente verwenden</h3>
+<ul>
+	<li>Um ein bestimmtes Element auszuwählen, gibt man die Arrayvariable an und schreibt danach den Index in eckigen Klammern.
+	<pre><code data-trim >
+	Arrayvariable[Index]
+	</code></pre>
+	</li>
+	<li><code>Arrayvariable[Index]</code> (ein konkretes Element im Array) kann man verwenden wie eine <strong>gewöhnliche Variable</strong>.</li>
+	<li>Beispiele:
+		<pre><code data-trim class="language-java">
+		int[] noten = {1,2,3,4,5};
+		System.out.println(noten[0]); //gibt 1 aus
+		System.out.println(noten[4]); //gibt 5 aus
+		System.out.println(noten[1]+ noten[2]); //gibt 5 aus (2+3)
+
+		String[] speisen = {"Pizza", "Lasagne", "Gnocci"};
+		speisen[1] = "Spaghetti";  //ändert Lasagne auf Spaghetti
+		</code></pre>
+	</li>
+</ul>
+</section>
+
+<section>
+<h3>Länge eines Arrays</h3>
+<ul>
+	<li>Die Anzahl der Elemente eines Arrays erhält man mittels:
+		<pre><code data-trim>
+		Arrayvariable.length
+		</code></pre>
+	</li>
+	<li>Beachte: Der größte Index ist immer um eins kleiner als die Länge (=Anzahl der Elemente) des Arrays!</li>
+	<li>Beispiel:
+		<pre><code data-trim>
+		int[] noten = {1,2,3,4,5};
+		int len = noten.length; // len ist 5;
+
+		String[] wochentage = new String[]{ "Mo","Di","Mi","Do","Fr","Sa","So" };
+		System.out.println(wochentage.length); //Ausgabe: 7
+		</code></pre>
+	</li>
+</ul>
+</section>
+
+<section>
+<h3>Parameter & Rückgabenwerte</h3>
+<div class="r-fit-text">
+	<ul>
+		<li>Arrays können sowohl als Parameter als auch als Rückgabetyp von Methoden verwenden werden (wie jeder andere Datentyp).</li>
+		<li>Beispiele:
+			<pre><code data-trim class="language-java big">
+			// Liefert das Maximum der Elemente des Arrays
+			int max(int[] numbers) { ... }
+	
+			// Liefert die Namen der Schüler*innen der angegebenen Klasse
+			String[] namen(String klasse) {
+				String[] n;
+				...
+				return n;
+			}
+			</code></pre>
+		</li>
+		<li>Wird ein Array als Parameter übergeben, so wird das Original
+			übergeben (keine Kopie!). Änderungen, die man in der Methode an den Elementen dieses Arrays vornimmt, verändern das Array auch für den Aufrufer (siehe auch <a href="#referenzvariablen">Referenzvariablen</a> ).</li>
+	</ul>
+</div>
+</section>
+
+<section>
+<h3>Wann man Arrays verwendet</h3>
+<p>In diesen Situationen ist es (vorläufig) meist sinnvoll, ein Array zu verwenden:</p>
+<ul>
+	<li>Man benötigt mehrere <strong>gleichartige</strong> Variablen, und zwar: <ul>
+		<li>mit demselben <strong>Datentyp</strong>.</li>
+		<li>mit derselben <strong>Bedeutung</strong> (z.B. nur Vornamen, nur Noten)</li>
+	</ul></li>
+	<li>Man will alle diese Variablen in gleicher Weise bearbeiten oder verwenden.</li>
+	<li>Die Anzahl dieser Variablen ist beim Programmieren noch nicht bekannt, sondern erst zur Laufzeit.</li>
+	
+</ul>
+</section>
+
+<section>
+<h3>Arrays und Schleifen</h3>
+<ul class="r-fit-text">
+	<li>Schleifen verwendet man häufig, um die Arrayelemente in gleicher (oder sehr ähnlicher) Weise zu verarbeiten oder zu verändern.</li>
+	<li>Die Laufvariable einer for-Schleife wird als Arrayindex verwendet.</li>
+	<li>Um das gesamte Array zu durchlaufen, durchläuft die Laufvariable den Bereich <strong>0</strong> bis <code><em>array.</em><strong>length-1</strong></code></li>
+	<li>Beispiele:
+		<pre><code data-trim class="language-java big">
+		int[] noten = {1,1,5,3,2,5,4,4,3,3,2};
+		String[] wochentage = { "Mo","Di","Mi","Do","Fr","Sa","So" };
+		
+		//Die Namen der Wochentage ausgeben
+		for (int i = 0; i < wochentage.length; i = i + 1)
+			System.out.println(wochentage[i]);
+		}
+
+		//Alle Noten um einen Grad verbessern
+		for (int i = 0; i < noten.length; i = i + 1)
+		if (noten[i] > 1) {
+			   noten[i] = noten[i] – 1;
+			}
+		}
+		</code></pre>
+	</li>
+</ul>
+</section>
+
+<section>
+<h3>for-each-Schleife</h3>
+<div class="r-fit-text left">
+<p>Falls der Index nicht benötigt wird, so kann auch die for-each-Schleife verwendet werden, um alle Elemente eines Arrays zu durchlaufen:</p>
+<pre><code data-trim class="big">
+for (Datentyp Variablenname : Arrayname ) {
+		// Schleifenrumpf
+}
+</code></pre>
+<p>Beispiel:</p>
+<pre><code data-trim class="language-java big">
+//Namen aller Wochentage ausgeben
+for (String s : wochentage)
+	System.out.println(s);
+}
+</code></pre>
+
+	<p>Vorteile: </p>
+	<ul>
+		<li>Übersichtlicher – man benötigt weder eine Laufvariable noch einen
+			Arrayindex</li>
+	</ul>
+	<p>Nachteile:</p>
+	<ul>
+		<li>Keine Zuweisung an Arrayelemente möglich</li>
+		<li>Der Index des jeweiligen Arrayelements ist nicht bekannt</li>
+	</ul>
+</div>
+</section>
+
+
+<section id="referenzvariablen">
+<h3>Referenzvariable</h3>
+<ul>
+	<li>Arrayvariablen sind Referenzvariablen (im Gegensatz zu Variablen, die primitive Typen wie int, double, float,... speichern)</li>
+	<li>Referenzvariablen speichern eine Referenz ("Zeiger") auf das Array und nicht das Array selbst!</li>
+</ul>
+<pre><code data-trim class="language-java">
+int[] a = { 1, 2, 3 };
+System.out.println("Vorher  a[0] = " + a[0]); //Ausgabe: 1
+
+int [] b = a; // a und b zeigen auf das selbe Array -- keine Kopie der Elemente!
+
+System.out.println("Vorher  b[0] = " + b[0]); //Ausgabe: 1
+
+b[0] = 5;
+
+System.out.println("Nachher a[0] = " + a[0]); //Ausgabe: 5
+System.out.println("Nachher b[0] = " + b[0]); //Ausgabe: 5
+</code></pre>
+</section>
+
+<section id="referenz_parameter">
+<h3>Referenzvariablen & Parameter</h3>
+<div class="r-fit-text left">
+<p>Bei Parameter wird auch die Referenz übergeben - keine Kopie des Arrays.</p>
+<p>Änderungen, die man in der Methode an den Elementen dieses Arrays vornimmt, verändern das Array auch für den Aufrufer.</p>
+
+<pre><code data-trim class="language-java big">
+void setup() {
+	float[] values = {1.1f, 2.2f, 3.3f};
+	change(values);	//Bei einem Array wird  eine Referenz ("Zeiger") übergeben
+	System.out.println(values[0]);  //Ausgabe: 7.1
+
+	float f = 5;
+	change(f); //Für einen primitiven Typ wird der Wert übergeben
+	System.out.println(f); //Ausgabe: 5
+}
+  
+void change(float[] data) {
+	data[0] = 7.1;
+}
+
+void change(float x) {
+	x = 7.1;
+}
+</code></pre>
+</div>
+</section>
+
+<section>
+<h3>Umwandlung String &lt;–> char-Array</h3>
+
+<h4>Umwandeln eines String in ein char-Array</h4>
+<pre><code data-trim>
+	char[] charArray = "Ich liebe SEW!".toCharArray();
+	// Ausgabe: [I, c, h, , l, i, e, b, e, , S, E, W, !]
+	System.out.println (Arrays.toString(charArray));
+</code></pre>
+	<h4>Umwandlung char-Array zu String</h4>
+<pre><code data-trim>
+	char[] charArray = "Ich liebe SEW!".toCharArray();
+	String s = new String(charArray);
+	System.out.println(s); // Ausgabe: Ich liebe SEW! oder:
+	// new String (charArray, erstes Zeichen, Zeichen-Anzahl);
+	String sZwei = new String (charArray, 4, charArray.length-4);
+	System.out.println(sZwei); // Ausgabe: liebe SEW!
+</code></pre>
+</section>
+
+<section>
+<h3>Arrays sortieren</h3>
+<p>Ein Array kann mit dem Befehl <code>Arrays.sort(array)</code> aufsteigend sortiert werden.Zeichen werden nach ihrem Zeichensatz-Code sortiert.</p>
+<pre><code data-trim>
+	int[] zahlen = {5,3,1,7};
+	Arrays.sort(zahlen);
+	System.out.println(Arrays.toString(zahlen)); //Ausgabe: [1, 3, 5, 7]
+	
+	char[] charArray = "Ich liebe SEW!".toCharArray();
+	Arrays.sort(charArray);
+	System.out.println (Arrays.toString(charArray));
+	// Ausgabe: [ , , !, E, I, S, W, b, c, e, e, h, i, l]
+</code></pre>
+</section>
+
+<section>
+	<h3>Weitere Tipps</h3>
+	<ul class="r-fit-text">
+		<li>Falls ein Array nur zu Kontrollzwecken ausgeben werden soll, bietet sich an, das Array mittels <code>Arrays.toString(...)</code>  in einen String umzuwandeln und diesen dann auszugeben:
+			<pre><code data-trim class="language-java big">
+				float[] values = {1.1f, 2.2f, 3.3f};
+				System.out.println(Arrays.toString(values));
+			</code></pre>
+		</li>
+		<li>Generell: Die Klasse <a href="https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/util/Arrays.html"><code>Arrays</code></a> (beachte das "s" am Ende) stellt etliche Methoden für Arrays zu Verfügung (<code>Arrays.toString()</code>, <code>Arrays.sort()</code>, ...).</li>
+		<li>Häufiger Fehler: Bei einem Zugriff auf ein Array-Element, das nicht existiert (d.h. der Index ist &lt; 0 oder >= der Array-Länge), wird eine <strong>ArraysIndexOutOfBoundsException</strong> ausgelöst und das Programm abgebrochen.
+		<pre><code data-trim class="language-java big">
+			int[] a = {47, 11};
+			a[-1] = a[0]; // -1 ist kleiner als 0
+			a[2] = 44; // die Elemente haben die Indizies (Nummern) 0 und 1
+		</code></pre>
+		</li>
+	</ul>
+	
+	</section>
+
+<section>
+<h2>Zweidimensionale Arrays</h2>
+</section>
+
+<section>
+<h3>Zweidimensionale Arrays</h3>
+<p>Die Elemente eines eindimensionalen Arrays kann man sich entlang einer Linie aufgereiht vorstellen:</p>
+<object data="diagrams/arrays_onedim.drawio.svg" type="image/svg+xml" >Schema eindimensionales Array</object>
+
+<p>Ein zweidimensionales Array ist ein <strong>Array von Arrays</strong>. Seine Elemente kann man sich in einer Ebene angeordnet vorstellen:</p>
+<object data="diagrams/arrays_twodim.drawio.svg" type="image/svg+xml" >Schema zweidimensionales Array</object>
+</section>
+
+<section>
+<h3>Zweidimensionale Arrays</h3>
+<p>In Java brauchen zweidimensionale Arrays nicht „rechteckig“ zu sein. In der zweiten Dimension können sie beliebig unregelmäßig sein, z.B.:</p>
+<object data="diagrams/arrays_twodim_schraeg.drawio.svg" type="image/svg+xml" >Schema zweidimensionales Array mit unterschiedlich großen Arrays in der zweiten Dimension</object>
+</section>
+
+<section>
+<h3>Anwendung zweidimensionale Arrays</h3>
+
+<p>Mit zweidimensionalen Arrays können Daten gespeichert werden, die üblicherweise in Form einer Tabelle vorliegen.</p>
+<div class="columns">
+<div class="col">
+<object data="diagrams/arrays_personen.drawio.svg" type="image/svg+xml" ></object>
+</div>
+<div class="col">
+<object data="diagrams/arrays_tic_tac_toe.drawio.svg" type="image/svg+xml" ></object>
+</div>
+</div>
+
+
+</section>
+
+
+<section>
+<h3>Arrayvariable</h3>
+<ul>
+	<li>Für eine Variable, die ein zweidimensionales Array enthalten kann,
+		schreibt man hinter den Datentyp zwei leere eckige Klammernpaare [ ][ ].
+	<pre><code data-trim>
+	Datentyp[][] Variablenname;
+	</code></pre>
+	</li>
+	<li>
+		Beispiele für Definitionen von zweidimensionalen Arrayvariablen:
+		<pre><code data-trim class="language-java">
+String[][] ticTacToeFelder;
+int[][] testreihen;
+		</code></pre>
+	</li>
+</ul>
+</section>
+
+<section>
+<h3>Zweidimensionale Arrays erzeugen</h3>
+<ul class="r-fit-text">
+	<li>Ein rechteckiges Array mit <strong>bestimmten Größen</strong> erzeugen (ähnlich wie bei  <a href="#create-arrays">eindimensionalen Arrays</a>):
+		<pre><code data-trim class="big">
+		new Datentyp[Länge1][Länge2]
+		</code></pre>
+		<ul>
+			<li><em>Länge1</em> ist die Länge in der 1. Dimension, <em>Länge2</em> die Länge in der 2. Dimension.</li>
+		</ul>
+	</li>
+	<li>Array erzeugen, das aus <strong>bestimmten Elementen</strong> besteht:
+		<pre><code data-trim class="big">
+			{ { Wert00, Wert01, ... }, { Wert10, Wert11, ...}, ... }
+		</code></pre>
+		<ul>
+			<li>Merkhilfe: „Array von Arrays“</li>
+			<li>Die Länge des Arrays in der 1. Dimension entspricht der Anzahl
+				der Wertefolgen in geschwungenen Klammern { }</li>
+			<li>Die Länge in der 2. Dimension entspricht der Anzahl der
+				Elemente der jeweiligen Wertefolge.</li>
+				<li>Mit diesem Verfahren kann man auch ein nicht-rechteckiges
+					Array erzeugen.</li>
+		</ul>
+	</li>
+</ul>
+</section>
+
+<section>
+<h3>Beispiele</h3>
+<pre><code data-trim class="language-java">
+
+String[][] schachbrett = new String[8][8];
+
+String[][] ticTacToeFelder = {
+	{"", "X", ""},
+	{"","","O"},
+	{"O","X",""}
+};
+
+String[][] daten = {
+	{"Sophie", "02.03.2006", "Wien", "Fußball"},
+	{"Matthias", "04.09.2008", "Mistelbach", "Kochen"},
+	{"Lara", "01.12.2010", "Tulln", "Brettspiele"}
+} 
+
+int[][] testreihen = {
+	{1,4,2,2},
+	{1,1,2}
+}
+</code></pre>
+</section>
+
+<section>
+	<h3>unregelmäßige Arrays erzeugen</h3>
+	<pre><code data-trim class="language-java">
+// Erzeuge ein 2D-Array mit 3 Zeilen, aber noch ohne Spalten
+int[][] jaggedArray = new int[3][];
+
+// Weise jeder Zeile ein Array unterschiedlicher Länge zu
+jaggedArray[0] = new int[2];  // Zeile 0 hat 2 Spalten
+jaggedArray[1] = new int[4];  // Zeile 1 hat 4 Spalten
+jaggedArray[2] = new int[3];  // Zeile 2 hat 3 Spalten
+	</code></pre>
+</section>
+
+<section>
+<h3>Elemente verwenden</h3>
+<ul>
+	<li>Man gibt nach dem Namen der Arrayvariablen zuerst den <strong>Index der 1. Dimension</strong> und dann den <strong>Index der 2. Dimension an</strong>, beide in eckigen Klammern.
+	<pre><code data-trim class="language-java">
+	Arrayvariable[Index1][Index2]
+	</code></pre>
+	</li>
+	<li>Beispiele
+		<pre><code data-trim class="language-java">
+			ticTacToeFelder[2][1] 	// letzte Zeile, mittlere Spalte
+			schachbrett[0][7]		// "rechtes oberes" Feld
+		</code></pre>
+
+	</li>
+</ul>
+</section>
+
+<section>
+<h3>Schleifen</h3>
+<p>Alle Elemente eines zweidimensionalen Arrays <code>a</code> durchlaufen:</p>
+<ul>
+	<li>Mit zwei verschachtelten for-Schleifen:
+		<pre><code data-trim class="language-java">
+		for (int i = 0; i < a.length; i = i + 1) {
+			for (int j = 0; j < a[i].length; j = j + 1) {
+				   // Element a[i][j] verarbeiten
+				   // ... 
+			}
+		}
+		</code></pre>
+	</li>
+	<li>Mit zwei verschachtelten for-each-Schleifen (Annahme: <code>a</code> ist ein String-Array):
+	<pre><code data-trim class="language-java">
+		for (String[] x : a) { 
+			for (String s: x) {
+				// s (Inhalt des jeweiligen Elements) verarbeiten
+				// ... 
+			}
+		}
+	</code></pre>
+	</li>
+</ul>
+</section>
+
+
+<section>
+	<h3>Tipps</h3>
+	<ul class="r-fit-text">
+		<li>Falls ein mehrdimensionales Array nur zu Kontrollzwecken ausgeben werden soll, bietet sich an, das Array mittels <code>Arrays.deepToString(...)</code>  in einen String umzuwandeln und diesen dann auszugeben:
+			<pre><code data-trim class="language-java big">
+				float[][] values ={{1.1f, 2.2f, 3.3f}, {4.1f, 2.1f}};
+				System.out.println(Arrays.deepToString(values));
+			</code></pre>
+		</li>
+	</ul>
+	</section>
+
+<section>
+<h3>Mehrdimensionale Arrays</h3>
+<p>Arrays können nicht nur zwei Dimensionen, sondern auch drei oder mehr Dimensionen haben.</p>
+
+<pre><code data-trim class="language-java">
+	int [][][] data  = {
+		{ {1,4,8} , {2,3,7} }, 
+		{ {12, 18, 20}, {17, 12, 22} }
+	};
+
+	System.out.println(data[0][1][1]);  //output: 3
+</code></pre>
+</section>
+
+
+<section>
+	<p class="center">
+		Fragen? <br>
+		Wünsche? <br>
+		Beschwerden? <br>
+		Anregungen?
+	</p>
+</section>
+
+		</div>
+	</div>
+
+
+
+	<script src="../../../../node_modules/reveal.js/dist/reveal.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/notes/notes.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/markdown/markdown.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/search/search.js"></script>
+
+	<script src="../reveal-config.js"></script>
+</body>
+
+</html>

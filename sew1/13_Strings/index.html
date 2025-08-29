@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Strings</title>
+
+	<link rel="stylesheet" href="../../../../../dist/reset.css">
+	<link rel="stylesheet" href="../../../../../dist/reveal.css">
+	<link rel="stylesheet" href="../../../../../dist/theme/htl.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<!-- <link rel="stylesheet" href="../../../../../plugin/highlight/zenburn.css"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-light.css" onerror="this.onerror=null;this.href='../../../../../node_modules/highlight.js/styles/stackoverflow-light.css';">
+</head>
+
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<section>
+				<h1>Strings</h1>
+				<h2>Softwareentwicklung 1</h2>
+			</section>
+
+		
+
+			<section>
+				<h2>Strings</h2>
+				<ul>
+					<li>Als String bezeichnet man eine endliche Zeichenkette (vereinfacht ausgedrückt einen "Text").</li>
+					<li>String-Literale schreibt man (in Java) zwischen doppelte Hochkomma "".</li>
+					<li>String-Literale können in String-Objekten vom Datentyp <code>String</code> gespeichert werden.
+					</li>
+				</ul>
+				<pre><code data-trim class="language-java">
+String subject = "Softwareentwicklung";
+String saying = "Be the change you want to see in the world.";
+</code></pre>
+			</section>
+
+			<section>
+				<h2>Primitive vs komplexe Datentypen</h2>
+				<ul>
+					<li><em>Primitive</em> Datentypen speichern nur einen einzelnen Wert.
+							<ul>
+								<li>kennen wir bereits: <code>int</code>, <code>float</code>, <code>boolean</code></li>
+								<li>werden wir noch kennen lernen: <code>char</code>, <code>byte</code>, <code>short</code>, <code>long</code>, <code>double</code> </li>
+							</ul>    
+						</li>
+					<li><em>Komplexe</em> Datentypen beinhalten zusätzliche Funktionalität und können evt. mehrere Werte speichern.
+						<ul>
+							<li>werden wir heuer kennen lernen: <code>String</code>, <code>Array</code></li>
+							<li>viel mehr dazu im 2. Jahrgang</li>
+						</ul>
+					</li>
+
+				</ul>
+			</section>
+
+			<section>
+				<h2>String "Funktionalitäten"</h2>
+				<ul>
+					<li>Zusätzlich zum Speichern einer Zeichenkette besitzen Strings 
+						 Funktionalitäten (z.B. um den 3. Buchstaben zu bekommen.)</li>
+					<li>Dazu besitzt jeder String Funktionen, die man bei komplexen Datentypen allgemein "Methoden" nennt.</li>
+					<li>Hängt man an den String / die Stringvariable einen "." (Punkt) kann man die Methoden eines Strings aufrufen.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>String-Methoden</h3>
+				<ul>
+					<li>Java bietet viele Methoden zum Bearbeiten und Untersuchen von Strings.</li>
+					<li>Mit <code>equals()</code> haben wir bereits eine Methode kennen gelernt.</li>
+					<li>Die <a
+							href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html">Dokumentation
+							der Java API</a> bietet eine komplette Übersicht über alle verfügbaren Methoden.</li>
+				</ul>
+				<pre><code data-trim class="language-java">
+String s = "Act responsible";
+int lng = s.length();
+println(s.toUpperCase());
+</code></pre>
+			</section>
+
+
+			<section>
+				<h3>Strings & Index</h3>
+				<ul>
+					<li>„Index“ bedeutet bei einem String die <strong>Zeichenposition</strong>. </li>
+					<li>Das erste Zeichen hat den Index 0 und das letzte den Index <code>length()-1</code>.</li>
+				</ul>
+
+				<img src="diagrams/string.svg" alt="Beispiel für Index und Stringlänge">
+			</section>
+
+			<section>
+			<h3>Stringmethoden</h3>
+			<ul>
+				<li>Folgende Abkürzungen werden in den folgenden Tabellen benützt:
+					<ul>
+						<li><strong>index</strong>: ein Index (Datentyp <code>int</code>)</li>
+						<li><strong>text1, text2</strong>: Text (Datentyp <code>String</code>)</li>
+						<li><strong>ch</strong>: ein Zeichen (Datentyp <code>char</code>)</li>
+					</ul>
+				</li>
+			</ul>
+			</section>
+
+			<section>
+				<h3>Strings untersuchen</h3>
+				<table class="r-fit-text">
+					<tr>
+						<td><a
+								href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html#length()"><code>text1.length()</code></a>
+						</td>
+						<td>Liefert die Anzahl der Zeichen von <code>text1</code>.</td>
+					</tr>
+					<tr>
+						<td><a
+								href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html#charAt(int)"><code>text1.charAt(index)</code>
+							</a></td>
+						<td>Liefert das Zeichen, das sich bei <code>text1</code> an der Position <code>index</code>
+							befindet.</td>
+					</tr>
+					<tr>
+						<td><a
+								href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html#equals(java.lang.Object)"><code>text1.equals(text2)</code></a>
+						</td>
+						<td>Liefert <code>true</code>, wenn der <code>text1</code> gleich <code>text2</code> ist.</td>
+					</tr>
+					<tr>
+						<td><a
+								href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html#equalsIgnoreCase(java.lang.String)"><code>text1.equalsIgnoreCase(text2)</code></a>
+						</td>
+						<td>Wie <code>equals()</code>, zwischen Klein- und Großschreibung wird nicht unterschieden.</td>
+					</tr>
+					<tr>
+						<td><a
+								href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html#startsWith(java.lang.String)"><code>text1.startsWith(text2)</code>
+							</a></td>
+						<td>Liefert <code>true</code>, wenn <code>text1</code> mit <code>text2</code> beginnt.</td>
+					</tr>
+					<tr>
+						<td><a
+								href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html#endsWith(java.lang.String)"><code>text1.endsWith(text2)</code></a>
+						</td>
+						<td>Liefert <code>true</code>, wenn <code>text1</code> mit <code>text2</code> endet.</td>
+					</tr>
+					<tr>
+						<td><a
+								href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html#contains(java.lang.CharSequence)"><code>text1.contains(text2)</code></a>
+						</td>
+						<td>Liefert <code>true</code>, wenn <code>text2</code> in <code>text1</code> enthalten ist.</td>
+					</tr>
+					<tr>
+						<td><a
+								href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html#indexOf(int)"><code>text1.indexOf(ch)</code></a><br>
+							<a
+								href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html#indexOf(java.lang.String)"><code>text1.indexOf(text2)</code></a>
+						</td>
+						<td>Liefert den Index des ersten Vorkommens von <code>ch</code> bzw. <code>text2</code> in
+							<code>text1</code>, oder -1, wenn nicht gefunden.</td>
+					</tr>
+					<tr>
+						<td><a
+								href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html#indexOf(int,int)"><code>text1.indexOf(ch, index)</code></a><br>
+							<a
+								href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html#indexOf(java.lang.String,int)"><code>text1.indexOf(text2,index)</code></a>
+						</td>
+						<td>Wie oben, die Suche beginnt aber erst an der Position <code>index</code>.</td>
+					</tr>
+
+				</table>
+			</section>
+
+			<section>
+				<h3>Beispiele</h3>
+				<pre><code data-trim class="language-java">
+					String sentence = "Wir lernen Strings!";
+
+					int len = sentence.length();    //19 (weil der String 19 Zeichen hat)
+			
+					char c = sentence.charAt(5);    //'e' (das Zeichen an der Indexpos. 5)
+			
+					int i = sentence.indexOf("r");  //2 (der Index des ersten "r")
+					i = sentence.indexOf("r",3);    //6 (der Index des ersten "r" ab Pos. 3)
+					i = sentence.indexOf("nen");	//7 (der (Start-)Index des ersten "nen")
+</code></pre>
+			</section>
+
+			<section>
+				<h3>Strings bearbeiten</h3>
+				<div class="r-fit-text left">
+					<p>Beachte: Die folgenden Methoden ändern nicht den String selbst, sondern liefern <strong>den
+							geänderten String als Ergebnis</strong>! Man benötigt daher (meist) eine Zuweisung.</p>
+					<table>
+						<tr>
+							<td><a
+									href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html#toLowerCase()"><code>text1.toLowerCase()</code></a>
+							</td>
+							<td>Wandelt <code>text1</code> in Kleinbuchstaben um.</td>
+						</tr>
+						<tr>
+							<td><a
+									href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html#toUpperCase()"><code>text1.toUpperCase()</code>
+								</a></td>
+							<td>Wandelt <code>text1</code> in Großbuchstaben um.</td>
+						</tr>
+						<tr>
+							<td><a
+									href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html#trim()"><code>text1.trim()</code></a>
+							</td>
+							<td>Entfernt Leerzeichen vom Beginn und vom Ende des Strings <code>text1</code>.</td>
+						</tr>
+						<tr>
+							<td><a
+									href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html#substring(int)"><code>text1.substring(index)</code></a>
+							</td>
+							<td>Liefert den Teil von <code>text1</code> von Position <code>index</code> bis zum Ende.
+							</td>
+						</tr>
+						<tr>
+							<td><a
+									href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html#substring(int,int)"><code>text1.substring(index, ende)</code>
+								</a></td>
+							<td>Liefert den Teil von <code>text1</code> von Position <code>index</code> bis
+								<code>ende-1</code>.</td>
+						</tr>
+						<tr>
+							<td><a
+									href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html#replace(char,char)"><code>text1.replace(ch1, ch2)</code></a>
+								<br>
+								<a
+									href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html#replace(java.lang.CharSequence,java.lang.CharSequence)"><code>text1.replace(text2, text3)</code></a>
+							</td>
+							<td>Ersetzt in <code>text1</code> alle Vorkommnisse von <code>ch1</code> durch
+								<code>ch2</code> (bzw. <code>text2</code> durch <code>text3</code>).</td>
+						</tr>
+						<tr>
+							<td><a
+									href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/String.html#split(java.lang.String)"><code>text1.split(text2)</code></a>
+							</td>
+							<td>Zerteilt <code>text1</code> überall, wo text2 vorkommt, und liefert die Teile in einem
+								<code>String[]</code>. </td>
+						</tr>
+					</table>
+				</div>
+			</section>
+
+			<section>
+				<h3>Beispiele</h3>
+				<pre><code data-trim class="language-java">
+					String sentence = "Wir verändern Strings!";
+
+					System.out.println(sentence.toUpperCase());
+			
+					String firstWord= sentence.substring(0,3); //Wir
+			
+					String message = sentence.replace(" ", "-"); //Wir-verändern-Strings!
+	</code></pre>
+			</section>
+
+			<section>
+				<h3>String vs. Zahlen</h3>
+				<div class="dist-hor">
+					<span>"1"</span>
+					<span>'1'</span>
+					<span>1</span>
+				</div>
+				<div class="dist-hor">
+					<span><code>String</code></span>
+					<span><code>char</code></span>
+					<span><code>int</code></span>
+				</div>
+				<ul style="margin-top: 20px;">
+					<li>Strings und Zahlen (<code>int</code>, <code>long</code>,...) sind verschiedene Datentypen, die sich verschieden verhalten - auch wenn sie am Bildschirm gleich erscheinen.</li>
+					<li>Auch wenn ein String wie eine Zahl aussieht, so kann man ihn dennoch nicht ohne weiteres wie eine Zahl verwenden.</li>
+					<li>Einen String, der so aussieht wie eine Zahlenkonstante, kann man jedoch in eine Zahl des passenden Datentyps <strong>umwandeln</strong>.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Strings in Zahlen umwandeln</h3>
+				<div class="r-fit-text">
+					<table>
+						<tr>
+							<td><a
+									href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Byte.html#parseByte(java.lang.String)"><code>Byte.parseByte(text)</code></a>
+							</td>
+							<td>Wandelt <code>text</code> in eine <code>byte</code>-Zahl um und liefert diese als Ergebnis.</td>
+						</tr>
+						<tr>
+							<td><a
+									href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Integer.html#parseInt(java.lang.String)"><code>Integer.parseInt(text)</code>
+								</a></td>
+							<td>Wandelt <code>text</code> in eine <code>int</code>-Zahl um und liefert diese als Ergebnis.</td>
+						</tr>
+						<tr>
+							<td><a
+									href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Long.html#parseLong(java.lang.String)"><code>Long.parseLong(text)</code></a>
+							</td>
+							<td>Wandelt <code>text</code> in eine <code>long</code>-Zahl um und liefert diese als Ergebnis.</td>
+						</tr>
+						<tr>
+							<td><a
+									href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Float.html#parseFloat(java.lang.String)"><code>Float.parseFloat(text)</code></a>
+							</td>
+							<td>Wandelt <code>text</code> in eine <code>float</code>-Zahl um und liefert diese als Ergebnis.
+							</td>
+						</tr>
+						<tr>
+							<td><a
+									href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Double.html#parseDouble(java.lang.String)"><code>Double.parseDouble(text)</code>
+								</a></td>
+							<td>Wandelt <code>text</code> in eine <code>double</code>-Zahl um und liefert diese als Ergebnis.</td>
+						</tr>
+					</table>
+					<p class="left"><strong>Beachte</strong>: Entspricht <code>text</code> nicht einer Zahl des gewünschten Datentyps, so stürzt das Programm (derzeit noch) ab.</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Beispiele</h3>
+				<pre><code data-trim class="language-java">
+					String s = "2";
+					int n = 3;
+					System.out.println(s+n); //Ausgabe: 23
+			
+					int n2 = Integer.parseInt(s);
+					System.out.println(n + n2); //Ausgabe: 5
+			
+					float z = Float.parseFloat("2.3");
+					
+					int n3 = Integer.parseInt("2.3");   //NumberFormatException - Programm stürzt ab
+			</code></pre>
+			</section>
+
+			<section>
+			<h3>String und char</h3>
+			<pre><code data-trim class="language-java">
+			System.out.println('a' + 'c');	//Ausgabe: 196
+			</code></pre>
+			<ul class="r-fit-text">
+				<li>Ein <a href="../12_Datentypen/index.html#char"><code>char</code></a> ist eigentlich ein Zahlenwert (der Unicode des Zeichens).</li>
+				<li>Der + Operator addiert also den <a href="http://www.tamasoft.co.jp/en/general-info/unicode-decimal.html">Zahlenwert</a> von 'a' (97) und 'c' (99). </li>
+				<li>Mindestens einer der Operanden muss ein String sein, damit der + Operator Strings verkettet. 
+					<ul>
+					<li>Durch Verkettung mit einem Leerstring "" kann so ein char einfach in einen String umgewandelt werden.</li>
+				</ul></li>
+			</ul>
+			<pre><code data-trim class="language-java">
+				System.out.println(""+'a' + 'c'); //Ausgabe ac
+				
+				('a'+"").toLowerCase(); //'a'+"" wandelt den char 'a' in den String "a" um
+			</code></pre>
+			</section>
+
+
+			<section>
+			<h3>Zeichenbereiche prüfen - 1. Versuch</h3>
+			<ul class="r-fit-text">
+				<li>Da die Zahlen 0-9 in der Unicodetabelle hintereinander stehen, kann einfach überprüft werden ob ein gewisser char eine Ziffer ist.
+				<pre><code data-trim class="language-java big">
+					if(c >= '0' && c <= '9'){ ... }
+				</code></pre>	
+				</li>
+				<li>Auf ähnliche Weise könnte auf Buchstaben überprüft werden.
+					<pre><code data-trim class="language-java big">
+						if((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')){ ... }
+					</code></pre>
+				</li>
+				<li>Diese Überprüfung kann aber zu einigen Problemen führen:
+					<ul>
+						<li>Umlaute (ö,ä,...) werden nicht als Buchstaben erkannt und müssten extra überprüft werden.</li>
+						<li>Buchstaben mit Accents (z.B. é, â) oder ähnlichen Erweiterungen werden nicht erkannt.</li>
+						<li>In der Unicodetabelle gibt es auch Ziffern, die so nicht erkannt werden (z.B. <a href="https://unicode-table.com/de/#FF10">Vollbreite Ziffern)</a>.</li>
+						<li>Deshalb stellt die Javaklasse <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Character.html"><code>Character</code></a> Methoden zum Testen von Zeichen bereit.</li>
+					</ul>
+				</li>
+			</ul>
+			</section>
+
+			<section>
+			<h3>Klasse Character</h3>
+			<table class="r-fit-text">
+				<tr>
+					<td><a
+							href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Character.html#isDigit(char)"><code>Character.isDigit(ch)</code></a>
+					</td>
+					<td>Liefert <code>true</code> wenn <code>ch</code> eine Ziffer ist.</td>
+				</tr>
+				<tr>
+					<td><a
+							href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Character.html#isLetter(char)"><code>Character.isLetter(ch)</code></a>
+					</td>
+					<td>Liefert <code>true</code> wenn <code>ch</code> ein Buchstabe ist. Achtung: auch für nicht lateinische Buchstaben wird <code>true</code> geliefert (z.B. <a href="https://www.compart.com/de/unicode/category/Lo">sonstige Buchstaben</a>)</td>
+				</tr>
+				<tr>
+					<td><a
+							href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Character.html#isLowerCase(char)"><code>Character.isLowercase(ch)</code></a>
+					</td>
+					<td>Liefert <code>true</code> wenn <code>ch</code> ein Kleinbuchstabe ist.</td>
+				</tr>
+				<tr>
+					<td><a
+							href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Character.html#isUpperCase(char)"><code>Character.isUpperCase(ch)</code></a>
+					</td>
+					<td>Liefert <code>true</code> wenn <code>ch</code> ein Großbuchstabe ist.</td>
+				</tr>
+			</table>
+			<p>Die Klasse <a href="https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Character.html"><code>Character</code></a> besitzt noch etliche weiterer solcher "Testmethoden".</p>
+			</section>
+
+			<section>
+				<p class="center">
+					Fragen? <br>
+					Wünsche? <br>
+					Beschwerden? <br>
+					Anregungen?
+				</p>
+			</section>
+
+		</div>
+	</div>
+
+
+
+	<script src="../../../../node_modules/reveal.js/dist/reveal.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/notes/notes.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/markdown/markdown.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/search/search.js"></script>
+
+	<script src="../reveal-config.js"></script>
+</body>
+
+</html>

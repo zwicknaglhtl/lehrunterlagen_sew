@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Symbole in der Konsole  </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-light.css" onerror="this.onerror=null;this.href='../../../../../node_modules/highlight.js/styles/stackoverflow-light.css';">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <h1>Symbole in der Konsole</h1>
+   
+    <p>Beachte, dass du Symbole/Zeichen/Emojis der Unicodetabelle auch in der Konsole ausgeben kannst. Ohne im Detail zu wissen, wie das funktioniert, kannst du Symbole z.B. von folgender <a href="https://unicode-table.com/de/">Webseite</a> einfach in deinen String kopieren. Je nachdem mit wie vielen Stellen das Symbol kodiert ist, wird das Symbol direkt im Code dargestellt oder durch den Unicode ersetzt. Das sollte dich aber nicht weiter irritieren.</p>
+
+    <pre><code class="language-java">
+System.out.println("\u2665 \uD83E\uDD29");
+System.out.println("♣ ♔");
+    </code></pre>
+
+<p>Ausgabe:</p>
+    <pre><code class="language-text">
+♥ 🤩
+♣ ♔
+    </code></pre>
+
+    <!-- TODO: Mehr zu Unicode und Codierung in Java erklären - in Folien zu Strings einbauen?-->
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script src="../../../../../node_modules/highlight.js/lib/languages/java.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

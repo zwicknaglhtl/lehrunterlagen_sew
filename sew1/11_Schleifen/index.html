@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Schleifen</title>
+
+	<link rel="stylesheet" href="../../../../../dist/reset.css">
+	<link rel="stylesheet" href="../../../../../dist/reveal.css">
+	<link rel="stylesheet" href="../../../../../dist/theme/htl.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<!-- <link rel="stylesheet" href="../../../../../plugin/highlight/zenburn.css"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-light.css" onerror="this.onerror=null;this.href='../../../../../node_modules/highlight.js/styles/stackoverflow-light.css';">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<section>
+				<h1>Schleifen</h1>
+				<h2> Softwareentwicklung 1</h2>
+			</section>
+
+
+			<section>
+			<h3>Wozu Schleifen?</h3>
+				<div class="columns">
+				<div class="col two-third">
+				<pre><code data-trim>
+					int start = 0;
+					int ziel = 10;
+					
+					println("Wir zählen von "+start+" bis "+ziel+".");
+					
+					println("1");
+					println("2");
+					println("3");
+					println("4");
+					println("5");
+					println("6");
+					println("7");
+					println("8");
+					println("9");
+					println("10");
+				</code></pre>
+				</div>
+				<div class="col">
+					<img src="images/no_loop_output.png" alt="output Beispielprogramm">
+				</div>
+			</div>
+
+			<p class="center">Welche Probleme/Nachteile siehst du in diesem Programm?</p>
+			</section>
+
+			<section>
+			<h3>Schleifen</h3>
+			<p >Schleifen ermöglichen ein Stück Code <strong>zu wiederholen, solange eine Bedingung wahr ist</strong>.</p>
+			<img src="images/repeat.svg" width="200" alt="repeat icon">
+		
+		</section>
+
+		<section>
+			<h3>3 Arten von Schleifen</h3>
+			<ul>
+				<li><a href="#/while-loop"><strong>Kopfgesteuerte Schleife</strong></a>, in der Fachsprache auch <strong>while-Schleife</strong> genannt
+				</li>
+				<li><a href="#/do-while-loop"><strong>Fußgesteuerte Schleife</strong></a>, in der Fachsprache auch <strong>do-while-Schleife</strong> genannt
+				</li>
+				<li><a href="#/for-loop"><strong>Zählschleife</strong></a>, in der Fachsprache <strong>for-Schleife</strong> genannt
+				</li>
+			</ul>
+		</section>
+
+		<section id="while-loop">
+		<h3>while-Schleife (kopfgesteuerte Schleife)</h3>
+	
+			<ul>
+				<li>Eine while (deutsch: "solange") Schleife wiederholt einen Codeblock solange die Bedingung wahr ist.
+				</li>
+			</ul>
+			<p>Allgemeine Form einer while-Schleife:</p>
+			<pre><code data-trim class="language-plaintext">
+				while (Bedingung) {
+					
+					    //wird ausgeführt, solange die Bedingung wahr ist
+				
+				}	
+			</code></pre>
+<p class="small">Beachte: Wie bei der if-Anweisung steht die Bedingung wieder in runden Klammern (), gefolgt von einem Codeblock in geschwungenen Klammern {}.</p>
+		</section>
+
+<section>
+	<h3>while-Schleife: Beispiel 1</h3>
+<div class="columns">
+<div class="col two-third">
+	<div style="position: relative;">
+	<pre><code data-trim data-line-numbers>
+		String message = "Schleifen sind genial!";
+		int y = 40;
+		while (y < 400) {
+			text(message, 30, y);
+			y += 30;
+		}
+	</code></pre>
+	<object data="diagrams/legende.drawio.svg" type="image/svg+xml" style="position: absolute; left: 10px; top: 190px;" class="fragment" data-fragment-index="1"></object>
+	<object data="diagrams/while-bsp-before.drawio.svg" type="image/svg+xml" style="position: absolute; left: -25px; top: 0px;" class="fragment" data-fragment-index="1"></object>
+	<object data="diagrams/while-bsp-loop.drawio.svg" type="image/svg+xml" style="position: absolute; left: -65px; top: 50px;" class="fragment" data-fragment-index="2"></object>
+	<object data="diagrams/while-bsp-after.drawio.svg" type="image/svg+xml" style="position: absolute; left: -25px; top: 130px;" class="fragment" data-fragment-index="3"></object>
+	</div>
+</div>
+<div class="col">
+<img src="images/while_loop_output.png" alt="Output Beispielprogramm">
+</div>
+</div>
+<p>Die Bedingung muss irgendwann <code>false</code> werden, sonst läuft die Schleife für immer.</p>
+</section>
+
+
+<section>
+	<h3>while-Schleife: Beispiel 2</h3>
+<div class="columns">
+<div class="col two-third">
+	<div style="position: relative;">
+	<pre><code data-trim data-line-numbers>
+		String message = "Schleifen sind genial!";
+		int y = 500;
+		while (y < 400) {
+			text(message, 30, y);
+			y += 30;
+		}
+	</code></pre>
+	<object data="diagrams/legende.drawio.svg" type="image/svg+xml" style="position: absolute; left: 10px; top: 190px;" class="fragment" data-fragment-index="1"></object>
+	<object data="diagrams/while-bsp-before.drawio.svg" type="image/svg+xml" style="position: absolute; left: -25px; top: 0px;" class="fragment" data-fragment-index="1"></object>
+	<object data="diagrams/while-bsp-skip.drawio.svg" type="image/svg+xml" style="position: absolute; left: -55px; top: 65px;" class="fragment" data-fragment-index="2"></object>
+	<object data="diagrams/while-bsp-after.drawio.svg" type="image/svg+xml" style="position: absolute; left: -25px; top: 145px;" class="fragment" data-fragment-index="3"></object>
+	</div>
+</div>
+<div class="col">
+<img src="images/while_loop_no_output.png" alt="Output Beispielprogramm">
+</div>
+</div>
+<p>Wenn die Bedingung gleich zu Beginn <code>false</code> ist, wird die Schleife nie ausgeführt.</p>
+</section>
+
+
+<section>
+<h3>while-Schleife: Beispiel 3</h3>
+<pre><code data-trim data-line-numbers>
+int i = 0;
+while (i < 2) {
+    println("i hat den Wert "+i);
+    i = i + 1;
+}	
+</code></pre>
+<p>Ausgabe:</p>
+<pre><code class="language-bash">
+i hat den Wert 0
+i hat den Wert 1
+</code></pre>
+</section>
+
+
+
+<section>
+<h3>Schleifen Design</h3>
+<p>Bei jeder Schleife müssen folgende drei Fragen beantwortet werden:</p>
+<ul>
+	<li class="fragment">Was möchte ich wiederholen?</li>
+	<li class="fragment">Was möchte ich bei jedem Durchlauf ändern?
+		<ul><li>...auch damit die Bedingung irgendwann falsch wird.</li></ul>
+	</li>
+	<li class="fragment">Wie lange soll der Code wiederholt werden?
+	</li>
+</ul>
+</section>
+
+
+<section>
+	<h3>Schleifen Design - Beispiel</h3>
+	<div style="position: relative;">
+	<pre><code data-trim>
+		String message = "Schleifen sind WIRKLICH genial!";
+		int y = 40;
+		while (y < 400) {
+			text(message, 30, y);
+			y += 30;
+		}
+	</code></pre>
+	<object data="diagrams/loop-design-bedingung.drawio.svg" type="image/svg+xml" style="position: absolute; left: 170px; top: 35px;" class="fragment"></object>
+	<object data="diagrams/loop-design-codeblock.drawio.svg" type="image/svg+xml" style="position: absolute; left: 315px; top: 65px;" class="fragment"></object>
+	<object data="diagrams/loop-design-change.drawio.svg" type="image/svg+xml" style="position: absolute; left: 170px; top: 125px;" class="fragment"></object>	
+</div>
+</section>
+
+
+		<section id="do-while-loop">
+			<h3>do-while-Schleife (fußgesteuerte Schleife)</h3>
+			<ul>
+				<li>Bei einer do-while Schleife steht die Bedingung am Ende (=fußgesteuert).
+				</li>
+				<li>Eine do-while Schleife wird auf jeden Fall <strong>mindestens einmal</strong> ausgeführt (im Gegensatz zur while-Schleife)</li>
+			</ul>
+			<p>Allgemeine Form einer do-while-Schleife:</p>
+<pre><code data-trim class="language-plaintext">
+	do  {
+		
+		//wird ausgeführt, solange die Bedingung wahr ist
+
+	} while (Bedingung);	
+</code></pre>
+
+			</section>
+
+
+			<section>
+				<h3>do-while-Schleife - Beispiel</h3>
+				<pre><code data-trim data-line-numbers="">
+String message = "Schleifen sind genial!";
+int y = 40;
+
+do  {
+	text(message, 30, y);
+	y += 30;
+} while (y < 400);
+				</code></pre>
+			</section>
+
+
+			<section>
+				<h3>do-while-Schleife - Beispiel 2</h3>
+				<pre><code data-trim data-line-numbers="">
+int i = 0;
+
+do {
+	println("i hat den Wert "+i);
+	i = i + 1;
+}  while (i &lt; 2);
+				</code></pre>
+				<p>Ausgabe:</p>
+<pre><code class="language-bash">
+i hat den Wert 0
+i hat den Wert 1
+</code></pre>
+			</section>
+
+			<section id="for-loop">
+				<h3>for-Schleife (Zählschleife)</h3>
+			<ul>
+				<li>Eine for-Schleife, auch Zählschleife genannt, wird gerne eingesetzt wenn die Anzahl der Wiederholungen zu Beginn der Schleife bereits fest steht.</li>
+				<li>Jede while-Schleife kann auch als for-Schleife geschrieben werden und umgekehrt. Je nach Anwendungsfall ist die eine oder andere Form leichter lesbar. 
+				</li>
+			</ul>
+			<p>Allgemeine Form einer for-Schleife:</p>
+			<pre><code data-trim class="language-plaintext">
+				for (Initialisierung; Bedingung; Veränderung ) { 
+					// wird ausgeführt solange die Bedingung wahr ist
+					Anweisung; 
+					Anweisung; 
+					...
+				}	
+			</code></pre>
+				</section>
+
+				<section>
+				<h3>for-Schleife - Beispiel</h3>
+				<div style="position: relative;">
+				<pre ><code data-trim class="big">
+					for (int i=0; i < 2; i = i+1) {
+						    println("i hat den Wert "+i);
+					}
+				</code></pre>
+			<object data="diagrams/red_circle.drawio.svg" type="image/svg+xml" style="position: absolute; left: 172px; top: 25px;" class="fragment" data-fragment-index="1"></object>
+			<object data="diagrams/red_circle.drawio.svg" type="image/svg+xml" style="position: absolute; left: 265px; top: 25px;" class="fragment" data-fragment-index="1"></object>
+			</div>
+				<p class="fragment" data-fragment-index="1">Achtung! Die einzelnen Teile in den runden Klammern werden durch <strong>Strichpunkte ;</strong> getrennt.</p>
+				<p>Ausgabe:</p>
+<pre><code class="language-bash">
+i hat den Wert 0
+i hat den Wert 1
+</code></pre>
+			</section>
+
+<section>
+	<h3>for-Schleife - Programmfluss</h3>
+<div style="position: relative; margin-top: 160px; margin-left: 140px;">
+	<pre ><code data-trim class="big">
+		for (int i=0; i < 2; i = i+1) {
+			    println("i hat den Wert "+i);
+		}
+	</code></pre>
+
+	<object data="diagrams/for-loop-init.drawio.svg" type="image/svg+xml" style="position: absolute; left: 10px; top: -145px;" class="fragment" data-fragment-index="1"></object>
+	<object data="diagrams/for-loop-bedingung.drawio.svg" type="image/svg+xml" style="position: absolute; left: 180px; top: -80px;" class="fragment" data-fragment-index="2"></object>
+	<object data="diagrams/for-loop-body.drawio.svg" type="image/svg+xml" style="position: absolute; left: -220px; top: 25px;" class="fragment" data-fragment-index="3"></object>
+	<object data="diagrams/for-loop-increase.drawio.svg" type="image/svg+xml" style="position: absolute; left: 0px; top: -20px;" class="fragment" data-fragment-index="4"></object>
+	<object data="diagrams/for-loop-next.drawio.svg" type="image/svg+xml" style="position: absolute; left: 260px; top: -60px;" class="fragment" data-fragment-index="5"></object>
+</div>
+</section>
+
+<section>
+<h3>for-Schleife - weitere Beispiele</h3>
+<ul>
+	<li>Zählschleife, die hinunter zählt:
+		<pre><code data-trim class="language-java"> 
+			for (int i = 5; i >= 0; i = i - 1) {
+				println("Countdown: " + i);
+			}
+		</code></pre>
+	</li>
+	<li>
+		Zählschleife, die einen Linienfächer zeichnet:
+		<pre><code data-trim class="language-java"> 
+			for (int i = 0; i <= 100; i = i + 10) {
+				line(0, 0, 100, i);
+			}
+		</code></pre>
+	</li>
+	<li>Zählschleife, die Zweierpotenzen berechnet:
+<pre><code data-trim class="language-java">
+	for (int i = 1; i <= 1024; i = i * 2) {
+		println(i);
+	}
+</code></pre>
+	</li>
+</ul>
+</section>
+
+<section>
+	<h3>Endlosschleife</h3>
+	<p>Eine Schleife, bei der die Bedingung <strong>immer erfüllt ist</strong> und die daher nie beendet wird, nennt man Endlosschleife.</p>
+	<div class="columns">
+	<div class="col">
+	<ul>
+		<li>Entweder ein Programmierfehler...</li>
+		<li>...in manchen Fällen aber beabsichtigt!</li>
+	</ul>
+	</div>
+	<div class="col">
+	<img src="images/confusion.webp" height="200" alt="confusion" class="fragment">
+	</div>
+	</div>
+	<div class="fragment">
+<p class="left">Beispiele für (wahrscheinlich) beabsichtigte Endlosschleifen:</p>
+		<pre><code data-trim>
+			while (true) { ... }
+		
+			for (;;) { ... }
+		</code></pre>
+	</div>
+
+	<aside class="notes">
+	Bild-Credit: https://media.giphy.com/media/Lms4CGYNnaLtn2LuSd/giphy.gif
+	</aside>
+
+	</section>
+
+
+<section>
+<h3>Schleifen vorzeitig beenden</h3>
+
+<p>Manchmal kann man nur <strong>innerhalb eines Schleifendurchlaufs</strong> entscheiden, ob die Schleife wiederholt werden soll.</p>
+<p>Eine Schleife kann beendet werden...</p>
+<ul>
+	<li>...mit einer <strong><code>break</code></strong>-Anweisung</li>
+	<li>...mit einer <strong>return</strong>-Anweisung, wobei dabei nicht nur die Schleife, sondern auch die Funktion beendet wird.</li>
+</ul>
+</section>
+
+<section>
+<h3>while-Schleife vorzeitig beenden</h3>
+<p>Allgemeine Form einer vorzeitig beendeten <code>while</code>-Schleife:</p>
+<pre><code data-trim class="language-plaintext">
+	while (true) { 
+		Anweisung;
+		...
+		if ( Bedingung ) {
+			break; 
+		}
+		Anweisung;
+		... 
+	}
+</code></pre>
+<p>Beispiel: Benutzereingabe, bis "exit" eingegeben wird</p>
+<pre><code data-trim class="language-java">
+while (true) {
+	String name = PopUp.readLine("Ein Name ('exit' zum Beenden):");
+	if (name.equals("exit")) {
+		break;
+	}
+	console.log("Hallo " + name + "!");
+}
+	
+</code></pre>
+</section>
+
+<section>
+<h3>Zusammenfassung</h3>
+<ul>
+	<li>Schleifen ermöglichen Anweisungen <strong>wiederholt auszuführen</strong>.</li>
+	<li>Es gibt die <strong>while-Schleife</strong> (kopfgesteuert), die <strong>do-while-Schleife</strong> (fußgesteuert) und die <strong>for-Schleife</strong> (Zählschleife)</li>
+	<li>Mit einer <strong><code>break</code></strong>-Anweisung kann ein Schleife vorzeitig beendet werden.</li>
+</ul>
+</section>
+
+			<section>
+				<p class="center">
+					Fragen? <br>
+					Wünsche? <br>
+					Beschwerden? <br>
+					Anregungen?
+				</p>
+			</section>
+
+		</div>
+	</div>
+
+
+
+	<script src="../../../../node_modules/reveal.js/dist/reveal.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/notes/notes.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/markdown/markdown.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/search/search.js"></script>
+
+	<script src="../reveal-config.js"></script>
+</body>
+
+</html>

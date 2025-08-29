@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eingabedialoge</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-light.css" onerror="this.onerror=null;this.href='../../../../../node_modules/highlight.js/styles/stackoverflow-light.css';">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet"> 
+ 
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>Eingabedialoge mit PopUp.java</h1>
+
+  <p>Damit eine Anwenderin eine Eingabe in unseren Programmen machen kann bedienen wir uns einer zusätzlichen externen Datei.</p>
+
+  <h2>Vorbereitung</h2>
+  <ul>
+      <li>Lade die Datei <a href="resources/PopUp.zip"><em>PopUp.java</em></a> herunter und entpacke sie.</li>
+      <li>Ziehe die Datei in das Processingfenster. Dein Programm sollte dann zwei Reiter besitzen.
+      </li>
+      <li>Nun kannst du die Methoden ("Befehle") von <em>PopUp.java</em> in deinem Programm verwenden.</li>
+      <li>Du musst die Datei in jedes Programm einbinden, in dem du <em>PopUp.java</em> verwenden möchtest.</li>
+  </ul>
+  <img src="images/popup_reiter.png" alt="mehrere Reiter im Processing Fenster">
+  
+  <h2>Anwendung</h2>
+
+  <p><em>PopUp.java</em> stellt verschiedene Methoden zu Verfügung, um entweder einen <code>String</code>, <code>int</code> oder <code>float</code> einzulesen.</p>
+  <p>Als Argument erhält jede Methode den Text, den der/die Benutzer*in im Eingabefenster zu sehen bekommt.</p>
+
+  <pre><code>
+//PopUp.readLine() liest einen String ein.
+String product = PopUp.readLine("Was möchtest du kaufen?");
+
+//PopUp.readInt() liest einen Integer (ganze Zahl) ein.
+int kg = PopUp.readInt("Wie viele kg kaufst du?");
+
+//PopUp.readFloat() liest einen float (Kommazahl) ein.
+float price = PopUp.readFloat("Wie viel kostet ein kg?");
+
+print(kg+" kg "+product+" kosten "+kg*price+" €.");
+  </code></pre>
+
+  <img src="images/popUpExample.gif" alt="Animation Ausführung Beispielprogramm">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script src="../../../../../node_modules/highlight.js/lib/languages/java.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

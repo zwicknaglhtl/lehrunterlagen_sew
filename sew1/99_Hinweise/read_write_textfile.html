@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textdateien</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-light.css" onerror="this.onerror=null;this.href='../../../../../node_modules/highlight.js/styles/stackoverflow-light.css';">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet"> 
+ 
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>Lesen und Schreiben von Textdateien.</h1>
+
+  <p>Die Details zum Lesen und Schreiben von Dateien werden wir in der 2. Klasse behandeln. Aber auch ohne die Details zu verstehen, kannst du den angeführten Code schon jetzt verwenden um Textdateien zu lesen und schreiben.</p>
+
+
+   <h2>Textdatei lesen</h2>
+
+   <pre><code class="language-java">
+    /**
+     *  Liest alle Zeilen von einer Textdatei.
+     *
+     * @param filename  Der Name der Datei
+     * @return Array mit allen Zeilen
+     */
+    public static String[] readAllLinesFromFile(String filename) {
+        try {
+            List&lt;String&gt; lines = Files.readAllLines(Paths.get(filename), StandardCharsets.UTF_8);
+            return lines.toArray(new String[0]);
+        } catch (IOException io) {
+            System.out.println("Datei konnte leider nicht gelesen werden ("+io.getMessage()+")");
+        }
+        return null;
+    }
+
+    public static void main(String[] args) {
+        //Achtung! Der Pfad startet im Ordner des Projekts. Die Datei muss also im Projektordner liegen.
+        String[] lines = readAllLinesFromFile("test.txt");
+        System.out.println(Arrays.toString(lines));
+
+        //Diese Datei liegt in einem Ordner "resources" innerhalb des Projektordners (gleiche Ebene wie z.B. der Ordner "src").
+        //Es ist empfehlenswert alle Dateien in einem eigenen Ordner zu organisieren.
+        String[] lines = readAllLinesFromFile("resources/test.txt");
+    }
+    </code></pre>
+
+
+    <h2>Textdatei schreiben</h2>
+
+    <pre><code class="language-java">
+        public static void main(String[] args) {
+            String[] output = {"Zeile 1", "Zeile 2", "Zeile 3"};
+            writeAllLinesToFile("output.txt",output);
+        }
+    
+        /**
+         * Schreibt den Inhalt von lines zeilenweise in das File.
+         * Bestehender Inhalt wird überschrieben.
+         * @param filename  Der Dateiname
+         * @param lines     Array mit den Zeilen.
+         */
+        public static void writeAllLinesToFile(String filename, String[] lines) {
+            List&lt;String&gt; content=Arrays.asList(lines);
+            try {
+                Files.write(Paths.get(filename),content);
+            } catch (IOException io) {
+                System.out.println("Datei konnte leider nicht geschrieben werden ("+io.getMessage()+")");
+            }
+        }
+    </code></pre>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script src="../../../../../node_modules/highlight.js/lib/languages/java.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

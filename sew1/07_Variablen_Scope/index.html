@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Sichtbarkeit von Variablen</title>
+
+	<link rel="stylesheet" href="../../../../../dist/reset.css">
+	<link rel="stylesheet" href="../../../../../dist/reveal.css">
+	<link rel="stylesheet" href="../../../../../dist/theme/htl.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<!-- <link rel="stylesheet" href="../../../../../plugin/highlight/zenburn.css"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-light.css" onerror="this.onerror=null;this.href='../../../../../node_modules/highlight.js/styles/stackoverflow-light.css';">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<section>
+				<h1>Sichtbarkeit von Variablen</h1>
+				<h2> Softwareentwicklung 1</h2>
+			</section>
+
+			<section>
+				<h3>Was bedeutet "Sichtbarkeit"?</h3>
+				<p>Die Sichtbarkeit einer Variable ist der <strong>Bereich des Programmtexts</strong>, in dem man die
+					Variable verwenden darf. An allen anderen Stellen im Programm kennt der Compiler/Interpreter den
+					Variablennamen nicht, ist sie nicht sichtbar.</p>
+				<ul>
+					<li class="fragment"> <strong>Name</strong> und <strong>Datentyp</strong> einer Variable legt man
+						dadurch fest, <strong>was</strong> man bei der Deklaration hinschreibt.</li>
+					<li class="fragment">Die <strong>Sichtbarkeit</strong> bestimmt man (vorläufig nur) dadurch,
+						<strong>wo</strong> man die Variablendeklaration platziert.
+					</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Block</h3>
+				<ul>
+					<li class="fragment" data-fragment-index="1">Ein Block startet mit einer geschwungenen Klammern {
+						und endet mit einer geschwungenen Klammer }.
+					</li>
+					<li class="fragment" data-fragment-index="2">Eine Variable ist <strong>innerhalb</strong>
+						des Blocks sichtbar, in der sie deklariert wird.</li>
+				</ul>
+				<div class="fragment" data-fragment-index="1">
+					<pre><code class="language-java" data-trim >
+{
+	//innerhalb des Blocks
+}
+		</code></pre>
+				</div>
+			</section>
+
+
+			<section>
+				<h3>Beispiel Blöcke</h3>
+
+				<div style="position:relative">
+					<pre><code class="language-java" data-trim>
+			void setup() {
+
+			}
+
+			void draw() {
+			
+			}
+		</code></pre>
+					<object class="fragment" data="diagrams/beispiel_block1.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left:70px; top: 10px;"></object>
+					<object class="fragment" data="diagrams/beispiel_block2.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left:70px; top: 105px;"></object>
+				</div>
+
+			</section>
+
+
+			<section>
+				<h3>Beispiel 1</h3>
+				<div style="position: relative;">
+					<pre><code class="language-java" data-trim>
+	void setup() {
+		int groesseAugen = 10;
+	}
+
+	void draw() {
+		ellipse(10,20,groesseAugen, groesseAugen);
+	}	
+</code></pre>
+					<img src="images/error.svg" alt="error icon" class="fragment" data-fragment-index="1"
+						style="position: absolute; left: 555px; top: 90px; height:40px">
+				</div>
+				<p class="fragment" data-fragment-index="1">Die Variable <code>groesseAugen</code> ist in
+					<code>draw()</code> nicht sichtbar und kann nicht
+					verwendet werden.</p>
+			</section>
+
+
+			<section>
+				<h3>Beispiel 2</h3>
+				<div style="position: relative;">
+					<pre><code class="language-java" data-trim>
+void setup() {
+	int groesseAugen = 10;
+	ellipse(10,20,groesseAugen, groesseAugen);
+}
+
+void draw() {
+	
+}						
+</code></pre>
+<img src="images/check.svg" alt="checkmark" class="fragment" data-fragment-index="1"  style="position: absolute; left: 555px; top: 5px; height:60px">				
+</div>
+<p class="fragment" data-fragment-index="1">Die Variable <code>groesseAugen</code> wird nur innerhalb des Blocks verwendet in der sie deklariert wurde.</p>
+			</section>
+
+
+<section>
+<h3>Globale Variablen</h3>
+<ul>
+	<li class="fragment">Variablen, die außerhalb jedes Blocks stehen, werden als <strong>globale Variable</strong> bezeichnet.
+	</li>
+	<li class="fragment">Sie sind im gesamten Programm sichtbar.</li>
+	<li class="fragment"><strong>Wichtig</strong>: Globale Variablen sollten <strong>so wenig wie möglich</strong> eingesetzt werden, da (größere) Programme dadurch sehr schwer zu verstehen sind!
+		<ul>
+			<li>Werte können über <strong>Parameter</strong> von einer Funktion zu einer anderen weiter gegeben werden.</li>
+			<li>In Processing sind sie aber oft notwendig, da <code>draw()</code> keine Parameter hat.</li>
+		</ul>
+	</li>
+</ul>
+</section>
+
+<section>
+<h3>Beispiel lokale & globale Variable</h3>
+
+<div style="position: relative;">
+<pre><code class="language-java" data-trim data-line-numbers>
+int groesseAugen = 10;
+
+
+void setup() {
+	int groesseMund; 
+	groesseMund = groesseAugen + 20;
+}
+
+void draw() {
+	ellipse(10,20,groesseAugen, groesseAugen);
+}
+	
+</code></pre>
+<object class="fragment" data="diagrams/globale_variable.drawio.svg" type="image/svg+xml" style="position: absolute; left: 270px; top: 5px;" ></object>
+<object class="fragment" data="diagrams/lokale_variable.drawio.svg" type="image/svg+xml" style="position: absolute; left: 290px; top: 85px;" ></object>
+</div>
+</section>
+
+
+<section>
+<h3>Gleiche Variablennamen</h3>
+<div style="position: relative;">
+<pre><code data-trim data-line-numbers class="language-java">
+	int y=150;
+	int x=200;
+	
+	void zeichneAugen(int abstand, int groesse){
+	    int x = 100;
+	    ellipse(x,150, groesse,groesse); //x=100
+	    ellipse(x+abstand,150,groesse,groesse);
+	}
+</code></pre>
+<div class="fragment" data-fragment-index="1"><object data="diagrams/red_circle.drawio.svg" type="image/svg+xml" style="position: absolute; left: 63px; top: 24px;"></object></div>
+<div  class="fragment" data-fragment-index="1">
+	<object  data="diagrams/red_circle.drawio.svg" type="image/svg+xml" style="position: absolute; left: 104px; top: 95px;"></object>
+</div>
+</div>
+<p class="fragment" data-fragment-index="1">Hat eine lokale Variable den gleichen Namen wie eine globale Variable, gilt die lokale Variable! Vermeiden!!
+</p>
+</section>
+
+<section>
+<h3>Programmierstil - globale/lokale Variablen</h3>
+<pre><code class="language-java"  data-trim data-line-numbers="1-12|2-3,6-7" data-fragment-index="1">
+	int x=200;
+	int abstand=200;
+	int groesse=200;
+		
+	void zeichneAugen(){
+	    ellipse(x,150, groesse,groesse); 
+	    ellipse(x+abstand,150,groesse,groesse);
+	}
+	
+	void setup(){
+		zeichneAugen(); 
+	}
+</code></pre>
+<p class="fragment" data-fragment-index="1">Die Variablen <code>abstand</code> und <code>groesse</code> sind global definiert, obwohl sie nur in der Funktion <code>zeichneAugen()</code> verwendet werden.</p>
+<p class="fragment" data-fragment-index="2">Verbesserungsvorschläge?</p>
+</section>
+
+<section>
+	<h3>Programmierstil - globale/lokale Variablen v2</h3>
+	<pre><code class="language-java" data-trim>
+int x=200;
+		
+void zeichneAugen(){
+	int abstand=200;
+	int groesse=200;
+
+	ellipse(x,150, groesse,groesse); 
+	ellipse(x+abstand,150,groesse,groesse);
+}
+
+void setup(){
+	zeichneAugen(); 
+}
+	</code></pre>
+	<p class="fragment" data-fragment-index="1">Jetzt sind alle Variablen nur in dem Block definiert, in dem sie auch verwendet werden.</p>
+	<p class="fragment" data-fragment-index="2">Wie könnte man den Code noch besser machen?</p>
+	</section>
+
+	<section>
+		<h3>Programmierstil - globale/lokale Variablen v3</h3>
+		<pre><code class="language-java" data-trim>
+void zeichneAugen(int x, int abstand, int groesse){
+	ellipse(x,150, groesse,groesse); 
+	ellipse(x+abstand,150,groesse,groesse);
+}
+	
+void setup(){
+	int x=200;
+	int abstand=200;
+	int groesse=200;
+	
+	zeichneAugen(x, abstand, groesse); 
+}
+		</code></pre>
+		<p class="fragment" data-fragment-index="1">Die Funktion <code>zeichneAugen()</code>verwendet Parameter um die Größe und den Abstand festzulegen.</p>
+		<p class="fragment" data-fragment-index="1">Dadurch kann die Funktion viel flexibler eingesetzt werden.</p>
+		</section>
+
+
+<section>
+<h3>Zusammenfassung</h3>
+<ul>
+	<li class="fragment">Variablen können immer nur innerhalb des Blocks, in dem sie deklariert wurden, verwendet werden.</li>
+	<li class="fragment">Deklariere Variablen immer so, dass sie überall sichtbar sind, wo sie verwendet werden, aber sonst nicht sichtbar sind.</li>
+	<li class="fragment">Verwende, wenn möglich, Parameter um Werte von einer Funktion an eine andere zu übergeben (statt globaler Variablen).</li>
+</ul>
+</section>
+
+			<section>
+				<p class="center">
+					Fragen? <br>
+					Wünsche? <br>
+					Beschwerden? <br>
+					Anregungen?
+				</p>
+			</section>
+
+		</div>
+	</div>
+
+
+	<script src="../../../../node_modules/reveal.js/dist/reveal.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/notes/notes.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/markdown/markdown.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/search/search.js"></script>
+
+	<script src="../reveal-config.js"></script>
+</body>
+
+</html>

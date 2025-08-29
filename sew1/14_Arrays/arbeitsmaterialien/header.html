@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- AI generated TODO....-->
+<html>
+<head>
+  <title>Dokument</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 14mm;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 0.2pt solid black;
+      padding-bottom: 5mm;
+      margin-bottom: 5mm;
+    }
+    .header-left img {
+      width: 40mm;
+    }
+    .header-right {
+      text-align: right;
+    }
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 0.2pt solid black;
+      padding-top: 5mm;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: white; /* Stellen Sie sicher, dass der Hintergrund weiß ist */
+    }
+    .footer-left {
+      font-size: small;
+    }
+    .footer-right {
+      font-size: small;
+    }
+    .footer-center {
+      font-size: small;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-left">
+      <a href="http://www.htl.rennweg.at/">
+        <img src="HTL3RLogoRGB.png" alt="HTL Wien 3 Rennweg Logo">
+      </a>
+    </div>
+    <div class="header-right">
+      <a href="http://netzwerktechnik.htl.rennweg.at/">
+        <strong>MEDT: Dokumenttitel</strong>
+      </a>
+      <br>
+      <small>Dokumentuntertitel - Gruppe A</small>
+      <br>
+      <small>Schuljahr 2020/2021 an der <a href="http://www.htl.rennweg.at/">HTL Wien 3 Rennweg</a></small>
+      <br>
+      <small>Rennweg 89b, 1030 Wien</small>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-left">
+      <small>Version vom [aktuelles Datum]</small>
+    </div>
+    <div class="footer-center">
+    </div>
+    <div class="footer-right">
+      <small>Seite <span id="seite">1</span> / <span id="seiten">1</span></small>
+    </div>
+  </div>
+  <script>
+    //hier muss mit JavaScript die aktuelle Seitenzahl, und die Gesamtseitenzahl ermittelt werden.
+    document.getElementById("seite").innerHTML = "1";
+    document.getElementById("seiten").innerHTML = "1";
+    //hier muss das Aktuelle Datum ermittelt werden
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = today.getFullYear();
+
+    today = dd + '.' + mm + '.' + yyyy;
+    document.getElementsByClassName('footer-left')[0].innerHTML = "Version vom " + today;
+  </script>
+</body>
+</html>
