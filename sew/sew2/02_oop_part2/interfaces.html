@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Reinhold Buchinger">
+    <title>Java - Interfaces</title>
+    <link rel="stylesheet" href="./libs/prism/prism.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="./libs/prism/prism.js" defer></script>
+</head>
+
+<body>
+<p class="navigation"><a href="index.html">Zur Übersicht</a></p>
+<h1>Interfaces</h1>
+
+
+<h2>Was sind Interfaces?</h2>
+
+<p>Interface heißt zu deutsch Schnittstelle. Man kann z.B. das Gaspedal im Auto als Schnittstelle betrachten. Die Funktion ist klar definiert ("beschleunigen") und jede Autofahrerin kann es bedienen, ohne wissen zu müssen, wie die Beschleunigung im konkreten Auto technisch umgesetzt wurde (mehr Strom im E-Auto, über die Einspritzpumpe beim Verbrenner,...).</p>
+
+<p>Die Lichtschalter in der Schule haben ebenfalls eine klar definierte Funktion ("Licht ein-/ausschalten"). Dass im Hintergrund ein Bussystem das Licht steuert und der Stromkreis nicht direkt geschalten wird (also die konkrete Implementierung der Schnittstelle) ist für den Benutzer egal.</p>
+
+<p>Ein Interface in Java gibt Funktionalität über die Definition von Methoden vor, implementiert diese Methoden allerdings nicht selbt. Alle Klassen, die ein Interface implementieren, müssen sämtliche Methoden des Interface ausprogrammieren.</p>
+
+<p>Interfaces sind abstrakten Klassen somit sehr ähnlich. Allerdings kann eine Klasse mehrere Interfaces implementieren während es nur von einer abstrakten Klasse erben kann.</p>
+
+<h2>Interface definieren</h2>
+<p>Das Grundgerüst eines Interface ist sehr ähnlich zu einer Klasse. Das Schlüsselwort <code>class</code> wird durch das Wort <code>interface</code> ersetzt.</p>
+
+<div class=codeSample>
+<pre><code class="language-java">
+public interface Transportierbar {
+
+}
+</code></pre>
+</div>
+
+<p>Interfaces geben vor welche Methoden eine Klasse implementieren muss. Im Interface gibt man dazu nur die Methodenköpfe an. Diese Methoden sind automatisch immer <code>public</code> und <code>abstract</code>. Man braucht diese Schlüsselwörter daher nicht extra angeben.</p>
+
+<div class=codeSample>
+        <pre><code class="language-java">
+public interface Transportierbar {
+    double getGewicht();
+    boolean isZerbrechlich();
+}
+</code></pre>
+</div>
+
+<h2>Interface implementieren</h2>
+<p>Eine, bzw. mehrere Klassen, können ein Interface implementieren. Dazu wird an den Namen der jeweiligen Klasse das Schlüsselwort <code>implements</code> und der Name des zu implementierenden Interface angefügt. Die Klasse muss dann alle Methoden des Interface implementieren (außer sie ist selbst <code>abstract</code>).</p>
+
+<div class=codeSample>
+<pre><code class="language-java">
+public class Monitor implements Transportierbar {
+    public double getGewicht() {
+        return 5.3;
+    }
+
+     public boolean isZerbrechlich(){
+        return true;
+    }
+}
+</code></pre>
+</div>
+
+<p>Eine Klasse kann auch mehrere Interfaces gleichzeitig implmentieren. Die Interfaces werden durch Beistriche getrennt.</p>
+
+<div class=codeSample>
+        <pre><code class="language-java">
+public class Monitor implements Transportierbar, Zerlegbar {
+    ...
+}
+        </code></pre>
+</div>
+
+<p>Eine Klasse kann erben und Interfaces gleichzeitig implementieren. Es wird zuerst die Superklasse mit <code>extends</code> angegeben.</p>
+<div class=codeSample>
+        <pre><code class="language-java">
+public class Monitor extends Elektrogeraet implements Transportierbar, Zerlegbar {
+    ...
+}
+        </code></pre>
+</div>
+
+<h2>Interface als Datentyp</h2>
+<p>Von Interfaces kann kein Objekt mit <code>new</code> erzeugt werden. Interfaces können jedoch als Datentype verwendet werden (vgl. abstrakte Klassen).</p>
+<div class=codeSample>
+        <pre><code class="language-java">
+public class Versand {
+
+    public static void main(){
+        Transportierbar[] gegenstaende = new Transportierbar[]{
+            new Monitor(), new Buch()};  //Array mit unterschiedlichen Objekten
+        
+        //Argument können Objekte aller Klassen sein, die das Interface implementieren.
+        erschicken(gegenstaende[0]); 
+    }
+
+    public static void verschicken(Transportierbar packet) {
+        System.out.println("Packet mit einem Gewicht von "+packet.getGewicht()+" kg verschickt.");
+    }
+}
+        </code></pre>
+</div>
+
+<h2>Wozu werden Interfaces verwendet?</h2>
+<p> Interfaces werden unter anderem dazu verwendet, um die Spezifikation von Klassen (Was soll geschehen?) von deren Implementierung (Wie soll es geschehen?) zu trennen. Getrennte Teams von Programmierer*innen einigen sich so auf einen "Vertrag", eine gemeinsame Schnittstelle, welche Methoden von der einen Seite implementiert werden müssen und von der anderen Seite aufgerufen werden können. Über diese Schnittstelle können unterschiedliche Programme/Programmteile dann zusammenarbeiten, ohne dass irgendetwas über die jeweils konkrete Implementierung festgelegt wurde.
+</p>
+<p>Wann eine abstrakte Klasse und wann ein Interface eingesetzt werden soll, ist nicht immer einfach zu beantworten. Allgemein kann man festhalten, dass durch Interfaces oft ein "Verhalten" definiert wird, dass von unterschiedlichen Klassen implementiert werden kann. Abstrakte Klassen dienen als Basisklasse einer Klassenhierarchie.</p>
+
+
+<h2>Fortgeschritten: Interface definieren - Konstanten, default & statische Methoden</h2>
+<p>In Interfaces können neben Methoden auch Konstanten, statische Methoden und default Methoden implementiert werden. Andere Elemente, wie z.B. Konstruktoren oder Attribute, sind in Interfaces nicht möglich.</p>
+
+<h3>Konstanten</h3>
+<p>Alle Konstanten sind, ohne es extra zu schreiben, <code>public static final</code>.</p>
+
+<div class=codeSample>
+        <pre><code class="language-java">
+public interface Transportierbar {
+    double MAX_GEWICHT=234;
+
+    double getGewicht();
+    boolean isZerbrechlich();
+}
+</code></pre>
+</div>
+
+<div class=codeSample>
+<pre><code class="language-java">
+if (x < Transportierbar.MAX_GEWICHT) {....} //Anwendungsbeispiel
+</code></pre>
+</div>
+
+<h3>Statische Methoden</h3>
+<p>Interfaces können auch statische Methoden beinhalten, die bereits im Interface implementiert werden. Damit können z.B. Hilfsmethoden mit Interfaces gebündelt werden.</p>
+
+<div class=codeSample>
+<pre><code class="language-java">
+public interface Transportierbar {
+    double MAX_GEWICHT=234;
+    
+    double getGewicht();
+    boolean isZerbrechlich();
+    
+    static boolean gueltigesGewicht(Transportierbar t){
+        return t.getGewicht()&gt;0 && t.getGewicht()&lt;MAX_GEWICHT;
+    }
+}
+</code></pre>
+</div>
+
+
+<h3>Default Methoden</h3>
+<p>Default Methoden sind ein realtives neues Feature in Java. Damit kann man eine default-Implementierung einer Methode im Interface vorgeben. Eine Klasse, die dieses Interface implementiert, kann die Methode überschreiben, muss aber nicht. Default Methoden beginnen mit dem Schlüsselwort <code>default</code>.</p>
+
+<div class=codeSample>
+        <pre><code class="language-java">
+public interface Transportierbar {
+    double MAX_GEWICHT=234;
+    
+    double getGewicht();
+    boolean isZerbrechlich();
+    
+    default String getBeschreibung(){
+        return this.getGewicht()+" kg, zerbrechlich: "+this.isZerbrechlich(); 
+    }
+}
+        </code></pre>
+        </div>
+
+<p>Ein Anwendungsfall von default-Methoden wäre, dass man ein existierendes Interfacer erweitern möchte, aber alle Klassen, die das Interface bereits implementieren, nicht dazu zwingen möchte, die neue Methode gleich zu implementieren.</p>
+
+
+
+<h2>Fortgeschritten: Interfaces & Vereerbung</h2>
+<p>Interfaces können auch von anderen Interfaces erben. Eine Klasse muss dann alle Mehoden des Interfaces und alle vererbten Methoden implementieren.</p>
+<p>Merke: Interfaces erben nur von Interfaces. Klassen nur von Klassen! Klassen können Interfaces nur implementieren, aber nicht von ihnen erben.</p>
+<div class=codeSample>
+        <pre><code class="language-java">
+public interface BahnTransportierbar extends Transportierbar {
+    int getLaenge();
+    int getBreite();
+}
+        </code></pre>
+</div>
+
+<p class="navigation"><a href="index.html">Zur Übersicht</a></p>
+<p class="feedback">
+    Du hast einen Fehler entdeckt? Du vermisst Informationen oder findest etwas missverständlich erklärt? 
+    Schicke doch gleich eine kurze <a href="mailto:buc@htl.rennweg.at">E-Mail</a>, damit wir die Unterlagen verbessern können. Vielen Dank für deine Unterstützung!
+</p>
+</body>
+
+</html>

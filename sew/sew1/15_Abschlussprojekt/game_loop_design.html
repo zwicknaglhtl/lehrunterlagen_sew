@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Prozedurale Konsolenspiele</title>
+
+	<link rel="stylesheet" href="../../../../../dist/reset.css">
+	<link rel="stylesheet" href="../../../../../dist/reveal.css">
+	<link rel="stylesheet" href="../../../../../dist/theme/htl.css">
+
+	<!-- Theme used for syntax highlighted code -->
+  <!-- <link rel="stylesheet" href="../../../../node_modules/reveal.js/plugin/highlight/zenburn.css"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-light.css" onerror="this.onerror=null;this.href='../../../../../node_modules/highlight.js/styles/stackoverflow-light.css';">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h2>Konsolen-Spiele mit Funktionen</h1>
+        <p class="center">z.B. 4 Gewinnt, Schiffe versenken</p>
+        <p class="center">rein prozedural</p>
+      </section>
+
+      <section>
+        <h2>Hinweise</h2>
+        <ul>
+          <li>Diese Unterlagen sollen nur einen grundsätzlichen Aufbau zeigen.</li>
+          <li>Es sind im konkreten Fall vielleicht mehr/andere/weniger Funktionen sinnvoll.</li>
+          <li>Ähnliche Überlegungen für andere Programme (z.B. eine Einkaufsliste verwalten).</li>
+          <li>Die Bsp. zeigen Pseudocode (Idee, kein konkreter Code!)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>1. Spielfeld und Zustand</h2>
+        <ul>
+          <li>2D-Array zur Darstellung des Spielfelds (board)</li>
+          <li>Zusätzliche Daten: Spieler, Schiffe, etc.</li>
+          <li>Über Parameter (Referenz/Pointer) an Funktionen übergeben</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>2. Anzeige</h2>
+        <ul>
+          <li><code>drawBoard(board)</code>: Zeichnet das Spielfeld</li>
+          <li><code>drawStatus(player)</code>: Zeigt Statusinfos</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>3. Eingabe & Validierung</h2>
+        <ul>
+          <li><code>getInput()</code>: Eingabe holen</li>
+          <li><code>validate(input, board)</code>: Zulässigkeit prüfen</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>4. Zustand aktualisieren</h2>
+        <ul>
+          <li><code>applyMove(board, player, move)</code>: Spielzug eintragen</li>
+          <li>evt. Daten (z.B. Punkte) aktualisieren</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>5. Gewinn/Ende prüfen</h2>
+        <ul>
+          <li><code>checkWin(board, player)</code>: Siegbedingungen prüfen</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>6. Hauptschleife</h2>
+        <pre><code>initialize(board)
+currentPlayer = 1
+while true:
+  drawBoard(board)
+  move = getInput(...)
+  if not validate(...): continue
+  applyMove(...)
+  if checkWin(...): break
+  currentPlayer = nextPlayer</code></pre>
+      </section>
+
+      <section>
+        <h2>7. Umsetzungsschritte</h2>
+        <ol>
+          <li>Grundgerüst + leere Funktionen</li>
+          <li>Spielfeldanzeige</li>
+          <li>Eingabe + Validierung</li>
+          <li>Zug anwenden</li>
+          <li>Gewinnprüfung</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>8. Tipps zur Modularität</h2>
+        <ul>
+          <li>Funktionen machen nur <em>eine</em> Sache.</li>
+          <li>Kleine Hilfsfunktionen schreiben</li>
+          <li>Testen mit festen Daten</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Fragen?</h2>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="../../../../node_modules/reveal.js/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize();
+  </script>
+</body>
+</html>

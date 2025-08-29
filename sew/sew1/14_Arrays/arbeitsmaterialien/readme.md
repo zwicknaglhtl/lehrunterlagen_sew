@@ -1,0 +1,1 @@
+pandoc arbeitsblatt_array1_Musterlösung.md -o arbeitsblatt_array1_Musterlösung.pdf --pdf-engine=xelatex -V lang=de

@@ -1,0 +1,36 @@
+Dokument überarbeiten und in einzelne Dateien auftrennen
+
+toList() statt Collectors.toList()
+
+Exception Handling in Streams
+
+Bsp. funkt nicht:
+
+public static Stream<Path> biggestFiles(Path path, int n) throws SecurityException{
+    try {
+        return Files.walk(path).filter(Files::isRegularFile).sorted(Comparator.comparingLong(Files::size).reversed()).limit(n);
+    } catch (IOException e) {
+        System.out.println(e.getMessage());
+    }
+    return null;
+}
+
+Lösung
+
+public static Stream<Path> biggestFiles(Path path, int n) throws SecurityException{
+    try {
+        Stream<Path> limit = Files.walk(path).filter(Files::isRegularFile).sorted(Comparator.comparingLong((Path path1) -> {
+            try {
+                return Files.size(path1);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }).reversed()).limit(n);
+        return limit;
+    } catch (IOException e) {
+        System.out.println(e.getMessage());
+    }
+    return null;
+}
+
+Erklärung: https://www.baeldung.com/java-lambda-exceptions

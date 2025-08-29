@@ -1,0 +1,1 @@
+Präsentation mit chatgpt erstellt, noch besser anpassen an Wissensstand der Schüler:innen

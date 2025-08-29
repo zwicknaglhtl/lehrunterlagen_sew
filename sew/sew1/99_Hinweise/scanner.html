@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eingabe über die Konsole</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-light.css" onerror="this.onerror=null;this.href='../../../../../node_modules/highlight.js/styles/stackoverflow-light.css';">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet"> 
+ 
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>Benutzereingaben in der Konsole</h1>
+
+  <p>Mittels der von Java zu Verfügung gestellten Klasse <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Scanner.html">Scanner</a> kann sehr einfach Input von der Konsole eingelesen werden.</p>
+
+  <p>Du musst im Moment dir darüber aber nicht zu viel den Kopf zerbrechen. Kopiere einfach die folgende Methode in dein Programm, um einen Text von der Konsole (Tastatur) einzulesen:</p>
+  
+  <pre><code data-trim class="language-java">
+/**
+* Gibt die Meldung "message" aus und liest eine Zeile ein. 
+* @param message der Text, der vor der Eingabe stehen soll 
+* @return eingegebener Text
+*/
+private static java.util.Scanner scanner = new java.util.Scanner(System.in);
+public static String readLine (String message) {
+   System.out.print(message);
+   return scanner.nextLine();
+}
+  </code></pre>
+
+  <p>Folgende Codezeile zeigt wie Methode <code>readLine(...)</code> angewendet werden kann.</p>
+
+  <pre><code data-trim class="language-java">
+String eingabe = readLine("Gib einen beliebigen Text ein: ");
+  </code></pre>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+  <script src="../../../../../node_modules/highlight.js/lib/languages/java.js"></script>
+  <script>hljs.highlightAll();</script>
+</body>
+</html>

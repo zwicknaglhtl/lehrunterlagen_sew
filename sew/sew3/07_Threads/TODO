@@ -1,0 +1,54 @@
+in Unterlagen erklären, dass Threads vor allem auch eingesetzt werden damit "langsame" Vorgänge (I/O, Netzwerk) nicht das ganze Programm blockieren.
+
+wait/Notify aufnehmen?
+
+concurrent collections
+https://www.baeldung.com/java-synchronized-collections#2-concurrent-collections
+
+Co-Pilot Chat:
+
+Wann wird zwischen Threads in Java gewechselt?
+
+GitHub Copilot
+Der Wechsel zwischen Threads in Java, auch als Thread-Scheduling bezeichnet, wird vom Thread-Scheduler in der Java Virtual Machine (JVM) gesteuert. Dies geschieht in der Regel nach einem der folgenden Ereignisse:
+
+Ein Thread hat seine Ausführung abgeschlossen (d.h., seine run() Methode ist zu Ende).
+Ein Thread, der sich im laufenden Zustand befindet, wird explizit durch den Aufruf seiner sleep() oder yield() Methode in den bereiten Zustand versetzt.
+Ein Thread wartet auf eine Ressource (z.B. I/O, Speicher), wodurch er in den blockierten Zustand versetzt wird.
+Ein Thread wird durch den Aufruf seiner suspend() Methode angehalten (obwohl dies als veraltet gilt und nicht empfohlen wird).
+Ein Thread kann durch den Aufruf seiner wait() Methode in den Wartezustand versetzt werden, bis ein anderes Thread ihn durch den Aufruf von notify() oder notifyAll() wieder in den bereiten Zustand versetzt.
+Es ist wichtig zu beachten, dass das genaue Verhalten des Thread-Schedulers von der JVM-Implementierung und dem zugrunde liegenden Betriebssystem abhängt und daher nicht vorhersehbar ist.
+
+GitHub Copilot
+Der Thread-Scheduler in Java kann jeden Befehl unterbrechen, da er das Kontrollfluss des Threads steuert. Es gibt jedoch bestimmte Methoden, die explizit dazu dienen, den Scheduler zu informieren, dass ein Thread bereit ist, unterbrochen zu werden. Diese Methoden sind:
+
+sleep(long millis): Veranlasst den aktuellen Thread, für eine bestimmte Anzahl von Millisekunden zu pausieren (plus die Zeit, die für den Thread-Scheduling benötigt wird). Dies gibt dem Scheduler die Möglichkeit, andere Threads auszuführen.
+
+yield(): Veranlasst den aktuellen Thread, seine aktuelle Nutzung des Prozessors aufzugeben, auch wenn seine Zeit noch nicht abgelaufen ist. Dies gibt dem Scheduler die Möglichkeit, andere Threads mit der gleichen Priorität auszuführen.
+
+wait(): Veranlasst den aktuellen Thread, seine Ausführung zu unterbrechen, bis ein anderer Thread ihn mit notify() oder notifyAll() wieder aufweckt.
+
+join(): Veranlasst den aktuellen Thread, seine Ausführung zu unterbrechen, bis der Thread, auf den diese Methode aufgerufen wurde, seine Ausführung beendet hat.
+
+Es ist wichtig zu beachten, dass die genaue Ausführung dieser Methoden vom konkreten Scheduler und dem zugrunde liegenden Betriebssystem abhängt. Es ist daher nicht garantiert, dass ein Thread sofort nach dem Aufruf einer dieser Methoden unterbrochen wird.
+
+Ja, der Thread-Scheduler in Java kann die Ausführung eines Threads zu jedem Zeitpunkt unterbrechen, einschließlich während der Ausführung einer einzelnen Codezeile. Dies wird als "Preemptive Scheduling" bezeichnet. Es bedeutet, dass der Scheduler die Kontrolle übernehmen und einen Thread unterbrechen kann, um einen anderen Thread auszuführen, unabhängig davon, was der aktuell laufende Thread gerade tut.
+
+Es ist jedoch wichtig zu beachten, dass die genaue Zeit, wann ein Thread unterbrochen wird, vom Scheduler und dem zugrunde liegenden Betriebssystem abhängt und nicht vorhersehbar ist. Daher kann man nicht garantieren, dass ein Thread während einer bestimmten Codezeile unterbrochen wird.
+
+Ja, theoretisch kann der Thread-Scheduler in Java einen Thread während der Ausführung eines Befehls wie "i++" unterbrechen. Dies ist jedoch in der Praxis eher unwahrscheinlich, da "i++" eine sehr schnelle Operation ist.
+
+Es ist wichtig zu beachten, dass "i++" nicht atomar ist, d.h. sie besteht aus drei separaten Operationen: dem Abrufen des aktuellen Werts von i, dem Inkrementieren dieses Werts und dem Speichern des neuen Werts zurück in i. Wenn zwei Threads gleichzeitig auf die gleiche Variable zugreifen und sie inkrementieren, kann es zu einem Race Condition kommen, wenn ein Thread während der Ausführung von "i++" unterbrochen wird.
+
+Um solche Probleme zu vermeiden, sollten Sie Synchronisierungsmechanismen wie synchronized Blöcke oder Locks verwenden, wenn Sie auf gemeinsam genutzte Daten in einem multithreaded Kontext zugreifen.
+
+In Java sind die meisten grundlegenden Lese- und Schreiboperationen atomar, einschließlich Lese- und Schreibvorgänge für alle Variablentypen außer long und double. Lese- und Schreibvorgänge für long und double, die nicht als volatile deklariert sind, sind nicht atomar.
+
+Einige Beispiele für atomare Operationen sind:
+
+Lese- und Schreibvorgänge für alle Variablen, die nicht vom Typ long oder double sind.
+Lese- und Schreibvorgänge für alle volatile long und volatile double Variablen.
+Alle Aufrufe von java.util.concurrent.atomic Klassenmethoden wie AtomicInteger.get() oder AtomicInteger.incrementAndGet().
+Es ist wichtig zu beachten, dass zusammengesetzte Operationen, wie z.B. i++, nicht atomar sind, da sie aus mehreren Einzeloperationen bestehen. Um solche Operationen atomar zu machen, können Sie Synchronisierungsmechanismen wie synchronized Blöcke oder Locks verwenden, oder Sie können die java.util.concurrent.atomic Klassen verwenden.
+
+keyword volatile: http://web.archive.org/web/20210221170926/https://www.ibm.com/developerworks/java/library/j-jtp06197/

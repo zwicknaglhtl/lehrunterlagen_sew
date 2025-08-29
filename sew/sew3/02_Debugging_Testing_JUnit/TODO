@@ -1,0 +1,13 @@
+Präsentation - Warum JUNIT Tests (Regression, etc..)
+
+StyleGuides? https://medium.com/swlh/configuring-google-style-guide-for-java-for-intellij-c727af4ef248
+Wie NamingConventions in IntelliJ enforcen oder zumindest überprüfen?
+
+
+Genauigkeit von Tests bei float und double irgendwo schon behandelt?
+
+Tests auf Exceptions: sample Code updaten auf Annotationen
+@Test(expected = IllegalArgumentException.class) 
+
+
+Assertions.assertIterableEquals

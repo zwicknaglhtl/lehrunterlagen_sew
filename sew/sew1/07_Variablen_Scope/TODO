@@ -1,0 +1,4 @@
+besser mit eigenen Methoden arbeiten, statt mit setup() und draw()
+
+ergänzen um draw(), Beispiel Animation und globale Variablen
+Auch erwähnen, dass es in processing spezielle globale Variablen gibt wie z.B. height

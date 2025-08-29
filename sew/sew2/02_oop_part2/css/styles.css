@@ -1,0 +1,35 @@
+
+* {
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+}
+
+code {
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 1.2em;
+
+}
+
+pre[class*="language-"] {
+    padding: 0em 1em 0.5em 1em;
+}
+.table, .table td, .table th {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.table td, .table th {
+    padding: 5px 20px;
+}
+
+.feedback {
+    font-size: 0.7rem;
+}
+
+@media print {
+
+    .navigation, .hiddenForPrint {
+        display: none;
+    }
+}

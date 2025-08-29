@@ -1,0 +1,830 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Verzweigungen</title>
+
+	<link rel="stylesheet" href="../../../../../dist/reset.css">
+	<link rel="stylesheet" href="../../../../../dist/reveal.css">
+	<link rel="stylesheet" href="../../../../../dist/theme/htl.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<!-- <link rel="stylesheet" href="../../../../../plugin/highlight/zenburn.css"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-light.css" onerror="this.onerror=null;this.href='../../../../../node_modules/highlight.js/styles/stackoverflow-light.css';">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<section>
+				<h1>Verzweigungen</h1>
+				<h2> Softwareentwicklung 1</h2>
+			</section>
+
+
+			<section>
+				<h3>Wozu Verzweigungen?</h3>
+				<ul>
+					<li class="fragment">Bis jetzt werden alle Anweisungen unserer Programme einfach der Reihe nach
+						ausgeführt.</li>
+					<li class="fragment">In vielen Anwendungsfällen sollen Codeblöcke nur unter bestimmten
+						<strong>Bedingungen</strong> ausgeführt werden.
+					</li>
+				</ul>
+			</section>
+
+			<section>
+			<h2>Bedingungen</h2>
+			</section>
+
+			<section>
+				<h3>Bedingung</h3>
+				<ul class="r-fit-text">
+					<li class="fragment">Eine Bedingung ist eine "Frage", die man beim Programmieren formuliert.</li>
+					<li class="fragment">Die Antwort wird erst zur <strong>Laufzeit</strong> (während der Ausführung des
+						Programms) berechnet.</li>
+					<li class="fragment">Eine Bedingung hat als Antwort immer einen <strong>Wahrheitswert</strong>, also
+						nur zwei mögliche Antworten:
+						<ul>
+							<li class="fragment"> <strong><code>true</code></strong>, wenn die Antwort "Ja" ist
+								(Bedingung trifft zu).</li>
+							<li class="fragment"> <strong><code>false</code></strong>, wenn die Antwort "Nein" ist
+								(Bedingung trifft nicht zu). </li>
+						</ul>
+					</li>
+					<li class="fragment">Beispiele aus der Alltagssprache: <ul>
+							<li>Wiegt der Sack Erdäpfel mehr als 3kg?</li>
+							<li>Ist das Fenster offen?</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Formulieren von Bedingungen</h3>
+				<p class="center">Auf den nächsten Seiten werden folgende Arten von Bedingungen näher beschrieben:</p>
+				<ul>
+					<li><a href="#/bedingung-zahlenwerte">Vergleich von Zahlenwerten</a></li>
+					<li><a href="#/bedingung-strings">Vergleich von Strings</a></li>
+					<li><a href="#/bedingung-boolean">Boolesche Variablen</a></li>
+				</ul>
+			</section>
+
+			<section id="bedingung-zahlenwerte">
+				<h3>Vergleich von Zahlenwerten (1/3)</h3>
+				<p>Der Vergleich gibt an, ob ein bestimmtes <strong>mathematisches Größenverhältnis</strong> zwischen
+					zwei Zahlenwerten zutrifft (<code>true</code>) oder nicht (<code>false</code>).
+				</p>
+				<p>Allgemeine Form eines Vergleichs zwischen Zahlenwerten:</p>
+				<p class="formula center r-fit-text"> Zahlenausdruck1 Vergleichsoperator Zahlenausdruck2 </p>
+			</section>
+
+
+			<section>
+				<h3>Vergleich von Zahlenwerten (2/3)</h3>
+				<p class="formula center r-fit-text"> Zahlenausdruck1 Vergleichsoperator Zahlenausdruck2 </p>
+				<h4>Vergleichsoperatoren</h4>
+				<table class="r-fit-text center">
+					<thead>
+						<tr>
+							<th>Beschreibung</th>
+							<th>mathematisches Symbol</th>
+							<th>Java-Vergleichsoperator</th>
+						</tr>
+					</thead>
+					<tbody class="center">
+						<tr>
+							<td>gleich</td>
+							<td>=</td>
+							<td><code>==</code> </td>
+						</tr>
+						<tr>
+							<td>ungleich</td>
+							<td>≠</td>
+							<td><code>!=</code> </td>
+						</tr>
+						<tr>
+							<td>kleiner</td>
+							<td>&lt;</td>
+							<td><code>&lt;</code> </td>
+						</tr>
+						<tr>
+							<td>kleiner oder gleich</td>
+							<td>≤</td>
+							<td><code>&lt;=</code> </td>
+						</tr>
+						<tr>
+							<td>größer</td>
+							<td>&gt;</td>
+							<td><code>&gt;</code> </td>
+						</tr>
+						<tr>
+							<td>größer oder gleich</td>
+							<td>≥</td>
+							<td><code>&gt;=</code> </td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section>
+				<h3>Vergleich von Zahlenwerten (2/3)
+				</h3>
+				<p class="formula center r-fit-text"> Zahlenausdruck1 Vergleichsoperator Zahlenausdruck2 </p>
+				<h4>Beispiele</h4>
+
+
+				<pre><code data-trim class="big language-java" data-line-numbers>
+int a = 2, b = 3;
+
+a == 2;	//ist true
+
+a != 2; //ist false
+
+a >= b; //ist false
+
+a*2 < b+2; //ist true
+				</code></pre>
+
+			</section>
+
+			<section>
+				<h3>Wichtige Hinweise</h3>
+
+				<p></p>
+				<ul>
+					<li class="fragment">Beachte den Unterschied zwischen Vergleich und Zuweisung!
+
+
+						<div class="columns center">
+							<div class="col">
+								<p class="">=</p>
+								<p>Zuweisung</p>
+								<pre><code data-trim class="center">
+						int x=3; //x wird der 3 zugewiesen
+					</code></pre>
+							</div>
+
+							<div class="col">
+								<p class="">==</p>
+								<p>Vergleich</p>
+								<pre><code data-trim class="center">
+					x==3; //ist true
+				</code></pre>
+							</div>
+
+						</div>
+
+					</li>
+
+					<li class="fragment" style="margin-top: 40px;">Vergleiche dürfen nur <strong>zwei Werte</strong>
+						enthalten.
+						<ul>
+							<li>Folgender Ausdruck ist daher z.B. ungültig:
+								<pre><code>1 <= a < 3</code></pre>
+							</li>
+							<li>Siehe <a href="../10_boolesche_Operatoren/">boolesche Operatoren</a> um solche Bedingungen ausdrücken zu können.</li>
+						</ul>
+
+					</li>
+				</ul>
+			</section>
+
+			<section id="bedingung-strings">
+				<h3>Vergleich von Strings (1/2)</h3>
+				<p>Gibt an, ob zwei <code>String</code>-Ausdrücke gleich (<code>true</code>) oder ungleich
+					(<code>false</code>) sind.</p>
+				<p>Dabei wird zwischen Groß- und Kleinschreibung unterschieden.</p>
+				<p>Allgemeine Form eines Vergleichs zweier <code>Strings</code>:</p>
+				<p class="formula center "> string1<strong><code>.equals</code></strong>(string2) </p>
+
+				<p style="margin-top: 70px;"><strong>Achtung!</strong> Es ist zwar möglich Vergleich von Strings mit
+					<code>==</code> und <code>!=</code> zu schreiben. Diese Ausdrücke liefern aber
+					<strong>nicht</strong> das gewünschte Ergebnis
+				</p>
+				<p class="formula center strike-through">string1 == string2 </p>
+			</section>
+
+
+			<section>
+				<h3>Vergleich von Strings (2/2)</h3>
+				<p class="formula center "> string1<strong><code>.equals</code></strong>(string2) </p>
+				<h4>Beispiele</h4>
+				<pre><code data-trim class="big language-java" data-line-numbers>
+String x = "abc", y = "HTL";
+
+x.equals("ABC") 	// ist false
+"abc".equals(x)  	// ist true
+x.equals(y) 		// ist false
+y.equals("HT"+"L")	//ist true	
+</code></pre>
+
+			</section>
+
+
+			<section id="bedingung-boolean">
+				<h3>boolesche Variablen</h3>
+				<ul>
+					<li class="fragment">Ein Wahrheitswert (<code>true</code> oder <code>false</code>) kann auch in
+						einer Variable gespeichert werden.</li>
+					<li class="fragment">Eine solche Variable besitzt den (neuen) Datentyp
+						<strong><code>boolean</code></strong>.
+						<ul><li>Ein boolean kennt nur zwei Werte - <code>true</code> oder <code>false</code>.</li></ul>
+					</li>
+					<li class="fragment">Weiters gibt es die <strong>logischen Konstanten</strong> <code>true</code> und
+						<code>false</code>.
+					</li>
+				</ul>
+				<div class="fragment">
+					<pre><code data-trim class="language-java" data-line-numbers>
+int a = 2, b = 3;
+
+boolean isOpen = true;		//boolesche Variable mit true als Anfangswert
+
+boolean aGroesserB;
+aGroesserB = a > b;		//false wird zugewiesen
+
+boolean bUngleichA = false;
+bUngleichA = (b != a);		//true wird zugewiesen
+
+boolean result = isValidMark(5); //die Funktion liefert einen boolean zurück
+	
+	</code></pre>
+				</div>
+			</section>
+
+
+
+			<section>
+				<h3>Verzweigung</h3>
+				<h4>Die <code>if</code>-Anweisung</h4>
+			</section>
+
+			<section>
+				<h3>if-Anweisung - Syntax</h3>
+
+				<p>Wenn die Bedingung in den runden Klammern() erfüllt (<code>true</code>) ist, werden die Anweisungen
+					zwischen den geschwungenen Klammern ausgeführt.</p>
+				<p>Wenn die Bedingung nicht erfüllt (<code>false</code> ) ist, werden diese Anweisungen übersprungen.
+				</p>
+	
+					<pre><code data-trim class="language-java">
+						if (Bedingung) {
+							//Code innerhalb des Blocks wird nur ausgeführt, 
+							//wenn die Bedingung wahr ist
+							Anweisung 1;
+							Anweisung 2;
+							...
+						}
+					</code></pre>		
+
+			
+			</section>
+
+
+			<section>
+				<h3>if-Anweisung - Beispiel 1</h3>
+
+				<div style="position: relative;">
+					<pre><code data-trim data-line-numbers>
+	int x = 350;
+	int speed = 5;
+	
+	if (x>400) {
+	    speed = 3;
+	}
+	
+	println("Speed ist "+speed); //Ausgabe: Speed ist 5   
+</code></pre>
+					<object data="diagrams/legende.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -25px; top: 250px;" class="fragment"
+						data-fragment-index="1"></object>
+					<object data="diagrams/if-bsp-before.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -25px; top: 10px;" class="fragment"
+						data-fragment-index="1"></object>
+					<object data="diagrams/if-bsp-false.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -55px; top: 80px;" class="fragment"
+						data-fragment-index="2"></object>
+					<object data="diagrams/if-bsp-after.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -25px; top: 150px;" class="fragment"
+						data-fragment-index="3"></object>
+				</div>
+			</section>
+
+			<section>
+				<h3>if-Anweisung - Beispiel 2</h3>
+
+				<div style="position: relative;">
+					<pre><code data-trim data-line-numbers>
+		int x = 350;
+		int speed = 5;
+		
+		if (x<=350) {
+		    speed = 3;
+		}
+		
+		println("Speed ist "+speed); //Ausgabe: Speed ist 3   
+	</code></pre>
+					<object data="diagrams/legende.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -25px; top: 250px;" class="fragment"
+						data-fragment-index="1"></object>
+					<object data="diagrams/if-bsp-before.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -25px; top: 10px;" class="fragment"
+						data-fragment-index="1"></object>
+					<object data="diagrams/if-bsp-true.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -25px; top: 80px;" class="fragment"
+						data-fragment-index="2"></object>
+					<object data="diagrams/if-bsp-after.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -25px; top: 150px;" class="fragment"
+						data-fragment-index="3"></object>
+				</div>
+			</section>
+
+			<section>
+				<h3>Hinweise</h3>
+				<ul>
+					<li class="fragment">Nach dem logischen Ausdruck in runden Klammern () folgt
+						<strong>kein</strong> Strichpunkt!
+						<div style="position: relative;">
+							<pre><code data-trim class="language-java">
+								if (x<=350); {
+									speed = 3;
+								}
+							</code></pre>
+							<object data="diagrams/cross.drawio.svg" type="image/svg+xml"
+								style="position: absolute; left: 118px; top: 5px;" class="fragment"></object>
+						</div>
+					</li>
+					<li class="fragment">Bei einer einzelnen Anweisung darf man die geschwungenen Klammern {} zwar
+						weglassen, dies gilt aber als schlechter Programmierstil.</li>
+				</ul>
+			</section>
+
+
+			<section>
+				<h2>Die if-else Anweisung</h2>
+			</section>
+
+			<section>
+				<h3>if-else-Anweisung - Syntax</h3>
+				<p>Eine if/else-Anweisung ist eine Erweiterung der if-Anweisung.</p>
+				<p>Wenn die Bedingung erfüllt (<strong><code>true</code></strong> ) ist, werden die Anweisungen im
+					<strong>if</strong>-Zweig ausgeführt.
+				</p>
+				<p>Wenn die Bedingung nicht erfüllt (<strong><code>false</code></strong> ) ist, werden die Anweisungen
+					im <strong>else</strong>-Zweig ausgeführt.</p>
+					<pre><code data-trim class="language-java">
+						if (Bedingung) {
+							// Anweisungen im if-­Zweig 
+							Anweisung1;
+							Anweisung2;
+							...
+						} else {
+							// Anweisungen im else­-Zweig 
+							Anweisung1;
+							Anweisung2;
+							...
+						}
+					</code></pre>
+			</section>
+
+			<section>
+				<h3>if-else-Anweisung - Beispiel 1</h3>
+
+				<div style="position: relative;">
+					<pre><code data-trim data-line-numbers>
+int x = 350;
+int speed = 7;
+ 
+if (x&lt;500) {
+  speed = 5;
+} else {
+  speed = 3;
+}
+
+println("Speed ist "+speed);   //Ausgabe: Speed ist 5
+		
+	</code></pre>
+					<object data="diagrams/legende.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -25px; top: 280px;" class="fragment"
+						data-fragment-index="1"></object>
+					<object data="diagrams/if-else-bsp-before.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -25px; top: 10px;" class="fragment"
+						data-fragment-index="1"></object>
+					<object data="diagrams/if-else-bsp-true.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -25px; top: 85px;" class="fragment"
+						data-fragment-index="2"></object>
+					<object data="diagrams/if-else-bsp-false.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -45px; top: 135px;" class="fragment"
+						data-fragment-index="3"></object>
+					<object data="diagrams/if-else-bsp-after.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -25px; top: 190px;" class="fragment"
+						data-fragment-index="4"></object>
+				</div>
+			</section>
+
+
+			<section>
+				<h3>if-else-Anweisung - Beispiel 2</h3>
+
+				<div style="position: relative;">
+					<pre><code data-trim data-line-numbers>
+int x = 350;
+int speed = 7;
+ 
+if (x>400) {
+  speed = 5;
+} else {
+  speed = 3;
+}
+
+println("Speed ist "+speed);   //Ausgabe: Speed ist 3
+		
+	</code></pre>
+					<object data="diagrams/legende.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -25px; top: 280px;" class="fragment"
+						data-fragment-index="1"></object>
+					<object data="diagrams/if-else-bsp-before.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -25px; top: 10px;" class="fragment"
+						data-fragment-index="1"></object>
+					<object data="diagrams/if-else-bsp-false.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -45px; top: 83px;" class="fragment"
+						data-fragment-index="2"></object>
+					<object data="diagrams/if-else-bsp-true.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -25px; top: 138px;" class="fragment"
+						data-fragment-index="3"></object>
+					<object data="diagrams/if-else-bsp-after.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -25px; top: 190px;" class="fragment"
+						data-fragment-index="4"></object>
+				</div>
+			</section>
+
+
+			<section>
+				<h2>if - else if - else - Anweisung</h2>
+			</section>
+
+			<section>
+				<h3>if- else if - else Anweisung - Syntax</h3>
+				<div class="r-fit-text left">
+					<p>Eine <code>if - else if - else </code> Anweisung ist eine ununterbrochene Folge von
+						if/else-Anweisungen. </p>
+					<p>Nur die Anweisungen im <strong>ersten</strong> if-Zweig, dessen Bedingung erfüllt ist, werden
+						ausgeführt.</p>
+					<p>Ist keine Bedingung erfüllt, werden die Anweisungen im letzten else-Zweig ausgeführt, falls
+						vorhanden.</p>
+				</div>
+
+				<pre><code data-trim class="language-java">
+					if ( Bedingung1 ) {
+						// Anweisungen, wenn Bedingung1 erfüllt 
+						...
+					} else if ( Bedingung2 ) {
+						// Anweisungen, wenn Bedingung2 erfüllt (und Bedingung1 nicht) 
+						...
+					} 
+					//...optional weitere else if Anweisungen
+					else {
+						// Anweisungen, wenn keine Bedingung erfüllt 
+						// kann auch weggelassen werden
+						...
+					}
+				</code></pre>
+
+				</p>
+			</section>
+
+
+
+			<section>
+				<h3>if- else if - else Anweisung - Beispiel 1</h3>
+
+				<div style="position: relative;">
+					<pre><code data-trim data-line-numbers>
+int x = 100;
+int speed = 7;
+
+if (x&lt;200) {
+    speed = 3;
+} else if (x&lt;400) {
+    speed = 5;
+} else {
+    speed = -2;
+}
+
+println("Speed ist "+speed); //Ausgabe: Speed ist 3 
+		</code></pre>
+					<object data="diagrams/legende.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -25px; top: 320px;" class="fragment"
+						data-fragment-index="1"></object>
+					<object data="diagrams/if-elseif-bsp-before.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -25px; top: 8px;" class="fragment"
+						data-fragment-index="1"></object>
+					<object data="diagrams/if-elseif-bsp-true.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -25px; top: 80px;" class="fragment"
+						data-fragment-index="2"></object>
+					<object data="diagrams/if-elseif-bsp-false.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -45px; top: 133px;" class="fragment"
+						data-fragment-index="3"></object>
+					<object data="diagrams/if-elseif-bsp-false.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -45px; top: 188px;" class="fragment"
+						data-fragment-index="4"></object>
+					<object data="diagrams/if-elseif-bsp-after.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -25px; top: 243px;" class="fragment"
+						data-fragment-index="5"></object>
+				</div>
+			</section>
+
+			<section>
+				<h3>if- else if - else Anweisung - Beispiel 2</h3>
+
+				<div style="position: relative;">
+					<pre><code data-trim data-line-numbers>
+int x = 300;
+int speed = 7;
+
+if (x&lt;200) {
+    speed = 3;
+} else if (x&lt;400) {
+    speed = 5;
+} else {
+    speed = -2;
+}
+
+println("Speed ist "+speed); //Ausgabe: Speed ist 5 
+		</code></pre>
+					<object data="diagrams/legende.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -25px; top: 320px;" class="fragment"
+						data-fragment-index="1"></object>
+					<object data="diagrams/if-elseif-bsp-before.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -25px; top: 8px;" class="fragment"
+						data-fragment-index="1"></object>
+					<object data="diagrams/if-elseif-bsp-false.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -45px; top: 80px;" class="fragment"
+						data-fragment-index="2"></object>
+					<object data="diagrams/if-elseif-bsp-true.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -25px; top: 135px;" class="fragment"
+						data-fragment-index="3"></object>
+					<object data="diagrams/if-elseif-bsp-false.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -45px; top: 188px;" class="fragment"
+						data-fragment-index="4"></object>
+					<object data="diagrams/if-elseif-bsp-after.drawio.svg" type="image/svg+xml"
+						style="position: absolute; left: -25px; top: 243px;" class="fragment"
+						data-fragment-index="5"></object>
+				</div>
+			</section>
+
+
+			<section>
+				<h3>if- else if - else Anweisung - Beispiel 3</h3>
+
+				<div style="position: relative;">
+					<pre><code data-trim data-line-numbers>
+int x = 401;
+int speed = 7;
+
+if (x&lt;200) {
+    speed = 3;
+} else if (x&lt;400) {
+    speed = 5;
+} else {
+    speed = -2;
+}
+
+println("Speed ist "+speed); //Ausgabe: Speed ist -2 
+		</code></pre>
+		<object data="diagrams/legende.drawio.svg" type="image/svg+xml"
+		style="position: absolute; left: -25px; top: 320px;" class="fragment"
+		data-fragment-index="1"></object>
+	<object data="diagrams/if-elseif-bsp-before.drawio.svg" type="image/svg+xml"
+		style="position: absolute; left: -25px; top: 8px;" class="fragment"
+		data-fragment-index="1"></object>
+	<object data="diagrams/if-elseif-bsp-false.drawio.svg" type="image/svg+xml"
+		style="position: absolute; left: -45px; top: 80px;" class="fragment"
+		data-fragment-index="2"></object>
+	<object data="diagrams/if-elseif-bsp-false.drawio.svg" type="image/svg+xml"
+		style="position: absolute; left: -45px; top: 135px;" class="fragment"
+		data-fragment-index="3"></object>
+	<object data="diagrams/if-elseif-bsp-true.drawio.svg" type="image/svg+xml"
+		style="position: absolute; left: -25px; top: 190px;" class="fragment"
+		data-fragment-index="4"></object>
+	<object data="diagrams/if-elseif-bsp-after.drawio.svg" type="image/svg+xml"
+		style="position: absolute; left: -25px; top: 243px;" class="fragment"
+		data-fragment-index="5"></object>
+				</div>
+			</section>
+
+<section>
+<h3>Verschachtelungen</h3>
+<p>Innerhalb jedes Blocks können beliebige Anweisungen stehen. Somit können innerhalb der Blöcke eines if-Statements weitere if-Statements, Funktionsaufrufe,... stehen.</p>
+
+<pre><code data-trim>
+int x = PopUp.readInt("Gib eine beliebige Zahl ein!");
+if(x < 100) {
+	println("Hmm, deine Zahl ist kleiner als 100.");
+	
+	if (x < 50) {
+		println("Ich weiß auch, dass sie kleiner als 50 ist!");
+	} else {
+		println("Deine Zahl liegt zwischen 50 und 100.");
+	}
+}
+</code></pre>
+
+</section>
+
+
+			<section>
+				<h2>switch-Anweisung</h2>
+			</section>
+
+			<section>
+				<h3>switch-Anweisung - Syntax</h3>
+				<div class="r-fit-text left">
+					<p>Bei der <code>switch</code>-Anweisung bestimmt ein String oder ein ganzzahliger Ausdruck den Zweig, der ausgeführt wird.</p>
+					<p>Jeder <code>case</code>-Block muss mit einem <code>break</code> beendet werden (ansonsten würde - unabhängig von den Werten bei <code>case</code> - der Code bis zum nächsten <code>break</code> ausgeführt werden.) </p>
+				</div>
+				<pre><code data-trim class="language-java">
+					switch ( String oder ganzzahligerAusdruck ) { 
+						case Wert1:
+							// Anweisungen, wenn der Ausdruck den Wert1 hat
+							...
+							break;
+						case Wert2:
+							// Anweisungen, wenn der Ausdruck den Wert2 hat ...
+							break;
+						
+						... //weitere case-Statements
+						
+						default:	//kann man auch weglassen
+							//Anweisungen, falls kein passender Wert
+					}
+				</code></pre>
+			</section>
+
+
+<section>
+<h3>switch-Anweisung - Beispiel 1</h3>
+<pre><code data-trim data-line-numbers>
+int note;
+...
+
+switch (note) {
+	case 1:
+		println("Sehr gut");
+		break;
+	case 2:
+		println("Gut");
+		break;
+	case 3:
+		println("Befriedigend");
+		break;
+	case 4:
+		println("Genügend");
+		break;
+	case 5:
+		println("Nicht genügend");	
+		break;
+	default:
+		println("*** Hier stimmt etwas nicht! ***");
+		break;
+}
+</code></pre>
+</section>
+
+<section>
+	<h3>switch-Anweisung - Beispiel 2</h3>
+	<pre><code data-trim data-line-numbers>
+	String note;
+	...
+	
+	switch (note) {
+		case "Sehr gut":
+			println(1);
+			break;
+		case "Gut":
+			println(2);
+			break;
+		case "Befriedigend":
+			println(3);
+			break;
+		case "Genügend":
+			println(4);
+			break;
+		case "Nicht genügend":
+			println(5);	
+			break;
+		default:
+			println(note + " ist keine Note");
+			break;
+	}
+	</code></pre>
+	</section>
+
+
+<section>
+<h3>Boolean als Rückgabetyp (1/2)</h3>
+<p>Beispiel für eine Funktion die einen Wert mit dem Datentyp <a href="#bedingung-boolean"><code>boolean</code></a> zurückliefert.</p>
+
+<pre><code data-trim class="language-java">
+boolean kochtdasWasser(float temperatur){
+	if(temperatur >= 100) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+void setup() {
+	float wasserTemperatur = 62.5;
+
+	if(kochtdasWasser(wasserTemperatur) == true) {
+		println("Gib die Nudeln in den Topf!");
+	}
+}
+</code></pre>
+
+</section> 
+
+
+<section>
+	<h3>Boolean als Rückgabetyp (2/2)</h3>
+
+	<p>Schauen wir uns folgenden Code von der letzten Folie genauer an.</p>
+
+	<pre><code data-trim class="language-java">
+	...
+		if(kochtdasWasser(wasserTemperatur) == true) {
+			println("Gib die Nudeln in den Topf!");
+		}
+	...
+	</code></pre>
+	
+	<p>Die Bedingung ist <code>true</code> wenn der Rückgabewert der Funktion true ist. Dies kann auch kürzer geschrieben werden!</p>
+
+	<pre><code data-trim class="language-java">
+	...
+		if(kochtdasWasser(wasserTemperatur)) {
+			println("Gib die Nudeln in den Topf!");
+		}
+	...
+	</code></pre>
+
+	</section> 
+
+	<section>
+		<h3>return und Verzweigungen</h3>
+	
+		<p>Wenn eine Funktion einen Wert zurückliefert (Rückgabetyp ist nicht <code>void</code>), muss in <b>jedem</b> möglichen Fall einen Wert zurück geliefert werden.</p>
+	
+		<pre><code data-trim class="language-java">
+		String doSomething(int a) {
+			if (a>=10) {
+				return "zweistellige Zahl";
+			}
+			//Fehler, da nicht in jedem Fall ein Wert zurückgegeben wird
+		}
+		</code></pre>
+		
+	
+		<pre><code data-trim class="language-java">
+		String doSomething(int a) {
+			if (a>=10) {
+				return "zweistellige Zahl";
+			}
+
+			return "einstellige Zahl";	//korrekt. Egal ob die Bedingung zutrifft oder nicht, 
+			                            //es wird immer ein Wert zurückgegeben
+		}
+		</code></pre>
+	
+		</section> 
+
+			<section>
+				<p class="center">
+					Fragen? <br>
+					Wünsche? <br>
+					Beschwerden? <br>
+					Anregungen?
+				</p>
+			</section>
+
+		</div>
+	</div>
+
+
+
+	<script src="../../../../node_modules/reveal.js/dist/reveal.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/notes/notes.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/markdown/markdown.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/search/search.js"></script>
+
+	<script src="../reveal-config.js"></script>
+</body>
+
+</html>

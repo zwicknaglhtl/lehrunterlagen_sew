@@ -1,5 +1,0 @@
-besser erklären, wozu wir Funktionen einführen. Typisches Beispiel: ein Parameter wird direkt in der ersten Zeile der Methode geändert, weil es für den einen Aufruf so passt. Black Box/Maschine mit Eingängen und Ausgängen. Kann die Funktion ("Maschine") benutzen, ohne zu wissen, wie sie innen aufgebaut ist. (Mixer - Mehl + Wasser, raus kommt Teig, egal wie der Mixer innen aufgebaut ist).
-
-Code Bsp. SuS zu Verfügung stelle
-
-Funktionen überladen? zu viel an dieser Stelle? (ADV?)

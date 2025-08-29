@@ -1,0 +1,196 @@
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="774px" height="302px" viewBox="-0.5 -0.5 774 302" content="&lt;mxfile&gt;&lt;diagram id=&quot;d_oB9ZAYqUGOl-w3ar2g&quot; name=&quot;Page-1&quot;&gt;7ZpZb+M2EMc/Sx8M7BaIodvSY2wnKbDYNkCA3W7faGsiEZZElaLi49N3qPty4Ti+iq2BOOKQGon8/zgkJxnps3DzxEnsf2UuBCNNcTcjfT7StIlq47c0bHODaTq5wePUzU1qbXihOyiMSmFNqQtJq6FgLBA0bhuXLIpgKVo2wjlbt5u9sqD91Jh40DO8LEnQt36nrvBzq61NavtvQD2/fLJqFf0LSdm46EniE5etGyb9YaTPOGMivwo3Mwjk2JXjkt/3uKe2ejEOkTjkBi2/4Y0EadG3kWYFeOv0laEHHBuyzCusv1P5UtMZSzkFjlW/w7o2y76IbdBuK33cJZl899hA0+JN8w7Lk7+Be7CIaIINspsV+UIjTXr0YE2XvkgjDwu/4s8nYzyxquo1cPE590TCGC+iRRIPl4P8iY95r/IHFwpUb60J2Ei7L8IADSpekoB6EV4vcTixz/r0DR9JEYT7oiKkritvn3LAfpJF5gr7MY0ZjUSGmTkdmXPpKxUsH4vMdSI4W8GMBQz9ziMWQfVKTfkKReVzYdMwFXI+AQtB8C02KWtLCou5pdsFauuaVEspbH6D0hJJUkwOr3Jd84MXBULDOOnvxukFcUKTpryQSCLwzNn7oFLtQahoJJ16JNrJ338RP/i5qbCsFhWGafaoUI0zUWH0qJgCwXmNyszkKkASqfwXFoZkh0JBlM3wXJ0Fb0oqa+awoyEJqgZlfZxGK9EQdVErqvhkAdEv75A2gFdxfmEld48kpIFUZWgm5E2KBRBXzZOwYJpqiwVtIEJo+gAL5glYMHssfCOcypGMMm3Azy5eRzN9NJ3JZcbdw4MLfAdUUC+r/47dl40pJNniVHr9X/M8MJfzuJz/k/78r/Q9teZWT/M/YuBEMC6lu7lweyWFnLZCutKflerQuq2fQCFnYN3u6AKRey+3zlKIACM2XbZVOmLUYEPFn1KqsTopij9k3Vgpa+ebQsmssG0UnoFT7KbkIbMlKxBLv3iXvXIk+Xs1VyVwW3v9vj6N8f+3CcIhIIK+tU8IQ5oUT3iWbNbyW1Zn29adePmrF3c1d/QdR6bV4WjScSQIbrhFz1GGSNXtg6gpj2NXw0Y3GtjcIUYXwMa8KWyMjtpGuc97LzaG0nGkng8b9crYmBjvWtygqOcHR78pcHRF74BzZLzRbP1i4AxlKy4ab7T2MmVNPsYN4sK3hWvVLA0llGW5dp6Vts1S1/1eEm8EO0Nx2quTro0V9Tjy9G6mY2KdjbyhxMYlyXPUNnm6fqaIdSucWHaHExwD58ilzVE7nJwvQvVTHVdKgM2JdPZQ51ZlwlxT7tPE5elyJa9XJJInZ7o/3dI+SCseJDHQpZ8ftdfA8Wg+/nga7TLn7r3EH35EM9rxZjBvYg/MCeMEJzS1nzi5RAT6TwUN1e4sCF0XB+9p1MudofrJkS8BCUPgUT9hXcy5bEBh/9T9SoQPIY7kCqt3aYjfTzyNYwp8Ty4N58Aa6QGB01n5dB8EHoSQefdoIAZvSViUyBqSIh+Ij8y+3smOMD7Y/kVwDB0cln6URt7nm4sPR2d9evFjYIrsz8U63fPbgblY9RSJeXVy5W1Nlej5kRfL/fXH99OWqTf30+q43l+/fz/diW8HCXyhtJFqj/HoXn3UDk3a2DguBJqaPW5vwYzyxHiGIGhfmUO5wW9lBJSPpiAbKNqO/VOgaNjVFr36K6ODRxWn/hyZnLIm5thuUK6dCUws1v96kTev/39Ff/gH&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs/>
+    <g>
+        <rect x="80" y="101" width="600" height="20" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 111px; margin-left: 380px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: nowrap; ">
+                                <font face="Courier New" style="font-size: 22px">
+                                    ergebnis = 2 + gewichtung * (4.76 + wert);
+                                </font>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="380" y="115" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                    ergebnis = 2 + gewichtung * (4.76 + wert);
+                </text>
+            </switch>
+        </g>
+        <rect x="119" y="176" width="140" height="20" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 186px; margin-left: 189px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: nowrap; ">
+                                <font face="Source Sans Pro" style="font-size: 18px">
+                                    eine ganze Zahl
+                                </font>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="189" y="190" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                    eine ganze Zahl
+                </text>
+            </switch>
+        </g>
+        <rect x="504" y="1" width="230" height="50" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 1px; height: 1px; padding-top: 26px; margin-left: 506px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 18px; font-family: Source Sans Pro; color: #000000; line-height: 1.2; pointer-events: all; white-space: nowrap; ">
+                                Beachte, dass Kommazahlen
+                                <br/>
+                                einen Dezimal
+                                <b>
+                                    punkt
+                                </b>
+                                haben!
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="506" y="31" fill="#000000" font-family="Source Sans Pro" font-size="18px">
+                    Beachte, dass Kommazahlen...
+                </text>
+            </switch>
+        </g>
+        <rect x="273" y="196" width="250" height="50" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 1px; height: 1px; padding-top: 221px; margin-left: 275px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 18px; font-family: Source Sans Pro; color: #000000; line-height: 1.2; pointer-events: all; white-space: nowrap; ">
+                                Variablen stehen für den
+                                <br/>
+                                derzeitigen Wert dieser Variable
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="275" y="226" fill="#000000" font-family="Source Sans Pro" font-size="18px">
+                    Variablen stehen für den...
+                </text>
+            </switch>
+        </g>
+        <rect x="343" y="21" width="100" height="30" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 36px; margin-left: 393px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
+                            <div style="display: inline-block; font-size: 18px; font-family: Source Sans Pro; color: #000000; line-height: 1.2; pointer-events: all; white-space: nowrap; ">
+                                Operatoren
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="393" y="41" fill="#000000" font-family="Source Sans Pro" font-size="18px" text-anchor="middle">
+                    Operatoren
+                </text>
+            </switch>
+        </g>
+        <path d="M 543.1 55 L 517.08 86.11" fill="none" stroke="none" pointer-events="stroke"/>
+        <path d="M 513.72 90.14 L 515.52 82.53 L 517.08 86.11 L 520.89 87.02 Z" fill="none" stroke="none" pointer-events="all"/>
+        <path d="M 543.1 55 M 543.1 55 C 539.31 60.27 534.52 68.04 517.08 86.11 M 543.1 55 C 534.91 65.25 526.83 76.88 517.08 86.11" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 515.28 82.8 C 515.28 82.8 515.28 82.8 515.28 82.8 M 515.28 82.8 C 515.28 82.8 515.28 82.8 515.28 82.8 M 513.71 90.71 C 515.21 89.77 516.28 88.04 517.64 86.18 M 513.71 90.71 C 514.3 89.86 515.47 88.47 517.64 86.18" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 513.72 90.14 M 513.72 90.14 C 514.26 89.09 513.87 87.43 515.52 82.53 M 513.72 90.14 C 514.26 88.34 514.65 86.85 515.52 82.53 M 515.52 82.53 C 516.11 83.9 516.44 85.09 517.08 86.11 M 515.52 82.53 C 516.17 83.67 516.43 84.87 517.08 86.11 M 517.08 86.11 C 518.4 86.11 519.55 86.31 520.89 87.02 M 517.08 86.11 C 518.23 86.56 519.51 86.55 520.89 87.02 M 520.89 87.02 C 518.51 88.85 514.97 89.21 513.72 90.14 M 520.89 87.02 C 519.42 88 518.12 88.11 513.72 90.14" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 358 191 L 353.53 137.35" fill="none" stroke="none" pointer-events="stroke"/>
+        <path d="M 353.09 132.11 L 357.16 138.8 L 353.53 137.35 L 350.19 139.38 Z" fill="none" stroke="none" pointer-events="all"/>
+        <path d="M 358 191 M 358 191 C 357.72 178.33 357.28 166.79 353.53 137.35 M 358 191 C 357.98 181.02 356.06 169.87 353.53 137.35" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 352.84 132.4 C 352.84 132.4 352.84 132.4 352.84 132.4 M 352.84 132.4 C 352.84 132.4 352.84 132.4 352.84 132.4 M 353.89 137.29 C 354.18 136.84 354.44 136.59 355.2 135.78 M 353.89 137.29 C 354.27 136.76 354.69 136.35 355.2 135.78" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 353.09 132.11 M 353.09 132.11 C 354.85 134.29 355.61 136.85 357.16 138.8 M 353.09 132.11 C 354.28 133.8 354.97 135.03 357.16 138.8 M 357.16 138.8 C 355.89 138.34 355.19 137.71 353.53 137.35 M 357.16 138.8 C 356.28 138.53 355.57 138.13 353.53 137.35 M 353.53 137.35 C 352.51 138.23 351.73 138.08 350.19 139.38 M 353.53 137.35 C 352.56 137.85 351.9 138.49 350.19 139.38 M 350.19 139.38 C 351.43 138.19 350.68 136.57 353.09 132.11 M 350.19 139.38 C 350.75 138.09 351.29 136.37 353.09 132.11" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 193.06 171 L 231.34 135.34" fill="none" stroke="none" pointer-events="stroke"/>
+        <path d="M 235.18 131.76 L 232.45 139.09 L 231.34 135.34 L 227.67 133.97 Z" fill="none" stroke="none" pointer-events="all"/>
+        <path d="M 193.06 171 M 193.06 171 C 201.49 164.93 208.91 157.39 231.34 135.34 M 193.06 171 C 203.52 162.09 214.5 151.19 231.34 135.34" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 227.87 133.74 C 227.87 133.74 227.87 133.74 227.87 133.74 M 227.87 133.74 C 227.87 133.74 227.87 133.74 227.87 133.74 M 231.54 135.61 C 232.33 134.92 232.8 133.84 234.83 131.84 M 231.54 135.61 C 232.72 134.31 233.4 133.32 234.83 131.84" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 235.18 131.76 M 235.18 131.76 C 234.73 134.24 234.3 135.73 232.45 139.09 M 235.18 131.76 C 234.57 133.98 234.06 135.22 232.45 139.09 M 232.45 139.09 C 232.13 137.52 231.25 136.13 231.34 135.34 M 232.45 139.09 C 232.13 137.63 231.52 136.06 231.34 135.34 M 231.34 135.34 C 230.28 134.78 228.51 134.75 227.67 133.97 M 231.34 135.34 C 230.07 134.71 228.57 134.49 227.67 133.97 M 227.67 133.97 C 229.65 133.03 232.56 133.37 235.18 131.76 M 227.67 133.97 C 230.1 133.42 233.19 132.49 235.18 131.76" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 362 53.01 L 285.61 93.99" fill="none" stroke="none" pointer-events="stroke"/>
+        <path d="M 280.99 96.47 L 285.5 90.08 L 285.61 93.99 L 288.81 96.25 Z" fill="none" stroke="none" pointer-events="all"/>
+        <path d="M 362 53.01 M 362 53.01 C 344.43 62.09 330.43 70.94 285.61 93.99 M 362 53.01 C 335.14 65.64 308.97 79.79 285.61 93.99" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 285.66 89.9 C 285.66 89.9 285.66 89.9 285.66 89.9 M 285.66 89.9 C 285.66 89.9 285.66 89.9 285.66 89.9 M 283.43 98.56 C 284.19 97.23 285.49 96.69 286.71 94.79 M 283.43 98.56 C 284.32 97.77 285.15 96.33 286.71 94.79" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 280.99 96.47 M 280.99 96.47 C 282.06 94.47 282.59 93.14 285.5 90.08 M 280.99 96.47 C 282.08 94.87 284.03 92.63 285.5 90.08 M 285.5 90.08 C 285.41 91.34 285.89 93.13 285.61 93.99 M 285.5 90.08 C 285.43 91.47 285.71 92.73 285.61 93.99 M 285.61 93.99 C 286.08 94.75 287.21 95.25 288.81 96.25 M 285.61 93.99 C 286.33 94.39 287.44 95.05 288.81 96.25 M 288.81 96.25 C 285.99 96.85 282.35 95.85 280.99 96.47 M 288.81 96.25 C 286.41 96.49 283.8 96.57 280.99 96.47" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 421 51.99 L 440.77 85.51" fill="none" stroke="none" pointer-events="stroke"/>
+        <path d="M 443.43 90.04 L 436.86 85.78 L 440.77 85.51 L 442.89 82.23 Z" fill="none" stroke="none" pointer-events="all"/>
+        <path d="M 421 51.99 M 421 51.99 C 426.72 58.49 427.87 65.96 440.77 85.51 M 421 51.99 C 425.94 58.72 429.92 67.22 440.77 85.51" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 436.66 86.01 C 436.66 86.01 436.66 86.01 436.66 86.01 M 436.66 86.01 C 436.66 86.01 436.66 86.01 436.66 86.01 M 440.33 87.88 C 441.3 86.8 442.67 84.39 444.27 83.35 M 440.33 87.88 C 441.07 87.04 442.23 85.95 444.27 83.35" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 443.43 90.04 M 443.43 90.04 C 440.68 88.22 438.4 87.28 436.86 85.78 M 443.43 90.04 C 441.44 88.15 438.63 86.73 436.86 85.78 M 436.86 85.78 C 438.32 85.64 439.18 85.6 440.77 85.51 M 436.86 85.78 C 438.02 85.73 439.08 85.51 440.77 85.51 M 440.77 85.51 C 441.49 84.38 441.93 83.75 442.89 82.23 M 440.77 85.51 C 441.56 84.48 442.21 83.13 442.89 82.23 M 442.89 82.23 C 442.3 84.25 443.88 86.38 443.43 90.04 M 442.89 82.23 C 442.84 84.71 443.35 87.14 443.43 90.04" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all"/>
+        <rect x="0" y="1" width="280" height="40" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 1px; height: 1px; padding-top: 21px; margin-left: 2px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: nowrap; ">
+                                <font face="Source Sans Pro" style="font-size: 18px">
+                                    Das Ergebnis des Ausdrucks kann in
+                                    <br/>
+                                    einer Variable gespeichert werden.
+                                </font>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="2" y="25" fill="#000000" font-family="Helvetica" font-size="12px">
+                    Das Ergebnis des Ausdrucks kann in...
+                </text>
+            </switch>
+        </g>
+        <path d="M 140 42 L 160.29 85.24" fill="none" stroke="none" pointer-events="stroke"/>
+        <path d="M 162.52 89.99 L 156.38 85.14 L 160.29 85.24 L 162.72 82.16 Z" fill="none" stroke="none" pointer-events="all"/>
+        <path d="M 140 42 M 140 42 C 143.64 52.8 146.54 58.73 160.29 85.24 M 140 42 C 148.53 57.24 154.7 72.51 160.29 85.24" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 156.53 84.97 C 156.53 84.97 156.53 84.97 156.53 84.97 M 156.53 84.97 C 156.53 84.97 156.53 84.97 156.53 84.97 M 159.55 87.6 C 160.54 86.35 162.7 84.02 163.48 83.07 M 159.55 87.6 C 160.99 85.89 162.69 83.99 163.48 83.07" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 162.52 89.99 M 162.52 89.99 C 159.94 89.22 158.29 86.47 156.38 85.14 M 162.52 89.99 C 160.78 88.61 159.65 87.47 156.38 85.14 M 156.38 85.14 C 157.58 85.1 158.97 85.09 160.29 85.24 M 156.38 85.14 C 157.01 85.15 158.16 85.36 160.29 85.24 M 160.29 85.24 C 160.87 84.24 161.6 83.73 162.72 82.16 M 160.29 85.24 C 161.14 84.18 161.93 82.88 162.72 82.16 M 162.72 82.16 C 163.23 84.11 162.3 86.5 162.52 89.99 M 162.72 82.16 C 162.74 84.08 162.27 85.44 162.52 89.99" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all"/>
+        <rect x="543" y="181" width="230" height="120" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 1px; height: 1px; padding-top: 241px; margin-left: 545px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 18px; font-family: Source Sans Pro; color: #000000; line-height: 1.2; pointer-events: all; white-space: nowrap; ">
+                                Klammern  werden wie in
+                                <br/>
+                                Mathematik zum Gruppieren
+                                <br/>
+                                verwendet. (Allgemein gilt
+                                <br/>
+                                sonst auch Punkt- vor
+                                <br/>
+                                Strichrechnung)
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="545" y="246" fill="#000000" font-family="Source Sans Pro" font-size="18px">
+                    Klammern  werden wie in...
+                </text>
+            </switch>
+        </g>
+        <path d="M 571.4 183.4 L 487.11 127.52" fill="none" stroke="none" pointer-events="stroke"/>
+        <path d="M 482.73 124.62 L 490.5 125.57 L 487.11 127.52 L 486.63 131.4 Z" fill="none" stroke="none" pointer-events="all"/>
+        <path d="M 571.4 183.4 M 571.4 183.4 C 554.68 170.81 537.12 160.19 487.11 127.52 M 571.4 183.4 C 545.58 166.76 519.94 149.89 487.11 127.52" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 482.67 124.68 C 482.67 124.68 482.67 124.68 482.67 124.68 M 482.67 124.68 C 482.67 124.68 482.67 124.68 482.67 124.68 M 485.04 128.06 C 486 126.87 486.64 126.77 487.66 125.05 M 485.04 128.06 C 485.95 127.01 486.91 126.2 487.66 125.05" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 482.73 124.62 M 482.73 124.62 C 484.96 124.89 487.03 125.05 490.5 125.57 M 482.73 124.62 C 484.93 124.77 487.55 124.91 490.5 125.57 M 490.5 125.57 C 489.68 125.97 489.04 126.32 487.11 127.52 M 490.5 125.57 C 489.53 126.11 488.51 126.84 487.11 127.52 M 487.11 127.52 C 486.88 128.01 487.23 128.95 486.63 131.4 M 487.11 127.52 C 486.87 128.87 486.63 130.45 486.63 131.4 M 486.63 131.4 C 485.88 130.03 484.97 127.84 482.73 124.62 M 486.63 131.4 C 485.51 129.21 483.73 126.76 482.73 124.62" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 601.99 180.04 L 626.05 129.74" fill="none" stroke="none" pointer-events="stroke"/>
+        <path d="M 628.32 125.01 L 628.45 132.83 L 626.05 129.74 L 622.14 129.81 Z" fill="none" stroke="none" pointer-events="all"/>
+        <path d="M 601.99 180.04 M 601.99 180.04 C 606.95 167.59 611.12 158.35 626.05 129.74 M 601.99 180.04 C 611.95 161.42 620.59 141.84 626.05 129.74" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 622.38 129.53 C 622.38 129.53 622.38 129.53 622.38 129.53 M 622.38 129.53 C 622.38 129.53 622.38 129.53 622.38 129.53 M 626.71 130.65 C 627.96 129.58 628.6 128 629.99 126.87 M 626.71 130.65 C 627.58 129.34 628.92 128.38 629.99 126.87" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 628.32 125.01 M 628.32 125.01 C 628.48 128.63 627.99 130.68 628.45 132.83 M 628.32 125.01 C 628.67 127.61 628.59 130.52 628.45 132.83 M 628.45 132.83 C 627.22 131.56 626.58 130.61 626.05 129.74 M 628.45 132.83 C 627.64 131.96 627.07 131.27 626.05 129.74 M 626.05 129.74 C 625.16 129.84 623.9 129.59 622.14 129.81 M 626.05 129.74 C 625.12 129.62 624.05 129.6 622.14 129.81 M 622.14 129.81 C 624.8 127.79 625.52 126.65 628.32 125.01 M 622.14 129.81 C 624 128.54 625.9 127.09 628.32 125.01" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" pointer-events="all"/>
+    </g>
+    <switch>
+        <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/>
+        <a transform="translate(0,-5)" xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems" target="_blank">
+            <text text-anchor="middle" font-size="10px" x="50%" y="100%">
+                Viewer does not support full SVG 1.1
+            </text>
+        </a>
+    </switch>
+</svg>

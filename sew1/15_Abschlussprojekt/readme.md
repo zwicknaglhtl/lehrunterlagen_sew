@@ -1,1 +1,0 @@
-Präsentation mit chatgpt erstellt, Überarbeiten und anpassen

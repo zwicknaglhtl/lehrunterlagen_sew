@@ -1,0 +1,18 @@
+collections_list.md und collections.md ansehen ob in den Folien alles abgedeckt ist oder man noch etwas rausnehmen sollte.
+
+überarbeite den Aufbau der Codebeispiele
+
+Hilfsklasse Collections noch nirgends erwähnt, oder?
+
+weiterführende Sortiermöglichkeiten erklären - advanced module?
+
+in den Folien zum Sortieren direkt ein kleines Codebeispiel einbauen um Generics zu erklären
+
+in den Übungen noch einbauen: Iterator und löschen von Elementen
+
+evt. gute Videos (von SuS empfohlen):
+https://www.youtube.com/watch?v=ZA2oNhtNk3w
+https://www.youtube.com/watch?v=oAp4GYprVHM
+
+avoid the substraction trick: https://www.baeldung.com/java-comparator-comparable#avoid-subtraction
+Comparator comparing: https://www.baeldung.com/java-8-comparator-comparing

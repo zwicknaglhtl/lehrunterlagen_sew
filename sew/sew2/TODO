@@ -1,0 +1,48 @@
+Kapitel in SEW 2:
+
+- OOP
+- Bitoperationen
+- Exceptions
+- JavaFX
+- File I/O
+- Collections
+
+
+Packages? fehlt noch komplett
+
+git? Videos zur Einführung machen
+
+String format künftig in der ersten einbauen?
+Methoden Überladen ebenfalls in die erste nehmen?
+
+Idee: kann man in moodle nicht Videos mit Fragen ergänzen? Könnte spannend sein für einen selbständigen Unterricht
+
+Feedback: Videos + getrennt davon Codebeispiele macht das Lernen schwer. Lieber mehr Textunterlagen + direkt verlinkte Codebeispiele.
+
+Umgang mit Date? Würde sich im Rahmen von File I/O anbieten (Übung Student Stats)
+
+Embedding Repls: https://docs.replit.com/hosting/embedding-repls
+
+
+https://replit.com/curriculum/Intro-to-Java
+https://replit.com/curriculum/Intro-to-Object-Oriented-Programming-with-Java
+
+
+Mögliche Videos:
+
+https://www.youtube.com/c/JonasKeil/playlists
+https://www.youtube.com/watch?v=dcPM1NrgIdA&list=PL_pqkvxZ6ho1foDU2vEutcBXwD13SsjuZ
+https://www.youtube.com/playlist?list=PLywzm7Lq4JoKOQwvHwRpQtLpr-LF3qLGB
+-> https://drdanielappel.de/informatik/mein-kleines-java-tutorium/2-einstieg-in-die-objektorietierte-programmierung/
+
+http://www.codeadventurer.de/?p=1288
+
+https://open.sap.com/courses/java1/items/4dm9DxmC3n0BJTt8iKiBkq
+
+
+Codingcontest mit Übungsbeispielen
+https://catcoder.codingcontest.org/
+
+Vorbereitung auf Coding Contests könnten ADV Module sein.
+
+Reihenfolge Lists -> File I/o -> Collections beibehalten, weil es sehr hilfreich ist bei Collections dann Files einlesen zu können.

@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+        <text>$course$/top</text>
+
+    </category>
+  </question>
+
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+        <text>$course$/top/Vererbung - Arbeitsblatt</text>
+
+    </category>
+  </question>
+
+<!-- question: 7904143  -->
+  <question type="coderunner">
+    <name>
+      <text>Frage 6</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Frage 6<br></p><p>Schreibe die Methode, die in der Klasse LKW stehen müsste, damit diese Zeile "TUUUT" ausgibt.</p><p></p><pre><br></pre><p></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.0000000</penalty>
+    <hidden>0</hidden>
+    <coderunnertype>java_method</coderunnertype>
+    <prototypetype>0</prototypetype>
+    <allornothing>1</allornothing>
+    <penaltyregime>10, 20, ...</penaltyregime>
+    <precheck>0</precheck>
+    <showsource>0</showsource>
+    <answerboxlines>18</answerboxlines>
+    <answerboxcolumns>100</answerboxcolumns>
+    <answerpreload></answerpreload>
+    <globalextra></globalextra>
+    <useace></useace>
+    <resultcolumns></resultcolumns>
+    <template></template>
+    <iscombinatortemplate></iscombinatortemplate>
+    <allowmultiplestdins></allowmultiplestdins>
+    <answer><![CDATA[public String getHupgeraeusch(){
+    return "TUUUT";
+}
+]]></answer>
+    <validateonsave>1</validateonsave>
+    <testsplitterre></testsplitterre>
+    <language></language>
+    <acelang></acelang>
+    <sandbox></sandbox>
+    <grader></grader>
+    <cputimelimitsecs></cputimelimitsecs>
+    <memlimitmb></memlimitmb>
+    <sandboxparams></sandboxparams>
+    <templateparams></templateparams>
+    <hoisttemplateparams>1</hoisttemplateparams>
+    <twigall>0</twigall>
+    <uiplugin></uiplugin>
+    <attachments>0</attachments>
+    <attachmentsrequired>0</attachmentsrequired>
+    <maxfilesize>10240</maxfilesize>
+    <filenamesregex></filenamesregex>
+    <filenamesexplain></filenamesexplain>
+    <displayfeedback>2</displayfeedback>
+    <testcases>
+      <testcase testtype="0" useasexample="0" hiderestiffail="0" mark="1.0000000" >
+      <testcode>
+                <text>System.out.print(getHupgeraeusch());</text>
+      </testcode>
+      <stdin>
+                <text></text>
+      </stdin>
+      <expected>
+                <text>TUUUT</text>
+      </expected>
+      <extra>
+                <text></text>
+      </extra>
+      <display>
+                <text>SHOW</text>
+      </display>
+    </testcase>
+    </testcases>
+  </question>
+
+<!-- question: 7904184  -->
+  <question type="ddmarker">
+    <name>
+      <text>Frage 14 Bezeichnung Klassen</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[Frage 14&nbsp;<br><br>Ziehe die Begriffe (<b>eindeutig</b>) auf die passenden Felder.]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <shuffleanswers/>
+    <correctfeedback format="html">
+      <text>Die Antwort ist richtig.</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Die Antwort ist teilweise richtig.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Die Antwort ist falsch.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+        <file name="vererbung_hintergrund_600x400.jpg" encoding="base64">/9j/4AAQSkZJRgABAQEAYABgAAD//gA7Q1JFQVRPUjogZ2QtanBlZyB2MS4wICh1c2luZyBJSkcgSlBFRyB2ODApLCBxdWFsaXR5ID0gODAK/9sAQwAGBAUGBQQGBgUGBwcGCAoQCgoJCQoUDg8MEBcUGBgXFBYWGh0lHxobIxwWFiAsICMmJykqKRkfLTAtKDAlKCko/9sAQwEHBwcKCAoTCgoTKBoWGigoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgo/8AAEQgBkAIVAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A+mKKKKwPPCiiigAooooAKKKKACiiigApKWkoAKWkpaAEooooAKWkpaAEooooAKKKKACiiigAooooAKKKKACiiigAooooAKclNpyVjX/hs2ofGhaKKK887wooooAKKKKACiiigApaSloAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAZRRRXrHlBRRRQAUUUUAFFFFABRRRQAUlLSUAFLSUtACUUUUAFLSUtACUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFOSm05Kxr/w2bUPjQtFFFeed4UUUUAFFFFABRRRQAUtJS0AFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAMooor1jygooooAKKKKACiiigAooooAKSlpKAClpKWgBKKKKAClpKWgBKKKKACiiigAooooAKKKKACiiigAooooAKKKKACnJTaclY1/wCGzah8aFooorzzvCiiigAooooAKKKKAClpKWgAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigBlFFFeseUFFFFABRRRQAUUUUAFFFFABSUtJQAUtJS0AJRRRQAUtJS0AJRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAU5KbTkrGv/DZtQ+NC0UUV553hRRRQAUUUUAFFFFABS0lLQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAyiiivWPKCiiigAooooAKKKKACiiigApKWkoAKWkpaAEooooAKWkpaAEooooAKKKKACiiigAooooAKKKKACiiigAooooAKclNpyVjX/hs2ofGhaKKK887wooooAKKKKACiiigApaSloAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAZRRRXrHlBRRRQAUUUUAFFFFABRRRQAUlLSUAFLSUtACUUUUAFLSUtACUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFOSm05Kxr/AMNm1D40LRRRXnneFFFFABRRRQAUUUUAFLSUtABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFADKKKK9Y8oKKKKACiiigAooooAKKKKACkpaSgApaSloASiiigApaSloASiiigAooooAKKKKACiiigAooooAKKKKACiiigApyU2nJWNf+Gzah8aFooorzzvCiiigAooooAKKKKAClpKWgAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigBlFFFeseUFFFFABRRRQAUUUUAFFFFABSUtJQAUtJS0AJRRRQAUtJS0AJRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAU5KbTkrGv/AA2bUPjQtFFFeed4UUUUAFFFFABRRRQAUtJS0AFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAMooor1jygooooAKKKKACiiigAooooAKSlpKAClpKWgBKKKKAClpKWgBKKKKACiiigAooooAKKKKACiiigAooooAKKKKACnJTaclY1/4bNqHxoWiiivPO8KKKKACiiigAooooAKWkpaACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAGUUUV6x5QUUUUAFFFFABRRRQAUUUUAFJS0lABS0lLQAlFFFABS0lLQAlFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABTkptOSsa/8Nm1D40LRRRXnneFFFFABRRRQAUUUUAFLSUtABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFADKKKK9Y8oKKKKACiiigAooooAKKKKACkpaSgApaSloASiiigApaSloASiiigAooooAKKKKACiiigAooooAKKKKACiiigApyU2nJWNf8Ahs2ofGhaKKK887wooooAKKKKACiiigApaSloAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAZRRRXrHlBRRRQAUUUdqAPLfHXxo0Lwt4iGg21pf61q4/wBbbafGHMfGcH1OBkgZx3rW+GPxL07x8+pwWmn6jp95pzKtxBdxbSu7OORxn5TwcH9a8Y8G+I4fhB8VvF8Hju1uYYNauPNttTEZkXYHZuMAkgiRc4yQVAI9PpPRtR03WbRdR0i6tryCVQouIGDBgMkDI9Nx47ZqmazSS2NCivJvgj4+1nxnr3jWz1n7L5OkXaQ23kxlTtLTA7uTk/u1/Wj4gePtZ0H4x+D/AAzY/Zf7N1UKbjzIyX5dl+U544A7UrdCOR3ses0leCeIfiX45/4XVrPgvwtp+nXqRRIYPPBTycxRu0kjZ5A3EY46jr0JN8S/HXgDXbCP4p6ZpzaHfv5SX+m5PlMBk/Lkk9sggcZxnBFPlY/Zs97pa4T4r/EK38B6ZabLZr/WNRkMFhZK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ASiiigAooooAKKKKACiiigAooooAKKKKACiiigApyU2nJWNf+Gzah8aFooorzzvCiiigAooooAKKKKAClpKWgAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigBlFFFeseUFFFFABRRRQAUUUUAFFFFABSUtJQAUtJS0AJRRRQAUtJS0AJRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAU5KbTkrGv/AA2bUPjQtFFFeed4UUUUAFFFFABRRRQAUtJS0AFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAMooor1jygooooAKKKKACiiigAooooAKSlpKAClpKWgBKKKKAClpKWgBKKKKACiiigAooooAKKKKACiiigAooooAKKKKACnJTaclY1/4bNqHxoWiiivPO8KKKKACiiigAooooAKWkpaACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAGUUUV6x5QUUUUAFFFFABRRRQAUUUUAFJS0lABS0lLQAlFFFABS0lLQAlFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABTkptOSsa/8Nm1D40LRRRXnneFFFFABRRRQAUUUUAFLSUtABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFADKKKK9Y8oKKKKACiiigAooooAKKKKACkpaSgApaSloASiiigApaSloASiiigAooooAKKKKACiiigAooooAKKKKACiiigApyU2nJWNf8Ahs2ofGhaKKK887wooooAKKKKACiiigApaSloAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAZRRRXrHlBRRRQAUUUUAFFFFABRRRQAUlLSUAFLSUtACUUUUAFLSUtACUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFOSm05Kxr/w2bUPjQtFFFeed4UUUUAFFFFABRRRQAUtJS0AFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAMooor1jygooooAKKKKACiiigAooooAKSlpKAClpKWgBKKKKAClpKWgBKKKKACiiigAooooAKKKKACiiigAooooAKKKKACnJTaclY1/4bNqHxoWiiivPO8KKKKACiiigAooooAKWkpaACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAGUUUV6x5QUUUUAFFFFABRRRQAUUUUAFJS0lABS0lLQAlFFFABS0lLQAlFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABTkptOSsa/wDDZtQ+NC0UUV553hRRRQAUUUUAFFFFABS0lLQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAyiiivWPKCiiigAooooAKKKKACiiigApKWkoAKWkpaAEooooAKWkpaAEooooAKKKKACiiigAooooAKKKKACiiigAooooAKclNpyVjX/hs2ofGhaKKK887wooooAKKKKACiiigApaSloAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAZRRRXrHlBRRRQAUUUUAFFFFABRRRQAUlLSUAFLSUtACUUUUAFLSUtACUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFOSm05Kxr/wANm1D40LRRRXnneFFFFABRRRQAUUUUAFLSUtABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFADKKKK9Y8oKKKKACiiigAooooAKKKKACkpaSgApaSloASiiigApaSloASiiigAooooAKKKKACiiigAooooAKKKKACiiigApyU2nJWNf+Gzah8aFooorzzvCiiigAooooAKKKKAClpKWgAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/2Q==</file>
+
+    <drag>
+      <no>1</no>
+      <text>Elternklasse</text>
+      <noofdrags>1</noofdrags>
+    </drag>
+    <drag>
+      <no>2</no>
+      <text>Oberklasse</text>
+      <noofdrags>1</noofdrags>
+    </drag>
+    <drag>
+      <no>3</no>
+      <text>Basisklasse</text>
+      <noofdrags>1</noofdrags>
+    </drag>
+    <drag>
+      <no>4</no>
+      <text>Kindklasse</text>
+      <noofdrags>1</noofdrags>
+    </drag>
+    <drag>
+      <no>5</no>
+      <text>abgeleitete Klasse</text>
+      <noofdrags>1</noofdrags>
+    </drag>
+    <drag>
+      <no>6</no>
+      <text>Unterklasse</text>
+      <noofdrags>1</noofdrags>
+    </drag>
+    <drop>
+      <no>1</no>
+      <shape>rectangle</shape>
+      <coords>0,0;278,397</coords>
+      <choice>1</choice>
+    </drop>
+    <drop>
+      <no>2</no>
+      <shape>rectangle</shape>
+      <coords>0,0;278,397</coords>
+      <choice>2</choice>
+    </drop>
+    <drop>
+      <no>3</no>
+      <shape>rectangle</shape>
+      <coords>0,0;278,397</coords>
+      <choice>3</choice>
+    </drop>
+    <drop>
+      <no>4</no>
+      <shape>rectangle</shape>
+      <coords>258,0;268,397</coords>
+      <choice>4</choice>
+    </drop>
+    <drop>
+      <no>5</no>
+      <shape>rectangle</shape>
+      <coords>258,0;268,397</coords>
+      <choice>5</choice>
+    </drop>
+    <drop>
+      <no>6</no>
+      <shape>rectangle</shape>
+      <coords>258,0;268,397</coords>
+      <choice>6</choice>
+    </drop>
+  </question>
+
+<!-- question: 7904185  -->
+  <question type="multichoice">
+    <name>
+      <text>Frage 15 Vererbung - Beispiele</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Frage 15&nbsp;</p><p>Welche Vererbungen machen logisch Sinn?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>false</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html">
+      <text>Die Antwort ist richtig.</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Die Antwort ist teilweise richtig.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Die Antwort ist falsch.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <answer fraction="50" format="html">
+      <text><![CDATA[<p>Schüler abgeleitet von Person<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="-25" format="html">
+      <text>Schüler abgeleitet von Lehrer</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="-50" format="html">
+      <text><![CDATA[<p>Schüler abgeleitet von Klasse<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="50" format="html">
+      <text><![CDATA[<p>Klassensprecher abgeleitet von Schüler<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="-50" format="html">
+      <text><![CDATA[<p>Unterrichtsfach abgeleitet von Schüler<br></p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 7904181  -->
+  <question type="numerical">
+    <name>
+      <text>Frage 11</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Frage 11</p><p>Welchen Wert gibt die Codezeile aus?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>4</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+      <tolerance>0</tolerance>
+    </answer>
+    <unitgradingtype>0</unitgradingtype>
+    <unitpenalty>0.1000000</unitpenalty>
+    <showunits>3</showunits>
+    <unitsleft>0</unitsleft>
+  </question>
+
+<!-- question: 7904182  -->
+  <question type="numerical">
+    <name>
+      <text>Frage 12</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Frage 12</p><p>Welchen Wert gibt die Codezeile aus?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>1</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+      <tolerance>0</tolerance>
+    </answer>
+    <unitgradingtype>0</unitgradingtype>
+    <unitpenalty>0.1000000</unitpenalty>
+    <showunits>3</showunits>
+    <unitsleft>0</unitsleft>
+  </question>
+
+<!-- question: 7904145  -->
+  <question type="shortanswer">
+    <name>
+      <text>Frage 1</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[Frage 1<br><br>Welches Schüsselwort fehlt an dieser Stelle um die Klasse<i> motorbetriebenesFahrzeug</i> von der Klasse <i>Fahrzeug</i> abzuleiten?]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <usecase>0</usecase>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>extends</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 7904180  -->
+  <question type="shortanswer">
+    <name>
+      <text>Frage 10</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Frage 10<br></p><p>Schreibe das fehlende Codestück um die Ausgabe wie in der Klasse <i>FahrzeugTest </i>angegeben<i>, zu erzeugen.</i></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <usecase>0</usecase>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>super.toString(*)*</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 7904183  -->
+  <question type="shortanswer">
+    <name>
+      <text>Frage 13</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Frage 13<br></p><p>Von welcher Klasse erben alle Klassen in Java ohne es explizit hinzuschreiben?</p><p><br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <usecase>0</usecase>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>Object</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 7904144  -->
+  <question type="shortanswer">
+    <name>
+      <text>Frage 5</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Frage 5<br></p><p>Was gibt diese Zeile aus?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <usecase>0</usecase>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>Tüt</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 7904177  -->
+  <question type="shortanswer">
+    <name>
+      <text>Frage 7</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Frage 7<br></p><p>Ergänze die fehlende Codezeile.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <usecase>0</usecase>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>super*(*power*,*antriebstyp*)*</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 7904179  -->
+  <question type="shortanswer">
+    <name>
+      <text>Frage 9</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Frage 9<br></p><p>Schreibe die fehlende Codezeile um den anderen Konstruktor in der Klasse mit einem (beliebigen) Default Antriebstyp aufzurufen.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <usecase>0</usecase>
+    <answer fraction="100" format="moodle_auto_format">
+      <text><![CDATA[this*(*power*,*"*"*)*]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 7904140  -->
+  <question type="truefalse">
+    <name>
+      <text>Frage 2</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Frage 2<br></p><p>Ist folgende Aussage wahr oder falsch?</p><p>Diese Codezeile kompiliert ohne Fehler.<br><br></p><p>Begründe für dich selbst die Antwort.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Korrekt! Die Zeile kompiliert nicht weil private Attribute nicht in den Subklassen sichtbar sind.<br></p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Die Zeile kompiliert nicht weil private Attribute nicht in den Subklassen sichtbar sind.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 7904141  -->
+  <question type="truefalse">
+    <name>
+      <text>Frage 3</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p></p><p>Frage 3<br></p><p>Ist folgende Aussage wahr oder falsch?</p><p>Diese Codezeile kompiliert ohne Fehler.<br><br></p><p>Begründe für dich selbst die Antwort.</p><p></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Korrekt! Die Zeile kompiliert weil protected Attribute in den Subklassen sichtbar sind.<br></p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Die Zeile kompiliert weil protected Attribute in den Subklassen sichtbar sind.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 7904142  -->
+  <question type="truefalse">
+    <name>
+      <text>Frage 4</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p></p><p>Frage 4<br></p><p>Ist folgende Aussage wahr oder falsch?</p><p>Diese Codezeile kompiliert ohne Fehler.<br><br></p><p>Begründe für dich selbst die Antwort.</p><p></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Korrekt! Die Zeile kompiliert weil public Attribute überall und damit auch in den Subklassen sichtbar sind.<br></p>]]></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text><![CDATA[<p>Die Zeile kompiliert weil public Attribute überall und damit auch in den Subklassen sichtbar sind.</p>]]></text>
+      </feedback>
+    </answer>
+  </question>
+
+<!-- question: 7904178  -->
+  <question type="truefalse">
+    <name>
+      <text>Frage 8</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Frage 8<br></p><p>Ist folgende Aussage wahr oder falsch?</p><p>An dieser Stelle muss noch ein anderer Konstruktor explizit aufgerufen werden. Es fehlt also eine Codezeile.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p><pre>Da die Superklasse einen Konstruktor ohne Parameter besitzt wird dieser automatisch aufgerufen ohne das ein Aufruf mit super explizit erfolgen muss.</pre></p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>

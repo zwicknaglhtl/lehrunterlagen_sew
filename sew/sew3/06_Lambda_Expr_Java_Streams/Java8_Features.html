@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<!--
+==============================================================================
+           "GitHub HTML5 Pandoc Template" v2.1 — by Tristano Ajmone           
+==============================================================================
+Copyright © Tristano Ajmone, 2017, MIT License (MIT). Project's home:
+
+- https://github.com/tajmone/pandoc-goodies
+
+The CSS in this template reuses source code taken from the following projects:
+
+- GitHub Markdown CSS: Copyright © Sindre Sorhus, MIT License (MIT):
+  https://github.com/sindresorhus/github-markdown-css
+
+- Primer CSS: Copyright © 2016-2017 GitHub Inc., MIT License (MIT):
+  http://primercss.io/
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The MIT License 
+
+Copyright (c) Tristano Ajmone, 2017 (github.com/tajmone/pandoc-goodies)
+Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+Copyright (c) 2017 GitHub Inc.
+
+"GitHub Pandoc HTML5 Template" is Copyright (c) Tristano Ajmone, 2017, released
+under the MIT License (MIT); it contains readaptations of substantial portions
+of the following third party softwares:
+
+(1) "GitHub Markdown CSS", Copyright (c) Sindre Sorhus, MIT License (MIT).
+(2) "Primer CSS", Copyright (c) 2016 GitHub Inc., MIT License (MIT).
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+==============================================================================-->
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Java8_Features</title>
+  <style type="text/css">
+@charset "UTF-8";.markdown-body{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;color:#24292e;font-family:-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:16px;line-height:1.5;word-wrap:break-word;box-sizing:border-box;min-width:200px;max-width:980px;margin:0 auto;padding:45px}.markdown-body a{color:#0366d6;background-color:transparent;text-decoration:none;-webkit-text-decoration-skip:objects}.markdown-body a:active,.markdown-body a:hover{outline-width:0}.markdown-body a:hover{text-decoration:underline}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body strong{font-weight:600}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1{font-size:2em;margin:.67em 0;padding-bottom:.3em;border-bottom:1px solid #eaecef}.markdown-body h2{padding-bottom:.3em;font-size:1.5em;border-bottom:1px solid #eaecef}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#6a737d}.markdown-body img{border-style:none}.markdown-body svg:not(:root){overflow:hidden}.markdown-body hr{box-sizing:content-box;height:.25em;margin:24px 0;padding:0;overflow:hidden;background-color:#e1e4e8;border:0}.markdown-body hr::before{display:table;content:""}.markdown-body hr::after{display:table;clear:both;content:""}.markdown-body input{margin:0;overflow:visible;font:inherit;font-family:inherit;font-size:inherit;line-height:inherit}.markdown-body [type=checkbox]{box-sizing:border-box;padding:0}.markdown-body *{box-sizing:border-box}.markdown-body blockquote{margin:0}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol ol,.markdown-body ul ol{list-style-type:lower-roman}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body ol ol ol,.markdown-body ol ul ol,.markdown-body ul ol ol,.markdown-body ul ul ol{list-style-type:lower-alpha}.markdown-body li>p{margin-top:16px}.markdown-body li+li{margin-top:.25em}.markdown-body dd{margin-left:0}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:600}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body code{font-family:SFMono-Regular,Consolas,"Liberation Mono",Menlo,Courier,monospace}.markdown-body pre{font:12px SFMono-Regular,Consolas,"Liberation Mono",Menlo,Courier,monospace;word-wrap:normal}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body blockquote{padding:0 1em;color:#6a737d;border-left:.25em solid #dfe2e5}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body table{display:block;width:100%;overflow:auto;border-spacing:0;border-collapse:collapse}.markdown-body table th{font-weight:600}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #dfe2e5}.markdown-body table tr{background-color:#fff;border-top:1px solid #c6cbd1}.markdown-body table tr:nth-child(2n){background-color:#f6f8fa}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body code{padding:.2em 0;margin:0;font-size:85%;background-color:rgba(27,31,35,.05);border-radius:3px}.markdown-body code::after,.markdown-body code::before{letter-spacing:-.2em;content:" "}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:0 0;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f6f8fa;border-radius:3px}.markdown-body pre code{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code::after,.markdown-body pre code::before{content:normal}.markdown-body .full-commit .btn-outline:not(:disabled):hover{color:#005cc5;border-color:#005cc5}.markdown-body kbd{box-shadow:inset 0 -1px 0 #959da5;display:inline-block;padding:3px 5px;font:11px/10px SFMono-Regular,Consolas,"Liberation Mono",Menlo,Courier,monospace;color:#444d56;vertical-align:middle;background-color:#fcfcfc;border:1px solid #c6cbd1;border-bottom-color:#959da5;border-radius:3px;box-shadow:inset 0 -1px 0 #959da5}.markdown-body :checked+.radio-label{position:relative;z-index:1;border-color:#0366d6}.markdown-body .task-list-item{list-style-type:none}.markdown-body .task-list-item+.task-list-item{margin-top:3px}.markdown-body .task-list-item input{margin:0 .2em .25em -1.6em;vertical-align:middle}.markdown-body::before{display:table;content:""}.markdown-body::after{display:table;clear:both;content:""}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.Alert,.Error,.Note,.Success,.Warning{padding:11px;margin-bottom:24px;border-style:solid;border-width:1px;border-radius:4px}.Alert p,.Error p,.Note p,.Success p,.Warning p{margin-top:0}.Alert p:last-child,.Error p:last-child,.Note p:last-child,.Success p:last-child,.Warning p:last-child{margin-bottom:0}.Alert{color:#246;background-color:#e2eef9;border-color:#bac6d3}.Warning{color:#4c4a42;background-color:#fff9ea;border-color:#dfd8c2}.Error{color:#911;background-color:#fcdede;border-color:#d2b2b2}.Success{color:#22662c;background-color:#e2f9e5;border-color:#bad3be}.Note{color:#2f363d;background-color:#f6f8fa;border-color:#d5d8da}.Alert h1,.Alert h2,.Alert h3,.Alert h4,.Alert h5,.Alert h6{color:#246;margin-bottom:0}.Warning h1,.Warning h2,.Warning h3,.Warning h4,.Warning h5,.Warning h6{color:#4c4a42;margin-bottom:0}.Error h1,.Error h2,.Error h3,.Error h4,.Error h5,.Error h6{color:#911;margin-bottom:0}.Success h1,.Success h2,.Success h3,.Success h4,.Success h5,.Success h6{color:#22662c;margin-bottom:0}.Note h1,.Note h2,.Note h3,.Note h4,.Note h5,.Note h6{color:#2f363d;margin-bottom:0}.Alert h1:first-child,.Alert h2:first-child,.Alert h3:first-child,.Alert h4:first-child,.Alert h5:first-child,.Alert h6:first-child,.Error h1:first-child,.Error h2:first-child,.Error h3:first-child,.Error h4:first-child,.Error h5:first-child,.Error h6:first-child,.Note h1:first-child,.Note h2:first-child,.Note h3:first-child,.Note h4:first-child,.Note h5:first-child,.Note h6:first-child,.Success h1:first-child,.Success h2:first-child,.Success h3:first-child,.Success h4:first-child,.Success h5:first-child,.Success h6:first-child,.Warning h1:first-child,.Warning h2:first-child,.Warning h3:first-child,.Warning h4:first-child,.Warning h5:first-child,.Warning h6:first-child{margin-top:0}h1.title,p.subtitle{text-align:center}h1.title.followed-by-subtitle{margin-bottom:0}p.subtitle{font-size:1.5em;font-weight:600;line-height:1.25;margin-top:0;margin-bottom:16px;padding-bottom:.3em}div.line-block{white-space:pre-line}
+  </style>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<article class="markdown-body">
+<hr>
+<nav id="TOC">
+<h1 class="toc-title">Contents</h1>
+<ul>
+<li><a href="#interfaces" id="toc-interfaces">Interfaces</a>
+<ul>
+<li><a href="#static-methoden"
+id="toc-static-methoden">static-Methoden</a></li>
+<li><a href="#default-methoden"
+id="toc-default-methoden">default-Methoden</a></li>
+<li><a href="#functional-interfaces"
+id="toc-functional-interfaces">Functional-Interfaces</a></li>
+<li><a href="#diverse-functional-interfaces-aus-java.util.function"
+id="toc-diverse-functional-interfaces-aus-java.util.function">Diverse
+Functional-Interfaces aus <code>java.util.function</code></a></li>
+</ul></li>
+<li><a href="#lambda-ausdrücke" id="toc-lambda-ausdrücke">Lambda
+Ausdrücke</a>
+<ul>
+<li><a href="#anonyme-klassen" id="toc-anonyme-klassen">Anonyme
+Klassen</a></li>
+<li><a href="#lambda-ausdrücke-1"
+id="toc-lambda-ausdrücke-1">Lambda-Ausdrücke</a></li>
+<li><a href="#weitere-vereinfachungen-der-lambda-ausdrücke"
+id="toc-weitere-vereinfachungen-der-lambda-ausdrücke">Weitere
+Vereinfachungen der Lambda-Ausdrücke</a></li>
+<li><a href="#methodenreferenzen"
+id="toc-methodenreferenzen">Methodenreferenzen</a></li>
+<li><a href="#konstruktorenreferenzen"
+id="toc-konstruktorenreferenzen">Konstruktorenreferenzen</a></li>
+<li><a href="#zugriff-auf-variablen-in-lambda-ausdrücke"
+id="toc-zugriff-auf-variablen-in-lambda-ausdrücke">Zugriff auf Variablen
+in Lambda Ausdrücke</a></li>
+</ul></li>
+<li><a href="#beispiele-zu-den-interfaces-aus-java.util.function"
+id="toc-beispiele-zu-den-interfaces-aus-java.util.function">Beispiele zu
+den Interfaces aus <code>java.util.function</code></a></li>
+<li><a href="#optionals" id="toc-optionals">Optionals</a></li>
+<li><a href="#streams" id="toc-streams">Streams</a>
+<ul>
+<li><a href="#arbeitsschritte-mit-streams"
+id="toc-arbeitsschritte-mit-streams">Arbeitsschritte mit
+Streams</a></li>
+<li><a href="#create-streams-erzeugen"
+id="toc-create-streams-erzeugen"><code>create</code>: Streams
+erzeugen</a></li>
+<li><a href="#intermediäre-operationen-streams-bearbeiten"
+id="toc-intermediäre-operationen-streams-bearbeiten">Intermediäre
+Operationen: Streams bearbeiten</a></li>
+<li><a href="#terminale-operationen"
+id="toc-terminale-operationen">Terminale Operationen</a></li>
+</ul></li>
+</ul>
+</nav>
+<hr>
+<h1 id="interfaces">Interfaces</h1>
+<p>Seit Java 8 können Interfaces auch Code beinhalten.</p>
+<h2 id="static-methoden">static-Methoden</h2>
+<p>Es könnten statische Methoden in einem Interface implementiert
+werden.</p>
+<p>Beispiel:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">interface</span> <span class="bu">Comparator</span><span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> <span class="fu">compare</span><span class="op">(</span>T o1<span class="op">,</span> T o2<span class="op">);</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        …</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">public</span> <span class="dt">static</span> <span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="bu">Comparator</span><span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="fu">nullsFirst</span><span class="op">(</span><span class="bu">Comparator</span><span class="op">&lt;</span>​<span class="op">?</span> <span class="kw">super</span> T<span class="op">&gt;</span> comparator<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="kw">new</span> Comparators<span class="op">.</span><span class="fu">NullComparator</span><span class="op">&lt;&gt;(</span><span class="kw">true</span><span class="op">,</span> comparator<span class="op">);</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        …</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code></pre></div>
+<h2 id="default-methoden">default-Methoden</h2>
+<p>Default-Methoden sind im Interface bereits implementiert. Sie können
+von den Klassen, die das Interface implementieren, überschrieben werden
+- müssen es aber nicht. Damit können Interfaces erweitert werden, ohne
+dass alle Klassen, die das Interface bereits implementieren, angepasst
+werden müssen.</p>
+<p>Beispiel:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">interface</span> <span class="bu">Comparator</span><span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> <span class="fu">compare</span><span class="op">(</span>T o1<span class="op">,</span> T o2<span class="op">);</span>            <span class="co">// abstrakte Methode (klassisch)</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        …</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">default</span> <span class="bu">Comparator</span><span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="fu">reversed</span><span class="op">()</span> <span class="op">{</span>  <span class="co">// Methode mit einem Default-Verhalten (neu)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="bu">Collections</span><span class="op">.</span><span class="fu">reverseOrder</span><span class="op">(</span><span class="kw">this</span><span class="op">);</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        …</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code></pre></div>
+<p>Beispiel für die Verwendung:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>        <span class="bu">List</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> list <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;(</span><span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">((</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;Im Anfang (ἀρχή) war das Wort (λόγος) &quot;</span> <span class="op">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;und das Wort war bei Gott, &quot;</span> <span class="op">+</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;und das Wort war Gott.&quot;</span> <span class="op">+</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;Im Anfang war es bei Gott. &quot;</span> <span class="op">+</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;Alles ist durch das Wort geworden &quot;</span> <span class="op">+</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;und ohne das Wort wurde nichts, was geworden ist. &quot;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">).</span><span class="fu">split</span><span class="op">(</span><span class="st">&quot;[^A-Za-z]+&quot;</span><span class="op">)));</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        list<span class="op">.</span><span class="fu">sort</span><span class="op">(</span><span class="kw">new</span> <span class="bu">Comparator</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;()</span> <span class="op">{</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">@Override</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>            <span class="kw">public</span> <span class="dt">int</span> <span class="fu">compare</span><span class="op">(</span><span class="bu">String</span> a<span class="op">,</span> <span class="bu">String</span> b<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> a<span class="op">.</span><span class="fu">compareToIgnoreCase</span><span class="op">(</span>b<span class="op">);</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="op">});</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Ausgabe: Sortiert: [Alles, Anfang, Anfang, bei, bei, das, das, das, das, …</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">&quot;sortiert: &quot;</span> <span class="op">+</span> list<span class="op">);</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        list<span class="op">.</span><span class="fu">sort</span><span class="op">(</span><span class="kw">new</span> <span class="bu">Comparator</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;()</span> <span class="op">{</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>            <span class="at">@Override</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>            <span class="kw">public</span> <span class="dt">int</span> <span class="fu">compare</span><span class="op">(</span><span class="bu">String</span> a<span class="op">,</span> <span class="bu">String</span> b<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> a<span class="op">.</span><span class="fu">compareToIgnoreCase</span><span class="op">(</span>b<span class="op">);</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        <span class="op">}.</span><span class="fu">reversed</span><span class="op">());</span>  </span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Ausgabe: Reverse sortiert: [wurde, Wort, Wort, Wort, Wort, Wort, was, war, …</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">&quot;reverse sortiert: &quot;</span> <span class="op">+</span> list<span class="op">);</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h2 id="functional-interfaces">Functional-Interfaces</h2>
+<p>Interfaces mit einer <strong>einzigen</strong> abstrakten Methode,
+nennt man “Functional-Interfaces”. Diese können für Lambda-Ausdrücke
+eingesetzt werden.</p>
+<p>Das Interface <code>Comparator</code> ist z.B. ein solches
+Functional-Interface.</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    <span class="at">@FunctionalInterface</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">interface</span> <span class="bu">Comparator</span><span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="op">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    …</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> <span class="fu">compare</span><span class="op">(</span>T o1<span class="op">,</span> T o2<span class="op">);</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    …</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code></pre></div>
+<h2 id="diverse-functional-interfaces-aus-java.util.function">Diverse
+Functional-Interfaces aus <code>java.util.function</code></h2>
+<p>Seit Java8 findet man viele vordefinierte Functional-Interfaces für
+Lambda-Ausdrücke in <a
+href="https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html"><code>java.util.function</code></a>:</p>
+<ul>
+<li><p><strong><em><code>Predicate</code></em></strong> Überprüft eine
+Bedingung und liefert <code>true</code> oder
+<code>false</code>.</p></li>
+<li><p><strong><em><code>Function</code></em></strong>,
+<strong><em><code>BiFunction</code></em></strong> Berechnet einen Wert
+aus ein oder zwei Argumenten.</p></li>
+<li><p><strong><em><code>UnaryOperator</code></em></strong>,
+<strong><em><code>BinaryOperator</code></em></strong> Erzeugt aus einem
+Objekt (bzw. zwei Objekten) ein neues Objekt vom selben Typ.</p></li>
+<li><p><strong><em><code>Supplier</code></em></strong> Liefert einen
+Wert und hat keine Argumente.</p></li>
+<li><p><strong><em><code>Consumer</code></em></strong> Verarbeitet ein
+Argument und hat keinen Rückgabewert</p></li>
+</ul>
+<p>Genaueres erfahren wir nach dem Kapitel über Lambda Ausdrücke.</p>
+<h1 id="lambda-ausdrücke">Lambda Ausdrücke</h1>
+<h2 id="anonyme-klassen">Anonyme Klassen</h2>
+<p>Viele Methoden, wie z.B. <a
+href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html#sort-java.util.Comparator-"><code>sort(...)</code></a>,
+erwarten ein Objekt, das ein bestimmtes Interface (in diesem Fall <a
+href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html"><code>Comparator</code></a>)implementiert.</p>
+<p>Da die Implementierung des Interfaces nur für diese eine Methode
+benötigt wird, haben wir es über eine anonyme Klasse implementiert.</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    <span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> numbers <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;(</span><span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="dv">11</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">42</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">89</span><span class="op">));</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    numbers<span class="op">.</span><span class="fu">sort</span><span class="op">(</span><span class="kw">new</span> <span class="bu">Comparator</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;()</span> <span class="op">{</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">@Override</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">public</span> <span class="dt">int</span> <span class="fu">compare</span><span class="op">(</span><span class="bu">Integer</span> a<span class="op">,</span> <span class="bu">Integer</span> b<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> a<span class="op">-</span>b<span class="op">;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">});</span></span></code></pre></div>
+<p>Das war dennoch ziemlich viel Schreibaufwand!</p>
+<h2 id="lambda-ausdrücke-1">Lambda-Ausdrücke</h2>
+<p>Besitzt das benötigte Interface nur eine einzige abstrakte Methode,
+können wir statt der anonymen Klasse einen Lambda-Ausdruck
+verwenden.</p>
+<p>Da für den Compiler klar ist, welche Methode implementiert wird (es
+gibt ja nur eine), kann vieles weggelassen werden.</p>
+<p>Beispiel: Der Methode <code>sort()</code> wird ein Lambda-Ausdruck
+übergeben, der die Methode <code>compare()</code> implementiert:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>        <span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> numbers <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;(</span><span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="dv">11</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">42</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">89</span><span class="op">));</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>        numbers<span class="op">.</span><span class="fu">sort</span><span class="op">((</span><span class="bu">Integer</span> a<span class="op">,</span> <span class="bu">Integer</span> b<span class="op">)</span> <span class="op">-&gt;</span> <span class="op">{</span> <span class="cf">return</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">compare</span><span class="op">(</span>a<span class="op">,</span> b<span class="op">);</span> <span class="op">});</span></span></code></pre></div>
+<h2 id="weitere-vereinfachungen-der-lambda-ausdrücke">Weitere
+Vereinfachungen der Lambda-Ausdrücke</h2>
+<ul>
+<li><p>Parametertypen können meist entfallen (Typangaben entweder bei
+allen Parametern, oder bei keinem)</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// statt:</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Arrays</span><span class="op">.</span><span class="fu">sort</span><span class="op">(</span>zahlen<span class="op">,</span> <span class="op">(</span><span class="bu">Integer</span> a<span class="op">,</span> <span class="bu">Integer</span> b<span class="op">)</span> <span class="op">-&gt;</span> <span class="op">{</span> <span class="cf">return</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">compare</span><span class="op">(</span>a<span class="op">,</span> b<span class="op">);</span> <span class="op">});</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">// kürzer:</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">Arrays</span><span class="op">.</span><span class="fu">sort</span><span class="op">(</span>zahlen<span class="op">,</span> <span class="op">(</span>a<span class="op">,</span> b<span class="op">)</span> <span class="op">-&gt;</span> <span class="op">{</span> <span class="cf">return</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">compare</span><span class="op">(</span>a<span class="op">,</span> b<span class="op">);</span> <span class="op">});</span></span></code></pre></div></li>
+<li><p>Bei nur einer Anweisung können die geschwungenen Klammern und das
+<code>return</code> weggelassen werden</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Arrays</span><span class="op">.</span><span class="fu">sort</span><span class="op">(</span>zahlen<span class="op">,</span> <span class="op">(</span>a<span class="op">,</span> b<span class="op">)</span> <span class="op">-&gt;</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">compare</span><span class="op">(</span>a<span class="op">,</span> b<span class="op">));</span></span></code></pre></div></li>
+<li><p>Bei genau einem Parameter können die runden Klammern weggelassen
+werden (dann ist aber keine Typangabe möglich)</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">//statt:</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Predicate</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> istGerade <span class="op">=</span> <span class="op">(</span><span class="bu">Integer</span> n<span class="op">)</span> <span class="op">-&gt;</span> <span class="op">(</span>n<span class="op">%</span><span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span><span class="op">);</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">// kürzer:</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">Predicate</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> istGerade <span class="op">=</span> n <span class="op">-&gt;</span> <span class="op">(</span>n<span class="op">%</span><span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span><span class="op">);</span></span></code></pre></div></li>
+</ul>
+<h2 id="methodenreferenzen">Methodenreferenzen</h2>
+<p>Wenn im Lambda-Ausdruck nur eine statische Methode aufgerufen werden
+soll, kann diese Methode über eine Methodenreferenz angegeben
+werden.</p>
+<p>Beispiel:</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>  <span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> list <span class="op">=</span> <span class="kw">new</span> <span class="bu">ArrayList</span><span class="op">&lt;&gt;(</span><span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="dv">5</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">8</span><span class="op">));</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// statt:</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  list<span class="op">.</span><span class="fu">forEach</span><span class="op">(</span>n <span class="op">-&gt;</span> <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>n<span class="op">));</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">// noch kürzer:</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  list<span class="op">.</span><span class="fu">forEach</span><span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">::</span>println<span class="op">);</span></span></code></pre></div>
+<p>Anmerkung:</p>
+<p>Es gibt (ab Java 9): <code
+class="sourceCode java"><span class="bu">List</span><span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="kw">...</span><span class="op">)</span></code></p>
+<h2 id="konstruktorenreferenzen">Konstruktorenreferenzen</h2>
+<p>Funktionieren wie Methodenreferenzen.</p>
+<p>Beispiele<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">// statt:</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  Stream<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">&quot;15 9 11 16&quot;</span><span class="op">.</span><span class="fu">split</span><span class="op">(</span><span class="st">&quot; &quot;</span><span class="op">)).</span><span class="fu">map</span><span class="op">(</span>s <span class="op">-&gt;</span> <span class="kw">new</span> <span class="bu">Integer</span><span class="op">(</span>s<span class="op">))</span> …</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// noch kürzer:</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  Stream<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">&quot;15 9 11 16&quot;</span><span class="op">.</span><span class="fu">split</span><span class="op">(</span><span class="st">&quot; &quot;</span><span class="op">)).</span><span class="fu">map</span><span class="op">(</span><span class="bu">Integer</span><span class="op">::</span><span class="kw">new</span><span class="op">)</span> …</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">// das geht auch für Array-Konstruktoren, statt:</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  Stream<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">&quot;15 9 11 16&quot;</span><span class="op">.</span><span class="fu">split</span><span class="op">(</span><span class="st">&quot; &quot;</span><span class="op">)).</span><span class="fu">toArray</span><span class="op">(</span>len <span class="op">-&gt;</span> <span class="kw">new</span> <span class="bu">Integer</span><span class="op">[</span>len<span class="op">])</span> …</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">// noch kürzer:</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  Stream<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">&quot;15 9 11 16&quot;</span><span class="op">.</span><span class="fu">split</span><span class="op">(</span><span class="st">&quot; &quot;</span><span class="op">)).</span><span class="fu">toArray</span><span class="op">(</span><span class="bu">Integer</span><span class="op">[]::</span><span class="kw">new</span><span class="op">)</span> …</span></code></pre></div>
+<h2 id="zugriff-auf-variablen-in-lambda-ausdrücke">Zugriff auf Variablen
+in Lambda Ausdrücke</h2>
+<!-- TODO Begriff Closure erklären -->
+<ul>
+<li><p>Auf lokale Variablen der umgebenden Methode kann nur zugegriffen
+werden, wenn diese final<a href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a> sind.</p>
+<ul>
+<li><p>Trick: Falls man doch einmal eine lokale Variable der Methode
+ändern muss, verwende ein Array. (Die Elemente eines Arrays sind niemals
+final.)</p></li>
+<li><p>Die Variablen in Lambda-Ausdrücken müssen anders heißen, als die
+lokalen Variablen.</p></li>
+</ul></li>
+<li><p>Auf Attribute (Instanzvariablen) statische Variablen und
+Konstanten der Klasse kann ganz normal zugegriffen werden.</p>
+<ul>
+<li>Die Variablen dürfen auch gleich heißen, verdecken aber dann den
+Zugriff Aufgaben die Attribute, etc.</li>
+</ul></li>
+<li><p><strong>Achtung:</strong> In einem Lambda-Ausdruck ist das
+<code>this</code>-Objekt, das Objekt der umschließenden Klasse. Bei
+einer anonymen inneren Klasse ist das anders!</p></li>
+</ul>
+<h1 id="beispiele-zu-den-interfaces-aus-java.util.function">Beispiele zu
+den Interfaces aus <code>java.util.function</code></h1>
+<p>(siehe auch: <a
+href="http://www.java2s.com/Tutorials/Java/java.util.function/BiConsumer/"
+class="uri">http://www.java2s.com/Tutorials/Java/java.util.function/BiConsumer/</a>)</p>
+<ul>
+<li><strong><em><code>Predicate</code></em></strong></li>
+</ul>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Predicate</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> isShortText  <span class="op">=</span> s <span class="op">-&gt;</span> s<span class="op">.</span><span class="fu">length</span><span class="op">()</span> <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>isShortText<span class="op">.</span><span class="fu">test</span><span class="op">(</span><span class="st">&quot;htl3r&quot;</span><span class="op">));</span>   <span class="co">// Ausgabe: true</span></span></code></pre></div>
+<ul>
+<li><strong><em><code>Function</code></em></strong></li>
+</ul>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>    Function<span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">String</span><span class="op">&gt;</span> noDigits <span class="op">=</span> s <span class="op">-&gt;</span> s<span class="op">.</span><span class="fu">replaceAll</span><span class="op">(</span><span class="st">&quot;</span><span class="sc">\\</span><span class="st">d&quot;</span><span class="op">,</span> <span class="st">&quot;#&quot;</span><span class="op">);</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>noDigits<span class="op">.</span><span class="fu">apply</span><span class="op">(</span><span class="st">&quot;0815-Text&quot;</span><span class="op">));</span> <span class="co">// Ausgabe: ####-Text</span></span></code></pre></div>
+<ul>
+<li><strong><em><code>BiFunction</code></em></strong></li>
+</ul>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>    BiFunction<span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Integer</span><span class="op">,</span> <span class="bu">String</span><span class="op">&gt;</span> repeat <span class="op">=</span> <span class="op">(</span>s<span class="op">,</span> n<span class="op">)</span> <span class="op">-&gt;</span> <span class="op">{</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>        <span class="bu">StringBuilder</span> b <span class="op">=</span> <span class="kw">new</span> <span class="bu">StringBuilder</span><span class="op">();</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="op">(</span>n<span class="op">--</span> <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>            b<span class="op">.</span><span class="fu">append</span><span class="op">(</span>s<span class="op">);</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> b<span class="op">.</span><span class="fu">toString</span><span class="op">();</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">};</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>repeat<span class="op">.</span><span class="fu">apply</span><span class="op">(</span><span class="st">&quot;-HTL3R-&quot;</span><span class="op">,</span> <span class="dv">5</span><span class="op">));</span>  <span class="co">// -HTL3R--HTL3R--HTL3R--HTL3R--HTL3R-</span></span></code></pre></div>
+<ul>
+<li><strong><em><code>UnaryOperator</code></em></strong></li>
+</ul>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">&quot;</span><span class="sc">\n</span><span class="st">Example UnaryOperator&quot;</span><span class="op">);</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    UnaryOperator<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> threeTimes <span class="op">=</span> s<span class="op">-&gt;</span> s<span class="op">+</span>s<span class="op">+</span>s<span class="op">;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>threeTimes<span class="op">.</span><span class="fu">apply</span><span class="op">(</span><span class="st">&quot;HTL3R &quot;</span><span class="op">));</span>  <span class="co">// Ausgabe: &quot;HTL3R HTL3R HTL3R &quot;</span></span></code></pre></div>
+<ul>
+<li><strong><em><code>BinaryOperator</code></em></strong></li>
+</ul>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>    BinaryOperator<span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> pow <span class="op">=</span> <span class="op">(</span>basis<span class="op">,</span> exponent<span class="op">)</span> <span class="op">-&gt;</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span><span class="bu">Math</span><span class="op">.</span><span class="fu">pow</span><span class="op">(</span>basis<span class="op">,</span> exponent<span class="op">);</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>pow<span class="op">.</span><span class="fu">apply</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">4</span><span class="op">));</span>             <span class="co">// Ausgabe: 16</span></span></code></pre></div>
+<ul>
+<li><strong><em><code>Supplier</code></em></strong></li>
+</ul>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>    Supplier<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> mySchool <span class="op">=</span> <span class="op">()</span> <span class="op">-&gt;</span> <span class="st">&quot;HTL3R&quot;</span><span class="op">;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>mySchool<span class="op">.</span><span class="fu">get</span><span class="op">());</span>              Ausgabe<span class="op">:</span> HTL3R</span></code></pre></div>
+<ul>
+<li><strong><em><code>Consumer</code></em></strong></li>
+</ul>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>    Consumer<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> printToLowerCase <span class="op">=</span> s <span class="op">-&gt;</span> <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>s<span class="op">.</span><span class="fu">toLowerCase</span><span class="op">());</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    printToLowerCase<span class="op">.</span><span class="fu">accept</span><span class="op">(</span><span class="st">&quot;Franz Breunig&quot;</span><span class="op">);</span>        Ausgabe<span class="op">:</span> franz breunig</span></code></pre></div>
+<h1 id="optionals">Optionals</h1>
+<ul>
+<li><p>Die Optionals sind Behälter, die Werte speichern können, sowie
+auch wissen, wenn ein Wert fehlt.</p></li>
+<li><p>Es gibt Optionals für:</p>
+<ul>
+<li><p><strong><em>Objekte</em></strong>:
+<code>Optional&lt;T&gt;</code></p></li>
+<li><p>und den drei primitiven Datentypen
+<strong><em><code>int</code></em></strong>,
+<strong><em><code>long</code></em></strong>,
+<strong><em><code>double</code></em></strong>: <code>OptionalInt</code>,
+<code>OptionalLong</code> und <code>OptionalDouble</code> (Für die
+anderen primitiven Datentypen gibt es keine Optionale.)</p></li>
+</ul></li>
+<li><p><strong><em>Erzeugt</em></strong> können sie werden mit den
+statischen Befehlen:</p>
+<ul>
+<li><strong><em><code>empty()</code></em></strong> (erzeugt ein
+“<em>leeres</em>” Element)</li>
+<li><strong><em><code>of(value)</code></em></strong> (wirft bei null
+eine NullPointerException, wenn <code>value</code> <code>null</code>
+ist)</li>
+<li><strong><em><code>ofNullable(value)</code></em></strong> (gibts nur
+bei <code>Optional&lt;T&gt;</code> und kann auch
+<code>null</code>-Elemente erzeugen)</li>
+</ul></li>
+<li><p><strong><em>Ausgelesen</em></strong> kan der gespeicherte Wert
+mit den Methoden:</p>
+<ul>
+<li><strong><em><code>get()</code></em></strong> (liefert den Wert,
+falls er <code>null</code> ist, wird eine
+<code>NoSuchElementException</code> geworfen)</li>
+<li><strong><em><code>orElse(alternativeValue)</code></em></strong>
+(liefert den Wert, falls er <code>null</code> ist, wird
+<code>alternativeValue</code> geliefert, ohne eine Exception
+auszulösen)</li>
+</ul></li>
+<li><p><strong><em><code>isPresent()</code></em></strong> ist
+<code>true</code>, wenn ein Wert (und nicht <code>null</code>)
+gespeichert ist.</p></li>
+<li><p><strong><em><code>equals(other)</code></em></strong>,
+<strong><em><code>hashcode()</code></em></strong> sowie
+<strong><em><code>toString()</code></em></strong> lösen keine Exception
+bei fehlenden Werten aus und arbeiten immer mit den eingebetteten
+Werten</p></li>
+<li><p>Es gibt auch noch viele andere Befehle, auf die wir hier nicht
+eingehen: <code>filter(…)</code>, <code>ifPresent(…)</code>,
+<code>orElseGet(…)</code>, <code>orElseThrow(…)</code>,
+<code>map(…)</code> und <code>flatMap(…)</code></p></li>
+<li><p><strong><em>Beispiel für
+<code>OptionalInt</code>:</em></strong></p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>OptionalInt a <span class="op">=</span> OptionalInt<span class="op">.</span><span class="fu">empty</span><span class="op">();</span> <span class="co">// a bekommt keinen Wert</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>OptionalInt b <span class="op">=</span> OptionalInt<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">&quot;a.isPresent: </span><span class="sc">%-5s</span><span class="st">, a = </span><span class="sc">%s\n</span><span class="st">&quot;</span><span class="op">,</span> a<span class="op">.</span><span class="fu">isPresent</span><span class="op">(),</span> a<span class="op">);</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">&quot;b.isPresent: </span><span class="sc">%-5s</span><span class="st">, b = </span><span class="sc">%s\n</span><span class="st">&quot;</span><span class="op">,</span> b<span class="op">.</span><span class="fu">isPresent</span><span class="op">(),</span> b<span class="op">);</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">&quot;a + b = </span><span class="sc">%d\n</span><span class="st">&quot;</span><span class="op">,</span> a<span class="op">.</span><span class="fu">orElse</span><span class="op">(</span><span class="dv">0</span><span class="op">)</span> <span class="op">+</span> b<span class="op">.</span><span class="fu">orElse</span><span class="op">(</span><span class="dv">0</span><span class="op">));</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Ausgabe:</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co">// a.isPresent: false, a = OptionalInt.empty</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="co">// b.isPresent: true , b = OptionalInt[10]</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co">// a + b = 10</span></span></code></pre></div></li>
+</ul>
+<h1 id="streams">Streams</h1>
+<p>Streams vereinfachen vor allem das Arbeiten mit Collections und
+Arrays. Anstatt mit Hilfe von Schleifen und Bedingungen den
+Lösungs-Algorithmus<a href="#fn3" class="footnote-ref" id="fnref3"
+role="doc-noteref"><sup>3</sup></a> zu beschreiben, können wir mit
+Streams arbeiten.</p>
+<!-- TODO besser beschreiben was Streams überhaupt sind, siehe Codebeispiel -->
+<p>Streams besitzen eine Datenquelle (z.B. eine Collection oder ein
+Array) und eine oder mehrere Verarbeitungsschritte (z.B. Filtern,
+Sortieren, etc.).</p>
+<p><strong><em>Beispiel</em></strong>: Ermittle wie viele Zahlen im
+Array <code>a</code> kleiner als <code>10</code> sind:</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span><span class="op">[]</span> a <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">11</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">88</span><span class="op">};</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// klassisch:</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> counter <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> n<span class="op">:</span> a<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>n <span class="op">&lt;</span> <span class="dv">10</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>            counter<span class="op">++;</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">&quot;</span><span class="sc">%d</span><span class="st"> kleine Elemente</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> counter<span class="op">);</span>     <span class="co">// Ausgabe: 5 kleine Elemente</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">// kürzer mit Streams (filtere alle Elemente &lt; 10 und zähle sie)</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">&quot;</span><span class="sc">%d</span><span class="st"> kleine Elemente</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>            <span class="bu">Arrays</span><span class="op">.</span><span class="fu">stream</span><span class="op">(</span>a<span class="op">).</span><span class="fu">filter</span><span class="op">(</span>n <span class="op">-&gt;</span> n <span class="op">&lt;</span> <span class="dv">10</span><span class="op">).</span><span class="fu">count</span><span class="op">());</span> <span class="co">// Ausgabe: 5 kleine Elemente</span></span></code></pre></div>
+<!--
+Leider vermitteln mir die Streams das Gefühl, dass sie noch etwas unvollständig sind.
+Aber wir können ja auf Java9, 10, ... hoffen. Nichts desto trotz ist das Thema Streams
+so umfangreich, dass wir es hier nicht komplett behandeln werden können.
+-->
+<h2 id="arbeitsschritte-mit-streams">Arbeitsschritte mit Streams</h2>
+<ol type="1">
+<li><strong><em>create:</em></strong> Erzeugen des Streams.</li>
+<li><strong><em>intermediate operation</em></strong>: Beliebig viele
+Operationen auf dem Stream.</li>
+<li><strong><em>terminal operation</em></strong>: Die Endoperation löst
+erst die Verarbeitung des Streams aus.</li>
+</ol>
+<p><strong><em>Beispiel</em></strong>: Ermittle die Summe der drei
+größten durch Drei und durch Sieben teilbaren Zahlen der Liste
+<code>numbers</code>:</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">// durch 3 und durch 7 teilbaren Zahlen sind: 21 (2x), 63 (3x), 147 (1x), 189 (1x),</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// die Summe der drei größten Zahlen davon ist: 189 + 147 + 63 = 399</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;</span> numbers <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="dv">63</span><span class="op">,</span> <span class="dv">63</span><span class="op">,</span> <span class="dv">21</span><span class="op">,</span> <span class="dv">21</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">189</span><span class="op">,</span> <span class="dv">14</span><span class="op">,</span> <span class="dv">63</span><span class="op">,</span> <span class="dv">147</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">99</span><span class="op">);</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> sum <span class="op">=</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>        numbers</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>        <span class="co">// create: Erzeugen des Streams aus der Liste</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">stream</span><span class="op">()</span>                  </span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">// intermediate operation: filtert die Elemente              </span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">filter</span><span class="op">(</span>n <span class="op">-&gt;</span> n <span class="op">%</span> <span class="dv">3</span> <span class="op">==</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> n <span class="op">%</span> <span class="dv">7</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> </span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">// intermediate operation: sortiert verkehrt  </span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">sorted</span><span class="op">((</span>a<span class="op">,</span>b<span class="op">)</span> <span class="op">-&gt;</span> <span class="bu">Integer</span><span class="op">.</span><span class="fu">compare</span><span class="op">(</span>b<span class="op">,</span>a<span class="op">))</span> </span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>        <span class="co">// intermediate operation: reduziert auf drei Elemente  </span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">limit</span><span class="op">(</span><span class="dv">3</span><span class="op">)</span>                     </span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>        <span class="co">// terminale operation: summiert die drei Elemente           </span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">collect</span><span class="op">(</span><span class="fu">summingInt</span><span class="op">(</span><span class="bu">Integer</span><span class="op">::</span>intValue<span class="op">));</span> </span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">&quot;Die Summe der drei größten durch Drei und&quot;</span></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>                      <span class="op">+</span> <span class="st">&quot; durch Sieben teilbaren Zahlen ist: </span><span class="sc">%d\n</span><span class="st">&quot;</span><span class="op">,</span> sum<span class="op">);</span></span></code></pre></div>
+<p>Unterscheide zwischen <a
+href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html">Streams</a>
+für Objekte und <a
+href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html">IntStream</a>,
+<a
+href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/LongStream.html">LongStream</a>,
+<a
+href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html">DoubleStream</a>
+für die primitiven Typen int, long und double. Je nach Stream
+unterscheiden sich die verfügbaren Methoden.</p>
+<h2 id="create-streams-erzeugen"><code>create</code>: Streams
+erzeugen</h2>
+<ul>
+<li><p><strong><em><code>Collection</code></em></strong></p>
+<ul>
+<li><p><strong><em><code>stream()</code></em></strong>: Erzeugt aus
+einer <code>List</code> oder einem <code>Set</code> einen
+<code>Stream</code></p>
+<p>Beispiel:</p>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>    Stream<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> x <span class="op">=</span> <span class="kw">new</span> <span class="bu">TreeSet</span><span class="op">&lt;&gt;(</span><span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="st">&quot;a&quot;</span><span class="op">,</span> <span class="st">&quot;b&quot;</span><span class="op">,</span> <span class="st">&quot;a&quot;</span><span class="op">)).</span><span class="fu">stream</span><span class="op">();</span></span></code></pre></div></li>
+</ul></li>
+<li><p><strong><em><code>Arrays</code></em></strong></p>
+<ul>
+<li><p><strong><em><code>stream(array)</code></em></strong>: Erzeugt aus
+einem Array einen <code>Stream</code>, <code>IntStream</code>,
+<code>LongStream</code> oder <code>DoubleStream</code></p>
+<p>Beispiel:</p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span><span class="op">[]</span> b <span class="op">=</span> <span class="op">{</span><span class="dv">3</span><span class="op">,</span><span class="dv">7</span><span class="op">,</span><span class="dv">9</span><span class="op">};</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    IntStream bi <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">stream</span><span class="op">(</span>b<span class="op">);</span></span></code></pre></div></li>
+<li><p><strong><em><code>stream(array, startInclusive, endExclusive)</code></em></strong>:
+Erzeugt aus einem Array einem <code>Stream</code>,
+<code>IntStream</code>, <code>LongStream</code> oder
+<code>DoubleStream</code> von dem Index <code>startInclusive</code> bis
+ohne den Index <code>endExclusive</code></p>
+<p>Beispiel:</p>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span><span class="op">[]</span> c <span class="op">=</span> <span class="st">&quot;Evi Franz Agi Thesi Uli&quot;</span><span class="op">.</span><span class="fu">split</span><span class="op">(</span><span class="st">&quot; &quot;</span><span class="op">);</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// liefert &quot;Agi&quot;, &quot;Thesi&quot;</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    Stream<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> cs <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">stream</span><span class="op">(</span>c<span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">4</span><span class="op">);</span></span></code></pre></div></li>
+</ul></li>
+<li><p><strong><em><code>Stream</code></em></strong>: Statische Methoden
+in <code>Stream</code>, <code>IntStream</code>, <code>LongStream</code>
+und <code>DoubleStream</code>:</p>
+<ul>
+<li><p><strong><em><code>empty()</code></em></strong>: Liefert einen
+leeren Stream</p>
+<p>Beispiel:</p>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>    Stream<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> s <span class="op">=</span> Stream<span class="op">.</span><span class="fu">empty</span><span class="op">();</span></span></code></pre></div></li>
+<li><p><strong><em><code>of(Elements)</code></em></strong>: Erzeugt aus
+den angegebenen Elementen einen Stream</p>
+<p>Beispiele:</p>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>  Stream<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> s <span class="op">=</span> Stream<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">&quot;a&quot;</span><span class="op">,</span> <span class="st">&quot;b&quot;</span><span class="op">,</span> <span class="st">&quot;c&quot;</span><span class="op">);</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  IntStream      i <span class="op">=</span> IntStream<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">);</span></span></code></pre></div></li>
+<li><p><strong><em><code>generate(...)</code></em></strong>: Erzeugt
+(unendlich viele) Elemente mit Hilfe eines <code>Supplier</code>s</p>
+<p>Beispiel: Ein Stream mit int-Zufallszahlen aus dem Intervall
+[<code>Integer.MIN_VALUE</code>, <code>Integer.MAX_VALUE</code>]:</p>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>    IntStream r <span class="op">=</span> IntStream<span class="op">.</span><span class="fu">generate</span><span class="op">(</span><span class="kw">new</span> <span class="bu">Random</span><span class="op">()::</span>nextInt<span class="op">);</span></span></code></pre></div></li>
+<li><p><strong><em><code>iterate(...)</code></em></strong>: Erzeugt nach
+einem Bildungsgesetz einen Stream</p>
+<p>Beispiel: Erzeugt den Stream:
+<code>a, a*a, a*a*a, a*a*a*a, a*a*a*a*a, a*a*a*a*a*a,</code> …:</p>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>    Stream<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> w <span class="op">=</span> Stream<span class="op">.</span><span class="fu">iterate</span><span class="op">(</span><span class="st">&quot;a&quot;</span><span class="op">,</span> e <span class="op">-&gt;</span> e <span class="op">+</span> <span class="st">&quot;*a&quot;</span><span class="op">);</span></span></code></pre></div></li>
+</ul></li>
+<li><p><strong><em><code>String</code></em></strong> erzeugt aus allen
+Zeichen des Strings einen int-Stream mit den UTF-8-Werten.</p>
+<p>Beispiel:</p>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>    IntStream chars <span class="op">=</span> <span class="st">&quot;Wappler&quot;</span><span class="op">.</span><span class="fu">chars</span><span class="op">();</span></span></code></pre></div></li>
+<li><p><strong><em><code>Files</code></em></strong></p>
+<p><code>Files</code> kennt drei statische Methoden fürs
+Dateisystem:</p>
+<ul>
+<li><p><strong><em><code>list(directory)</code></em></strong>: Liefert
+alle Elemente des Verzeichnisses <code>directory</code></p>
+<p>Beispiel:</p>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>        Stream<span class="op">&lt;</span>Path<span class="op">&gt;</span> content <span class="op">=</span> Files<span class="op">.</span><span class="fu">list</span><span class="op">(</span>Paths<span class="op">.</span><span class="fu">get</span><span class="op">(</span><span class="st">&quot;resources&quot;</span><span class="op">));</span></span></code></pre></div></li>
+<li><p><strong><em><code>walk(directory[, maxDepth][, fileVisitOptions])</code></em></strong>:
+Liefert alle Elemente aus dem Verzeichnis <code>directory</code> und aus
+allen Unterverzeichnissen (inkl. aller Unterverzeichnissen).
+<code>maxDepth</code> ist optional und gibt die maximale
+Verzeichnis-Tiefe an <code>fileVisitOptions</code> ist optional und kann
+derzeit ausschliesslich <code>fileVisitOptions.FOLLOW_LINKS</code> sein
+(folge symbolischen Links).</p>
+<p>Beispiel:</p>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>        Stream<span class="op">&lt;</span>Path<span class="op">&gt;</span> content <span class="op">=</span> Files<span class="op">.</span><span class="fu">walk</span><span class="op">(</span>Paths<span class="op">.</span><span class="fu">get</span><span class="op">(</span><span class="st">&quot;../&quot;</span><span class="op">));</span></span></code></pre></div></li>
+<li><p><strong><em><code>find(directory, maxDepth, matcher[, fileVistiOptions] )</code></em></strong>:
+Liefert alle Elemente des Verzeichnisses</p>
+<p>Beispiel:</p>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>        Stream<span class="op">&lt;</span>Path<span class="op">&gt;</span> files <span class="op">=</span> Files<span class="op">.</span><span class="fu">find</span><span class="op">(</span>Paths<span class="op">.</span><span class="fu">get</span><span class="op">(</span><span class="st">&quot;..&quot;</span><span class="op">),</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>            <span class="dv">5</span><span class="op">,</span> <span class="co">// gehe max. 5 Subordner in die Tiefe</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>            <span class="op">(</span>path<span class="op">,</span> attr<span class="op">)</span> <span class="op">-&gt;</span> <span class="bu">String</span><span class="op">.</span><span class="fu">valueOf</span><span class="op">(</span>path<span class="op">).</span><span class="fu">endsWith</span><span class="op">(</span><span class="st">&quot;.java&quot;</span><span class="op">));</span></span></code></pre></div></li>
+</ul>
+<p><code>Files</code> kennt eine statische Methode zum Lesen von
+Textdateien:</p>
+<ul>
+<li><p><strong><em><code>lines(file)</code></em></strong>: Zum
+zeilenweise Lesen aus Textdateien</p>
+<p>Beispiel:</p>
+<div class="sourceCode" id="cb33"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>        Stream<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> lines <span class="op">=</span> Files<span class="op">.</span><span class="fu">lines</span><span class="op">(</span>Paths<span class="op">.</span><span class="fu">get</span><span class="op">(</span><span class="st">&quot;resources/test.txt&quot;</span><span class="op">),</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>                            <span class="bu">Charset</span><span class="op">.</span><span class="fu">forName</span><span class="op">(</span><span class="st">&quot;UTF-8&quot;</span><span class="op">));</span></span></code></pre></div></li>
+</ul></li>
+<li><p><strong><em><code>Random</code></em></strong>: Generiert
+Zufallszahlen-Streams, es exisitieren Methoden für
+Int/Long/DoubleStreams</p>
+<ul>
+<li><strong><em><code>ints()</code></em></strong>: Erzeugt einen
+unendlichen IntStream von Zufallszahlen aus dem Intervall
+[<code>Integer.MAX_VALUE</code>, <code>Integer.MIN_VALUE</code>]
+Beispiel:</li>
+</ul>
+<div class="sourceCode" id="cb34"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>    IntStream r <span class="op">=</span> <span class="kw">new</span> <span class="bu">Random</span><span class="op">().</span><span class="fu">ints</span><span class="op">();</span></span></code></pre></div>
+<ul>
+<li><p><strong><em><code>longs()</code></em></strong>: Erzeugt einen
+unendlichen LongStream von Zufallszahlen aus dem Intervall
+[<code>Long.MAX_VALUE</code>, <code>Long.MIN_VALUE</code>]</p></li>
+<li><p><strong><em><code>doubles()</code></em></strong>: Erzeugt einen
+unendlichen LongStream von Zufallszahlen aus dem Intervall
+[<code>0</code>, <code>1</code>[ (1 ist nicht mehr dabei)</p></li>
+<li><p><strong><em><code>ints(streamSize)</code>,
+<code>longs(streamSize)</code>,
+<code>doubles(streamSize)</code></em></strong>: Erzeugt einen
+Int/Long/DoubleStream von Zufallszahlen mit <code>streamSize</code>
+Elementen, das Intervall ist wie bei <code>ints()</code>,
+<code>longs()</code>, <code>doubles()</code></p></li>
+<li><p><strong><em><code>ints(first, last)</code>,
+<code>longs(first, last)</code>,
+<code>doubles(first, last)</code></em></strong>: Erzeugt einen
+unendlichen Int/Long/DoubleStream von Zufallszahlen im Intervall
+[<code>first</code>, <code>last</code>[ (inklusive <code>first</code>,
+exklusive <code>last</code>) Beispiel:</p></li>
+</ul>
+<div class="sourceCode" id="cb35"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>    IntStream r <span class="op">=</span> <span class="kw">new</span> <span class="bu">Random</span><span class="op">().</span><span class="fu">ints</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">2</span><span class="op">);</span> <span class="co">// z.B.: 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0,</span></span></code></pre></div>
+<ul>
+<li><strong><em><code>ints(streamSize, first, last)</code>,
+<code>longs(streamSize, first, last)</code>,
+<code>doubles(streamSize, first, last)</code></em></strong>: Erzeugt
+einen Int/Long/DoubleStream von Zufallszahlen mit
+<code>streamSize</code> Elementen im Intervall [<code>first</code>,
+<code>last</code>[ (inklusive <code>first</code>, exklusive
+<code>last</code>) Beispiel:</li>
+</ul>
+<div class="sourceCode" id="cb36"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>    IntStream r <span class="op">=</span> <span class="kw">new</span> <span class="bu">Random</span><span class="op">().</span><span class="fu">ints</span><span class="op">(</span><span class="dv">5</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">2</span><span class="op">);</span> <span class="co">// z.B.: 0, 0, 1, 0, 1</span></span></code></pre></div></li>
+<li><p>Es gibt auch noch zahllose andere Möglichkeiten, Streams zu
+erzeugen, siehe:</p>
+<ul>
+<li><a
+href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/class-use/Stream.html">https://docs.oracle.com/javase/8/docs/api/java/util/stream/class-use/Stream.html</a></li>
+</ul></li>
+</ul>
+<h2 id="intermediäre-operationen-streams-bearbeiten">Intermediäre
+Operationen: Streams bearbeiten</h2>
+<p>Alle intermediären Operationen liefern wieder einen neuen Stream.
+Damit können beliebig viele intermediäre Operationen einfach aneinander
+gehängt werden (= fluent Notation).</p>
+<ul>
+<li><p><strong><em>Filtern</em></strong>:</p>
+<ul>
+<li><strong><em><code>filter(predicate)</code></em></strong>: Filtert
+den Stream mit Hilfe des <code>predicate</code>s Beispiel:</li>
+</ul>
+<div class="sourceCode" id="cb37"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[]</span> a <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">11</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">88</span><span class="op">};</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>IntStream littleNumbers <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">stream</span><span class="op">(</span>a<span class="op">).</span><span class="fu">filter</span><span class="op">(</span>n <span class="op">-&gt;</span>  n <span class="op">&lt;</span> <span class="dv">10</span><span class="op">);</span></span></code></pre></div>
+<ul>
+<li><strong><em><code>distinct()</code></em></strong>: Entfernt doppelte
+Elemente aus dem Stream, ohne ihn umzuordnen Beispiel:</li>
+</ul>
+<div class="sourceCode" id="cb38"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[]</span> a <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">88</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">11</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">88</span><span class="op">};</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>IntStream n <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">stream</span><span class="op">(</span>a<span class="op">).</span><span class="fu">distinct</span><span class="op">();</span> <span class="co">// = [1, 2, 5, 12, 88, 9, 11, 6]</span></span></code></pre></div>
+<ul>
+<li><strong><em><code>limit(newLen)</code></em></strong>: Kürzt den
+Stream auf die Länge <code>newLen</code> Beispiel:</li>
+</ul>
+<div class="sourceCode" id="cb39"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>IntStream a <span class="op">=</span> <span class="st">&quot;0123456789&quot;</span><span class="op">.</span><span class="fu">chars</span><span class="op">().</span><span class="fu">limit</span><span class="op">(</span><span class="dv">5</span><span class="op">);</span> <span class="co">// = [48, 49, 50, 51, 52]</span></span></code></pre></div>
+<ul>
+<li><strong><em><code>skip(n)</code></em></strong>: Überspringt die
+ersten <code>n</code> Elemente des Strings eispiel:</li>
+</ul>
+<div class="sourceCode" id="cb40"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>IntStream a <span class="op">=</span> <span class="st">&quot;0123456789&quot;</span><span class="op">.</span><span class="fu">chars</span><span class="op">().</span><span class="fu">skip</span><span class="op">(</span><span class="dv">8</span><span class="op">);</span> <span class="co">// = [56, 57]</span></span></code></pre></div></li>
+<li><p><strong><em>Sortieren</em></strong></p>
+<ul>
+<li><strong><em><code>sorted()</code></em></strong>: Sortiert den String
+nach der “natürlichen” Ordnung der Elemente Beispiel:</li>
+</ul>
+<div class="sourceCode" id="cb41"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[]</span> b <span class="op">=</span> <span class="op">{</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">11</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">88</span><span class="op">};</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>IntStream a <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">stream</span><span class="op">(</span>b<span class="op">).</span><span class="fu">sorted</span><span class="op">();</span> <span class="co">// = [1, 2, 5, 6, 9, 11, 12, 88]</span></span></code></pre></div>
+<ul>
+<li><strong><em><code>sorted(comparator)</code></em></strong> sortiert
+mit Hilfe des Comparators (nur Stream, kein Int/Long/DoubleStream)
+Beispiel: Sortiere die Elemente ohne Berücksichtigung der
+Groß-/Kleinschreibung absteigend.</li>
+</ul>
+<div class="sourceCode" id="cb42"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>Stream<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> a <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="st">&quot;Hallo&quot;</span><span class="op">,</span> <span class="st">&quot;Wappler&quot;</span><span class="op">,</span> <span class="st">&quot;wie&quot;</span><span class="op">,</span> <span class="st">&quot;geht&quot;</span><span class="op">,</span> <span class="st">&quot;es&quot;</span><span class="op">,</span> <span class="st">&quot;dir&quot;</span><span class="op">).</span><span class="fu">stream</span><span class="op">()</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="op">.</span><span class="fu">sorted</span><span class="op">((</span>x<span class="op">,</span> y<span class="op">)</span> <span class="op">-&gt;</span> y<span class="op">.</span><span class="fu">compareToIgnoreCase</span><span class="op">(</span>x<span class="op">));</span> <span class="co">// = [wie, Wappler, Hallo, geht, es, dir]</span></span></code></pre></div></li>
+<li><p><strong><em>Transformieren</em></strong></p>
+<ul>
+<li><strong><em><code>map(mapper)</code></em></strong>: Erzeugt aus
+einem Stream einen neuen Objekt-Stream</li>
+</ul>
+<p>Beispiel: Wandelt einen <code>IntStream</code> in einen
+<code>Stream&lt;String&gt;</code> mit den vierstelligen hexadezimalen
+Werten der Zahlen um:</p>
+<div class="sourceCode" id="cb43"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>Stream<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> a <span class="op">=</span> Stream<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="dv">55</span><span class="op">,</span> <span class="dv">255</span><span class="op">,</span> <span class="dv">512</span><span class="op">,</span> <span class="dv">768</span><span class="op">)</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="op">.</span><span class="fu">map</span><span class="op">(</span>n <span class="op">-&gt;</span> <span class="bu">String</span><span class="op">.</span><span class="fu">format</span><span class="op">(</span><span class="st">&quot;0x</span><span class="sc">%04X</span><span class="st">&quot;</span><span class="op">,</span> n<span class="op">));</span> <span class="co">// = [0x0037, 0x00FF, 0x0200, 0x0300]</span></span></code></pre></div>
+<ul>
+<li><strong><em><code>mapToInt(mapper)</code></em></strong>,
+<strong><em><code>mapToLong(mapper)</code></em></strong>,
+<strong><em><code>mapToDouble(mapper)</code></em></strong>: aus einem
+Stream über Ojekte kann ein
+<code>Int</code>/<code>Long</code>/<code>DoubleStream</code> erzeugt
+werden Beispiel: Erzeugt aus einem String-Stream einen Stream mit den
+Längen der Strings:</li>
+</ul>
+<div class="sourceCode" id="cb44"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>Stream<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> s <span class="op">=</span> Stream<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="st">&quot;eins&quot;</span><span class="op">,</span> <span class="st">&quot;zwei&quot;</span><span class="op">,</span> <span class="st">&quot;drei&quot;</span><span class="op">,</span> <span class="st">&quot;sechsundzwanzig&quot;</span><span class="op">)</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="op">.</span><span class="fu">mapToInt</span><span class="op">(</span>s <span class="op">-&gt;</span> s<span class="op">.</span><span class="fu">length</span><span class="op">());</span></span></code></pre></div>
+<ul>
+<li><p><strong><em><code>boxed()</code></em></strong>: Macht aus einem
+Int/Long/DoubleStream einen Objekt-Stream.</p></li>
+<li><p><strong><em><code>concat(a, b)</code></em></strong>: Verbindet
+die beiden Streams <code>a</code> und <code>b</code> zu einem einzigen
+Beispiel:</p></li>
+</ul>
+<div class="sourceCode" id="cb45"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>IntStream a <span class="op">=</span> IntStream<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">);</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>IntStream b <span class="op">=</span> IntStream<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="dv">10</span><span class="op">,</span> <span class="dv">11</span><span class="op">);</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>IntStream both <span class="op">=</span> IntStream<span class="op">.</span><span class="fu">concat</span><span class="op">(</span>a<span class="op">,</span> b<span class="op">);</span></span></code></pre></div></li>
+<li><p><strong><em>Maps flach machen</em></strong></p>
+<ul>
+<li><strong><em><code>flatMap(mapper)</code></em></strong>:</li>
+</ul>
+<p>Mittels <code>map(mapper)</code> kann jedes Objekt in genau ein
+anderes Objekt umgewandelt werden. <code>flatMap(mapper)</code> hingegen
+wandelt jedes Element in einen Stream von Elementen um. Damit kann jedes
+Element in beliebig viele andere Objekte, oder auch in überhaupt keines,
+umgewandelt werden.</p>
+<p>Dies nützt man vor allem um aus einem Stream mit eingebetteten
+Datenstrukturen einen neuen Stream, in dem alle Elemente der
+eingebetteten Datenstrukturen direkt liegen umzuwandeln.</p>
+<p>Beispiel:</p>
+<div class="sourceCode" id="cb46"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">// s = [[a1,a2], [b1,b2,b3,b4,b5], [c1]]</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>Stream<span class="op">&lt;</span><span class="bu">List</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;&gt;</span> s <span class="op">=</span> Stream<span class="op">.</span><span class="fu">of</span><span class="op">(</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="st">&quot;a1&quot;</span><span class="op">,</span> <span class="st">&quot;a2&quot;</span><span class="op">),</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="st">&quot;b1&quot;</span><span class="op">,</span> <span class="st">&quot;b2&quot;</span><span class="op">,</span> <span class="st">&quot;b3&quot;</span><span class="op">,</span> <span class="st">&quot;b4&quot;</span><span class="op">,</span> <span class="st">&quot;b5&quot;</span><span class="op">),</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="st">&quot;c1&quot;</span><span class="op">)</span></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="op">);</span></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>Stream<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> sFlat <span class="op">=</span> s<span class="op">.</span><span class="fu">flatMap</span><span class="op">(</span><span class="bu">Collection</span><span class="op">::</span>stream<span class="op">);</span></span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="bu">Arrays</span><span class="op">.</span><span class="fu">toString</span><span class="op">(</span>sFlat<span class="op">.</span><span class="fu">toArray</span><span class="op">()));</span> <span class="co">// [a1, a2, b1, b2, b3, b4, b5, c1]</span></span></code></pre></div>
+<ul>
+<li><strong><em><code>flatMapToInt(mappper)</code>,
+<code>flatMapToLong(mappper)</code>,
+<code>flatMapToDouble(mappper)</code></em></strong>: macht aus den
+Elementen der eingebetteten Datenstrukturen direkt einen
+Int/Long/DoubleStream Beispiel:</li>
+</ul>
+<div class="sourceCode" id="cb47"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">// s = [[11,12], [21,22,23,24,25], [31]]</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>Stream<span class="op">&lt;</span><span class="bu">List</span><span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;&gt;</span> s <span class="op">=</span> Stream<span class="op">.</span><span class="fu">of</span><span class="op">(</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="dv">11</span><span class="op">,</span> <span class="dv">12</span><span class="op">),</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="dv">21</span><span class="op">,</span> <span class="dv">22</span><span class="op">,</span> <span class="dv">23</span><span class="op">,</span> <span class="dv">24</span><span class="op">,</span> <span class="dv">25</span><span class="op">),</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="dv">31</span><span class="op">)</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="op">);</span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>IntStream sFlat <span class="op">=</span> s<span class="op">.</span><span class="fu">flatMapToInt</span><span class="op">(</span>list <span class="op">-&gt;</span> list<span class="op">.</span><span class="fu">stream</span><span class="op">().</span><span class="fu">mapToInt</span><span class="op">(</span>n <span class="op">-&gt;</span> n<span class="op">));</span></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="bu">Arrays</span><span class="op">.</span><span class="fu">toString</span><span class="op">(</span>sFlat<span class="op">.</span><span class="fu">toArray</span><span class="op">()));</span> <span class="co">// [11, 12, 21, 22, 23, 24, 25, 31]</span></span></code></pre></div></li>
+<li><p><strong><em>Abhören</em></strong></p>
+<ul>
+<li><strong><em><code>peek(consumer)</code></em></strong>: Damit kann
+jedes Element betrachtet werden Beispiel:</li>
+</ul>
+<div class="sourceCode" id="cb48"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>Stream<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> a <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="st">&quot;Hallo&quot;</span><span class="op">,</span> <span class="st">&quot;Wappler&quot;</span><span class="op">,</span> <span class="st">&quot;wie&quot;</span><span class="op">,</span> <span class="st">&quot;geht&quot;</span><span class="op">,</span> <span class="st">&quot;es&quot;</span><span class="op">,</span> <span class="st">&quot;dir&quot;</span><span class="op">).</span><span class="fu">stream</span><span class="op">()</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="op">.</span><span class="fu">peek</span><span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">::</span>println<span class="op">);</span></span></code></pre></div></li>
+</ul>
+<h2 id="terminale-operationen">Terminale Operationen</h2>
+<p>Beenden die intermediäre Pipeline. Der Stream kann nachher nicht mehr
+verwendet werden!</p>
+<ul>
+<li><p><strong><em>Findet das erste Element</em></strong></p>
+<ul>
+<li><strong><em><code>findFirst()</code></em></strong>: Liefert das
+erste Element des Streams eingepackt in ein Optional Beispiel:</li>
+</ul>
+<div class="sourceCode" id="cb49"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>Stream<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> a <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="st">&quot;wie&quot;</span><span class="op">,</span> <span class="st">&quot;geht&quot;</span><span class="op">,</span> <span class="st">&quot;es&quot;</span><span class="op">,</span> <span class="st">&quot;dir&quot;</span><span class="op">).</span><span class="fu">stream</span><span class="op">();</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>a<span class="op">.</span><span class="fu">sorted</span><span class="op">().</span><span class="fu">findFirst</span><span class="op">().</span><span class="fu">get</span><span class="op">());</span> <span class="co">// Ausgabe: dir</span></span></code></pre></div>
+<p>Bemerkung: Für parallele Streams verwende besser
+<code>findAny()</code>, wenn du einfach nur irgend ein Element haben
+möchtest.</p></li>
+<li><p><strong><em>prüft Bedingungen</em></strong></p>
+<ul>
+<li><strong><em><code>anyMatch(matcher)</code></em></strong>: Bestimmt,
+ob mindestens ein Element matcht Beispiel: Gibt es zumindest ein
+Element, das mehr als 5 Zeichen hat:</li>
+</ul>
+<div class="sourceCode" id="cb50"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>Stream<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> a <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="st">&quot;Hallo&quot;</span><span class="op">,</span> <span class="st">&quot;Wappler&quot;</span><span class="op">,</span> <span class="st">&quot;wie&quot;</span><span class="op">,</span> <span class="st">&quot;geht&quot;</span><span class="op">,</span> <span class="st">&quot;es&quot;</span><span class="op">,</span> <span class="st">&quot;dir&quot;</span><span class="op">).</span><span class="fu">stream</span><span class="op">();</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>a<span class="op">.</span><span class="fu">anyMatch</span><span class="op">(</span>s <span class="op">-&gt;</span> s<span class="op">.</span><span class="fu">length</span><span class="op">()</span> <span class="op">&gt;</span> <span class="dv">5</span><span class="op">));</span> <span class="co">// Ausgabe: true</span></span></code></pre></div>
+<ul>
+<li><strong><em><code>allMatch(matcher)</code></em></strong>: Bestimmt,
+ob alle Elemente des Streams matchen Beispiel: Haben alle Elemente des
+mehr als 5 Zeichen:</li>
+</ul>
+<div class="sourceCode" id="cb51"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>Stream<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> a <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="st">&quot;Hallo&quot;</span><span class="op">,</span> <span class="st">&quot;Wappler&quot;</span><span class="op">,</span> <span class="st">&quot;wie&quot;</span><span class="op">,</span> <span class="st">&quot;geht&quot;</span><span class="op">,</span> <span class="st">&quot;es&quot;</span><span class="op">,</span> <span class="st">&quot;dir&quot;</span><span class="op">).</span><span class="fu">stream</span><span class="op">();</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>a<span class="op">.</span><span class="fu">allMatch</span><span class="op">(</span>s <span class="op">-&gt;</span> s<span class="op">.</span><span class="fu">length</span><span class="op">()</span> <span class="op">&gt;</span> <span class="dv">5</span><span class="op">));</span> <span class="co">// Ausgabe: false</span></span></code></pre></div>
+<ul>
+<li><strong><em><code>noneMatch(matcher)</code></em></strong>: Bestimmt,
+ob kein einziges Element des Streams matcht Beispiel: Gibt es kein
+einziges Element, das mehr als 5 Zeichen hat:</li>
+</ul>
+<div class="sourceCode" id="cb52"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>Stream<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> a <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="st">&quot;Hallo&quot;</span><span class="op">,</span> <span class="st">&quot;Wappler&quot;</span><span class="op">,</span> <span class="st">&quot;wie&quot;</span><span class="op">,</span> <span class="st">&quot;geht&quot;</span><span class="op">,</span> <span class="st">&quot;es&quot;</span><span class="op">,</span> <span class="st">&quot;dir&quot;</span><span class="op">).</span><span class="fu">stream</span><span class="op">();</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>a<span class="op">.</span><span class="fu">noneMatch</span><span class="op">(</span>s <span class="op">-&gt;</span> s<span class="op">.</span><span class="fu">length</span><span class="op">()</span> <span class="op">&gt;</span> <span class="dv">5</span><span class="op">));</span> <span class="co">// Ausgabe: false, da Wappler zu lang ist</span></span></code></pre></div></li>
+<li><p><strong><em>Iterieren</em></strong></p>
+<ul>
+<li><strong><em><code>forEach(consumer)</code></em></strong> macht mit
+jedem Element etwas Beispiel: Zeichnet einen Weihnachtsbaum, die halbe
+Anzahl der Sterne pro Zeile steht im Stream</li>
+</ul>
+<div class="sourceCode" id="cb53"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>   <span class="co">/* Ausgegeben wird:</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="co">         **</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="co">        ****</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="co">       ******</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="co">      ********</span></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a><span class="co">     **********</span></span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="co">    ************</span></span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a><span class="co">         **</span></span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a><span class="co">         **</span></span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a><span class="co">  */</span></span>
+<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a>  IntStream is <span class="op">=</span> IntStream<span class="op">.</span><span class="fu">of</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="op">);</span></span>
+<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a>  is<span class="op">.</span><span class="fu">forEach</span><span class="op">(</span>n <span class="op">-&gt;</span> <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span></span>
+<span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;       &quot;</span><span class="op">.</span><span class="fu">substring</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">6</span><span class="op">-</span>n<span class="op">)</span> <span class="op">+</span> <span class="st">&quot;*************&quot;</span><span class="op">.</span><span class="fu">substring</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">2</span><span class="op">*</span>n<span class="op">)));</span></span></code></pre></div>
+<p>Bemerkung: Für parallele Streams verwende besser
+<code>forEachOrdered()</code>, wenn du die Elemente in einer bestimmten
+Reihenfolge bearbeiten möchtest.</p></li>
+</ul>
+<ul>
+<li><strong><em><code>Einzelwerte ermitteln</code></em></strong>
+<ul>
+<li><strong><em><code>count()</code></em></strong>: Bestimmt die Anzahl
+der Elemente Beispiel: Zählt wie viele Elemente im Array <code>a</code>
+kleiner als 10 sind:</li>
+</ul>
+<div class="sourceCode" id="cb54"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[]</span> a <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">11</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">88</span><span class="op">};</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">&quot;</span><span class="sc">%d</span><span class="st"> kleine Elemente</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Arrays</span><span class="op">.</span><span class="fu">stream</span><span class="op">(</span>a<span class="op">).</span><span class="fu">filter</span><span class="op">(</span>n <span class="op">-&gt;</span>  n <span class="op">&lt;</span> <span class="dv">10</span><span class="op">).</span><span class="fu">count</span><span class="op">());</span> <span class="co">// Ausgabe: 5 kleine Elemente</span></span></code></pre></div>
+<ul>
+<li><strong><em><code>min()</code>, <code>max()</code></em></strong>:
+Bestimmt das kleinste bzw. größte Element und gibt es in einem Optional
+eingebettet zurück Beispiel:</li>
+</ul>
+<div class="sourceCode" id="cb55"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>Stream<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> a <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="st">&quot;Hallo&quot;</span><span class="op">,</span> <span class="st">&quot;Wappler&quot;</span><span class="op">,</span> <span class="st">&quot;wie&quot;</span><span class="op">,</span> <span class="st">&quot;geht&quot;</span><span class="op">,</span> <span class="st">&quot;es&quot;</span><span class="op">,</span> <span class="st">&quot;dir&quot;</span><span class="op">).</span><span class="fu">stream</span><span class="op">();</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>a<span class="op">.</span><span class="fu">max</span><span class="op">(</span><span class="bu">String</span><span class="op">::</span>compareToIgnoreCase<span class="op">));</span> <span class="co">// Ausgabe: Optional[wie]</span></span></code></pre></div>
+<ul>
+<li><p><strong><em><code>average()</code>,
+<code>sum()</code></em></strong>: Der Mittelwert bzw. die Summe kann nur
+für Int/Long/DoubleStreams bestimmt werden, die Methoden funktionieren
+genau so wie <code>min()</code> und <code>max()</code></p></li>
+<li><p><strong><em><code>reduce()</code></em></strong>: Reduziert die
+Elemente auf einen Wert. Das macht auch z.B.
+<code>min()</code>,<code>max()</code> oder <code>sum()</code>. Mit
+<code>reduce()</code> stellt uns Java eine allgemeine Funktion zu
+Verfügung. <code>reduce()</code> benötigt zwei Argumente:</p>
+<ul>
+<li>den initialen Wert (bzw. das Default-Ergebnis, wenn sich keine
+Elemente im Stream befinden).</li>
+<li>Die Akkumulator-Funktion, die das partielle Ergebnis der bisherigen
+Reduktion und das nächste Element im Stream erhält. Beispiel:<br />
+</li>
+</ul>
+<div class="sourceCode" id="cb56"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[]</span> numbers <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">12</span><span class="op">};</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> summe <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">stream</span><span class="op">(</span>numbers<span class="op">).</span><span class="fu">reduce</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="op">(</span>a<span class="op">,</span>b<span class="op">)</span> <span class="op">-&gt;</span> a<span class="op">+</span>b<span class="op">);</span> <span class="co">// 20</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>summe <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">stream</span><span class="op">(</span>numbers<span class="op">).</span><span class="fu">sum</span><span class="op">();</span> <span class="co">//würde das gleiche Ergebnis liefern.</span></span></code></pre></div></li>
+</ul></li>
+</ul>
+<ul>
+<li>in ein <strong><em>Array umwandeln</em></strong>
+<ul>
+<li><strong><em><code>toArray()</code></em></strong> wandelt den Stream
+in ein Array um Beispiel:</li>
+</ul>
+<div class="sourceCode" id="cb57"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Achtung: Das Array enthält zwar `String`-Objekte, kann aber nicht auf `String[]`</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="co">// gecastet werden</span></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>Stream<span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> a <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">asList</span><span class="op">(</span><span class="st">&quot;Hallo&quot;</span><span class="op">,</span> <span class="st">&quot;Wappler&quot;</span><span class="op">,</span> <span class="st">&quot;wie&quot;</span><span class="op">,</span> <span class="st">&quot;geht&quot;</span><span class="op">,</span> <span class="st">&quot;es&quot;</span><span class="op">,</span> <span class="st">&quot;dir&quot;</span><span class="op">).</span><span class="fu">stream</span><span class="op">();</span></span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="bu">Object</span><span class="op">[]</span> as <span class="op">=</span> a<span class="op">.</span><span class="fu">toArray</span><span class="op">();</span></span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a><span class="co">// besser:</span></span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span><span class="op">[]</span> as2 <span class="op">=</span> a<span class="op">.</span><span class="fu">toArray</span><span class="op">(</span><span class="bu">String</span><span class="op">[]::</span><span class="kw">new</span><span class="op">);</span></span></code></pre></div>
+Beispiel: Zwanzig ganzzahlige Zufallszahlen aus dem Intervall [10, 19]:
+<code>Java   int[] r20 = new Random().ints(20, 10, 20).toArray();</code></li>
+</ul>
+<ul>
+<li><strong><em><code>collect(…)</code></em></strong>: Sammelt Elemente
+des Streams ein
+<ul>
+<li>Verwende dazu Standardverfahren aus <code>Collectors</code>.
+<ul>
+<li>Siehe dazu die API und das untenstehende große Beispiel.</li>
+</ul></li>
+<li>Man kann für collect auch einen eigenen Consumer schreiben, sie dazu
+dieses <a
+href="https://docs.oracle.com/javase/tutorial/collections/streams/reduction.html#collect">Tutorial</a></li>
+</ul></li>
+</ul>
+<p>Beispiele für <code>Collectors</code>: <code>joining</code>,
+<code>toList</code>, <code>summarizingInt</code>,
+<code>partitioningBy</code>, <code>groupingBy</code>,
+<code>counting</code> (siehe Beilage):</p>
+<div class="sourceCode" id="cb58"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Erzeugt aus dem Text eine Liste mit Worten.</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Das &quot;split&quot; trennt an allen Zeichen, die keine (deutschen) Buchstaben sind.</span></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Alle nun folgenden alle Stream-Beispiele arbeiten mit words.stream().</span></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// (Der Text ist der Einheitsübersetzung der Bibel entnommen.)</span></span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">List</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> words <span class="op">=</span> <span class="bu">Arrays</span><span class="op">.</span><span class="fu">stream</span><span class="op">((</span></span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Im Anfang schuf Gott Himmel und Erde; die Erde aber war wüst und &quot;</span> <span class="op">+</span></span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;wirr, Finsternis lag über der Urflut und Gottes Geist schwebte über dem &quot;</span> <span class="op">+</span></span>
+<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">...</span></span>
+<span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;sehr gut. Es wurde Abend und es wurde Morgen: der sechste Tag.&quot;</span></span>
+<span id="cb58-10"><a href="#cb58-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">).</span><span class="fu">split</span><span class="op">(</span><span class="st">&quot;[</span><span class="sc">\\</span><span class="st">P{Alpha}]+&quot;</span><span class="op">)).</span><span class="fu">collect</span><span class="op">(</span>Collectors<span class="op">.</span><span class="fu">toList</span><span class="op">());</span></span>
+<span id="cb58-11"><a href="#cb58-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-12"><a href="#cb58-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">// simple-joined mit Trennelement</span></span>
+<span id="cb58-13"><a href="#cb58-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span><span class="st">&quot;just joined: &quot;</span> <span class="op">+</span> words<span class="op">.</span><span class="fu">stream</span><span class="op">().</span><span class="fu">collect</span><span class="op">(</span>Collectors<span class="op">.</span><span class="fu">joining</span><span class="op">(</span><span class="st">&quot;, &quot;</span><span class="op">)));</span></span>
+<span id="cb58-14"><a href="#cb58-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-15"><a href="#cb58-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">// complex-joined - als String-Array-Darstellung</span></span>
+<span id="cb58-16"><a href="#cb58-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> complexJoined <span class="op">=</span> words<span class="op">.</span><span class="fu">stream</span><span class="op">()</span></span>
+<span id="cb58-17"><a href="#cb58-17" aria-hidden="true" tabindex="-1"></a>            <span class="co">// Elemente zu einem String verketten</span></span>
+<span id="cb58-18"><a href="#cb58-18" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">collect</span><span class="op">(</span>Collectors<span class="op">.</span><span class="fu">joining</span><span class="op">(</span></span>
+<span id="cb58-19"><a href="#cb58-19" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">, </span><span class="sc">\&quot;</span><span class="st">&quot;</span><span class="op">,</span>                <span class="co">// Trennelement:  &quot;, &quot;</span></span>
+<span id="cb58-20"><a href="#cb58-20" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;new String[] { </span><span class="sc">\&quot;</span><span class="st">&quot;</span><span class="op">,</span>     <span class="co">// Prefix;        new String {&quot;</span></span>
+<span id="cb58-21"><a href="#cb58-21" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st"> }&quot;</span>                   <span class="co">// Suffix:        &quot;}</span></span>
+<span id="cb58-22"><a href="#cb58-22" aria-hidden="true" tabindex="-1"></a>            <span class="op">));</span></span>
+<span id="cb58-23"><a href="#cb58-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">&quot;Worte als Array-Literal: </span><span class="sc">%s%n%n</span><span class="st">&quot;</span><span class="op">,</span> complexJoined<span class="op">);</span></span>
+<span id="cb58-24"><a href="#cb58-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-25"><a href="#cb58-25" aria-hidden="true" tabindex="-1"></a>    <span class="co">// toList</span></span>
+<span id="cb58-26"><a href="#cb58-26" aria-hidden="true" tabindex="-1"></a>    <span class="bu">List</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> wordList <span class="op">=</span> words<span class="op">.</span><span class="fu">stream</span><span class="op">().</span><span class="fu">collect</span><span class="op">(</span>Collectors<span class="op">.</span><span class="fu">toList</span><span class="op">());</span></span>
+<span id="cb58-27"><a href="#cb58-27" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">&quot;WortListe: </span><span class="sc">%s%n%n</span><span class="st">&quot;</span><span class="op">,</span> wordList<span class="op">);</span></span>
+<span id="cb58-28"><a href="#cb58-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-29"><a href="#cb58-29" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Statistik</span></span>
+<span id="cb58-30"><a href="#cb58-30" aria-hidden="true" tabindex="-1"></a>    IntSummaryStatistics stat <span class="op">=</span> words<span class="op">.</span><span class="fu">stream</span><span class="op">()</span></span>
+<span id="cb58-31"><a href="#cb58-31" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">collect</span><span class="op">(</span>Collectors<span class="op">.</span><span class="fu">summarizingInt</span><span class="op">(</span>w <span class="op">-&gt;</span> w<span class="op">.</span><span class="fu">length</span><span class="op">()));</span></span>
+<span id="cb58-32"><a href="#cb58-32" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">println</span><span class="op">(</span>stat<span class="op">);</span></span>
+<span id="cb58-33"><a href="#cb58-33" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">printf</span><span class="op">(</span></span>
+<span id="cb58-34"><a href="#cb58-34" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;wrodlen statistic: min=</span><span class="sc">%d</span><span class="st">, max=</span><span class="sc">%d</span><span class="st">, mid=</span><span class="sc">%f%n%n</span><span class="st">&quot;</span> <span class="op">,</span></span>
+<span id="cb58-35"><a href="#cb58-35" aria-hidden="true" tabindex="-1"></a>            stat<span class="op">.</span><span class="fu">getMin</span><span class="op">(),</span> stat<span class="op">.</span><span class="fu">getMax</span><span class="op">(),</span> stat<span class="op">.</span><span class="fu">getAverage</span><span class="op">());</span></span>
+<span id="cb58-36"><a href="#cb58-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-37"><a href="#cb58-37" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Partitionieren: shortWords haben maximal fünf Zeichen</span></span>
+<span id="cb58-38"><a href="#cb58-38" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">Boolean</span><span class="op">,</span> <span class="bu">List</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;&gt;</span> shortWords <span class="op">=</span> words<span class="op">.</span><span class="fu">stream</span><span class="op">()</span></span>
+<span id="cb58-39"><a href="#cb58-39" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">map</span><span class="op">(</span><span class="bu">String</span><span class="op">::</span>toLowerCase<span class="op">)</span></span>
+<span id="cb58-40"><a href="#cb58-40" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">distinct</span><span class="op">()</span></span>
+<span id="cb58-41"><a href="#cb58-41" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">sorted</span><span class="op">()</span></span>
+<span id="cb58-42"><a href="#cb58-42" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">collect</span><span class="op">(</span>Collectors<span class="op">.</span><span class="fu">partitioningBy</span><span class="op">(</span>w <span class="op">-&gt;</span> w<span class="op">.</span><span class="fu">length</span><span class="op">()</span> <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">));</span></span>
+<span id="cb58-43"><a href="#cb58-43" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">&quot;short words: </span><span class="sc">%s%n</span><span class="st">&quot;</span><span class="op">,</span>   shortWords<span class="op">.</span><span class="fu">get</span><span class="op">(</span><span class="kw">true</span><span class="op">));</span></span>
+<span id="cb58-44"><a href="#cb58-44" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">&quot;long  words: </span><span class="sc">%s%n%n</span><span class="st">&quot;</span><span class="op">,</span> shortWords<span class="op">.</span><span class="fu">get</span><span class="op">(</span><span class="kw">false</span><span class="op">));</span></span>
+<span id="cb58-45"><a href="#cb58-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-46"><a href="#cb58-46" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Gruppieren: Nach dem Anfangsbuchstaben</span></span>
+<span id="cb58-47"><a href="#cb58-47" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">List</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;&gt;</span> firstLetter <span class="op">=</span> words<span class="op">.</span><span class="fu">stream</span><span class="op">()</span></span>
+<span id="cb58-48"><a href="#cb58-48" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">map</span><span class="op">(</span><span class="bu">String</span><span class="op">::</span>toLowerCase<span class="op">)</span></span>
+<span id="cb58-49"><a href="#cb58-49" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">distinct</span><span class="op">()</span></span>
+<span id="cb58-50"><a href="#cb58-50" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">sorted</span><span class="op">()</span></span>
+<span id="cb58-51"><a href="#cb58-51" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">collect</span><span class="op">(</span>Collectors<span class="op">.</span><span class="fu">groupingBy</span><span class="op">(</span>word <span class="op">-&gt;</span> word<span class="op">.</span><span class="fu">substring</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span><span class="dv">1</span><span class="op">).</span><span class="fu">toLowerCase</span><span class="op">()));</span></span>
+<span id="cb58-52"><a href="#cb58-52" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">&quot;groupt by first Letter: </span><span class="sc">%s%n%n</span><span class="st">&quot;</span><span class="op">,</span> firstLetter<span class="op">);</span></span>
+<span id="cb58-53"><a href="#cb58-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-54"><a href="#cb58-54" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Gruppieren:nach der Worthäufigkeit mit Supplier und Downstream-Collector</span></span>
+<span id="cb58-55"><a href="#cb58-55" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Map</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">,</span> <span class="bu">Long</span><span class="op">&gt;</span> wordFrequency <span class="op">=</span> words<span class="op">.</span><span class="fu">stream</span><span class="op">()</span></span>
+<span id="cb58-56"><a href="#cb58-56" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">map</span><span class="op">(</span><span class="bu">String</span><span class="op">::</span>toLowerCase<span class="op">)</span></span>
+<span id="cb58-57"><a href="#cb58-57" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">sorted</span><span class="op">()</span></span>
+<span id="cb58-58"><a href="#cb58-58" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">collect</span><span class="op">(</span></span>
+<span id="cb58-59"><a href="#cb58-59" aria-hidden="true" tabindex="-1"></a>                    Collectors<span class="op">.</span><span class="fu">groupingBy</span><span class="op">(</span></span>
+<span id="cb58-60"><a href="#cb58-60" aria-hidden="true" tabindex="-1"></a>                            word <span class="op">-&gt;</span> word<span class="op">,</span>          <span class="co">// key der Map (= bei uns das Wort selbst)</span></span>
+<span id="cb58-61"><a href="#cb58-61" aria-hidden="true" tabindex="-1"></a>                            <span class="bu">TreeMap</span><span class="op">::</span><span class="kw">new</span><span class="op">,</span>          <span class="co">// mapFactory (= Map-Art zum Speichern)</span></span>
+<span id="cb58-62"><a href="#cb58-62" aria-hidden="true" tabindex="-1"></a>                            Collectors<span class="op">.</span><span class="fu">counting</span><span class="op">()</span>  <span class="co">// value der Map (= Worthäufigkeit)</span></span>
+<span id="cb58-63"><a href="#cb58-63" aria-hidden="true" tabindex="-1"></a>                    <span class="op">));</span></span>
+<span id="cb58-64"><a href="#cb58-64" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="fu">out</span><span class="op">.</span><span class="fu">printf</span><span class="op">(</span><span class="st">&quot;Worthaeufigkeit: </span><span class="sc">%s%n</span><span class="st">&quot;</span><span class="op">,</span> wordFrequency<span class="op">);</span></span></code></pre></div>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Keine Panik, die Streams werden später noch erklärt. In
+dem Beispiel geht es nur um die Lambda-Ausdrücke<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>oder auto-final, d.h. sie werden nach der
+Initialisierung in der ganzen Methode nur gelesen<a href="#fnref2"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p> Arten der Programmierung: <strong><em>imperative
+Programmierung</em></strong>: Beschreibung des Lösungsweges
+(Algorithmus) = klassischer Weg in Java, C, C++, JavaScript, etc.
+<strong><em>deklarative Programmierung</em></strong>: Beschreibung des
+Problems (der Lösung), der Lösungsweg wird automatisch ermittelt = in
+Java Streams, sonst: Haskell, Lisp, Prolog und im weitesten Sinne auch
+SQL<a href="#fnref3" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</article>
+</body>
+</html>

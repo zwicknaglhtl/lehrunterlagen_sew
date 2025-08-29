@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<!--
+==============================================================================
+           "GitHub HTML5 Pandoc Template" v2.1 — by Tristano Ajmone           
+==============================================================================
+Copyright © Tristano Ajmone, 2017, MIT License (MIT). Project's home:
+
+- https://github.com/tajmone/pandoc-goodies
+
+The CSS in this template reuses source code taken from the following projects:
+
+- GitHub Markdown CSS: Copyright © Sindre Sorhus, MIT License (MIT):
+  https://github.com/sindresorhus/github-markdown-css
+
+- Primer CSS: Copyright © 2016-2017 GitHub Inc., MIT License (MIT):
+  http://primercss.io/
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The MIT License 
+
+Copyright (c) Tristano Ajmone, 2017 (github.com/tajmone/pandoc-goodies)
+Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+Copyright (c) 2017 GitHub Inc.
+
+"GitHub Pandoc HTML5 Template" is Copyright (c) Tristano Ajmone, 2017, released
+under the MIT License (MIT); it contains readaptations of substantial portions
+of the following third party softwares:
+
+(1) "GitHub Markdown CSS", Copyright (c) Sindre Sorhus, MIT License (MIT).
+(2) "Primer CSS", Copyright (c) 2016 GitHub Inc., MIT License (MIT).
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+==============================================================================-->
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Text I/O</title>
+  <style type="text/css">
+@charset "UTF-8";.markdown-body{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;color:#24292e;font-family:-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:16px;line-height:1.5;word-wrap:break-word;box-sizing:border-box;min-width:200px;max-width:980px;margin:0 auto;padding:45px}.markdown-body a{color:#0366d6;background-color:transparent;text-decoration:none;-webkit-text-decoration-skip:objects}.markdown-body a:active,.markdown-body a:hover{outline-width:0}.markdown-body a:hover{text-decoration:underline}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body strong{font-weight:600}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1{font-size:2em;margin:.67em 0;padding-bottom:.3em;border-bottom:1px solid #eaecef}.markdown-body h2{padding-bottom:.3em;font-size:1.5em;border-bottom:1px solid #eaecef}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#6a737d}.markdown-body img{border-style:none}.markdown-body svg:not(:root){overflow:hidden}.markdown-body hr{box-sizing:content-box;height:.25em;margin:24px 0;padding:0;overflow:hidden;background-color:#e1e4e8;border:0}.markdown-body hr::before{display:table;content:""}.markdown-body hr::after{display:table;clear:both;content:""}.markdown-body input{margin:0;overflow:visible;font:inherit;font-family:inherit;font-size:inherit;line-height:inherit}.markdown-body [type=checkbox]{box-sizing:border-box;padding:0}.markdown-body *{box-sizing:border-box}.markdown-body blockquote{margin:0}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol ol,.markdown-body ul ol{list-style-type:lower-roman}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body ol ol ol,.markdown-body ol ul ol,.markdown-body ul ol ol,.markdown-body ul ul ol{list-style-type:lower-alpha}.markdown-body li>p{margin-top:16px}.markdown-body li+li{margin-top:.25em}.markdown-body dd{margin-left:0}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:600}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body code{font-family:SFMono-Regular,Consolas,"Liberation Mono",Menlo,Courier,monospace}.markdown-body pre{font:12px SFMono-Regular,Consolas,"Liberation Mono",Menlo,Courier,monospace;word-wrap:normal}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body blockquote{padding:0 1em;color:#6a737d;border-left:.25em solid #dfe2e5}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body table{display:block;width:100%;overflow:auto;border-spacing:0;border-collapse:collapse}.markdown-body table th{font-weight:600}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #dfe2e5}.markdown-body table tr{background-color:#fff;border-top:1px solid #c6cbd1}.markdown-body table tr:nth-child(2n){background-color:#f6f8fa}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body code{padding:.2em 0;margin:0;font-size:85%;background-color:rgba(27,31,35,.05);border-radius:3px}.markdown-body code::after,.markdown-body code::before{letter-spacing:-.2em;content:" "}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:0 0;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f6f8fa;border-radius:3px}.markdown-body pre code{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code::after,.markdown-body pre code::before{content:normal}.markdown-body .full-commit .btn-outline:not(:disabled):hover{color:#005cc5;border-color:#005cc5}.markdown-body kbd{box-shadow:inset 0 -1px 0 #959da5;display:inline-block;padding:3px 5px;font:11px/10px SFMono-Regular,Consolas,"Liberation Mono",Menlo,Courier,monospace;color:#444d56;vertical-align:middle;background-color:#fcfcfc;border:1px solid #c6cbd1;border-bottom-color:#959da5;border-radius:3px;box-shadow:inset 0 -1px 0 #959da5}.markdown-body :checked+.radio-label{position:relative;z-index:1;border-color:#0366d6}.markdown-body .task-list-item{list-style-type:none}.markdown-body .task-list-item+.task-list-item{margin-top:3px}.markdown-body .task-list-item input{margin:0 .2em .25em -1.6em;vertical-align:middle}.markdown-body::before{display:table;content:""}.markdown-body::after{display:table;clear:both;content:""}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.Alert,.Error,.Note,.Success,.Warning{padding:11px;margin-bottom:24px;border-style:solid;border-width:1px;border-radius:4px}.Alert p,.Error p,.Note p,.Success p,.Warning p{margin-top:0}.Alert p:last-child,.Error p:last-child,.Note p:last-child,.Success p:last-child,.Warning p:last-child{margin-bottom:0}.Alert{color:#246;background-color:#e2eef9;border-color:#bac6d3}.Warning{color:#4c4a42;background-color:#fff9ea;border-color:#dfd8c2}.Error{color:#911;background-color:#fcdede;border-color:#d2b2b2}.Success{color:#22662c;background-color:#e2f9e5;border-color:#bad3be}.Note{color:#2f363d;background-color:#f6f8fa;border-color:#d5d8da}.Alert h1,.Alert h2,.Alert h3,.Alert h4,.Alert h5,.Alert h6{color:#246;margin-bottom:0}.Warning h1,.Warning h2,.Warning h3,.Warning h4,.Warning h5,.Warning h6{color:#4c4a42;margin-bottom:0}.Error h1,.Error h2,.Error h3,.Error h4,.Error h5,.Error h6{color:#911;margin-bottom:0}.Success h1,.Success h2,.Success h3,.Success h4,.Success h5,.Success h6{color:#22662c;margin-bottom:0}.Note h1,.Note h2,.Note h3,.Note h4,.Note h5,.Note h6{color:#2f363d;margin-bottom:0}.Alert h1:first-child,.Alert h2:first-child,.Alert h3:first-child,.Alert h4:first-child,.Alert h5:first-child,.Alert h6:first-child,.Error h1:first-child,.Error h2:first-child,.Error h3:first-child,.Error h4:first-child,.Error h5:first-child,.Error h6:first-child,.Note h1:first-child,.Note h2:first-child,.Note h3:first-child,.Note h4:first-child,.Note h5:first-child,.Note h6:first-child,.Success h1:first-child,.Success h2:first-child,.Success h3:first-child,.Success h4:first-child,.Success h5:first-child,.Success h6:first-child,.Warning h1:first-child,.Warning h2:first-child,.Warning h3:first-child,.Warning h4:first-child,.Warning h5:first-child,.Warning h6:first-child{margin-top:0}h1.title,p.subtitle{text-align:center}h1.title.followed-by-subtitle{margin-bottom:0}p.subtitle{font-size:1.5em;font-weight:600;line-height:1.25;margin-top:0;margin-bottom:16px;padding-bottom:.3em}div.line-block{white-space:pre-line}
+  </style>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<article class="markdown-body">
+<header>
+<h1 class="title">Text I/O</h1>
+</header>
+<hr>
+<nav id="TOC">
+<h1 class="toc-title">Contents</h1>
+<ul>
+<li><a href="#lesen-und-schreiben-von-textdateien"
+id="toc-lesen-und-schreiben-von-textdateien">Lesen und Schreiben von
+Textdateien</a>
+<ul>
+<li><a href="#io-exception" id="toc-io-exception">IO-Exception</a></li>
+<li><a href="#lesen-und-schreiben-ganzer-textdateien"
+id="toc-lesen-und-schreiben-ganzer-textdateien">Lesen und Schreiben
+ganzer Textdateien</a></li>
+<li><a href="#lesen-und-schreiben-einzelner-zeilen"
+id="toc-lesen-und-schreiben-einzelner-zeilen">Lesen und Schreiben
+einzelner Zeilen</a></li>
+</ul></li>
+</ul>
+</nav>
+<hr>
+<h1 id="lesen-und-schreiben-von-textdateien">Lesen und Schreiben von
+Textdateien</h1>
+<h2 id="io-exception">IO-Exception</h2>
+<ul>
+<li><p>Jeder Zugriff auf die Festplatte (USB, etc.) kann schief gehen
+(Datei fehlt, wir haben keine Zugriffsrechte, der USB-Stick wurde
+abgezogen, …).</p></li>
+<li><p>Falls es schief geht, wird eine <code>IOException</code>
+geworfen.</p></li>
+<li><p>Diese müssen wir entweder fangen:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">...</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">catch</span> <span class="op">(</span><span class="bu">IOException</span> e<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">...</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>oder im Methodenkopf ankündigen, dass diese Methode eine
+<code>IOException</code> werfen kann:</p>
+<p><code
+class="sourceCode java"><span class="kw">...</span> <span class="fu">convertFileToUpperCase</span> <span class="op">(</span><span class="bu">String</span> srcFile<span class="op">,</span> <span class="bu">String</span> destFile<span class="op">)</span> <span class="kw">throws</span> <span class="bu">IOException</span></code></p></li>
+</ul>
+<h2 id="lesen-und-schreiben-ganzer-textdateien">Lesen und Schreiben
+ganzer Textdateien</h2>
+<p>Die einfachste Methode alle Zeilen einer Datei zu lesen/schreiben
+liefern die Methoden <a
+href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#readAllLines-java.nio.file.Path-java.nio.charset.Charset-"><code>Files.readAllLines(...)</code></a>
+und <a
+href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#write-java.nio.file.Path-java.lang.Iterable-java.nio.charset.Charset-java.nio.file.OpenOption...-"><code>Files.write(...)</code></a>.
+Diese Methoden öffnen die Datei, schreiben/lesen den gesamten Inhalt und
+schließen sie auch wieder.</p>
+<p>Die folgende Methode demonstriert das Lesen und das Schreiben einer
+Textdatei anhand der Methode <code>copyTextFile(...)</code>, die die
+Datei mit dem Namen (inkl. Pfad) <code>srcFile</code> in die Datei
+<code>destFile</code> kopiert.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">copyTextFile</span> <span class="op">(</span><span class="bu">String</span> srcFile<span class="op">,</span> <span class="bu">String</span> destFile<span class="op">)</span> <span class="kw">throws</span> <span class="bu">IOException</span> <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">List</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> allLines <span class="op">=</span> Files<span class="op">.</span><span class="fu">readAllLines</span><span class="op">(</span>Paths<span class="op">.</span><span class="fu">get</span><span class="op">(</span>srcFile<span class="op">),</span> <span class="bu">Charset</span><span class="op">.</span><span class="fu">forName</span><span class="op">(</span><span class="st">&quot;UTF-8&quot;</span><span class="op">));</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        Files<span class="op">.</span><span class="fu">write</span><span class="op">(</span>Paths<span class="op">.</span><span class="fu">get</span><span class="op">(</span>destFile<span class="op">),</span> allLines<span class="op">,</span> StandardCharsets<span class="op">.</span><span class="fu">UTF_8</span><span class="op">);</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Zeichensatz: entweder wie angegeben oder ein vordefinierter
+Zeichensatz aus der Klasse <a
+href="https://docs.oracle.com/javase/10/docs/api/java/nio/charset/StandardCharsets.html"><code>StandardCharsets</code></a>.</p>
+<p>Wichtig: Beim Ausführen des Programms ist das <em>working
+directory</em> der <em>oberste</em> Ordner des Projekts.</p>
+<p><strong><em>Tipp:</em></strong> Erzeuge dir im Projektverzeichis
+einen Ordner <code>resources</code> speichere dort alle Dateien, die
+dein Programm benötigt. Zusätzlich kann/sollte man den Ordner auch in
+IntelliJ als “Ressource” markieren (Rechtsklick auf den Ordner -&gt;
+“Mark Directory As” -&gt; “Resources Root”).</p>
+<p>Gib die Pfade dann relativ zum Projektverzeichnis an. Beispielaufruf
+der oben angeführten Methode:
+<code>copyTextFile("resources/meinText.txt", "resources/meinText.txt.copy")</code></p>
+<h3 id="neuen-inhalt-hinzufügen-append">Neuen Inhalt hinzufügen
+(append)</h3>
+<p>Sollte eine bereits existierende Datei zum Schreiben geöffnet werden,
+so wird normalerweise der alte Dateiinhalt komplett gelöscht. In der
+Datei steht dann nur der neu geschriebene Text.</p>
+<p>Möchte man das verhindern und den neuen Text an den schon
+existierenden hinten anhängen, so muss man das beim Schreiben der Datei
+entsprechend angeben:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">copyTextFile</span> <span class="op">(</span><span class="bu">String</span> srcFile<span class="op">,</span> <span class="bu">String</span> destFile<span class="op">)</span> <span class="kw">throws</span> <span class="bu">IOException</span> <span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">List</span><span class="op">&lt;</span><span class="bu">String</span><span class="op">&gt;</span> allLines <span class="op">=</span> Files<span class="op">.</span><span class="fu">readAllLines</span><span class="op">(</span>Paths<span class="op">.</span><span class="fu">get</span><span class="op">(</span>srcFile<span class="op">),</span> <span class="bu">Charset</span><span class="op">.</span><span class="fu">forName</span><span class="op">(</span><span class="st">&quot;UTF-8&quot;</span><span class="op">));</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">//allLines werden angehängt, existierender Inhalt bleibt erhalten</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        Files<span class="op">.</span><span class="fu">write</span><span class="op">(</span>Paths<span class="op">.</span><span class="fu">get</span><span class="op">(</span>destFile<span class="op">),</span> allLines<span class="op">,</span> <span class="bu">Charset</span><span class="op">.</span><span class="fu">forName</span><span class="op">(</span><span class="st">&quot;UTF-8&quot;</span><span class="op">),</span> StandardOpenOption<span class="op">.</span><span class="fu">APPEND</span><span class="op">);</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code></pre></div>
+<h3 id="nachteile-dieser-methoden">Nachteile dieser Methoden</h3>
+<p>Bis jetzt haben wir gelernt, wie man mit <code
+class="sourceCode java">Files<span class="op">.</span><span class="fu">readAllLines</span><span class="op">(</span><span class="kw">...</span><span class="op">)</span></code>
+und <code
+class="sourceCode java">Files<span class="op">.</span><span class="fu">write</span><span class="op">(</span><span class="kw">...</span><span class="op">)</span></code>
+Text aus einer Datei lesen, bzw. in eine Datei schreiben kann.</p>
+<p>Diese Befehle führen drei Schritte durch.</p>
+<ol type="1">
+<li>File öffnen</li>
+<li>gesamten Inhalt lesen/schreiben</li>
+<li>File schließen</li>
+</ol>
+<p>Dem Vorteil eines kompakten Codes stehen auch etliche Nachteile
+gegenüber:</p>
+<ul>
+<li>Es wird immer der gesamte Inhalt des Files auf einmal gelesen und in
+den Speicher geladen. Das ist nachteilig wenn man eigentlich nur an
+einem Teil (z.B. der ersten Zeile) interessiert ist und/oder das File
+sehr groß ist.</li>
+<li>Für jede Lese-/Schreiboperation wird das File auch geöffnet und
+geschlossen. Wenn mehrere Schreib-/Leseoperationen notwendig sind (z.B.
+jede Benutzereingabe gleich speichern) kann es effizienter sein das File
+geöffnet zu lasen.</li>
+</ul>
+<h2 id="lesen-und-schreiben-einzelner-zeilen">Lesen und Schreiben
+einzelner Zeilen</h2>
+<h3 id="io-exception-1">IO-Exception</h3>
+<p>Im folgenden wollen wir die einzelnen Schritte mit getrennten
+Befehlen durchführen:</p>
+<ol type="1">
+<li>open</li>
+<li>read/write (mehrere Operationen möglich)</li>
+<li>close</li>
+</ol>
+<p>Achtung: jede der drei Operationen kann eine IO-Exception
+auslösen.</p>
+<p>Pseudocode:</p>
+<pre class="pseudocode"><code>   try
+      open
+      read/write
+   catch IOException
+      Fehler beim Öffnen oder Schreiben
+   finally
+      close</code></pre>
+<p>aber das reicht eigentlich nicht:</p>
+<ul>
+<li>Wurde der Fehler beim Öffnen oder erst beim Schreiben
+ausgelöst?</li>
+<li>Close könnte auch fehlschlagen</li>
+</ul>
+<p>Eigentlich bräuchten wir folgende Struktur:</p>
+<pre class="pseudocode"><code>   try
+      open
+      try
+        read/write
+      catch IOException
+        Fehler beim Lesen/Schreiben
+   catch IOException
+      Fehler beim Öffnen
+   finally
+      try
+         close
+      catch IOException
+        Fehler beim Close</code></pre>
+<p>Lösung: Ein <a
+href="%5Bhttps://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html%5D"><code>try-with-resources</code>
+Statement</a> sorgt dafür, dass jede Ressource automatisch geschlossen
+wird beim Verlassen des Blocks. Tritt ein Fehler beim Lesen/Schreiben
+UND beim Schließen auf, hat der Schreib-/Lesefehler immer Priorität.</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> <span class="op">(</span><span class="bu">BufferedReader</span> in <span class="op">=</span> <span class="kw">...</span><span class="op">)</span> <span class="op">{</span> <span class="co">//try-with resources statement</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>   <span class="kw">...</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="co">// automatisch: close beim Verlassen des Blocks (egal ob eine Exception geworfen wurde oder nicht)</span></span></code></pre></div>
+<h3 id="text-inputoutput">Text-Input/Output</h3>
+<p>Schauen wir uns nun anhand der oben angeführten Methode
+<code>copyTextFile(...)</code> an, wie man ein File kopieren kann, wenn
+man jede Zeile einzeln liest. Wir verwenden dazu die Klasse <a
+href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/io/BufferedReader.html"><code>BufferedReader</code></a>
+und <a
+href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/io/BufferedWriter.html"><code>BufferedWriter</code></a>.</p>
+<p>Beachte, dass man auch Zeilenumbrüche extra hinzufügen muss!</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">copyTextFile</span> <span class="op">(</span><span class="bu">String</span> srcFile<span class="op">,</span> <span class="bu">String</span> destFile<span class="op">)</span> <span class="kw">throws</span> <span class="bu">IOException</span> <span class="op">{</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Die Dateien werden mit einem try-mit-resources geöffnet</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span> <span class="op">(</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>            <span class="co">// Öffnet eine Datei zum Lesen,</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>            <span class="bu">BufferedReader</span> in <span class="op">=</span> Files<span class="op">.</span><span class="fu">newBufferedReader</span><span class="op">(</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>                    Paths<span class="op">.</span><span class="fu">get</span><span class="op">(</span>srcFile<span class="op">),</span>          <span class="co">// die zu lesende Datei</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">Charset</span><span class="op">.</span><span class="fu">forName</span><span class="op">(</span><span class="st">&quot;UTF-8&quot;</span><span class="op">)</span>     <span class="co">// ihr Zeichensatz</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>            <span class="op">);</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>            <span class="co">// Öffnet eine Datei zum Schreiben</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>            <span class="bu">BufferedWriter</span> out <span class="op">=</span> Files<span class="op">.</span><span class="fu">newBufferedWriter</span><span class="op">(</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>                    Paths<span class="op">.</span><span class="fu">get</span><span class="op">(</span>destFile<span class="op">),</span>         <span class="co">// die zu schreibende Datei</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">Charset</span><span class="op">.</span><span class="fu">forName</span><span class="op">(</span><span class="st">&quot;UTF-8&quot;</span><span class="op">)</span>     <span class="co">// ihr Zeichensatz</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>            <span class="op">);</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>            <span class="co">// Beide Dateien werden automatisch geschlossen, sobald der try-Block verlassen wird!</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> line<span class="op">;</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Lies die gesamte Eingabe-Datei (in) zeilenweise, das Dateiende wird daran erkannt,</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        <span class="co">// dass &quot;in.readLine()&quot; null zurück gibt.</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="op">((</span>line <span class="op">=</span> in<span class="op">.</span><span class="fu">readLine</span><span class="op">())</span> <span class="op">!=</span> <span class="kw">null</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>            <span class="co">// Schreibt die gesamte Zeile in die Ausgabe-Datei (out).</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>            <span class="co">// Zusätzlich muss noch ein Zeilenumbruch (+ System.lineSeparator()) erzeugt werden.</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>            out<span class="op">.</span><span class="fu">write</span><span class="op">(</span>line <span class="op">+</span> <span class="bu">System</span><span class="op">.</span><span class="fu">lineSeparator</span><span class="op">());</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="co">// Ende try-Block -- close</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="text-output-with-append">Text-Output with append</h3>
+<p>So kann man einem <code
+class="sourceCode java"><span class="bu">BufferedWriter</span></code>
+beim Öffnen mitteilen, den neuen Text an den schon existierenden hinten
+anzuhängen.</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Öffnet eine Datei zum Schreiben, ohne dass der alte Dateiinhalt gelöscht wird</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">BufferedWriter</span> out <span class="op">=</span> Files<span class="op">.</span><span class="fu">newBufferedWriter</span><span class="op">(</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    Paths<span class="op">.</span><span class="fu">get</span><span class="op">(</span>destFile<span class="op">),</span>         <span class="co">// die zu schreibende Datei</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Charset</span><span class="op">.</span><span class="fu">forName</span><span class="op">(</span><span class="st">&quot;UTF-8&quot;</span><span class="op">),</span>    <span class="co">// ihr Zeichensatz</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    StandardOpenOption<span class="op">.</span><span class="fu">APPEND</span>    <span class="co">// die Datei wird erweitert --&gt; der neue Text wird hinten angehängt</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="op">);</span></span></code></pre></div>
+<p>Man kann die StandardOpenOptions auch kombinieren. Der folgende Code
+legt ein File an, falls es noch nicht existiert. Andernfalls wird der
+neue Inhalt am Ende angehängt.</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">BufferedWriter</span> out <span class="op">=</span> Files<span class="op">.</span><span class="fu">newBufferedWriter</span><span class="op">(</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                    Paths<span class="op">.</span><span class="fu">get</span><span class="op">(</span><span class="kw">this</span><span class="op">.</span><span class="fu">filename</span><span class="op">),</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">Charset</span><span class="op">.</span><span class="fu">forName</span><span class="op">(</span><span class="st">&quot;UTF-8&quot;</span><span class="op">),</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                    StandardOpenOption<span class="op">.</span><span class="fu">CREATE</span><span class="op">,</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                    StandardOpenOption<span class="op">.</span><span class="fu">APPEND</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>            <span class="op">)</span></span></code></pre></div>
+<h3 id="bufferedwriter-und-flush">BufferedWriter und Flush</h3>
+<p>Ein <a
+href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/io/Writer.html"><code>Writer</code></a>
+(eine Überklasse von <code>BufferedWriter</code>) sendet jeden Output
+sofort an das darunter liegende I/O-System. Da dies sehr ineffizient ist
+verwendet man meist einen <code>BufferedWriter</code>, der Output ein
+wenig sammelt (also “buffert”) bevor er ihn dann gesammelt
+weiterleitet.</p>
+<p>Wenn man zu einem gewissen Zeitpunkt sicherstellen will, dass der
+Output wirklich geschrieben wird, verwendet man die Methode <a
+href="https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/io/BufferedWriter.html#flush()"><code>flush()</code></a>.
+Mit jedem Aufruf von <code>flush()</code> wird der gebufferte Inhalt
+geschrieben (was sonst nur automatisch geschieht wenn der Buffer voll
+ist).</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span><span class="op">(</span> <span class="bu">BufferedWriter</span> out <span class="op">=</span> Files<span class="op">.</span><span class="fu">newBufferedWriter</span><span class="op">(</span><span class="kw">...</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">...</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    out<span class="op">.</span><span class="fu">write</span><span class="op">(</span><span class="st">&quot;erste Zeile&quot;</span> <span class="op">+</span> <span class="bu">System</span><span class="op">.</span><span class="fu">lineSeparator</span><span class="op">());</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    out<span class="op">.</span><span class="fu">write</span><span class="op">(</span><span class="st">&quot;zweite Zeile&quot;</span> <span class="op">+</span> <span class="bu">System</span><span class="op">.</span><span class="fu">lineSeparator</span><span class="op">());</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    out<span class="op">.</span><span class="fu">write</span><span class="op">(</span><span class="st">&quot;dritte Zeile&quot;</span> <span class="op">+</span> <span class="bu">System</span><span class="op">.</span><span class="fu">lineSeparator</span><span class="op">());</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    out<span class="op">.</span><span class="fu">flush</span><span class="op">();</span>    <span class="co">//ich stelle sicher, dass die drei Zeilen geschrieben werden</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">...</span></span></code></pre></div>
+</article>
+</body>
+</html>

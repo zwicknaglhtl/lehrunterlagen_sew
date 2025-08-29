@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<!--
+==============================================================================
+           "GitHub HTML5 Pandoc Template" v2.2 — by Tristano Ajmone
+==============================================================================
+Copyright © Tristano Ajmone, 2017-2020, MIT License (MIT). Project's home:
+
+- https://github.com/tajmone/pandoc-goodies
+
+The CSS in this template reuses source code taken from the following projects:
+
+- GitHub Markdown CSS: Copyright © Sindre Sorhus, MIT License (MIT):
+  https://github.com/sindresorhus/github-markdown-css
+
+- Primer CSS: Copyright © 2016-2017 GitHub Inc., MIT License (MIT):
+  http://primercss.io/
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The MIT License
+
+Copyright (c) Tristano Ajmone, 2017-2020 (github.com/tajmone/pandoc-goodies)
+Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+Copyright (c) 2017 GitHub Inc.
+
+"GitHub Pandoc HTML5 Template" is Copyright (c) Tristano Ajmone, 2017-2020,
+released under the MIT License (MIT); it contains readaptations of substantial
+portions of the following third party softwares:
+
+(1) "GitHub Markdown CSS", Copyright (c) Sindre Sorhus, MIT License (MIT).
+(2) "Primer CSS", Copyright (c) 2016 GitHub Inc., MIT License (MIT).
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+==============================================================================-->
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Git Grundlagen</title>
+  <style type="text/css">
+@charset "UTF-8";.markdown-body{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;color:#24292e;font-family:-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:16px;line-height:1.5;word-wrap:break-word;box-sizing:border-box;min-width:200px;max-width:980px;margin:0 auto;padding:45px}.markdown-body a{color:#0366d6;background-color:transparent;text-decoration:none;-webkit-text-decoration-skip:objects}.markdown-body a:active,.markdown-body a:hover{outline-width:0}.markdown-body a:hover{text-decoration:underline}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body strong{font-weight:600}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1{font-size:2em;margin:.67em 0;padding-bottom:.3em;border-bottom:1px solid #eaecef}.markdown-body h2{padding-bottom:.3em;font-size:1.5em;border-bottom:1px solid #eaecef}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#6a737d}.markdown-body img{border-style:none}.markdown-body svg:not(:root){overflow:hidden}.markdown-body hr{box-sizing:content-box;height:.25em;margin:24px 0;padding:0;overflow:hidden;background-color:#e1e4e8;border:0}.markdown-body hr::before{display:table;content:""}.markdown-body hr::after{display:table;clear:both;content:""}.markdown-body input{margin:0;overflow:visible;font:inherit;font-family:inherit;font-size:inherit;line-height:inherit}.markdown-body [type=checkbox]{box-sizing:border-box;padding:0}.markdown-body *{box-sizing:border-box}.markdown-body blockquote{margin:0}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol ol,.markdown-body ul ol{list-style-type:lower-roman}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body ol ol ol,.markdown-body ol ul ol,.markdown-body ul ol ol,.markdown-body ul ul ol{list-style-type:lower-alpha}.markdown-body li>p{margin-top:16px}.markdown-body li+li{margin-top:.25em}.markdown-body dd{margin-left:0}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:600}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body code{font-family:SFMono-Regular,Consolas,"Liberation Mono",Menlo,Courier,monospace}.markdown-body pre{font:12px SFMono-Regular,Consolas,"Liberation Mono",Menlo,Courier,monospace;word-wrap:normal}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body blockquote{padding:0 1em;color:#6a737d;border-left:.25em solid #dfe2e5}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body table{display:block;width:100%;overflow:auto;border-spacing:0;border-collapse:collapse}.markdown-body table th{font-weight:600}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #dfe2e5}.markdown-body table tr{background-color:#fff;border-top:1px solid #c6cbd1}.markdown-body table tr:nth-child(2n){background-color:#f6f8fa}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body code{padding:.2em 0;margin:0;font-size:85%;background-color:rgba(27,31,35,.05);border-radius:3px}.markdown-body code::after,.markdown-body code::before{letter-spacing:-.2em;content:" "}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:0 0;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f6f8fa;border-radius:3px}.markdown-body pre code{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code::after,.markdown-body pre code::before{content:normal}.markdown-body .full-commit .btn-outline:not(:disabled):hover{color:#005cc5;border-color:#005cc5}.markdown-body kbd{box-shadow:inset 0 -1px 0 #959da5;display:inline-block;padding:3px 5px;font:11px/10px SFMono-Regular,Consolas,"Liberation Mono",Menlo,Courier,monospace;color:#444d56;vertical-align:middle;background-color:#fcfcfc;border:1px solid #c6cbd1;border-bottom-color:#959da5;border-radius:3px;box-shadow:inset 0 -1px 0 #959da5}.markdown-body :checked+.radio-label{position:relative;z-index:1;border-color:#0366d6}.markdown-body .task-list-item{list-style-type:none}.markdown-body .task-list-item+.task-list-item{margin-top:3px}.markdown-body .task-list-item input{margin:0 .2em .25em -1.6em;vertical-align:middle}.markdown-body::before{display:table;content:""}.markdown-body::after{display:table;clear:both;content:""}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.Alert,.Error,.Note,.Success,.Warning{padding:11px;margin-bottom:24px;border-style:solid;border-width:1px;border-radius:4px}.Alert p,.Error p,.Note p,.Success p,.Warning p{margin-top:0}.Alert p:last-child,.Error p:last-child,.Note p:last-child,.Success p:last-child,.Warning p:last-child{margin-bottom:0}.Alert{color:#246;background-color:#e2eef9;border-color:#bac6d3}.Warning{color:#4c4a42;background-color:#fff9ea;border-color:#dfd8c2}.Error{color:#911;background-color:#fcdede;border-color:#d2b2b2}.Success{color:#22662c;background-color:#e2f9e5;border-color:#bad3be}.Note{color:#2f363d;background-color:#f6f8fa;border-color:#d5d8da}.Alert h1,.Alert h2,.Alert h3,.Alert h4,.Alert h5,.Alert h6{color:#246;margin-bottom:0}.Warning h1,.Warning h2,.Warning h3,.Warning h4,.Warning h5,.Warning h6{color:#4c4a42;margin-bottom:0}.Error h1,.Error h2,.Error h3,.Error h4,.Error h5,.Error h6{color:#911;margin-bottom:0}.Success h1,.Success h2,.Success h3,.Success h4,.Success h5,.Success h6{color:#22662c;margin-bottom:0}.Note h1,.Note h2,.Note h3,.Note h4,.Note h5,.Note h6{color:#2f363d;margin-bottom:0}.Alert h1:first-child,.Alert h2:first-child,.Alert h3:first-child,.Alert h4:first-child,.Alert h5:first-child,.Alert h6:first-child,.Error h1:first-child,.Error h2:first-child,.Error h3:first-child,.Error h4:first-child,.Error h5:first-child,.Error h6:first-child,.Note h1:first-child,.Note h2:first-child,.Note h3:first-child,.Note h4:first-child,.Note h5:first-child,.Note h6:first-child,.Success h1:first-child,.Success h2:first-child,.Success h3:first-child,.Success h4:first-child,.Success h5:first-child,.Success h6:first-child,.Warning h1:first-child,.Warning h2:first-child,.Warning h3:first-child,.Warning h4:first-child,.Warning h5:first-child,.Warning h6:first-child{margin-top:0}h1.title,p.subtitle{text-align:center}h1.title.followed-by-subtitle{margin-bottom:0}p.subtitle{font-size:1.5em;font-weight:600;line-height:1.25;margin-top:0;margin-bottom:16px;padding-bottom:.3em}div.line-block{white-space:pre-line}
+  </style>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<article class="markdown-body">
+<header>
+<h1 class="title">Git Grundlagen</h1>
+</header>
+<hr>
+<nav id="TOC">
+<h1 class="toc-title">Contents</h1>
+<ul>
+<li><a href="#git" id="toc-git">Git</a>
+<ul>
+<li><a href="#einführung" id="toc-einführung">Einführung</a></li>
+<li><a href="#vorbereitung" id="toc-vorbereitung">Vorbereitung</a>
+<ul>
+<li><a href="#software-installieren"
+id="toc-software-installieren">Software installieren</a></li>
+<li><a href="#ssh-keys-erzeugen" id="toc-ssh-keys-erzeugen">SSH-Keys
+erzeugen</a></li>
+</ul></li>
+<li><a
+href="#auf-mehreren-rechner-arbeiten-oder-backup-der-ssh-keys-einspielen"
+id="toc-auf-mehreren-rechner-arbeiten-oder-backup-der-ssh-keys-einspielen">Auf
+mehreren Rechner arbeiten (oder Backup der ssh Keys einspielen)</a></li>
+<li><a href="#benutzerdaten-setzen"
+id="toc-benutzerdaten-setzen">Benutzerdaten setzen</a></li>
+<li><a href="#begriffe" id="toc-begriffe">Begriffe</a></li>
+<li><a href="#neues-repository-anlegen"
+id="toc-neues-repository-anlegen">Neues Repository anlegen</a>
+<ul>
+<li><a href="#repository-für-die-sew-abgaben"
+id="toc-repository-für-die-sew-abgaben">Repository für die SEW
+Abgaben</a></li>
+<li><a href="#gitignore" id="toc-gitignore">.gitignore</a></li>
+</ul></li>
+<li><a href="#änderungen-commmiten"
+id="toc-änderungen-commmiten">Änderungen commmiten</a></li>
+<li><a href="#respository-auf-einen-server-übertragen-push"
+id="toc-respository-auf-einen-server-übertragen-push">Respository auf
+einen Server übertragen (“Push”)</a>
+<ul>
+<li><a href="#remote-repository-festlegen-einmalig"
+id="toc-remote-repository-festlegen-einmalig">Remote Repository
+festlegen (einmalig)</a></li>
+<li><a href="#änderungen-auf-den-server-übertragen"
+id="toc-änderungen-auf-den-server-übertragen">Änderungen auf den Server
+übertragen</a></li>
+</ul></li>
+<li><a href="#clone" id="toc-clone">Ein Repository vom Server holen
+(“Klonen”)</a></li>
+<li><a href="#änderungen-vom-server-abgleichen-pull"
+id="toc-änderungen-vom-server-abgleichen-pull">Änderungen vom Server
+abgleichen (“Pull”)</a></li>
+<li><a href="#üblicher-ablauf" id="toc-üblicher-ablauf">Üblicher
+Ablauf</a></li>
+<li><a href="#allgemeines" id="toc-allgemeines">Allgemeines</a>
+<ul>
+<li><a href="#repositories-am-netzwerktechnik-server"
+id="toc-repositories-am-netzwerktechnik-server">Repositories am
+Netzwerktechnik Server</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<hr>
+<h1 id="git">Git</h1>
+<h2 id="einführung">Einführung</h2>
+<p>Git ist das weltweit am meisten genutzte Versionsverwaltungssystem,
+auf englisch <strong>Version Control System (VCS)</strong>. Es wird von
+Einzelpersonen, Open-Source-Projekten und Unternehmen aller Größen
+eingesetzt. Kenntnisse in Git werden für Softwareentwickler*innen als
+Standard vorausgesetzt.</p>
+<p>In der zweiten Klasse lernen wir die Basics von Git für schnelle und
+einfache Abgaben. Mehr Details, und wie man git im Team verwendet,
+behandeln wir dann in der dritten Klasse.</p>
+<p>Die Grundidee eines VCS ist, den <strong>Zustand eines
+Projekts</strong> immer wieder zu <strong>speichern/einfrieren</strong>.
+So kann man nachverfolgen, wer welche Änderungen vorgenommen hat,
+jederzeit zu einer alten Version zurückkehren, Änderungen gleichzeitig
+vornehmen und wieder zu einem gemeinsamen Code zusammenführen (statt
+sich Dateien gegenseitig zu überschreiben).</p>
+<p>Prinzipiell speichert Git die einzelnen “Versionen” eines Projekts
+nur lokal. Um ein Projekt auf mehreren Rechnern, bzw. im Team, zu
+bearbeiten, werden die Versionen auf auf einen zentralen Server
+übertragen. So hat man auch gleich ein Backup. Bekannte öffentliche
+git-Server sind <a href="https://www.github.com">Github</a> oder <a
+href="https://www.gitlab.com">Gitlab</a>. Diese Plattformen stellen
+meist noch viele weitere Funktionen (für die Zusammenarbeit im Team,
+Projektmanagement, Bugtracking, …) zur Verfügung.</p>
+<p>Um ein besseres Verständnis für Git zu bekommen und es unabhängig von
+einer spezifischen IDE einsetzen zu können, arbeiten wir zu Beginn in
+der Kommandozeile. Später können wir auf die in IDEs (IntelliJ, Visual
+Studio Code,…) integrierte Funktionen zurückgreifen.</p>
+<p>Willst du mehr über Git lernen, schaue auf folgende Seite: <a
+href="https://git-scm.com/book/de/v2/"
+class="uri">https://git-scm.com/book/de/v2/</a>.</p>
+<h2 id="vorbereitung">Vorbereitung</h2>
+<h3 id="software-installieren">Software installieren</h3>
+<p><a
+href="https://git-scm.com/book/de/v2/Erste-Schritte-Git-installieren"
+class="uri">https://git-scm.com/book/de/v2/Erste-Schritte-Git-installieren</a></p>
+<h3 id="ssh-keys-erzeugen">SSH-Keys erzeugen</h3>
+<p><em>Anmerkung: Wenn du bereits SSH-Keys erzeugt hast, brauchst du die
+folgenden Schritte nicht durchführen</em></p>
+<p>Für die Authentifizierung am Server verwenden wir statt einem
+Passwort einen <a
+href="https://de.wikipedia.org/wiki/Public-Key-Authentifizierung"><strong>SSH-Key</strong></a>.
+Voraussetzung dafür ist, dass der private Schlüssel auf deinem Rechner
+liegt, der öffentliche Schlüssel am Server.</p>
+<p>Wir generieren ein Schlüsselpaar mit folgendem Befehl:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ssh-keygen</span></span></code></pre></div>
+<p>Alle Fragen mit Return beantworten, eventuell zur zusätzlichen
+Sicherung eine Passphrase vergeben (kann aber leer gelassen werden).</p>
+<p>Bitte nicht Putty verwenden, diese Keys haben ein anderes Format.</p>
+<p>In <code>$HOME</code> gibt es dann einen (versteckten) Ordner
+<code>.ssh/</code> mit den Dateien <code>id_rsa</code> (privater
+Schlüssel) und <code>id_rsa.pub</code> (öffentlicher (public)
+Schlüssel). Diese Dateien <strong>nicht umbenennen</strong>!</p>
+<h2
+id="auf-mehreren-rechner-arbeiten-oder-backup-der-ssh-keys-einspielen">Auf
+mehreren Rechner arbeiten (oder Backup der ssh Keys einspielen)</h2>
+<p>Die SSH-Schlüssel müssen auf jedem Rechner vorhanden sein, auf dem
+man arbeitet. Achtung: Ohne Schlüssel gibt es keinen Zugriff zum Server!
+Ohne Passphrase (falls sie nicht leer ist) kein Zugriff auf den
+Schlüssel!</p>
+<p>Kopiere folgende Daten auf jeden deiner Rechner:</p>
+<table style="width:88%;">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 58%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>$HOME/.ssh</code></td>
+<td style="text-align: left;">Keys, einfach den ganzen Ordner
+kopieren</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>$HOME/.gitconfig</code></td>
+<td style="text-align: left;">kopieren, enthält globale
+Konfiguration</td>
+</tr>
+</tbody>
+</table>
+<p>Falls auf deinem Rechner im Benutzerverzeichnis kein
+<code>.ssh</code>-Ordner vorhanden ist, führe zuerst <em>einmal</em>
+<code>ssh git@netzwerktechnik.htl.rennweg.at</code> aus. Damit wird der
+<code>.ssh</code>-Ordner mit den richtigen Rechten angelegt.</p>
+<p>Falls weiterhin der Zugriff verweigert wird:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">chmod</span> <span class="at">-Rv</span> g=,o= ~/.ssh</span></code></pre></div>
+<h2 id="benutzerdaten-setzen">Benutzerdaten setzen</h2>
+<p>Bevor man mit git arbeitet, konfiguriert man einmalig seinen
+Benutzernamen und seine E-Mail mit folgenden Befehlen:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">&quot;Your Name&quot;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">&quot;your.name@htl.rennweg.at&quot;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">git</span> config <span class="at">--global</span> push.default simple</span></code></pre></div>
+<p>Gib als Namen deinen vollen Vor- und Nachnamen an. Der letzte Befehl
+nimmt eine notwendige Konfiguration vor. Führt man die Befehle nicht aus
+wird man beim ersten Commit erinnert.</p>
+<h2 id="begriffe">Begriffe</h2>
+<p><strong>Repository</strong>: ein Projekt und seine Geschichte,
+gespeichert in einem Ordner namens <code>.git</code> im
+Projektordner</p>
+<p><strong>Commit</strong>: Ein aktueller Projektzustand, der im
+Repository gespeichert wird. Die Projektgeschichte ist eine Liste von
+<code>commit</code>s. <code>git</code> denkt in <code>commit</code>s
+(ein Zustand des Projekts – nicht in einzelnen Dateien).</p>
+<p><strong>Push</strong>: neue <em>Commits</em> zum Server schicken</p>
+<p><strong>Pull</strong>: neue <em>Commits</em> vom Server holen</p>
+<p><strong>Merge</strong>: unterschiedliche Commits/Änderungen
+zusammenführen (z.B. Version am Server mit lokalen Änderungen
+zusammenführen)</p>
+<h2 id="neues-repository-anlegen">Neues Repository anlegen</h2>
+<p><em>Anmerkung: NICHT relevant wenn du ein existierendes Repository
+(das du vielleicht sogar selbst angelegt hast) von einem Server klonen
+willst.</em></p>
+<p>Um ein neues git Repository anzulegen, wechselt man in den Ordner,
+dessen Inhalt man mit git verwalten will, und führt folgenden Befehl
+aus:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">git</span> init .</span></code></pre></div>
+<p>Im aktuellen Ordner sollte jetzt ein (versteckter) <code>.git</code>
+Ordner angelegt worden sein und damit ein neues git Repository.</p>
+<h3 id="repository-für-die-sew-abgaben">Repository für die SEW
+Abgaben</h3>
+<p>Für unseren Unterricht legen wir pro Semester ein Projekt/Repository
+an (z.B. “sew2_sem2”), Jede Übung kommt dann in ein eigenes Package.</p>
+<p>Erstelle ein Projekt mit IntelliJ, wechsle dann <strong>in das
+Projektverzeichnis</strong> (das ist der Ordner in dem sich z.B. die
+Ordner src und .idea befinden) und führe dort <code>git init .</code>
+aus.</p>
+<h3 id="gitignore">.gitignore</h3>
+<p>Jetzt sollte man auch gleich eine Datei namens
+<code>.gitignore</code> im <em>Projektverzeichnis</em> anlegen<a
+href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>. In dieser Datei wird festgelegt,
+welche Ordner und Daten <strong>nicht</strong> im Repository gespeichert
+werden sollen. Kompilierte Dateien (*.class) oder rechnerspezifische
+IDE-Einstellungen werden üblicherweise nicht im Repository
+gespeichert.</p>
+<p>Die Datei <code>.gitignore</code> muss <strong>genau so
+heißen</strong>! Sie beginnt mit einem Punkt und hat keine Dateiendung
+(.gitignore.txt ist falsch!).</p>
+<p>Auf GitHub findet man eine Sammlung von gebräuchlichen <a
+href="https://github.com/github/gitignore"><code>.gitignore</code>
+Dateien</a>. Wir verwenden folgende Datei für Java-Projekte mit
+IntelliJ: <a
+href="https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore"
+class="uri">https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore</a>.
+Kopiere den Inhalt in deine <code>.gitignore</code> Datei (bzw. kopiere
+die Datei und benenne sie um).</p>
+<p>Lege diese Datei unbedingt <strong>vor deinem ersten Commit</strong>
+an! Die Datei <code>.gitignore</code> muss, wie alle anderen Dateien,
+mit einem Commit zum Repository hinzugefügt werden!</p>
+<p><em>Anmerkung</em>: Wenn in einem Unterverzeichnis (z.B.
+<code>.idea</code>) bereits ein <code>.gitignore</code> existiert, ist
+das ok. Lege trotzdem wie beschrieben ein <code>.gitignore</code> im
+Projektverzeichnis an.</p>
+<h2 id="änderungen-commmiten">Änderungen commmiten</h2>
+<p>Jetzt können wir beginnnen, Änderungen des Projektzustandes zu
+speichern. Jede Zustandsspeicherung wird als <em>commit</em> bezeichnet.
+Nach jeder größeren Änderung, Abschluss eines Tasks etc. sollte ein
+commit erfolgen.</p>
+<p>Aus git-Sicht befindet sich jede Datei in einem spezifischen Status.
+Zum Beispiel befinden sich alle Dateien, die sich noch nicht im
+Repository befinden, im Status “untracked”. Dateien, die sich seit dem
+letzten Commit geändert haben, sind “modified”. Mit dem Befehl</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code></pre></div>
+<p>wird der Status aller Dateien angezeigt, die sich seit dem letzten
+Commit verändert haben oder neu angelegt worden sind. Probiere es
+aus!</p>
+<p>Neue und veränderte Dateien können zur sogenannten <strong>“Staging
+Area”</strong> hinzugefügt werden. Ein Commit besteht dann aus allen zur
+Staging Area hinzugefügten Veränderungen. Wir fügen Dateien zur Staging
+Area mit dem Befehl <code>git add</code> hinzu.</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">git</span> add Readme.md           <span class="co">#Fügt Readme.md zur Staging Area</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">git</span> add Haus.java Auto.java <span class="co">#Fügt beide Dateien zur Staging Area</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">git</span> add <span class="pp">*</span>.java              <span class="co">#Fügt alle Java-Dateien im aktuellen Verzeichnis hinzu</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">git</span> add .                   <span class="co">#Fügt alle Dateien im aktuellen Verzeichnis hinzu</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">git</span> add <span class="at">-A</span>                  <span class="co">#Fügt alle veränderten/neuen Dateien im Repository hinzu </span></span></code></pre></div>
+<p>Versuche einige Dateien zur Staging Area hinzuzufügen und rufe
+dazwischen immer wieder <code>git status</code> auf und beobachte was
+sich verändert. Die Ausgabe von <code>git status</code> gibt dir auch
+einen Hinweis wie du Dateien wieder aus der Staging Area wieder
+entfernst.</p>
+<p>Wenn du eine Datei nochmals veränderst, nachdem du sie in die Staging
+Area hinzugefügt hast, musst du sie erneut hinzufügen, wenn auch die
+neuen Änderungen Teil des nächsten Commits werden sollen. Git merkt eine
+Datei in exakt dem Zustand für den Commit vor, in dem sie sich befindet,
+wenn du den Befehl <code>git add</code> ausführst.</p>
+<p>Jetzt können wir endlich unseren ersten Commit machen! Ein Commit
+erfolgt mit dem folgenden Befehl:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Nachricht&quot;</span></span></code></pre></div>
+<p>Die Nachricht beschreibt deinen Commit (z.B “Nullpointer Exception
+bei UE18/Task3 behoben”).</p>
+<p>Nach dem Commit kannst du weiterarbeiten, Änderungen wieder zur
+Staging-Area hinzufügen und einen neuen Commit machen. Der übliche
+Ablauf ist:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">«edit»</span> dateien</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">git</span> add dateien   <span class="co"># &lt;-- Datei zum commit hinzufügen</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">git</span> status           <span class="co"># &lt;-- Kontrolle!</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Nachricht&quot;</span></span></code></pre></div>
+<p>Achtung: Mache kein Commit ohne vorher mittels
+<code>git status</code> zu kontrollieren, welche Dateien man
+commited.</p>
+<p>Der Befehl <code>git log</code> zeigt dir eine Liste deiner Commits
+an.</p>
+<h2 id="respository-auf-einen-server-übertragen-push">Respository auf
+einen Server übertragen (“Push”)</h2>
+<p>Bis jetzt sind alle Änderungen lokal gespeichert. Wir wollen nun das
+Repository auf einen Server übertragen, um einerseits ein Backup zu
+haben und andererseits das Projekt einfach auf andere Rechner zu
+übertragen.</p>
+<h3 id="remote-repository-festlegen-einmalig">Remote Repository
+festlegen (einmalig)</h3>
+<p>Wenn ein Repository lokal <strong>neu angelegt</strong> wurde (nicht
+wenn man ein existierendes Projekt von einem Server <span
+id="clone">klont</span>!) und es mit einem Repository auf einem Server
+synchronisiert werden soll, muss man git den Pfad zu diesem remote
+repository bekannt geben.</p>
+<p>Wurde das Repository von einem Server geklont (und nicht neu
+angelegt) ist der Pfad bereits bekannt und muss nicht konfiguriert
+werden.</p>
+<p>Wir legen den Pfad mit folgendem Befehl fest:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin <span class="op">&lt;</span>serverURL:repoName<span class="op">&gt;</span></span></code></pre></div>
+<p>“origin” ist dabei die lokale Bezeichnung des Endpunkts. Das könnte
+auch ein anderer Name sein und es können auch mehrere Endpunkte
+konfiguriert werden, “origin” ist aber die Standardbezeichnung.</p>
+<p>Wie die serverURL und der repoName lauten, teilen dir deine Lehrer
+mit.</p>
+<p>Für ein Repository am Netzwerkserver kann der Befehl zum Beispiel
+folgendermaßen aussehen:</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin git@netzwerktechnik.htl.rennweg.at:22-2ai/buc/sew2</span></code></pre></div>
+<p><strong>Achtung! Finde heraus wie der Pfad zu <em>deinem persönlichen
+Repository</em> lautet bevor du den Befehl ausführst.</strong></p>
+<p>Um zu sehen welches remote Repository konfiguriert ist, dient
+folgender Befehl:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span></code></pre></div>
+<p>Wenn man sich vertippt hat, kann man den Pfad für einen Endpunkt auch
+ändern.</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote set-url origin <span class="op">&lt;</span>serverURL:repoName<span class="op">&gt;</span></span></code></pre></div>
+<p>Anmerkung: Der git-Server in der Schule ist so konfiguriert, dass
+beim ersten Übertragen eines neuen Repositories auf den Server das
+Repository am Server automatisch angelegt wird. Der Schulserver erlaubt
+aber nur fix vorgegebene Repository-Namen. Dein lokaler Ordnername kann
+aber völlig anders lauten als der Repository-Name am Server!</p>
+<h3 id="änderungen-auf-den-server-übertragen">Änderungen auf den Server
+übertragen</h3>
+<p>Jedes Mal wenn wir alle neuen Commits an den Server übertragen
+wollen, machen wir einen git push - wir “pushen” die Änderungen an den
+Server.</p>
+<p>Der allererste Push wird mit folgendem Befehl ausgeführt<a
+href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a>:</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">git</span> push <span class="at">--set-upstream</span> origin main</span></code></pre></div>
+<p>Für jede weitere Übertragung reicht ein:</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">git</span> push </span></code></pre></div>
+<p>Das heißt nach jedem Commit, oder spätestens bevor du deine Arbeit
+beendest, solltest du ein git push ausführen, damit deine Arbeit am
+Server gesichert ist.</p>
+<h2 id="clone">Ein Repository vom Server holen (“Klonen”)</h2>
+<p>Nehmen wir an, du hast dein git-Repository auf einem Server
+gespeichert und möchtest nun zuhause auf einem anderen Rechner weiter
+arbeiten. Es könnte auch sein, dass du dir ein Repository ansehen
+möchtest, das du gar nicht selbst angelegt hast (z.B. ein Repository mit
+Codebeispielen). Dann “klonst” du ein git Repository von einem Server
+auf deinen lokalen Rechner.</p>
+<p>Stelle dich also in den Ordner, in dem du das Repository speichern
+möchtest und führe den Befehl zum Klonen eines Repositories aus.</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>serverURL:repoName<span class="op">&gt;</span></span></code></pre></div>
+<p>Beispiel:</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@netzwerktechnik.htl.rennweg.at:22-2ai/buc/sew2</span></code></pre></div>
+<p>Wenn der lokale Ordnername anders als der Repository-Namen am Server
+sein soll, kannst du den lokalen Ordnernamen (“sew2_uebungen” im
+Beispiel) am Ende des Befehls angeben:</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@netzwerktechnik.htl.rennweg.at:22-2ai/buc/sew2 sew2_uebungen</span></code></pre></div>
+<p>Wechsle anschließend <strong>in den angelegten
+Repository-Ordner</strong>. Hier kannst du nun alle bekannten git
+Befehle (add, commit, push…) ausführen.</p>
+<h2 id="änderungen-vom-server-abgleichen-pull">Änderungen vom Server
+abgleichen (“Pull”)</h2>
+<p>Nehmen wir folgendes Szenario an: Du hast in der Schule ein
+Repository angelegt und dieses auf einen Server übertragen. Zuhause hast
+du das Repository geklont, weiter gearbeitet, die Änderungen comittet
+und an den Server übertragen (push). Jetzt sitzt du wieder in der Schule
+und möchtest mit dem Status von zuhause weiterarbeiten. Dafür musst du
+jetzt <strong>nicht</strong> das Repository erneut klonen, weil es ist
+auf deinem Schulrechner ja bereits vorhanden. Du möchtest lediglich die
+aktuellen Änderungen (i.e. Commits) vom Server laden.</p>
+<p>Dafür sorgt folgender Befehl:</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span></code></pre></div>
+<p>Bevor du also an einem Projekt weiter arbeitest solltest du immer
+zuerst ein git pull ausführen.</p>
+<h2 id="üblicher-ablauf">Üblicher Ablauf</h2>
+<p>Ein oder mehrmals:</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;&lt;edit&gt;&gt;</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="st">    git add ...</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="st">    git commit ...</span></span></code></pre></div>
+<p>dann die “Änderungen” zum Server schicken (<em>ganze Geschichte</em>
+dh. alle commits die der Server nicht hat):</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">git</span> push</span></code></pre></div>
+<p>Falls es Änderungen am Server gibt – vorher alle lokalen Änderungen
+sichern:</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">git</span> add ...</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">git</span> commit ...</span></code></pre></div>
+<p>und dann Änderungen holen</p>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">git</span> pull</span></code></pre></div>
+<!-- ## Webinterface
+
+Man kann im Browser seine Repositories am Server kontrollieren.
+
+Dazu muss man ein Passwort mit folgendem Befehl setzen: 
+
+```bash
+ssh git@netzwerktechnik.htl.rennweg.at htpasswd
+```
+
+Achtung: Das Passwort ist bei der Eingabe sichtbar.
+
+Die Adresse der Weboberfläche lautet <https://netzwerktechnik.htl.rennweg.at/gitweb/>.
+ -->
+<h2 id="allgemeines">Allgemeines</h2>
+<h3 id="repositories-am-netzwerktechnik-server">Repositories am
+Netzwerktechnik Server</h3>
+<p>Eine Liste der möglichen Repositories (mit Wildcards) kann mit
+folgendem Befehl angezeigt werden:</p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ssh</span> git@netzwerktechnik.htl.rennweg.at</span></code></pre></div>
+<aside id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li
+id="fn1"><p>https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_ignoring<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Warum das so ist lernen wir später - Stichwort
+“Branch”<a href="#fnref2" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</aside>
+</article>
+</body>
+</html>

@@ -1,0 +1,5 @@
+Possessive Quantifiers aus der Präsentation entfernen
+https://www.regular-expressions.info/possessive.html
+
+Klasse String hat eine Methode matches() -> einbauen
+Pattern.matches(regex, string) -> einbauen

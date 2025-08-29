@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Operatoren</title>
+
+	<link rel="stylesheet" href="../../../../../dist/reset.css">
+	<link rel="stylesheet" href="../../../../../dist/reveal.css">
+	<link rel="stylesheet" href="../../../../../dist/theme/htl.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<!-- <link rel="stylesheet" href="../../../../../plugin/highlight/zenburn.css"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-light.css" onerror="this.onerror=null;this.href='../../../../../node_modules/highlight.js/styles/stackoverflow-light.css';">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<section>
+				<h1>Ausdrücke & Operatoren</h1>
+				<h2> Softwareentwicklung 1</h2>
+			</section>
+
+
+			<section>
+				<h3>Ausdruck</h3>
+				<p>Ein Ausdruck gibt an, wie ein Wert berechnet wird. Er ist ähnlich aufgebaut wie eine mathematische
+					Formel.</p>
+				<h4>Beispiel</h4>
+				<object data="diagrams/ausdruck.drawio.svg" type="image/svg+xml"></object>
+			</section>
+
+			<section>
+				<h3>Operatoren</h3>
+				<table class="r-fit-text">
+					<thead>
+						<tr>
+							<th>Rechenart</th>
+							<th>Operator</th>
+							<th>Beispiel</th>
+							<th>Ergebnis (Inhalt von x)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Addition</td>
+							<td>+</td>
+							<td>x = 10 + 5</td>
+							<td>15</td>
+						</tr>
+						<tr>
+							<td>Substraktion</td>
+							<td>-</td>
+							<td>x = 12 -3</td>
+							<td>9</td>
+						</tr>
+						<tr>
+							<td>Multiplikation</td>
+							<td>*</td>
+							<td>x = 4 * 3</td>
+							<td>12</td>
+						</tr>
+						<tr>
+							<td>Division</td>
+							<td>/</td>
+							<td>x = 12 / 3</td>
+							<td>4</td>
+						</tr>
+						<tr>
+							<td>Modulo</td>
+							<td>%</td>
+							<td>x = 15 % 7</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>Inkrement (erhöht die Variable um 1)</td>
+							<td>++</td>
+							<td>x = 4<br>x++</td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td>Dekrement (erniedrigt die Variable um 1)</td>
+							<td>--</td>
+							<td>x = 7<br>x--</td>
+							<td>6</td>
+						</tr>
+
+					</tbody>
+				</table>
+			</section>
+
+			<section>
+				<h3>Codebeispiel</h3>
+
+				<pre><code>
+int x = 10;
+int y = 20;
+int z = 0;
+x = 20 + 10;
+y = x + 20;
+z = x + y;
+z = x / 10 + y;
+				</code></pre>
+				<p>Welche Werte sind in x, y und z nach Ausführung des Codes gespeichert?</p>
+				<p class="flip tiny">x = 30, y = 50 , z =  53</p>
+
+
+				<aside class="notes">
+					x = 30, y = 50 , z =  53
+				  </aside>
+			</section>
+
+			<!-- 
+			TODO: Code left aligned -->
+
+<section>
+<h3>Integer-"Falle"</h3>
+<ul>
+	<li>
+		Eigentlich würden wir uns im folgenden Beispiel als Ergebnis 2.25 erwarten. 
+		<pre><code data-trim class="language-java">
+			float ergebnis = 9 / 4;	//Ergebnis ist 2.0
+		</code></pre>	
+	</li>
+	<li>Wenn alle Werte eines Ausdrucks Integer sind, ist das Ergebnis ebenfalls ein Integer!</li>
+	<li>Erst wenn einer der Werte ein float (bzw. ein anderer Datentyp für Kommazahlen) ist, wird das Gesamtergebnis ebenfalls als float berechnet.
+		<pre><code data-trim class="language-java">
+			//Ergebnis ist bei den folgenden Ausdrücken immer 2.25.
+			float ergebnis = 9f / 4; //Durch das f wird die Zahl 9 als float gespeichert
+			ergebnis = 9.0 / 4; //Durch die Kommastelle wird die Zahl 9 als float gespeichert.  
+		</code></pre>	
+	</li>
+</ul>
+</section>
+
+<section>
+	<h3>Integer-"Falle"</h3>
+	<p>Man kann auch einen Operanden mit 1.0 multiplizieren. Dadurch bringt man ebenfalls einen float in die Rechnung ein, ohne das Ergebnis zu verändern.</p>
+		int x = 9;
+		int y = 4;
+
+		float ergebnis = x * 1.0 / y;  //ergebnis ist 2.25
+	</code></pre>	
+</section>
+
+
+<section>
+	<h3>Shorthand Operatoren</h3>
+<ul>
+	<li>Oft möchte man eine Variable um einen bestimmten Wert verändern.
+		<pre ><code>
+			int x = 150;
+			x = x + 20;	//x hat jetzt den Wert 170
+		</code></pre>
+	</li>
+	<li>Das kann man auch kürzer schreiben (muss man aber nicht).
+		<pre><code>
+			int x = 150;
+			x +=  20;
+		</code></pre>
+	</li>
+	<li>Es gibt auch die Shorthand Operatoren <code>-=, *= </code> und <code>/=</code></li>
+</ul>
+</section>
+
+<section>
+	<h3>String (Text)</h3>
+	<ul>
+		<li>Möchte man einen Text im Programm verwenden, muss man den Text unter <strong>Anführungszeichen</strong> " " setzen.</li>
+		<li>Text kann in Variablen vom Datentyp <code>String</code> gespeichert werden.</li>
+		<li>In Texten können und sollen Umlaute (ä,ö,...) verwendet werden (nur im "englischsprachigen" Code selbst nicht)!</li>
+	</ul>
+
+<pre><code>
+String vorname = "Lisa";
+String begruessung = "Hallo! Schön, daß du da bist!";
+
+</code></pre>
+</section>
+
+
+<section>
+	<h3>Der + Operator auf Strings</h3>
+	<p>Wird der + Operator auf Strings angewendet, verkettet er die Strings, d.h. er fügt sie aneinander.</p>
+<pre><code>
+String vorname = "Lisa";
+String begruessung = "Hallo "+vorname+"! Schön, daß du da bist!";
+print(begruessung); //Ausgabe: "Hallo Lisa! Schön, daß du da bist!"
+</code></pre>
+</section>
+
+<section>
+	<h3>Die + Operator "Falle"</h3>
+<ul>
+	<li>Wenn ein Wert eines Ausdrucks ein String ist, werden alle Werte in Strings umgewandelt und verkettet.
+		<pre><code data-trim class="language-java">
+		print("2 + 5 = "+2+5); //Ausgabe: 2 + 5 = 25
+		</code></pre>		
+	</li>
+	<li>Nur wenn alle Werte eines Ausdruck numerisch sind, bedeutet der + Operator eine Addition.
+		<pre><code data-trim class="language-java">
+			print("2 + 5 = "+(2+5)); //Ausgabe: 2 + 5 = 7
+		</code></pre>	
+	</li>
+</ul>
+</section>
+
+			<section>
+				<p class="center">
+					Fragen? <br>
+					Wünsche? <br>
+					Beschwerden? <br>
+					Anregungen?
+				</p>
+			</section>
+
+		</div>
+	</div>
+
+
+
+	<script src="../../../../node_modules/reveal.js/dist/reveal.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/notes/notes.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/markdown/markdown.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+	<script src="../../../../node_modules/reveal.js/plugin/search/search.js"></script>
+	<script src="../reveal-config.js"></script>
+</body>
+
+</html>

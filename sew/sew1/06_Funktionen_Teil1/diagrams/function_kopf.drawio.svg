@@ -1,0 +1,36 @@
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="215px" height="65px" viewBox="-0.5 -0.5 215 65" content="&lt;mxfile&gt;&lt;diagram id=&quot;11ehBgzSNA1FafhehTbj&quot; name=&quot;Page-1&quot;&gt;rVVLj5swEP41SNsDUbAJ2Rw36T6k1Z5y6NkLBqw1tmvMkvTXd4xNwAmrtlKlKBm+eX8zQyJ8aE7Pmqj6TRaUR2hdnCL8PUIoy7bwbYGzA3bJzgGVZoWDkgk4sl/Ug2uPdqygbWBopOSGqRDMpRA0NwFGtJZ9aFZKHmZVpKI3wDEn/Bb9wQpTO/QebSf8hbKqHjMnme+vIaOx76StSSH7GYQfI3zQUhonNacD5Za7kRfn9/SF9lKYpsL8lQNyHp+Ed745X5g5j91CjcqKeaf5ea9J/kEh9r6vmaFHRXKr62HOgNWm4fCUgKhlJwpa+KeSM/Vy0RhimBTwGO/WALQQMK+99rYD39Qn1YaeZpDv6JnKhhp9BhOvTZPUufj1wiPb/TQstHFQPZ8TQiuU+TXxK1Jdok8sguCJ/IJUvEBqxi1prSIiYDf72dlZ73PJpY7wAyh19X4HBcMHMq1n0jcrWoZgY4WJS9IwfnY+EIg0alBinNpEstMwGUhFRGsJ1fLGJgzna7LRhNQN4aG690RZfeqqGpScGkN1DI3lTFSL/jA2ExPOKuHUOYyW6lDNYFmED79Wp1BpNDRRQtAxvKAXg17qIsw+d3+Hba2GVYyvGEbp/YVZlO4meTPjuWCt4sRzzARns8Qll8TMCxpHCVLlf4eZW/oWZ+5oH95uD0NmW/h1lLunTnzYc2ljW9erVOUYGPbQxQ7zAezWbISv7tlS+uf7/Q93iJPdarsJTxEvnGKCVwvXOFr+wyXC4/TqHHSz/x/8+Bs=&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs/>
+    <g>
+        <path d="M 119 -10 L 112.75 -10 Q 106.5 -10 106.5 0 L 106.5 41.13 Q 106.5 51.13 100.25 51.13 L 97.13 51.13 Q 94 51.13 100.25 51.13 L 103.38 51.13 Q 106.5 51.13 106.5 61.13 L 106.5 102.26 Q 106.5 112.26 112.75 112.26 L 119 112.26" fill="none" stroke="none" transform="translate(106.5,0)scale(-1,1)translate(-106.5,0)rotate(90,106.5,51.13)" pointer-events="all"/>
+        <path d="M 119 -10 M 119 -10 C 117.33 -9.82 116.68 -9.76 112.75 -10 M 119 -10 C 116.63 -10.31 114.52 -10.29 112.75 -10 M 112.75 -10 C 108.34 -9.13 108.13 -7.35 106.5 0 M 112.75 -10 C 107.6 -9.11 108 -7.53 106.5 0 M 106.5 0 C 108.71 11.48 105.08 21.65 106.5 41.13 M 106.5 0 C 105.52 11.37 105.68 23.92 106.5 41.13 M 106.5 41.13 C 106.75 49.47 103.1 52.94 100.25 51.13 M 106.5 41.13 C 108.52 48.03 105.33 51.54 100.25 51.13 M 100.25 51.13 C 99.71 51.44 98.83 51.38 97.13 51.13 M 100.25 51.13 C 99.63 51.07 98.72 51.22 97.13 51.13 M 97.13 51.13 C 95.3 49.85 97.44 52.05 100.25 51.13 M 97.13 51.13 C 96.62 50.34 97.33 53.12 100.25 51.13 M 100.25 51.13 C 100.79 51.41 101.63 50.99 103.38 51.13 M 100.25 51.13 C 101.19 51.19 102.27 51.08 103.38 51.13 M 103.38 51.13 C 106.32 52.14 107.16 55.53 106.5 61.13 M 103.38 51.13 C 106.95 52.88 106.67 56.11 106.5 61.13 M 106.5 61.13 C 106.14 75.82 104.44 90.46 106.5 102.26 M 106.5 61.13 C 105.68 72.29 106.13 82.5 106.5 102.26 M 106.5 102.26 C 105.43 107.12 110.1 111.41 112.75 112.26 M 106.5 102.26 C 107.52 107.33 106.44 114.28 112.75 112.26 M 112.75 112.26 C 113.76 112.52 115.46 111.72 119 112.26 M 112.75 112.26 C 114.37 112.57 115.84 112.46 119 112.26" fill="none" stroke="#000000" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" transform="translate(106.5,0)scale(-1,1)translate(-106.5,0)rotate(90,106.5,51.13)" pointer-events="all"/>
+        <rect x="-0.25" y="0" width="213.5" height="30" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 212px; height: 1px; padding-top: 7px; margin-left: 2px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <span style="color: rgb(0 , 0 , 0) ; font-family: &quot;source sans pro&quot; ; font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: center ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(248 , 249 , 250) ; display: inline ; float: none">
+                                    <font style="font-size: 25px">
+                                        (Funktions-) Kopf
+                                    </font>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="2" y="19" fill="#000000" font-family="Helvetica" font-size="12px">
+                    (Funktions-) Kopf
+                </text>
+            </switch>
+        </g>
+    </g>
+    <switch>
+        <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/>
+        <a transform="translate(0,-5)" xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems" target="_blank">
+            <text text-anchor="middle" font-size="10px" x="50%" y="100%">
+                Viewer does not support full SVG 1.1
+            </text>
+        </a>
+    </switch>
+</svg>

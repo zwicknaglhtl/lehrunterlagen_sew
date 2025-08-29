@@ -1,0 +1,90 @@
+<ul>
+<li><p>Datentypen int und long</p>
+<p>Ein <code>int</code> besteht in Java immer aus 32bit, ein <code>long</code> aus 64bit. Um negative und positve Zahlen einfach speichern zu können, werden die Zahlen als <a href="https://de.wikipedia.org/wiki/Zweierkomplement">Zweierkomplement</a> kodiert. Das Bit an der höchsten Stelle (ganz link) ist dabei 1 wenn es sich um eine negative Zahl handelt.</p>
+<p>Schreibt man in meinem Programm <code class="sourceCode java"><span class="dv">1</span></code> bekomme ich ein <code>int</code>-Literal, mit <code class="sourceCode java"><span class="dv">1L</span></code> ein <code>long</code>-Literal.</p></li>
+<li><p>Erinnerung: Schreibweisen von Zahlen</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1"><span class="dt">int</span> dec = <span class="dv">110</span>;            <span class="co">// no prefix   --&gt; decimal literal</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="dt">int</span> bin = <span class="bn">0b1101110</span>;      <span class="co">// &#39;0b&#39; prefix --&gt; binary literal</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="dt">int</span> oct = <span class="bn">0156</span>;           <span class="co">// &#39;0&#39; prefix  --&gt; octal literal</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="dt">int</span> hex = <span class="bn">0x6E</span>;           <span class="co">// &#39;0x&#39; prefix --&gt; hexadecimal literal</span></a>
+<a class="sourceLine" id="cb1-5" title="5"></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="dt">long</span> maxLong = <span class="bn">0x7fff_ffff_ffff_ffffL</span>; <span class="co">//Underscores können zur besseren Lesbarkeit eingefügt werden</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="dt">byte</span> nybbles = <span class="bn">0b0010_0101</span>;</a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="dt">long</span> bytes = <span class="bn">0b11010010_01101001_10010100_10010010</span>;</a></code></pre></div></li>
+<li><p>Umwandlung String – int/long</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1"><span class="dt">int</span> n1 = <span class="bu">Integer</span>.<span class="fu">parseInt</span>(<span class="st">&quot;10110111&quot;</span>, <span class="dv">2</span>); <span class="co">// = ...(Zahl, Basis)</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="dt">long</span> n2 = <span class="bu">Long</span>.<span class="fu">parseLong</span> (<span class="st">&quot;10110111&quot;</span>, <span class="dv">2</span>); <span class="co">// = ...(Zahl, Basis)</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="bu">String</span> s1a = <span class="bu">Integer</span>.<span class="fu">toString</span>(n1, <span class="dv">2</span>); <span class="co">// = ...(Zahl, Basis)</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="bu">String</span> s2a = <span class="bu">Long</span>.<span class="fu">toString</span> (n2, <span class="dv">2</span>); <span class="co">// = ...(Zahl, Basis)</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="bu">String</span> s1b = <span class="bu">Integer</span>.<span class="fu">toBinaryString</span>(n1);</a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="bu">String</span> s1o = <span class="bu">Integer</span>.<span class="fu">toOctalString</span> (n1);</a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="bu">String</span> s1h = <span class="bu">Integer</span>.<span class="fu">toHexString</span> (n1);</a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="bu">String</span> s2b = <span class="bu">Long</span>.<span class="fu">toBinaryString</span> (n2);</a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="bu">String</span> s2o = <span class="bu">Long</span>.<span class="fu">toOctalString</span> (n2);</a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="bu">String</span> s2h = <span class="bu">Long</span>.<span class="fu">toHexString</span> (n2);</a></code></pre></div></li>
+<li><p>Das Ergebnis einer Bitoperation ist immer int oder long, bei byte oder short muss gecastet werden.</p>
+<ul>
+<li><p>Beispiel:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb3-1" title="1"><span class="dt">byte</span> b = <span class="bn">0x1f</span>;</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="dt">byte</span> c = b &gt;&gt; <span class="dv">1</span>; <span class="co">// Syntax-Error, da b &gt;&gt; 1 vom typ int ist</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="dt">byte</span> d = (<span class="dt">byte</span>) (b &gt;&gt; <span class="dv">1</span>);</a></code></pre></div></li>
+</ul></li>
+<li><p>Bitoperationen</p>
+<p>Bei alle Beispielen ist (Die Punkte bei der Binärdarstellung dienen lediglich der besseren Lesbarkeit):</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb4-1" title="1"><span class="dt">int</span> a = <span class="bn">0xAF</span>; <span class="co">// = 1010.1111</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="dt">int</span> b = <span class="bn">0x3C</span>; <span class="co">// = 0011.1100</span></a></code></pre></div>
+<ul>
+<li><p>Bitweises und: <code>&amp;</code> → Beide Bits müssen 1 sein, damit das Ergebnis 1 ist.</p>
+<ul>
+<li>Beispiel:</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb5-1" title="1"><span class="dt">int</span> c = a &amp; b; <span class="co">// a =   1010.1111</span></a>
+<a class="sourceLine" id="cb5-2" title="2">               <span class="co">// b =   0011.1100</span></a>
+<a class="sourceLine" id="cb5-3" title="3">               <span class="co">// a&amp;b = 0010.1100</span></a></code></pre></div></li>
+<li><p>Bitweises oder: <code>|</code> → Mindestens ein Bit muss 1 sein.</p>
+<ul>
+<li>Beispiel:</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb6-1" title="1"><span class="dt">int</span> d = a | b; <span class="co">// a =   1010.1111</span></a>
+<a class="sourceLine" id="cb6-2" title="2">               <span class="co">// b =   0011.1100</span></a>
+<a class="sourceLine" id="cb6-3" title="3">               <span class="co">// a|b = 1011.1111</span></a></code></pre></div></li>
+<li><p>Bitweises exklusiv oder (XOR): <code>^</code> → Genau ein Bit darf 1 sein.</p>
+<ul>
+<li>Beispiel:</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb7-1" title="1"><span class="dt">int</span> e = a ^ b; <span class="co">// a =   1010.1111</span></a>
+<a class="sourceLine" id="cb7-2" title="2">               <span class="co">// b =   0011.1100</span></a>
+<a class="sourceLine" id="cb7-3" title="3">               <span class="co">// a^b = 1001.0011</span></a></code></pre></div></li>
+<li><p>Bitweises invertieren: <code>~</code> → Jedes Bit wird umgedreht (0 – 1)</p>
+<ul>
+<li>Beispiel (beachte die führenden Nullen, da <code>int</code> 32 Bit hat):</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb8-1" title="1"><span class="dt">int</span> f = ~a; <span class="co">// a = 0000.0000.0000.0000.0000.0000.1010.1111</span></a>
+<a class="sourceLine" id="cb8-2" title="2">            <span class="co">// f = 1111.1111.1111.1111.1111.1111.0101.0000</span></a></code></pre></div></li>
+</ul></li>
+<li><p>Shift-Operationen</p>
+<ul>
+<li><p>nach Links schieben: <code>&lt;&lt;</code> → Schiebt die Bits um beliebig viele Stellen nach links</p>
+<ul>
+<li>Beispiel:</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb9-1" title="1"><span class="dt">int</span> a = <span class="bn">0xff</span>;</a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="dt">int</span> b = a &lt;&lt; <span class="dv">4</span>; <span class="co">// (4=Anzahl der Stellen) = 0xff0</span></a></code></pre></div></li>
+<li><p>nach Rechts schieben: <code>&gt;&gt;</code> → Schiebt die Bits um beliebig viele Stellen nach rechts (Dabei wird links immer das Vorzeichen (= das linkeste Bit) hereingeschoben.</p>
+<p>Beispiel:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb10-1" title="1"><span class="dt">int</span> a = <span class="bn">0x88aa11dd</span>; <span class="co">// = 1000.1000.1010.1010.0001.0001.1101.1101</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="dt">int</span> b = a &gt;&gt; <span class="dv">4</span>;     <span class="co">// = 1111.1000.1000.1010.1010.0001.0001.1101</span></a>
+<a class="sourceLine" id="cb10-3" title="3">                    <span class="co">// = 0xf88aa11d (4=Anzahl der Stellen)</span></a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="dt">int</span> c = <span class="bn">0x77aa11dd</span>; <span class="co">// = 0111.0111.1010.1010.0001.0001.1101.1101</span></a>
+<a class="sourceLine" id="cb10-5" title="5"><span class="dt">int</span> b = c &gt;&gt; <span class="dv">4</span>;     <span class="co">// = 0000.0111.0111.1010.1010.0001.0001.1101</span></a>
+<a class="sourceLine" id="cb10-6" title="6">                    <span class="co">// = 0x077aa11d (4=Anzahl der Stellen)</span></a></code></pre></div></li>
+<li><p>nach Rechts schieben: <code>&gt;&gt;&gt;</code> → Schiebt die Bits um beliebig viele Stellen nach rechts (Dabei wird links immer Null hereingeschoben.)</p>
+<p>Beispiel:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb11-1" title="1"><span class="dt">int</span> a = <span class="bn">0x88aa11dd</span>; <span class="co">// = 1000.1000.1010.1010.0001.0001.1101.1101</span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="dt">int</span> b = a &gt;&gt;&gt;<span class="dv">4</span>;     <span class="co">// = 0000.1000.1000.1010.1010.0001.0001.1101</span></a>
+<a class="sourceLine" id="cb11-3" title="3">                    <span class="co">// = 0x088aa11d (4=Anzahl der Stellen)</span></a>
+<a class="sourceLine" id="cb11-4" title="4"><span class="dt">int</span> c = <span class="bn">0x77aa11dd</span>; <span class="co">// = 0111.0111.1010.1010.0001.0001.1101.1101</span></a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="dt">int</span> b = a &gt;&gt;&gt; <span class="dv">4</span>   ; <span class="co">// = 0000.0111.0111.1010.1010.0001.0001.1101</span></a>
+<a class="sourceLine" id="cb11-6" title="6">                    <span class="co">// = 0x077aa11d (4=Anzahl der Stellen)</span></a></code></pre></div></li>
+</ul></li>
+</ul>

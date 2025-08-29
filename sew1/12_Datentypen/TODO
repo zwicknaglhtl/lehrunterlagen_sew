@@ -1,3 +1,0 @@
-chars besser direkt zu Strings dazu nehmen?
-
-bei Casting: erklären, wann man casten kann und wann nicht - z.B. kann nicht einen int in einen String casten oder einen char in einen String

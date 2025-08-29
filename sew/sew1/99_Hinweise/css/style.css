@@ -1,0 +1,33 @@
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.columns{
+display: flex;
+
+}
+.columns > .col{
+flex: 1;
+}
+
+.columns > .col.two-third{
+flex: 2;
+}
+
+.columns > .col.three-quarter{
+flex: 3;
+}
+
+.columns.center {
+align-items: center;
+}
+
+img {
+    margin: 5px  0px;
+}
+
+code:not([class]) {
+    font-family: monospace;
+    font-size: 1.2em;
+    color: #e83e8c;
+}

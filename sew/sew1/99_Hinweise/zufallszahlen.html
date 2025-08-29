@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zufallszahlen</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-light.css" onerror="this.onerror=null;this.href='../../../../../node_modules/highlight.js/styles/stackoverflow-light.css';">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet"> 
+ 
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>Zufallszahlen erzeugen in Java</h1>
+
+  <p>In Java kann man eine ganzzahlige Zufallszahl zwischen <code>min</code> und <code>max</code> (inklusive) mit folgendem Befehl erzeugen:</p>
+
+  <pre><code class="language-java">
+int rand = min + (int)(Math.random() * ((max - min) + 1));
+  </code></pre>
+
+<p>Beispiel:</p>
+
+
+<pre><code class="language-java">
+//erzeugt eine Zufallszahl zwischen 1 und 10 (inklusive 1 und 10)
+int rand = 1 + (int)(Math.random() * ((10 - 1) + 1));
+</code></pre>
+
+<p>In Processing könnte man auch <a href="https://processing.org/reference/random_.html"><code>random()</code></a> verwenden. Diese Funktion ist allerdings nur in Processing und nicht im "puren" Java vorhanden. Wir versuchen von Anfang an möglichst viele Java Funktionalitäten zu verwenden, damit später der Umstieg leichter fällt.</p>
+
+<p>Sobald wir wissen wie Funktionen funktionieren, können wir in unseren Programmen auch eine einfache Hilfsfunktion erstellen, die uns das Erzeugen von Zufallszahlen erleichert.</p>
+
+<pre><code class="language-java">
+  int random(int min, int max) {
+    ...
+  }
+  </code></pre>
+
+
+<h2>Erklärung</h2>
+
+<p>Die Java Math Funktion <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#random--"><code>Math.random()</code></a> gibt einen double Wert im Bereich [0, 1) zurück, wobei die 1 nicht mit eingeschlossen ist.</p>
+
+<pre><code class="language-java">
+int rand = Math.random();      //liefert eine Zufallszahl zwischen 0 und 1 (exklusive)
+</code></pre>
+
+<p>Multiplizieren wir die zurückgelieferte Zufallszahl mit einer beliebigen Zahl <code>x</code> erhalten wir eine Zufallszahl im Bereich [0,x) (0 bis x, x exklusive).</p>
+
+<pre><code class="language-java">
+int rand = Math.random() * 5;  //liefert eine Zufallszahl zwischen 0 und 4.999...
+</code></pre>
+
+<p>Multiplizieren wir die zurückgelieferte Zufallszahl mit <code>max-min</code> erhalten wir eine Zufallszahl im Bereich [0,max-min).</p>
+
+<pre><code class="language-java">
+int min = 1;
+int max = 10;
+
+int rand = Math.random() * (max-min); //erzeugt eine Zufallszahl zwischen 0 und 8.9999...
+</code></pre>
+
+<p>Da die kleinste mögliche Zufallszahl <code>min</code> sein soll, müssen wir <code>min</code> noch hinzuaddieren.</p>
+
+<pre><code class="language-java">
+  int min = 1;
+  int max = 10;
+  
+  int rand = min + (Math.random() * (max-min)); //erzeugt eine Zufallszahl zwischen 1 und 9.9999...
+  </code></pre>
+
+ <p>Die größte mögliche Zufallszahl ist noch immer nicht inkludiert. Wir müssen also noch 1 zum Wertebreich hinzuaddieren.</p>
+ 
+ <pre><code class="language-java">
+  int min = 1;
+  int max = 10;
+  
+  int rand = min + (Math.random() * (max-min+1)); //erzeugt eine Zufallszahl zwischen 1 und 10.9999...
+  </code></pre>
+
+<p>Abschließend müssen noch alle Nachkommastellen entfernt werden, um ein ganzahliges Ergebnis zu erhalten. Dies geschieht mit einem sogenannten Cast in einen Integer mittels <code>(int)</code>.</p>
+
+<pre><code class="language-java">
+  int min = 1;
+  int max = 10;
+  
+  int rand = min + (int) (Math.random() * (max-min+1)); //erzeugt eine Zufallszahl zwischen 1 und 10
+  </code></pre>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script src="../../../../../node_modules/highlight.js/lib/languages/java.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>
