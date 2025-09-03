@@ -3,7 +3,7 @@
 #node_modules/  
 
 # Reveal.js build output
-dist/
+#dist/
 
 # OS files
 .DS_Store
