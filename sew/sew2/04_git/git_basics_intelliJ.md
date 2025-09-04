@@ -40,19 +40,42 @@ Dein git-Repository wurde auf github bereits angelegt. Um es in IntelliJ zu verw
 ![](img/intelliJ_menu_clone.png)
 
 
-2. Wähle "GitHub" aus und "Log In via GitHub".
+2. Sollte git auf deinem Rechner noch nicht installiert sein, wirst du jetzt darauf hingewiesen. Klicke auf "Download and Install", um git zu installieren.
 
-![](img/intelliJ_login_github.png)
+![](img/intelliJ_install_git.png)
 
-3. Es öffnet sich eine Webseite auf der du IntelliJ die Berechtigung erteilen musst, auf dein GitHub-Konto zuzugreifen.
 
-![](img/intelliJ_authorize_github.png)
+3. Gehe auf die **Webseite deines Repositorys** auf github und kopiere die URL des Repositorys (grüner Button "Code" > "HTTPS"). Wichtig: Achte darauf, dass du **HTTPS** auswählst und nicht SSH.
 
-4. Zurück in IntelliJ wähle dein Repository aus der Liste aus und "Clone" das Repository, um es auf deinen Computer zu laden.
+![](img/github_https_url.png)
 
-![](img/intelliJ_clone.png)
+3. Füge die URL in IntelliJ ein. Wähle einen Ordner auf deinem Computer, in dem das Repository gespeichert werden soll und klicke auf "Clone". Der lokale Ordner sollte leer sein und kann einen anderen Namen als das Repository haben.
 
-5. Du musst das Projekt als vertrauenswürdig einstufen.
+![](img/intelliJ_clone_url.png)
+
+4. Wähle als Authentifizierungsmethode "Use Token". 
+
+![](img/intelliJ_github_token.png)
+
+5. Im folgenden Fenster klicke auf "Generate", um einen neuen Zugangstoken für IntelliJ zu erstellen.
+
+![](img/intelliJ_generate_token.png)
+
+6. Es öffnet sich die Webseite von github, auf der du dich mit deinem github-Benutzernamen und Passwort anmelden musst. Danach kannst du den Token generieren. Setze ein "Expiration Date", das **nach** Ende des Schuljahrs liegt oder wähle "No expiration". Scrolle dann zum Ende der Seite und klicke auf "Generate token".
+
+![](img/github_token_expiration.png)
+
+![](img/github_generate_token.png)
+
+7. Danach wird dir der Token angezeigt. **Kopiere** ihn in die Zwischenablage (**du kannst ihn später nicht mehr einsehen!**) und klicke auf "Done".
+
+![](img/github_copy_token.png)
+
+8. Füge den Token in IntelliJ ein und klicke auf "Log In".
+
+![](img/intelliJ_token_login.png)
+
+9. Du musst das Projekt als vertrauenswürdig einstufen, dass du den Code darin ausführen kannst.
 
 ![](img/intellij_trust_project.png)
 
