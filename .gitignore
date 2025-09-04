@@ -1,9 +1,9 @@
 # Node modules
 # node modules required for simple deployment with github pages
-#node_modules/  
+node_modules/  
 
 # Reveal.js build output
-#dist/
+dist/
 
 # OS files
 .DS_Store
