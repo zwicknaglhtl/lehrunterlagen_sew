@@ -19,7 +19,7 @@ Erstelle Variablen für die folgenden Werte und gib deren Typen an:
 4. Wahrheitswert, ob du Java schon einmal programmiert hast  
 
 **Aufgabe 2:**  
-Konvertiere eine `int`-Variable in einen `double`-Wert und gib das Ergebnis aus.
+Konvertiere eine `double`-Variable in einen `int`-Wert und gib das Ergebnis aus.
 
 ---
 

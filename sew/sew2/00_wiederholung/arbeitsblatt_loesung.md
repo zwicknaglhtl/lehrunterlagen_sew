@@ -14,9 +14,9 @@ boolean javaErfahrung = true;    // Wahrheitswert als boolean
 
 **Aufgabe 2:**  
 ```java
-int zahl = 10;
-double zahlDouble = (double) zahl;
-System.out.println(zahlDouble); // Ausgabe: 10.0
+double zahl = 10.0;
+int zahlInt = (int) zahl;
+System.out.println(zahlInt); // Ausgabe: 10
 ```
 
 ---
