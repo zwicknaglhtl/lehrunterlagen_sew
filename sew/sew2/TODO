@@ -46,3 +46,47 @@ https://catcoder.codingcontest.org/
 Vorbereitung auf Coding Contests könnten ADV Module sein.
 
 Reihenfolge Lists -> File I/o -> Collections beibehalten, weil es sehr hilfreich ist bei Collections dann Files einlesen zu können.
+
+
+Lehrinhalte an Lehrplan anpassen
+
+II. Jahrgang:
+3.Semester – Kompetenzmodul 3:
+Bildungs- und Lehraufgabe:
+Die Schülerinnen und Schüler können im
+
+Bereich Algorithmen und Datenstrukturen
+–komplexere Datenstrukturen einsetzen;
+–Such- und Sortieralgorithmen bezüglich Zeit und Speicherbedarf analysieren.
+
+Bereich Objektorientierte Programmierung
+–Objekte definieren, anlegen und einsetzen;
+–die grafische Notation einer Problembeschreibung in einer Programmiersprache umsetzen;
+–API-Dokumentationen auf Methodenebene für ihre eigenen Programme erstellen;
+–geeignete Programmbibliotheken für gängige Aufgaben einsetzen.
+
+Bereich Softwareentwicklungsprozess
+–im Rahmen der objektorientierten Programmentwicklung Fehler finden und beheben;
+–einfache Testfälle definieren und damit objektorientierte Programme systematisch testen.
+
+Lehrstoff:
+Bereich Algorithmen und Datenstrukturen:
+Komplexere Datenstrukturen, Such- und Sortieralgorithmen.
+Bereich Objektorientierte Programmierung:
+Klassen, Objekte, Datenkapselung, grafische Notationen, Statik-Modellierung, API-Dokumentation, Auswahl und Einsatz von Bibliotheken.
+Bereich Softwareentwicklungsprozess:
+Testen und Fehlersuche, Debugging.
+
+4.Semester – Kompetenzmodul 4:
+
+Bildungs- und Lehraufgabe:
+Die Schülerinnen und Schüler können im
+
+Bereich Anwendungsentwicklung
+–externe Programmbausteine in eigene Programme integrieren und eigene Programmbausteine zurVerfügung stellen;
+–den Computer als Werkzeug für fachspezifische Anwendungen einsetzen und mit Hilfe höhererProgrammiersprachen Aufgaben ihres Fachgebietes methodisch lösen;
+–Programme für unterschiedliche Medien mit grafischer Benutzeroberfläche entwickeln.
+
+Lehrstoff:
+Bereich Anwendungsentwicklung:
+Programmentwicklung in Abstimmung mit den fachtheoretischen Pflichtgegenständen, GUI-Entwicklung.
