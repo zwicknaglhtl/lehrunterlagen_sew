@@ -47,13 +47,13 @@ int rand = 1 + (int)(Math.random() * ((10 - 1) + 1));
 <p>Die Java Math Funktion <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#random--"><code>Math.random()</code></a> gibt einen double Wert im Bereich [0, 1) zurück, wobei die 1 nicht mit eingeschlossen ist.</p>
 
 <pre><code class="language-java">
-int rand = Math.random();      //liefert eine Zufallszahl zwischen 0 und 1 (exklusive)
+double rand = Math.random();      //liefert eine Zufallszahl als Dezimalzahl zwischen 0 und 1 (exklusive)
 </code></pre>
 
 <p>Multiplizieren wir die zurückgelieferte Zufallszahl mit einer beliebigen Zahl <code>x</code> erhalten wir eine Zufallszahl im Bereich [0,x) (0 bis x, x exklusive).</p>
 
 <pre><code class="language-java">
-int rand = Math.random() * 5;  //liefert eine Zufallszahl zwischen 0 und 4.999...
+double rand = Math.random() * 5;  //liefert eine Zufallszahl zwischen 0 und 4.999...
 </code></pre>
 
 <p>Multiplizieren wir die zurückgelieferte Zufallszahl mit <code>max-min</code> erhalten wir eine Zufallszahl im Bereich [0,max-min).</p>
@@ -62,7 +62,7 @@ int rand = Math.random() * 5;  //liefert eine Zufallszahl zwischen 0 und 4.999..
 int min = 1;
 int max = 10;
 
-int rand = Math.random() * (max-min); //erzeugt eine Zufallszahl zwischen 0 und 8.9999...
+double rand = Math.random() * (max-min); //erzeugt eine Zufallszahl zwischen 0 und 8.9999...
 </code></pre>
 
 <p>Da die kleinste mögliche Zufallszahl <code>min</code> sein soll, müssen wir <code>min</code> noch hinzuaddieren.</p>
@@ -71,7 +71,7 @@ int rand = Math.random() * (max-min); //erzeugt eine Zufallszahl zwischen 0 und 
   int min = 1;
   int max = 10;
   
-  int rand = min + (Math.random() * (max-min)); //erzeugt eine Zufallszahl zwischen 1 und 9.9999...
+  double rand = min + (Math.random() * (max-min)); //erzeugt eine Zufallszahl zwischen 1 und 9.9999...
   </code></pre>
 
  <p>Die größte mögliche Zufallszahl ist noch immer nicht inkludiert. Wir müssen also noch 1 zum Wertebreich hinzuaddieren.</p>
@@ -80,7 +80,7 @@ int rand = Math.random() * (max-min); //erzeugt eine Zufallszahl zwischen 0 und 
   int min = 1;
   int max = 10;
   
-  int rand = min + (Math.random() * (max-min+1)); //erzeugt eine Zufallszahl zwischen 1 und 10.9999...
+  double rand = min + (Math.random() * (max-min+1)); //erzeugt eine Zufallszahl zwischen 1 und 10.9999...
   </code></pre>
 
 <p>Abschließend müssen noch alle Nachkommastellen entfernt werden, um ein ganzahliges Ergebnis zu erhalten. Dies geschieht mit einem sogenannten Cast in einen Integer mittels <code>(int)</code>.</p>
