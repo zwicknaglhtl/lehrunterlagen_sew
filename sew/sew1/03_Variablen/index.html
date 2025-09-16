@@ -7,14 +7,20 @@
 
 	<title>Variablen</title>
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reset.min.css" integrity="sha512-Mjxkx+r7O/OLQeKeIBCQ2yspG1P5muhAtv/J+p2/aPnSenciZWm5Wlnt+NOUNA4SHbnBIE/R2ic0ZBiCXdQNUg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reveal.min.css" integrity="sha512-ZIo9ivf88U0L1S+0D/npMNTTkjez5B9cK5xIecN4IA2OmtbTNBbPAZo/0cBC195sq7FU7cEOVPwtit37f/+1rQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reset.min.css"
+		integrity="sha512-Mjxkx+r7O/OLQeKeIBCQ2yspG1P5muhAtv/J+p2/aPnSenciZWm5Wlnt+NOUNA4SHbnBIE/R2ic0ZBiCXdQNUg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reveal.min.css"
+		integrity="sha512-ZIo9ivf88U0L1S+0D/npMNTTkjez5B9cK5xIecN4IA2OmtbTNBbPAZo/0cBC195sq7FU7cEOVPwtit37f/+1rQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 	<link rel="stylesheet" href="../../../theme/htl.css">
 
 	<!-- Theme used for syntax highlighted code -->
 	<!-- <link rel="stylesheet" href="../../../../../plugin/highlight/zenburn.css"> -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-light.css" onerror="this.onerror=null;this.href='../../../../../node_modules/highlight.js/styles/stackoverflow-light.css';">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-light.css"
+		onerror="this.onerror=null;this.href='../../../../../node_modules/highlight.js/styles/stackoverflow-light.css';">
 </head>
 
 
@@ -35,40 +41,40 @@
 			</section>
 
 			<section>
-			<h3>Wozu Variablen? - Beispiel 1</h3>
-			<div class="columns">
-			<div class="col two-third">
-			<ul>
-				<li>Ein Benutzer kann einen Wert eingeben.</li>
-				<li>Wie kann ein Programm sich den eingegebenen Wert "merken"?</li>
-			</ul>
-			</div>
-			<div class="col">
-			<img src="images/input.png" alt="Eingabefeld">
-			</div>
-			</div>
+				<h3>Wozu Variablen? - Beispiel 1</h3>
+				<div class="columns">
+					<div class="col two-third">
+						<ul>
+							<li>Ein Benutzer kann einen Wert eingeben.</li>
+							<li>Wie kann ein Programm sich den eingegebenen Wert "merken"?</li>
+						</ul>
+					</div>
+					<div class="col">
+						<img src="images/input.png" alt="Eingabefeld">
+					</div>
+				</div>
 			</section>
 
 			<section>
-			<h3>Wozu Variablen? - Beispiel 2</h3>
-			<div class="columns">
-			<div class="col two-third">
-				<pre><code data-trim>
+				<h3>Wozu Variablen? - Beispiel 2</h3>
+				<div class="columns">
+					<div class="col two-third">
+						<pre><code data-trim>
 					...
 					ellipse(170, 150, 10, 10); // linkes Auge
 					ellipse(230, 150, 10, 10); // rechtes Auge
 					...
 				</code></pre>
-				<ul>
-					<li>Ziel: die Größe der Augen ändern.</li>
-					<li>Man müsste die gleiche Zahl an 4 Stellen ändern.</li>
-					<li>Bessere Lösung: Größe einmal definieren und an 4 Stellen verwenden.</li>
-				</ul>
-			</div>
-			<div class="col">
-			<img src="images/rabbit.png" alt="Hasengesicht aus einfachen geometrischen Figuren" >
-			</div>
-			</div>
+						<ul>
+							<li>Ziel: die Größe der Augen ändern.</li>
+							<li>Man müsste die gleiche Zahl an 4 Stellen ändern.</li>
+							<li>Bessere Lösung: Größe einmal definieren und an 4 Stellen verwenden.</li>
+						</ul>
+					</div>
+					<div class="col">
+						<img src="images/rabbit.png" alt="Hasengesicht aus einfachen geometrischen Figuren">
+					</div>
+				</div>
 
 			</section>
 
@@ -106,28 +112,31 @@
 			</section>
 
 			<section>
-			<h3>Vergleich</h3>
-			<div class="columns">
-			<div class="col">
-			<ul style="font-size:1.9rem;">
-				<li>Du kannst dir Variablen auch wie "Behälter" im Speicher vorstellen.</li>
-				<li>Es gibt spezielle Behälter für ganze Zahlen, für Kommazahlen, für Strings,... (= der Typ des Behälters)</li>
-				<li>Jeder Behälter hat einen <em>eindeutigen Namen</em>.</li>
-				<li>In jeden Behälter passt immer nur ein Wert gleichzeitig. Gibt man einen neuen Wert in die Box, verschwindet der alte Wert automatisch.</li>
-			</ul>
-			</div>
-			<div class="col">
-			<img src="images/sammelbox.jpg" alt="Sammelbox mit Figuren">
-			</div>
-			</div>
-			<aside class="notes">
-			Bildquelle: https://media.marktjagd.com/6957193_230x250.jpg
-			</aside>
+				<h3>Vergleich</h3>
+				<div class="columns">
+					<div class="col">
+						<ul style="font-size:1.9rem;">
+							<li>Du kannst dir Variablen auch wie "Behälter" im Speicher vorstellen.</li>
+							<li>Es gibt spezielle Behälter für ganze Zahlen, für Kommazahlen, für Strings,... (= der Typ
+								des Behälters)</li>
+							<li>Jeder Behälter hat einen <em>eindeutigen Namen</em>.</li>
+							<li>In jeden Behälter passt immer nur ein Wert gleichzeitig. Gibt man einen neuen Wert in
+								die Box, verschwindet der alte Wert automatisch.</li>
+						</ul>
+					</div>
+					<div class="col">
+						<img src="images/sammelbox.jpg" alt="Sammelbox mit Figuren">
+					</div>
+				</div>
+				<aside class="notes">
+					Bildquelle: https://media.marktjagd.com/6957193_230x250.jpg
+				</aside>
 			</section>
 
 			<section>
 				<h3>Erzeugen einer Variable</h3>
-				<p>Das Erzeugen einer Variable nennt man <strong>"Deklaration"</strong>. Durch die Deklaration wird Speicherplatz für die
+				<p>Das Erzeugen einer Variable nennt man <strong>"Deklaration"</strong>. Durch die Deklaration wird
+					Speicherplatz für die
 					Variable reserviert.</p>
 				<p>Danach kannst du auf diesen Speicherplatz mittels des Variablennamen (oder auch kurz nur Variable
 					genannt) zugreifen.</p>
@@ -156,7 +165,7 @@ String vorname; // Stringvariable
 				<h3>Wertzuweisung</h3>
 				<p>Du kannst deiner Variablen jederzeit einen neuen Wert zuweisen (nach einer einmaligen Deklaration).
 				</p>
-				 <pre ><code class="language-java big">
+				<pre><code class="language-java big">
 linkeEcke = 15;
 vorname = "Peter"; //String-Werte unter Anführungszeichen!
 				 </code></pre>
@@ -168,17 +177,18 @@ vorname = "Peter"; //String-Werte unter Anführungszeichen!
 
 			<section>
 				<h3>Ausnahmsweise: Vergiss Mathe</h3>
-<div class="center-code">
-	<pre><code data-trim class="language-java big center">
+				<div class="center-code">
+					<pre><code data-trim class="language-java big center">
 	linkeEcke = 2*7+4;
 </code></pre>
-</div>
-			
+				</div>
+
 
 				<p> Das Istgleich-Zeichen hat <strong>nicht</strong> die mathematische Bedeutung, dass links und rechts
 					vom Istgleich-Zeichen das gleiche steht.</p>
 				<p>Der Ausdruck auf der rechten Seite wird zuerst ausgerechnet und danach in der Variable
-					<code>linkeEcke</code> gespeichert.</p>
+					<code>linkeEcke</code> gespeichert.
+				</p>
 				<div class="fragment">
 					<p class="left">Es ist wichtig was links und rechts steht, da die Zuweisung immer von <strong>rechts
 							nach links</strong> erfolgt.</p>
@@ -187,10 +197,18 @@ vorname = "Peter"; //String-Werte unter Anführungszeichen!
 			</section>
 
 			<section>
+				<h3>Initialisieren einer Variable</h3>
+				<p>Das erstmalige Zuweisen eines Werts an die Variable nennt man <strong>initialisieren</strong>. </p>
+				<p>Bei der Deklaration einer Variable kann auch gleich ein Anfangswert zugewiesen werden.</p>
+				<pre><code class="big">int linkeEcke=20;</code></pre>
+			</section>
+
+			<section>
 				<h3>Auslesen des Variablenwerts</h3>
 				<p>Du kannst jederzeit den Wert einer Variablen auslesen. Dazu schreibst du einfach den Variablen-Namen
 					hin.</p>
-					<p>Das kannst du überall dort machen, wo du bisher eine Zahl hinschreiben konntest. (Natürlich funktioniert das erst, nachdem du die Variable deklariert und einen Wert zugewiesen hast.)</p>
+				<p>Das kannst du überall dort machen, wo du bisher eine Zahl hinschreiben konntest. (Natürlich
+					funktioniert das erst, nachdem du die Variable deklariert und einen Wert zugewiesen hast.)</p>
 				<pre><code >
 int mySize = 400;
 size(mySize, 2*mySize); // Fenster ist doppelt so hoch wie breit 
@@ -210,81 +228,86 @@ mySize = 2 * mySize;
 			</section>
 
 			<section>
-				<h3>Initialisieren einer Variable</h3>
-				<p>Das erstmalige Zuweisen eines Werts an die Variable nennt man <strong>initialisieren</strong>. </p>
-				<p>Bei der Deklaration einer Variable kann auch gleich ein Anfangswert zugewiesen werden.</p>
-				<pre><code class="big">int linkeEcke=20;</code></pre>
+				<h3>Erlaubte Variablennamen</h3>
+				<ul>
+					<li class="fragment">Für Variablen-Namen sind nur Ziffern, Buchstaben und Unterstriche „_“erlaubt.
+					</li>
+					<li class="fragment">Das erste Zeichen einer Variablen darf keine Ziffer sein, damit man sie von
+						Zahlen unterscheiden kann.</li>
+					<li class="fragment">Die Sprache Java kennt ca. 50 Wörter mit besonderer Bedeutung. Diese sind für
+						Java reserviert und dürfen nicht als Variablen-Namen verwendet werden.
+						<ul>
+							<li class="fragment">Eines kennen wir schon, nämlich <code>int</code>.</li>
+							<li class="fragment">Die meisten anderen werden wir im Laufe des Jahres kennen lernen. z.B.:
+								<code>byte</code>, <code>boolean</code>, <code>if</code>, <code>else</code>,
+								<code>import</code>, <code>new</code>,...
+							</li>
+						</ul>
+
+					</li>
+				</ul>
 			</section>
 
-<section>
-	<h3>Erlaubte Variablennamen</h3>
-	<ul>
-		<li class="fragment">Für Variablen-Namen sind nur Ziffern, Buchstaben und Unterstriche „_“erlaubt.</li>
-		<li class="fragment">Das erste Zeichen einer Variablen darf keine Ziffer sein, damit man sie von Zahlen unterscheiden kann.</li>
-		<li class="fragment">Die Sprache Java kennt ca. 50 Wörter mit besonderer Bedeutung. Diese sind für Java reserviert und dürfen nicht als Variablen-Namen verwendet werden.
-			<ul>
-				<li class="fragment">Eines kennen wir schon, nämlich <code>int</code>.</li>
-				<li class="fragment">Die meisten anderen werden wir im Laufe des Jahres kennen lernen. z.B.:
-					<code>byte</code>, <code>boolean</code>, <code>if</code>, <code>else</code>, <code>import</code>, <code>new</code>,...</li>
-			</ul>
+			<section>
+				<h3>Groß- und Kleinschreibung</h3>
+				<p>Java unterscheidet Groß- und Kleinbuchstaben!</p>
+				<p>Daher sind die Variablen <code>xPos</code>, <code>xpos</code>
+					und <code>xPOS</code> drei unterschiedliche Variablen.</p>
+			</section>
 
-		</li>
-	</ul>
-</section>
+			<section>
+				<h3>Namenskonventionen</h3>
+				<ul class="r-fit-text">
+					<li class="fragment">Um Code leichter lesbar zu machen, halten sich Programmierer an einige
+						zusätzliche Regeln bei der Namenswahl.</li>
+					<li class="fragment">Variablen beginnen immer mit einem <strong>Kleinbuchstaben</strong>.
+						<pre><code data-noescape class="big">😒 <span class="strike-through">String Vorname;</span></code></pre>
+						<pre><code data-noescape class="big">🤗 String vorname;</code></pre>
+					</li>
+					<li class="fragment">
+						<div class="columns">
+							<div class="col two-third">
+								Variablennamen aus zusammengesetzten Wörtern, werden in der
+								<strong>Kamel-Notation</strong> geschrieben. D.h. jedes neue Wort im Variablen-Namen
+								wird groß geschrieben.
+								<pre><code class="language-java">int breiteInPixel;</code></pre>
+							</div>
+							<div class="col">
+								<img src="images/camel.png" alt="Grafik eines Kamels">
+							</div>
+						</div>
+					</li>
+					<li class="fragment">Verwende <strong>keine Umlaute</strong> (ö,ü,ö,ä,ß) in Variablen (deine
+						internationalen Kollegen werden es dir danken).</li>
+				</ul>
+			</section>
 
-<section>
-	<h3>Groß- und Kleinschreibung</h3>
-	<p>Java unterscheidet Groß- und Kleinbuchstaben!</p>
-	<p>Daher sind die Variablen <code>xPos</code>, <code>xpos</code>
-		und <code>xPOS</code> drei unterschiedliche Variablen.</p>
-</section>
+			<section>
+				<h3>Variablennamen - Beispiele</h3>
+				<p>gute Variablennamen:</p>
+				<pre><code class="big">vorname, x1, startPositionX</code></pre>
+				<p>Beispiele für gültige, aber schlecht geschriebene Variablennamen:</p>
+				<pre><code class="big">breite_in_pixel, X1, StartPositionY</code></pre>
+				<p>Beispiele für ungültige Variablen-Namen:</p>
+				<pre><code class="big">12max, &x, x#Nummer, breite in Pixel</code></pre>
+			</section>
 
-<section>
-	<h3>Namenskonventionen</h3>
-	<ul class="r-fit-text">
-		<li class="fragment">Um Code leichter lesbar zu machen, halten sich Programmierer an einige zusätzliche Regeln bei der Namenswahl.</li>
-		<li class="fragment">Variablen beginnen immer mit einem <strong>Kleinbuchstaben</strong>.
-			<pre><code data-noescape class="big">😒 <span class="strike-through">String Vorname;</span></code></pre>
-	<pre><code data-noescape class="big">🤗 String vorname;</code></pre>
-		</li>
-		<li class="fragment">
-			<div class="columns">
-			<div class="col two-third">
-				Variablennamen aus zusammengesetzten Wörtern, werden in der <strong>Kamel-Notation</strong> geschrieben. D.h. jedes neue Wort im Variablen-Namen wird groß geschrieben.
-				<pre><code class="language-java">int breiteInPixel;</code></pre>
-			</div>
-			<div class="col">
-				<img src="images/camel.png" alt="Grafik eines Kamels">
-			</div>
-			</div>
-		</li>
-		<li class="fragment">Verwende <strong>keine Umlaute</strong> (ö,ü,ö,ä,ß) in Variablen (deine internationalen Kollegen werden es dir danken).</li>
-	</ul>
-</section>
+			<section>
+				<h3>Selbsterklärende Variablennamen</h3>
+				<p class="center">Verwende immer möglichst selbsterklärende Variablennamen!</p>
+				<pre><code data-noescape class="big">😒 <span class="strike-through">int f;</span></code></pre>
+				<pre><code data-noescape class="big">🤗 int xCenterFace;</code></pre>
+			</section>
+			<section>
+				<h3>Anwendungsbeispiel</h3>
+				<p>Farben sind in Processing nichts anderes als eine ganze Zahl. Du kannst die Farbe komfortabel
+					mithilfe des <a
+						href="https://processing.org/reference/color_datatype.html"><code>color</code></a>-Befehls
+					erzeugen.</p>
 
-<section>
-	<h3>Variablennamen - Beispiele</h3>
-	<p>gute Variablennamen:</p>
-		<pre><code class="big">vorname, x1, startPositionX</code></pre>
-	<p>Beispiele für gültige, aber schlecht geschriebene Variablennamen:</p>
-	<pre><code class="big">breite_in_pixel, X1, StartPositionY</code></pre>
-	<p>Beispiele für ungültige Variablen-Namen:</p>
-	<pre><code class="big">12max, &x, x#Nummer, breite in Pixel</code></pre>
-</section>
+				<p>Damit kann man eine Farbe in einer Variable speichern und danach mehrfach verwenden.</p>
 
-<section>
-	<h3>Selbsterklärende Variablennamen</h3>
-	<p class="center">Verwende immer möglichst selbsterklärende Variablennamen!</p>
-	<pre><code data-noescape class="big">😒 <span class="strike-through">int f;</span></code></pre>
-	<pre><code data-noescape class="big">🤗 int xCenterFace;</code></pre>
-</section>
-<section>
-	<h3>Anwendungsbeispiel</h3>
-<p>Farben sind in Processing nichts anderes als eine ganze Zahl. Du kannst die Farbe komfortabel mithilfe des <a href="https://processing.org/reference/color_datatype.html"><code>color</code></a>-Befehls erzeugen.</p>
-
-<p>Damit kann man eine Farbe in einer Variable speichern und danach mehrfach verwenden.</p>
-
-<pre><code>
+				<pre><code>
 int yellow = color(255,255,0);
 int red = color(255,0,0);
 
@@ -296,37 +319,36 @@ stroke(yellow);
 line(0,2,100,102);
 </code></pre>
 
-</section>
+			</section>
 
 
-<section>
-	<h3>Die Konstante</h3>
-	<ul class="r-fit-text">
-		<li>Konstanten sind wie Variablen, aber Konstanten kann nur <strong>einmal</strong> ein Wert zugewiesen werden. Einer Konstante kann im Programmverlauf kein neuer Wert zugewiesen werden.</li>
-		<li>Konstante definiert man, indem man das Wort <strong><code>final</code></strong> vor die Definition setzt.</li>
-		<li>Konstanten helfen ein Programm leichter lesbar zu machen und Fehler zu vermeiden</li>
-		<li>Die Namen von Konstanten schreibt man in Großbuchstaben. In zusammengesetzten Wörtern setzt man einen Unterstrich „_“ zwischen den Teilworten.</li>
-	</ul>
-	<pre><code>
+			<section>
+				<h3>Die Konstante</h3>
+				<ul class="r-fit-text">
+					<li>Konstanten sind wie Variablen, aber Konstanten kann nur <strong>einmal</strong> ein Wert
+						zugewiesen werden. Einer Konstante kann im Programmverlauf kein neuer Wert zugewiesen werden.
+					</li>
+					<li>Konstante definiert man, indem man das Wort <strong><code>final</code></strong> vor die
+						Definition setzt.</li>
+					<li>Konstanten helfen ein Programm leichter lesbar zu machen und Fehler zu vermeiden</li>
+					<li>Die Namen von Konstanten schreibt man in Großbuchstaben. In zusammengesetzten Wörtern setzt man
+						einen Unterstrich „_“ zwischen den Teilworten.</li>
+				</ul>
+				<pre><code>
 final float PI = 3.1415927;
 final int PLZ_LANDSTRASSE = 1030;
 	</code></pre>
-</section>
+			</section>
 
-<section>
-	<h3>Die Konstante</h3>
-	<pre><code>
+			<section>
+				<h3>Die Konstante</h3>
+				<pre><code>
 final float PI = 3.1415927;  //final => Konstante
 println(PI); //Konstanten können wie Variablen verwendet werden
 
 PI = 3; //Das Programm kompiliert nicht, weil versucht wird den Wert zu ändern.
 	</code></pre>
-</section>
-
-
-
-
-
+			</section>
 
 			<section>
 				<p class="center">
@@ -342,11 +364,21 @@ PI = 3; //Das Programm kompiliert nicht, weil versucht wird den Wert zu ändern.
 
 
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reveal.js" integrity="sha512-GvouLVZT+gJSJW5eOfpG46xTaBb2c3VeNnbzmDYTRQkFlgvxNhnzZQqiQ/jAyAYPh+a9roBvAHJP6zvXIVq34Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/notes/notes.min.js" integrity="sha512-6LAcdj7pQal9JkdALNexzVKd4zWuYUxOXuzdF21iOx7LJSlF5ibFi2TAR7GQ00XhfPAw7/R8f1dZ69gFGhzXtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/markdown/markdown.min.js" integrity="sha512-4exkEeyVuaWUFKozXl6L3UCugl6ai1cKnrVFkWUstdrNB2sDxxmPEaHBzTlYm9wX78EjPzEBG0s8k37oPeUFIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/highlight/highlight.min.js" integrity="sha512-IkPzJ3njtxNL2Frm7zr18CEj9HH+CEFAqh+jSKjXTHVFGtWG1+USbIXINU8zdGmyLpf/OBIVfpNLGNgwhlymkA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/search/search.min.js" integrity="sha512-hzXKyeT22k18jZdSR25sVbZqa1UAc8nLubaKsW7EwarLBRtFMZMmLQOc2n29Zv+9r2X8Iex9WJqLudXO8e2x6w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reveal.js"
+		integrity="sha512-GvouLVZT+gJSJW5eOfpG46xTaBb2c3VeNnbzmDYTRQkFlgvxNhnzZQqiQ/jAyAYPh+a9roBvAHJP6zvXIVq34Q=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/notes/notes.min.js"
+		integrity="sha512-6LAcdj7pQal9JkdALNexzVKd4zWuYUxOXuzdF21iOx7LJSlF5ibFi2TAR7GQ00XhfPAw7/R8f1dZ69gFGhzXtw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/markdown/markdown.min.js"
+		integrity="sha512-4exkEeyVuaWUFKozXl6L3UCugl6ai1cKnrVFkWUstdrNB2sDxxmPEaHBzTlYm9wX78EjPzEBG0s8k37oPeUFIw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/highlight/highlight.min.js"
+		integrity="sha512-IkPzJ3njtxNL2Frm7zr18CEj9HH+CEFAqh+jSKjXTHVFGtWG1+USbIXINU8zdGmyLpf/OBIVfpNLGNgwhlymkA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/search/search.min.js"
+		integrity="sha512-hzXKyeT22k18jZdSR25sVbZqa1UAc8nLubaKsW7EwarLBRtFMZMmLQOc2n29Zv+9r2X8Iex9WJqLudXO8e2x6w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
 	<script src="../../reveal-config.js"></script>
