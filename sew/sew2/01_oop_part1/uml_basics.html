@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Grundlagen UML & Klassendiagramme</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reset.min.css" integrity="sha512-Mjxkx+r7O/OLQeKeIBCQ2yspG1P5muhAtv/J+p2/aPnSenciZWm5Wlnt+NOUNA4SHbnBIE/R2ic0ZBiCXdQNUg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reveal.min.css" integrity="sha512-ZIo9ivf88U0L1S+0D/npMNTTkjez5B9cK5xIecN4IA2OmtbTNBbPAZo/0cBC195sq7FU7cEOVPwtit37f/+1rQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<link rel="stylesheet" href="../../../theme/htl.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-light.css" onerror="this.onerror=null;this.href='../../../../../node_modules/highlight.js/styles/stackoverflow-light.css';">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Titelseite -->
+      <section>
+        <h1>Grundlagen UML</h1>
+        <h3>und Klassendiagramme</h3>
+
+      </section>
+
+      <!-- Was ist UML -->
+      <section>
+        <h2>Was ist UML?</h2>
+        <ul>
+          <li>UML = Unified Modeling Language</li>
+          <li>Standardisierte Sprache zur Beschreibung von Software</li>
+                      <li>Besteht aus verschiedenen Diagrammtypen</li>
+          <li>Wird vor allem für die Planung und Dokumentation genutzt</li>
+          <li>Keine Programmiersprache, sondern ein Modellierungswerkzeug</li>
+        </ul>
+      </section>
+
+      <!-- Warum UML -->
+      <section>
+
+        <h2>Wozu dient UML?</h2>
+        <ul>
+          <li>Hilft, komplexe Programme besser zu verstehen</li>
+          <li>Erleichtert die Kommunikation im Team</li>
+          <li>Dient als „Bauplan“ für den späteren Code</li>
+          <li>Zeigt Strukturen und Zusammenhänge übersichtlich</li>
+        </ul>
+      </section>
+
+      <!-- UML Diagrammtypen -->
+      <section>
+        <h2>Arten von UML-Diagrammen</h2>
+        <ul>
+          <li><strong>Strukturdiagramme:</strong> z. B. Klassendiagramm</li>
+          <li><strong>Verhaltensdiagramme:</strong> z. B. Aktivitätsdiagramm, Sequenzdiagramm</li>
+        </ul>
+        <p>„Strukturdiagramme zeigen, <em>was da ist</em> —
+Verhaltensdiagramme zeigen, <em>was passiert</em>.“</p>
+        <p>Wir schauen uns zum Start das Klassendiagramm an.</p>
+      </section>
+
+      <!-- Klassendiagramme Grundlagen -->
+      <section>
+        <h2>Klassendiagramme</h2>
+        <ul>
+          <li>Zeigen den Aufbau von Klassen</li>
+          <li>Zeigen Attribute (Eigenschaften) und Methoden</li>
+          <li>Zeigen Beziehungen zwischen Klassen</li>
+          <li>Jede Klasse im Diagramm → eine Java-Klasse</li>
+        </ul>
+      </section>
+
+      <!-- Aufbau einer Klasse -->
+      <section>
+        <h2>Aufbau einer Klasse (Beispiel)</h2>
+        <pre>
++--------------------+
+|   Person           |
++--------------------+
+| - name : String    |
+| - alter : int      |
++--------------------+
+| + sagHallo() : void|
++--------------------+
+        </pre>
+        <ul>
+          <li>Oberer Block: Klassenname</li>
+          <li>Mittlerer Block: Attribute (mit Typ)</li>
+          <li>Unterer Block: Methoden (mit Rückgabetyp)</li>
+        </ul>
+      </section>
+
+
+         <!-- Sichtbarkeitssymbole in UML -->
+      <section>
+        <h2>Sichtbarkeit in UML</h2>
+        <ul>
+          <li><strong>+</strong> <b>public</b> (öffentlich): Überall sichtbar</li>
+          <li><strong>-</strong> <b>private</b> (privat): Nur innerhalb der Klasse sichtbar</li>
+          <li><strong>#</strong> <b>protected</b> (geschützt): In der Klasse und in Unterklassen sichtbar</li>
+          <li><strong>~</strong> <b>package</b> (Paket-Sichtbarkeit): Innerhalb desselben Pakets sichtbar</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Beispiel: Sichtbarkeit</h2>
+        <pre>
++----------------------------------+
+|   Konto                          |
++----------------------------------+
+| - kontonummer : int              |
+| # inhaber: String                |
+| ~ bankleitzahl : int             |
++----------------------------------+
+| + einzahlen(betrag: float) : void|
++----------------------------------+
+        </pre>
+        <ul>
+          <li><b>- kontonummer</b>: privat</li>
+          <li><b># inhaber</b>: protected</li>
+          <li><b>~ bankleitzahl</b>: package</li>
+          <li><b>+ einzahlen()</b>: public</li>
+        </ul>
+      </section>
+      
+
+      <!-- Fazit -->
+      <section>
+        <h2>Fazit</h2>
+        <ul>
+          <li>UML hilft, Software zu planen und zu verstehen</li>
+          <li>Klassendiagramme zeigen Aufbau und Beziehungen von Klassen</li>
+          <li>Sie sind eine Brücke zwischen Idee und Code</li>
+        </ul>
+        <h3>🔑 Planung ist der erste Schritt zu gutem Code!</h3>
+      </section>
+
+    </div>
+  </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reveal.js" integrity="sha512-GvouLVZT+gJSJW5eOfpG46xTaBb2c3VeNnbzmDYTRQkFlgvxNhnzZQqiQ/jAyAYPh+a9roBvAHJP6zvXIVq34Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/notes/notes.min.js" integrity="sha512-6LAcdj7pQal9JkdALNexzVKd4zWuYUxOXuzdF21iOx7LJSlF5ibFi2TAR7GQ00XhfPAw7/R8f1dZ69gFGhzXtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/markdown/markdown.min.js" integrity="sha512-4exkEeyVuaWUFKozXl6L3UCugl6ai1cKnrVFkWUstdrNB2sDxxmPEaHBzTlYm9wX78EjPzEBG0s8k37oPeUFIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/highlight/highlight.min.js" integrity="sha512-IkPzJ3njtxNL2Frm7zr18CEj9HH+CEFAqh+jSKjXTHVFGtWG1+USbIXINU8zdGmyLpf/OBIVfpNLGNgwhlymkA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/search/search.min.js" integrity="sha512-hzXKyeT22k18jZdSR25sVbZqa1UAc8nLubaKsW7EwarLBRtFMZMmLQOc2n29Zv+9r2X8Iex9WJqLudXO8e2x6w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+	<script src="../../reveal-config.js"></script>
+</body>
+</html>
