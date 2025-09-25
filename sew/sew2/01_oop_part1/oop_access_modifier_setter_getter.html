@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Kapselung in OOP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reset.min.css" integrity="sha512-Mjxkx+r7O/OLQeKeIBCQ2yspG1P5muhAtv/J+p2/aPnSenciZWm5Wlnt+NOUNA4SHbnBIE/R2ic0ZBiCXdQNUg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reveal.min.css" integrity="sha512-ZIo9ivf88U0L1S+0D/npMNTTkjez5B9cK5xIecN4IA2OmtbTNBbPAZo/0cBC195sq7FU7cEOVPwtit37f/+1rQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<link rel="stylesheet" href="../../../theme/htl.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-light.css" onerror="this.onerror=null;this.href='../../../../../node_modules/highlight.js/styles/stackoverflow-light.css';">
+</head>
+<body>
+
+<div class="reveal">
+  <div class="slides">
+
+    <!-- Titelfolie -->
+    <section>
+      <h1>Kapselung</h1>
+      <h3>mittels <em>Access Modifier</em> und <em>Getter/Setter-Methoden</em></h3>
+    </section>
+
+    <!-- Access Modifier Introduction -->
+    <section>
+      <h2>Access Modifier in Java</h2>
+      <ul>
+        <li>Steuern die Sichtbarkeit von Klassen, Attributen und Methoden.</li>
+        <li>Wichtig für Kapselung und Datenintegrität.</li>
+      </ul>
+    </section>
+     
+    <!-- Access Modifier Details -->
+    <section>
+      <h2>Die 4 Access Modifier</h2>
+      <ul>
+        <li><b>public</b>: Überall zugänglich.</li>
+        <li><b>protected</b>: Zugänglich innerhalb des Pakets und in Unterklassen.</li>
+        <li><b>default</b>: Nur innerhalb desselben Pakets zugänglich (kein explizites Schlüsselwort).</li>
+        <li><b>private</b>: Nur innerhalb der deklarierenden Klasse zugänglich.</li>
+      </ul>
+    </section>
+
+
+    <!-- Access Modifier Examples -->
+    <section>
+      <h2>Beispiele für Access Modifier</h2>
+      <h3>public</h3>
+      <pre><code class="language-java">
+public class ClassExample {
+    public int publicVar = 10;
+    public void publicMethod() { /* ... */ }
+}
+   </code></pre>
+<pre><code class="language-java">
+  public class OtherClass {
+    
+    public void access() {
+      // Zugriff von überall möglich  
+      ClassExample obj = new ClassExample();
+      System.out.println(obj.publicVar); // Zugriff ist erlaubt
+      obj.publicMethod(); // Zugriff ist erlaubt
+    }
+}
+   </code></pre>
+   </section>
+
+<section>
+      <h2>Beispiele für Access Modifier</h2>
+      <h3>private</h3>
+      <pre><code class="language-java">
+public class ClassExample {
+    private int privateVar = 40;
+    private void privateMethod() { /* ... */ }
+    public int getPrivateVar() { return privateVar; }
+}
+ </code></pre>
+<pre><code class="language-java">
+  public class OtherClass {
+    public void access() {
+      ClassExample obj = new ClassExample();
+      //obj.privateVar; // Fehler - kein Zugriff von außen möglich!
+      System.out.println(obj.getPrivateVar()); //Zugriff über Methode erlaubt
+    }
+  }
+  </code></pre>
+
+    </section>
+
+   <section>
+      <h2>Beispiele für Access Modifier</h2>
+      <h3>protected</h3>
+      <p class="center">(Unterklassen lernen wir noch!)</p>
+      <pre><code class="language-java">
+package com.example.package1;
+public class ClassExample {
+    protected int protectedVar = 20;
+   </code></pre>
+   <pre><code class="language-java">
+ //Im selben Paket oder in Unterklassen zugänglich
+ package com.example.package2;
+ class SubClass extends ClassExample {
+     void access() { System.out.println(protectedVar); }
+ }
+      </code></pre>
+</section>
+
+<section>
+<h2>Beispiele für Access Modifier</h2>
+<h3>(default)</h3>
+      <pre><code class="language-java">
+package com.example.package1;
+public class ClassExample { 
+    int defaultVar = 30; // Kein Modifier
+}
+      </code></pre>
+      <pre><code class="language-java">
+ 
+ package com.example.package2;
+ public class OtherClass {
+    public void access() {
+      ClassExample obj = new ClassExample();
+      //obj.defaultVar; // Fehler - Nur innerhalb von com.example.package1 zugänglich
+    }
+  }
+  </code></pre>
+</section>
+
+
+ <!-- Access Modifier bei Klassen -->
+      <section>
+        <h2>Access Modifier bei Klassen</h2>
+        <ul>
+          <li><b>public class</b>: Die Klasse ist von überall sichtbar und kann von jedem anderen Code verwendet werden.</li>
+          <li><b>default (kein Modifier)</b>: Die Klasse ist nur innerhalb desselben Pakets sichtbar (package-private).</li>
+          <li><b>private/protected</b>: Nicht für Top-Level-Klassen erlaubt!</li>
+        </ul>
+        <pre><code class="language-java">
+  // Datei: MeineKlasse.java
+  public class MeineKlasse { }
+
+  // Datei: PaketKlasse.java
+  class PaketKlasse { }
+        </code></pre>
+        <p><small>Nur innere Klassen (Klassen innerhalb einer anderen Klasse) können <b>private</b> oder <b>protected</b> sein.</small></p>
+      </section>
+
+    <!-- Getter und Setter -->
+    <section>
+      <h2>Getter- und Setter-Methoden</h2>
+      <ul>
+        <li>Standardisierte Methoden, um auf private Attribute zuzugreifen oder diese zu ändern.</li>
+        <li><b>Getter</b> (Accessoren): Liefern den Wert eines Attributs zurück (z.B. <code class="language-java">getKontostand()</code>).</li>
+        <li><b>Setter</b> (Mutatoren): Ermöglichen das Setzen eines Attributs, oft mit Validierung (z.B. <code>setKontostand(double neuerKontostand)</code>).</li>
+        <li>Ermöglichen <em>kontrollierten</em> Zugriff und wahren die Kapselung.</li>
+      </ul>
+    </section>
+
+    <!-- Namenskonventionen Getter/Setter -->
+    <section>
+      <h2>Namenskonventionen für Getter & Setter</h2>
+      <ul>
+        <li>Folgen einem festen Muster in Java.</li>
+        <li><b>Getter</b>: Beginnen mit <code>get</code> gefolgt vom Attributnamen in CamelCase (z.B. <code>getName()</code>, <code>getAlter()</code>).
+          <ul>
+            <li>Für <code>boolean</code>-Attribute kann der Getter auch mit <code>is</code> beginnen (z.B. <code>isAktiv()</code>).</li>
+          </ul>
+        </li>
+        <li><b>Setter</b>: Beginnen mit <code>set</code> gefolgt vom Attributnamen in CamelCase (z.B. <code>setName(String name)</code>, <code>setAlter(int alter)</code>).
+          <ul>
+             <li>Der Parametername ist oft identisch mit dem Attributnamen (<code>this</code> zur Unterscheidung).</li>
+          </ul>
+        
+        </li>
+       
+      </ul>
+    </section>
+
+    <section>
+      <h2>Beispiel</h2>
+      <pre><code class="language-java">
+public class Person {
+    private String name;
+   
+    // Getter für name
+    public String getName() {
+        return name;
+    }
+
+    // Setter für name
+    public void setName(String name) {
+      if (name != null && !name.isEmpty()) {
+          this.name = name;
+      } else {
+          System.out.println("Name darf nicht leer sein!");
+      }
+    }
+}
+      </code></pre>
+    </section>
+
+    <section>
+      <h2>Beispiel 2</h2>
+            <pre><code class="language-java">
+public class Produkt {
+    private boolean verfuegbar;
+
+    public boolean isVerfuegbar() { // Getter für boolean
+        return verfuegbar;
+    }
+
+    public void setVerfuegbar(boolean verfuegbar) { // Setter
+        this.verfuegbar = verfuegbar;
+    }
+}
+      </code></pre>
+    </section>
+
+   <section>
+      <h2>Was ist eine Schnittstelle?</h2>
+      <p class="center">Als Schnittstelle einer Klasse bezeichnet man alle <em> öffentlich sichtbaren</em> Bestandteile einer Klasse.</p>
+      <p class="center">Eine Schnittstelle definiert, wie andere Klassen mit einer Klasse interagieren können, ohne die internen Details zu kennen.</p>
+    <object data="diagrams/schnittstelle.drawio.svg" type="image/svg+xml"></object>
+    </section>
+
+    <section>
+      <h2>Application Programming Interface (API)</h2>
+      <ul>
+        <li>Eine API ist die gesamte Sammlung von Schnittstellen, die ein größeres System (Modul, Framework, Bibliothek) nach außen bereitstellt.</li>
+        <li>Eine API besteht also aus vielen Schnittstellen von Klassen (oder Interfaces, Modulen, Paketen).</li>
+        <li>Die <a href="https://download.java.net/java/early_access/panama/docs/api/index.html"><em>Java API</em></a> ist ein Beispiel für eine umfangreiche API.</li>
+    </section>
+
+
+    <section>
+      <h2>Kriterien einer guten Schnittstelle (Auszug)</h2>
+      <ul>
+        <li>✅ Methodennamen sollten selbsterklärend sein (<code>addItem(), removeUser()</code> statt <code>doStuff()</code>).
+          <ul>
+            <li> Ein Nutzer der Klasse sollte nur vom Methodenkopf verstehen können, was die Schnittstelle leistet.</li></ul>
+        </li>
+        <li>✅Methoden einer Klasse sollten logisch zusammenpassen und ein einheitliches Verantwortungsgebiet abbilden (Single Responsibility Principle).</li>
+      </ul>
+    </section>
+
+     <section>
+      <h2>Kriterien einer guten Schnittstelle (Auszug)</h2>
+      <ul>
+        <li>✅Von außen sieht man nicht <em>wie</em> die Klasse etwas macht, sondern nur <em>was</em> sie macht.
+          <ul>
+            <li>Die konkrete Implementierung innerhalb der Klasse soll man ohne Auswirkungen auf den restlichen Code ändern können.</li>
+          </ul>
+        </li>
+        <li>✅ Nur das nach außen geben, was wirklich nötig ist → möglichst wenige public-Member.
+          <ul>
+            <li>Prinzip der Kapselung - siehe folgende Folien.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+
+    <section>
+      <h2>Was ist Kapselung?</h2>
+      <ul>
+        <li>Verbergen der inneren Implementierungsdetails</li>
+        <li>Zugriff nur über definierte Schnittstellen (Methoden)</li>
+        <li>Schützt Daten vor ungewolltem Zugriff von außen.</li>
+      </ul>
+          <p class="center">Kapselung wird erreicht über Access Modifier und setter-/getter Methoden.</p>
+    </section>
+
+
+    <!-- Beispiel -->
+    <section>
+      <h2>Beispiel in Java</h2>
+      <pre><code class="language-java">
+public class Konto {
+    private double kontostand; 
+
+    public void setKontostand(double kontostand) {
+        this.kontostand = kontostand;
+    }
+
+    public double getKontostand() {
+        return kontostand;
+    }
+}
+      </code></pre>
+      <p><small>→ kontostand ist gekapselt und nur über Methoden zugänglich</small></p>
+    </section>
+
+       <!-- Praktisches Beispiel -->
+    <section>
+      <h2>Warum ist Kapselung wichtig?</h2>
+
+      <p>Ohne Kapselung kann jeder Code beliebig Daten verändern:</p>
+      <pre><code class="language-java">
+public class Konto {
+    public double kontostand = 0; //soll im Beispiel nicht negativ sein dürfen.
+}
+
+Konto k = new Konto();
+k.kontostand = -9999; // geht! Aber sollte in unserem Beispiel nie so sein.
+      </code></pre>
+      <p><small>❌ Jetzt ist ein negativer Kontostand möglich!</small></p>
+    </section>
+
+
+  <!-- Praktisches Beispiel -->
+    <section>
+      <h2>Warum ist Kapselung wichtig?</h2>
+
+      <p>Mit Kapselung wird der Zugriff kontrolliert:</p>
+      <pre><code class="language-java">
+// Bessere Lösung: mit Kapselung
+public class Konto {
+    private double kontostand = 0;
+
+       public void setKontostand(double kontostand) {
+        if (kontostand >= 0) {
+            this.kontostand = kontostand;
+        } else {
+            System.out.println("Kontostand darf nicht negativ sein!");
+        }
+    }
+}
+      </code></pre>
+
+      <p><small>✅ Jetzt ist kein negativer Kontostand mehr möglich!</small></p>
+    </section>
+
+    <!-- Vorteile -->
+    <section>
+      <h2>Vorteile der Kapselung</h2>
+      <ul>
+        <li>Erlaubt Überprüfung(Validierung) von Eingabewerten innerhalb der Klasse.</li>
+        <li>Erlaubt Änderungen an der Implementierung, ohne Aufrufe aus anderen Klassen ändern zu müssen.</li>
+        <li>Die Kontrolle über die Logik und die Daten bleibt innerhalb der Klasse.</li>
+        <li>Verbessert die Verständlichkeit, Wartung und Datensicherheit des Codes und reduziert die Abhängigkeiten zwischen Klassen.</li>
+      </ul>
+    </section>
+
+
+  </div>
+</div>
+</body>
+</html>
+
+
+    </div>
+  </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reveal.js" integrity="sha512-GvouLVZT+gJSJW5eOfpG46xTaBb2c3VeNnbzmDYTRQkFlgvxNhnzZQqiQ/jAyAYPh+a9roBvAHJP6zvXIVq34Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/notes/notes.min.js" integrity="sha512-6LAcdj7pQal9JkdALNexzVKd4zWuYUxOXuzdF21iOx7LJSlF5ibFi2TAR7GQ00XhfPAw7/R8f1dZ69gFGhzXtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/markdown/markdown.min.js" integrity="sha512-4exkEeyVuaWUFKozXl6L3UCugl6ai1cKnrVFkWUstdrNB2sDxxmPEaHBzTlYm9wX78EjPzEBG0s8k37oPeUFIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/highlight/highlight.min.js" integrity="sha512-IkPzJ3njtxNL2Frm7zr18CEj9HH+CEFAqh+jSKjXTHVFGtWG1+USbIXINU8zdGmyLpf/OBIVfpNLGNgwhlymkA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/search/search.min.js" integrity="sha512-hzXKyeT22k18jZdSR25sVbZqa1UAc8nLubaKsW7EwarLBRtFMZMmLQOc2n29Zv+9r2X8Iex9WJqLudXO8e2x6w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+	<script src="../../reveal-config.js"></script>
+</body>
+</html>
