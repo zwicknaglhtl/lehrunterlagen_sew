@@ -1,3 +1,7 @@
+Interfaces grundsätzliche erklären (Zweck)
+
+Generics hinzufügen (brauchen wir bei Spring Boot intensiv)
+
 bei Exceptions das Abfangen mehrerer Exceptions hinzufügen
         
 catch(ArithmeticException | ArrayIndexOutOfBoundsException | StringIndexOutOfBoundsException | NumberFormatException | NullPointerException e){

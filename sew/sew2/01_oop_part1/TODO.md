@@ -1,8 +1,3 @@
-Erklärung Interface:
-
-
-
-
 Bitoperationen: Kennen sie den Großteil schon aus einem anderen Fach und sollen wir uns mehr auf die Umsetzung in Java konzentrieren?
 
 Aussage ZAI:
@@ -19,33 +14,5 @@ geometrische Figuren als Klasse (Dreieck, Viereck,...) -> coole Klassenhierachie
 
 Hilft UML Notation beim Verständnis des doch sehr abstrakten Stoffs?
 
-Wettbewerb 'Biber der Informatik
+Wettbewerb 'Biber der Informatik'
 
-
-UML Beziehungen in einer weiteren Folie erklären (Assoziation, Aggregation, Komposition, Vererbung, Realisierung)
-
-<!-- Beziehungen zwischen Klassen -->
-      <section>
-        <h2>Beziehungen</h2>
-        <ul>
-          <li><strong>Assoziation:</strong> Klasse A kennt Klasse B</li>
-          <li><strong>Aggregation:</strong> Klasse A besteht aus Objekten von B</li>
-          <li><strong>Vererbung:</strong> Klasse B erbt von Klasse A</li>
-        </ul>
-      </section>
-
-      <!-- Beispiel Klassendiagramm -->
-      <section>
-        <h2>Beispiel</h2>
-        <pre>
-+---------------+         +-----------------+
-|   Person      |<>------>|   Adresse       |
-+---------------+         +-----------------+
-| - name         |         | - strasse       |
-| - alter        |         | - ort           |
-+---------------+         +-----------------+
-| + sagHallo()   |         
-+---------------+
-        </pre>
-        <p>Person hat eine Adresse (Aggregation)</p>
-      </section>
