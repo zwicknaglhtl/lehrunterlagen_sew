@@ -70,16 +70,10 @@ Verhaltensdiagramme zeigen, <em>was passiert</em>.“</p>
       <!-- Aufbau einer Klasse -->
       <section>
         <h2>Aufbau einer Klasse (Beispiel)</h2>
-        <pre>
-+--------------------+
-|   Person           |
-+--------------------+
-| - name : String    |
-| - alter : int      |
-+--------------------+
-| + sagHallo() : void|
-+--------------------+
-        </pre>
+      <div>
+<img src="diagrams/Person.svg" alt="Person Klasse">
+      </div>
+
         <ul>
           <li>Oberer Block: Klassenname</li>
           <li>Mittlerer Block: Attribute (mit Typ)</li>
@@ -101,17 +95,9 @@ Verhaltensdiagramme zeigen, <em>was passiert</em>.“</p>
 
       <section>
         <h2>Beispiel: Sichtbarkeit</h2>
-        <pre>
-+----------------------------------+
-|   Konto                          |
-+----------------------------------+
-| - kontonummer : int              |
-| # inhaber: String                |
-| ~ bankleitzahl : int             |
-+----------------------------------+
-| + einzahlen(betrag: float) : void|
-+----------------------------------+
-        </pre>
+   <div>
+<img src="diagrams/Konto.svg" alt="Konto Klasse">
+      </div>
         <ul>
           <li><b>- kontonummer</b>: privat</li>
           <li><b># inhaber</b>: protected</li>
@@ -136,13 +122,9 @@ Verhaltensdiagramme zeigen, <em>was passiert</em>.“</p>
       <section>
         <h2>Abhängigkeit (Dependency)</h2>
         <p>Eine Klasse <strong>verwendet</strong> eine andere, wenn sie diese z.B. als Parameter in einer Methode benötigt. Die Beziehung ist meist kurzlebig.</p>
-        <pre>
-+-------------------+      uses      +-------------------+
-|   Drucker         |-------------->|   Dokument        |
-+-------------------+               +-------------------+
-| + drucken(d: Dok) |               |                   |
-+-------------------+               +-------------------+
-        </pre>
+       <div>
+<img src="diagrams/Dependency.svg" alt="Dependency Diagram">
+      </div>
       </section>
 
       <section>
@@ -167,11 +149,9 @@ public class Dokument {
       <section>
         <h2>Beziehung: Assoziation</h2>
         <p>Zwei Klassen sind miteinander verbunden, aber keine ist ein Teil der anderen.</p>
-        <pre>
-+-----------+       +---------+
-|  Schüler  |-------| Lehrer  |
-+-----------+       +---------+
-        </pre>
+      <div>
+<img src="diagrams/Assoziation.svg" alt="Assoziation Diagram">
+      </div>
         <ul>
           <li>Ein Schüler "kennt" einen Lehrer (z.B. hat Unterricht bei ihm).</li>
           <li>Ein Lehrer "kennt" einen Schüler (z.B. unterrichtet ihn).</li>
@@ -199,11 +179,9 @@ public class Schueler {
       <section>
           <h2>Multiplizität bei Assoziationen</h2>
           <p>Gibt an, wie viele Objekte einer Klasse mit wie vielen Objekten einer anderen Klasse in Beziehung stehen.</p>
-          <pre>
-+-----------+ 1..*    1 +-----------+
-|  Schüler  |-----------| Lehrer    |
-+-----------+           +-----------+
-          </pre>
+      <div>
+<img src="diagrams/Assoziation_Kardinalitaet.svg" alt="Assoziation mit Kardinalität">
+      </div>
           <ul>
               <li><code>1</code>: Genau ein Objekt.</li>
               <li><code>*</code> oder <code>0..*</code>: Beliebig viele Objekte (auch keines).</li>
@@ -217,13 +195,9 @@ public class Schueler {
       <section>
         <h2>Aggregation ("hat ein")</h2>
         <p>Eine Klasse ist Teil einer anderen Klasse, kann aber auch ohne sie existieren.</p>
-        <pre>
-+-----------+<>----
-|  Abteilung|     |
-+-----------+     |   +-------------+
-              1   * - | Mitarbeiter |
-                      +-------------+
-        </pre>
+      <div>
+<img src="diagrams/Aggregation.svg" alt="Aggregation Diagram">
+      </div>
         <ul>
           <li>Eine Abteilung "hat ein" oder mehrere Mitarbeiter.</li>
           <li>Der Mitarbeiter ist Teil der Abteilung.</li>
@@ -254,13 +228,9 @@ public class Mitarbeiter {
       <section>
         <h2>Komposition ("besteht aus")</h2>
         <p>Eine starke Form der Aggregation. Der Teil kann ohne das Ganze nicht existieren.</p>
-        <pre>
-+-------+<#>----
-| Haus  |      |
-+-------+      |  +------+
-        1    1..* | Raum |
-                  +------+
-        </pre>
+      <div>
+<img src="diagrams/Komposition.svg" alt="Komposition Diagram">
+      </div>
         <ul>
           <li>Ein Haus "besteht aus" einem oder mehreren Räumen.</li>
           <li>Der Raum ist ein fester Bestandteil des Hauses.</li>

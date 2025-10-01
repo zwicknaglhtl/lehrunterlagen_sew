@@ -1,0 +1,76 @@
+//Visual Studio Code PlantUML Extension zum Rendern der UML Diagramme verwendet
+@startuml Person
+skinparam classAttributeIconSize 0
+class Person {
+    - name: String
+    - alter: int
+    + sagHallo(): void
+}
+@enduml
+
+@startuml Konto
+skinparam classAttributeIconSize 0
+class Konto {
+    - kontonummer : int
+    # inhaber : String
+    ~ bankleitzahl : int
+    + einzahlen(betrag: float) : void
+}
+@enduml
+
+@startuml Dependency
+skinparam classAttributeIconSize 0
+left to right direction
+class Drucker {
+    + drucken(d: Dokument)
+}
+
+class Dokument
+
+'Drucker nutzt Dokument (Dependency / "uses")
+Drucker ..> Dokument : uses
+@enduml
+
+@startuml Assoziation
+skinparam classAttributeIconSize 0
+left to right direction
+class Schüler
+class Lehrer
+
+' Einfache Assoziation
+Schüler --> Lehrer
+@enduml
+
+
+@startuml Assoziation_Kardinalitaet
+skinparam classAttributeIconSize 0
+left to right direction
+
+class Schüler
+class Lehrer
+
+' Assoziation mit Kardinalitäten
+Schüler "1..*" --> "1" Lehrer
+@enduml
+
+@startuml Aggregation
+skinparam classAttributeIconSize 0
+left to right direction
+
+class Abteilung
+class Mitarbeiter
+
+' Aggregation: Abteilung "hat" Mitarbeiter
+Abteilung "1" o-- "*" Mitarbeiter
+@enduml
+
+@startuml Komposition
+skinparam classAttributeIconSize 0
+left to right direction
+
+class Haus
+class Raum
+
+' Komposition: Haus besteht aus Räumen
+Haus "1" *-- "1..*" Raum
+@enduml
