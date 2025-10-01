@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Bitoperationen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reset.min.css" integrity="sha512-Mjxkx+r7O/OLQeKeIBCQ2yspG1P5muhAtv/J+p2/aPnSenciZWm5Wlnt+NOUNA4SHbnBIE/R2ic0ZBiCXdQNUg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reveal.min.css" integrity="sha512-ZIo9ivf88U0L1S+0D/npMNTTkjez5B9cK5xIecN4IA2OmtbTNBbPAZo/0cBC195sq7FU7cEOVPwtit37f/+1rQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<link rel="stylesheet" href="../../../theme/htl.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-light.css" onerror="this.onerror=null;this.href='../../../../../node_modules/highlight.js/styles/stackoverflow-light.css';">
+</head>
+<body>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h1>Bitoperationen</h1>
+      </section>
+
+      <section>
+        <h2>Ziele</h2>
+        <ul>
+          <li>Einsatzgebiet von Bitoperationen verstehen</li>
+          <li>Bitoperationen in Java anwenden können</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Inhalt</h2>
+        <ul>
+          <li>Anwendungsgebiet</li>
+          <li>Darstellung ganzer Zahlen in Java</li>
+          <li>Bitoperationen</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Was sind Bitoperationen?</h2>
+        <p>Anstatt auf der Ebene von primitiven Datentypen oder
+Objekten zu arbeiten, arbeiten wir mit Bits.</p>
+        <pre><code>1000101110100101</code></pre>
+      </section>
+
+      <section>
+        <h2>Einsatzgebiet</h2>
+  
+
+        <div class="columns">
+					<div class="col small three-quarter">
+					      <ul>
+          <li> In der hardwarenahen Programmierung wird oft mit
+einzelnen Bits gearbeitet.
+            <ul>
+        <li>Aktivieren/Deaktivieren einer einzigen Datenleitung -> 1
+Bit</li>
+          <li>Fasst mehrere solcher Leitungen (Ports) in einem
+Datenwort zusammen</li>
+            </ul>
+</li>
+  
+          <li>"Flags" (einzelne Bits) in einer Variable
+zu speichern statt in vielen boolean Variablen.</li>
+        </ul>
+					</div>
+					<div class="col" style="flex-grow: 1;"><img height=140 src="images/microcontroller.jpg" alt="Microcontroller"></div>
+										</div>
+      </section>
+
+
+      <section>
+        <h2>Wiederholung</h2>
+        <p>Zweierkomplement und Bitoperationen sollten aus GINF bereits bekannt sein!</p>
+      </section>
+
+      <section>
+        <h2>Darstellung ganzer Zahlen</h2>
+      </section>
+
+
+      <section>
+        <h2>int und long in Java</h2>
+        <p>In Java hat ein <code>int</code> 32 Bits.</p>
+        <pre><code class="language-text">0000 0000 0000 0000 0000 0000 0000 0000 
+</code></pre>
+<p> Ein <code>long</code> hat 64 Bits.</p>
+<pre><code class="language-text">
+ 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 
+   
+</code></pre>
+      </section>
+
+
+
+      <section>
+        <h2>Zweierkomplement – positive Zahlen</h2>
+        <ul>
+            <li>
+                Um negative und positve Zahlen einfach speichern zu können, werden die Zahlen als <a href="https://de.wikipedia.org/wiki/Zweierkomplement">Zweierkomplement</a>  kodiert.
+            </li>
+            <li>Das Bit an der höchsten Stelle (ganz links) ist bei negativen Zahlen 1,  bei positiven Zahlen 0.
+            </li>
+            <li style="list-style-type: none;"><span><img src="diagrams/zweierkomplement.svg" alt=""></span> </li>
+            <li>Bei n Stellen ist die größte positive darstellbare Zahl daher 2<sup>(n-1)</sup>&minus;1
+<ul>
+    <li> 1 Stelle für das Vorzeichen, bleiben n-1 Stellen für die Darstellung der Zahl selbst
+</li>
+    <li>-1 weil wir 0 auch darstellen müssen
+</li>
+</ul>
+</li>
+        </ul>
+
+      </section>
+
+      <section>
+        <h2>Zweierkomplement – negative Zahlen</h2>
+        <p>Negative Zahlen haben an der höchsten Stelle eine 1.
+ </p>
+        <pre><code>Beispiel (32-bit):
+1101 1110 0111 0000 0111 0000 0100 0110</code></pre>
+            <p>Bei n Stellen ist die kleinste (negative) darstellbare Zahl daher &minus;2<sup>(n-1)</sup></p>
+
+      </section>
+
+      <section>
+        <h2>Zweierkomplement</h2>
+        <ul>
+            <li>Um von einer positiven Zahl die Darstellung der negativen Zahl zu erhalten werden...
+                <ol>
+                    <li>alle Bits invertiert (0 wird 1, 1 wird 0)</li>
+                    <li>+1 addiert</li>
+                </ol>
+            </li>
+        </ul>
+        <pre><code class="language-text">
+0000 0000 0000 0000 0000 0000 0000 0100 -> 4 als Binärzahl
+1111 1111 1111 1111 1111 1111 1111 1011 -> invertiert
+1111 1111 1111 1111 1111 1111 1111 1100 -> +1 => &minus;4 im Zweierkomplement
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>Hexadezimalsystem</h2>
+        <p>Zur einfacheren Darstellung von Binärzahlen wird oft das Hexadezimalsystem verwendet.</p>
+        <pre><code class="language-text">
+            1111 0000 1100 1001 1111 1111 1111 0110
+             F    0    C    9    F    F    F    6
+
+             -> 0xF0C9FFF6
+</code></pre>
+      </section>
+
+
+      <section>
+        <h2>Bit-Operationen Übersicht</h2>
+        <ul>
+          <li>&amp;  Bitweises UND</li>
+          <li>|  Bitweises ODER</li>
+          <li>^  Bitweises XOR</li>
+          <li>~  Bitweises INVERTIEREN</li>
+          <li>&lt;&lt;, &gt;&gt;, &gt;&gt;&gt; Shifts</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>&amp; Bitweises UND</h2>
+        <p>Bitweises UND (&) → Beide Bits müssen 1 sein, damit das Ergebnis 1 ist. 
+</p>
+        <pre><code class="language-text">
+  1100 0100
+& 0010 0101
+= 0000 0100</code></pre>
+      </section>
+
+      <section>
+        <h2>| Bitweises ODER</h2>
+        <p>Bitweises ODER (|) → Mindestens ein Bit muss 1 sein.</p>
+        <pre><code class="language-text">
+  1100 0100
+| 0010 0101
+= 1110 0101</code></pre>
+      </section>
+
+      <section>
+        <h2>^ Bitweises Exklusives Oder (XOR)</h2>
+  <p>Bitweises Exklusives Oder (^, XOR) → Genau ein Bit darf 1 sein. 
+</p>
+        <pre><code class="language-text">
+  1100 0100
+^ 0010 0101
+= 1110 0001</code></pre>
+      </section>
+
+      <section>
+        <h2>~ Bitweises Invertieren</h2>
+        <p>Bitweises invertieren (~) → Jedes Bit wird umgedreht. 
+</p>
+        <pre><code class="language-text">~1100 0100 = 0011 1011</code></pre>
+      </section>
+
+       <section>
+        <h2>&lt;&lt; Nach links schieben</h2>
+        <p>Bits werden beliebig viele Stellen nach links geschoben, rechts werden Nullen aufgefüllt. </p>
+        <pre><code class="language-text">1100 0100 &lt;&lt; 2 = 0001 0000</code></pre>
+      </section>
+
+      <section>
+        <h2>&gt;&gt; Arithmetischer Rechtsshift</h2>
+        <p>Bits werden beliebig viele Stellen nach rechts geschoben, links werden die Vorzeichenbits aufgefüllt.</p>
+        <pre><code class="language-text">
+            1100 0100 >> 2 = 1111 0001  
+            0100 0100 >> 2 = 0001 0001</code></pre>
+      </section>
+
+      <section>
+        <h2>&gt;&gt;&gt; Logischer Rechtsshift</h2>
+        <p>Bits werden beliebig viele Stellen nach rechts geschoben, links werden Nullen aufgefüllt.</p>
+        <pre><code class="language-text">
+            1100 0100 >>> 2 = 0011 0001
+            0100 0100 >>> 2 = 0001 0001</code></pre>
+      </section>
+
+      <section>
+        <h2>Zusammenfassung</h2>
+        <ul>
+          <li>Bitoperationen sind effizient für low-level Aufgaben.</li>
+          <li>Nützlich für Flags, Masken, Ports, Mikrocontroller.</li>
+        </ul>
+      </section>
+
+
+    </div>
+  </div>
+
+  <script src="../../../../node_modules/reveal.js/dist/reveal.js"></script>
+  <script src="../../../../node_modules/reveal.js/dist/plugin/highlight/highlight.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      plugins: [ RevealHighlight ]
+    });
+  </script>
+</body>
+</html>
+```// filepath: /home/reinhold/HTL/lehrunterlagen_sew/sew/sew2/01_oop_part1/SEW2_Bitoperationen.html
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>SEW2 Bitoperationen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../../node_modules/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="../../../../node_modules/reveal.js/dist/theme/black.css" id="theme">
+  <link rel="stylesheet" href="../../../theme/htl.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h1>Bitoperationen</h1>
+        <p>DI Reinhold Buchinger<br>Höhere Abteilung für Mechatronik / IT</p>
+      </section>
+
+      <section>
+        <h2>Lizenz / Credits</h2>
+        <p>Creative Commons: CC BY-NC-SA 4.0 AT</p>
+      </section>
+
+      <section>
+        <h2>Ziele</h2>
+        <ul>
+          <li>Einsatzgebiet von Bitoperationen verstehen</li>
+          <li>Bitoperationen verstehen und in Java anwenden können</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Inhalt</h2>
+        <ul>
+          <li>Anwendungsgebiet</li>
+          <li>Darstellung ganzer Zahlen in Java</li>
+          <li>Bitoperationen</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Was sind Bitoperationen?</h2>
+        <p>Statt auf Ebene ganzer Datentypen arbeiten wir direkt mit Bits.</p>
+        <pre><code>1000101110100101</code></pre>
+      </section>
+
+      <section>
+        <h2>Einsatzgebiet</h2>
+        <ul>
+          <li>Hardwarenahe Programmierung: einzelne Datenleitungen (Bits) steuern</li>
+          <li>Flags in einem Datenwort speichern statt vieler Booleans</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Darstellung ganzer Zahlen</h2>
+        <p>In Java hat ein int 32 Bits, long 64 Bits.</p>
+        <pre><code>int:  0000 0000 0000 0000 0000 0000 0000 0000
+long:  0000 ... (64 bits)</code></pre>
+      </section>
+
+      <section>
+        <h2>Zweierkomplement – positive Zahlen</h2>
+        <p>Höchstes Bit = 0 für positive Zahlen.</p>
+        <pre><code>Beispiel (32-bit):
+0101 1110 0111 0000 0111 0000 0100 0110</code></pre>
+        <p>Maximale positive Zahl bei n Stellen: 2^(n-1)-1</p>
+      </section>
+
+      <section>
+        <h2>Zweierkomplement – negative Zahlen</h2>
+        <p>Höchstes Bit = 1 für negative Zahlen. Kleinste darstellbare Zahl: −2^(n-1)</p>
+        <pre><code>Beispiel (32-bit):
+1101 1110 0111 0000 0111 0000 0100 0110</code></pre>
+      </section>
+
+      <section>
+        <h2>Negieren (Zweierkomplement erzeugen)</h2>
+        <ol>
+          <li>Alle Bits invertieren</li>
+          <li>1 addieren</li>
+        </ol>
+        <pre><code>4 als Binär:
+0000 ...0100
+invertieren:
+1111 ...1011
++1:
+1111 ...1100</code></pre>
+      </section>
+
+      <section>
+        <h2>Binär → Hex</h2>
+        <pre><code>1111 0000 1100 1001 1111 1111 1111 0110
+-> 0xF0C9FFF6</code></pre>
+      </section>
+
+      <section>
+        <h2>Bit-Operationen Übersicht</h2>
+        <ul>
+          <li>&amp;  Bitweises UND</li>
+          <li>|  Bitweises ODER</li>
+          <li>^  Bitweises XOR</li>
+          <li>~  Bitweises INVERTIEREN</li>
+          <li>&lt;&lt;, &gt;&gt;, &gt;&gt;&gt; Shifts</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>&amp; Bitweises UND</h2>
+        <pre><code>1100 0100
+& 0010 0101
+= 0000 0100</code></pre>
+      </section>
+
+      <section>
+        <h2>| Bitweises ODER</h2>
+        <pre><code>1100 0100
+| 0010 0101
+= 1110 0101</code></pre>
+      </section>
+
+      <section>
+        <h2>^ Bitweises XOR</h2>
+        <pre><code>1100 0100
+^ 0010 0101
+= 1110 0001</code></pre>
+      </section>
+
+      <section>
+        <h2>~ Bitweises Invertieren</h2>
+        <pre><code>~1100 0100 = 0011 1011</code></pre>
+      </section>
+
+      <section>
+        <h2>Shift Operationen</h2>
+        <p>&lt;&lt; links, &gt;&gt; arithm. rechts, &gt;&gt;&gt; logisch rechts</p>
+      </section>
+
+      <section>
+        <h2>&lt;&lt; Nach links schieben</h2>
+        <pre><code>1100 0100 << 2 = 0001 0000</code></pre>
+      </section>
+
+      <section>
+        <h2>&gt;&gt; Arithmetischer Rechtsshift</h2>
+        <pre><code>1100 0100 >> 2 = 1111 0001  (Vorzeichenbits werden aufgefüllt)
+0100 0100 >> 2 = 0001 0001</code></pre>
+      </section>
+
+      <section>
+        <h2>&gt;&gt;&gt; Logischer Rechtsshift</h2>
+        <pre><code>1100 0100 >>> 2 = 0011 0001
+0100 0100 >>> 2 = 0001 0001</code></pre>
+      </section>
+
+      <section>
+        <h2>Praktische Beispiele in Java</h2>
+        <pre><code class="language-java">
+int flags = 0;
+// Bit 2 setzen
+flags |= 1 << 2;
+// Prüfen ob Bit 2 gesetzt ist
+boolean isSet = (flags & (1 << 2)) != 0;
+// Bit 2 löschen
+flags &= ~(1 << 2);
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>Weitere Beispiele</h2>
+        <pre><code class="language-java">
+// Maskieren
+int value = 0xF0C9FFF6;
+int masked = value & 0xFF; // unterstes Byte
+
+// XOR zum Umschalten von Bits
+value ^= (1 << 5);
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>Zusammenfassung</h2>
+        <ul>
+          <li>Bitoperationen sind effizient für low-level Aufgaben</li>
+          <li>Nützlich für Flags, Masken, Ports, Mikrocontroller</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Ende / Fragen</h2>
+        <p>Kontakt: DI Reinhold Buchinger</p>
+      </section>
+
+    </div>
+  </div>
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reveal.js" integrity="sha512-GvouLVZT+gJSJW5eOfpG46xTaBb2c3VeNnbzmDYTRQkFlgvxNhnzZQqiQ/jAyAYPh+a9roBvAHJP6zvXIVq34Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/notes/notes.min.js" integrity="sha512-6LAcdj7pQal9JkdALNexzVKd4zWuYUxOXuzdF21iOx7LJSlF5ibFi2TAR7GQ00XhfPAw7/R8f1dZ69gFGhzXtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/markdown/markdown.min.js" integrity="sha512-4exkEeyVuaWUFKozXl6L3UCugl6ai1cKnrVFkWUstdrNB2sDxxmPEaHBzTlYm9wX78EjPzEBG0s8k37oPeUFIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/highlight/highlight.min.js" integrity="sha512-IkPzJ3njtxNL2Frm7zr18CEj9HH+CEFAqh+jSKjXTHVFGtWG1+USbIXINU8zdGmyLpf/OBIVfpNLGNgwhlymkA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/search/search.min.js" integrity="sha512-hzXKyeT22k18jZdSR25sVbZqa1UAc8nLubaKsW7EwarLBRtFMZMmLQOc2n29Zv+9r2X8Iex9WJqLudXO8e2x6w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+	<script src="../../reveal-config.js"></script>
+</body>
+</html>
