@@ -16,7 +16,288 @@
   <div class="reveal">
     <div class="slides">
 
-     
+     <section>
+      <h1>Objektorientierte Programmierung (OOP)</h1>
+     </section>
+
+
+<section>
+  <h2>Programmierparadigmen</h2>
+  <ul>
+    <li>Fundamentaler "Programmierstil"</li>
+    <li>Programmiersprachen unterstützen meist mehrere Paradigmen, beruhen aber überwiegend auf einem.</li>
+  </ul>
+  <table>
+    <tr>
+      <th>Programmierparadigmen (Auswahl)</th>
+      <th>Beschreibung</th>
+    </tr>
+    <tr>
+      <td>Imperative Programmierung</td>
+      <td>Folge von Befehlen</td>
+    </tr>
+    <tr>
+      <td>Strukturierte Programmierung</td>
+      <td>Kontrollstrukturen (Schleifen, Bedingungen)</td>
+    </tr>
+    <tr>
+      <td>Prozedurale Programmierung</td>
+      <td>Programme werden in kleinere Teilaufgaben (Prozeduren) aufgeteilt.</td>
+    </tr>
+    <tr>
+      <td>Objektorientierte Programmierung (OOP)</td>
+      <td>Programm als eine Menge interagierender
+Objekte; Klassen, Vererbung, Polymorphie</td>
+    </tr>
+    <tr>
+      <td>Funktionale Programmierung</td>
+      <td>Alle Elemente können als Funktionen
+aufgefasst werden. Typische
+Einsatzgebiete: künstliche Intelligenz,
+Compilerbau, mathematische
+Anwendungen,..</td>
+  </table>
+</section>
+
+<section>
+  <h2>Komplexität</h2>
+  <ul>
+    <li>Leistungsfähigkeit von Computern steigt exponentiell</li>
+    <li>Software-Entwickler/-innen bleiben immer ungefähr gleich schlau</li>
+    <li>Ziel: Überblick behalten in immer komplexeren Programmen, neuere Programmierparadigmen helfen dabei.</li>
+  </ul>
+</section>
+
+<section>
+  <h1>Objekt und Klasse</h1>
+</section>
+
+<section>
+  <h2>Objektorientiere Programmierung
+(OOP)</h2>
+  <ul>
+    <li>OOP versucht Teile der (realen) Welt in einem Programm vereinfacht als Objekte abzubilden.</li>
+    <li>Jedes Objekt besitzt...</li>
+    <ul>
+      <li>Eigenschaften/Merkmale/Zustände</li>
+      <li>Fähigkeiten/Verhalten</li>
+    </ul>
+    <li>Beispiel Smartphone</li>
+    <ul>
+      <li>Farbe</li>
+      <li>Gewicht</li>
+      <li>Betriebssystem</li>
+      <li>Version</li>
+      <li>Auflösung</li>
+      <li>Akkustand</li>
+      <li>gesperrt</li>
+      <li>....</li>
+    </ul>
+    <ul>
+      <li>Telefonieren</li>
+      <li>Nachricht senden</li>
+      <li>App installieren</li>
+      <li>App deinstallieren</li>
+      <li>Einschalten</li>
+      <li>....</li>
+    </ul>
+</section>
+
+
+<section>
+  <h2>Objektorientierte Programmierung (OOP)</h2>
+<p>Objektorientiere Programmierung
+(OOP)
+» OOP versucht Teile der (realen) Welt in einem Programm
+vereinfacht als Objekte abzubilden.
+Jedes Objekt besitzt...
+Eigenschaften/Merkmale/Zustände
+
+Fähigkeiten/Verhalten
+
+OOP Bezeichnungen
+Attribute
+
+Methoden</p>
+</section>
+
+
+<section>
+  <h2>Klasse vs Objekt</h2>
+  <ul>
+    <li>Eine Klasse ist der "Bauplan" für Objekte.</li>
+    <li>Von einer Klasse erzeugen wir Objekte.</li>
+    <li>Ein Objekt ist eine konkrete Ausprägung einer Klasse.</li>
+  </ul>
+  <p>Beispiel Smartphone:
+
+Haralds Smartphone (Objekt)
+
+Klasse Smartphone
+Farbe
+Gewicht
+Betriebssystem
+Version
+Auflösung
+Akkustand
+gesperrt
+
+Sandras Smartphone (Objekt)
+Farbe: weiß
+Gewicht: 212g
+Betriebssystem: android
+Version: 9.2
+Auflösung: 828 x 1792
+Akkustand: 30%
+gesperrt: falsch
+
+Farbe: schwarz
+Gewicht: 172g
+Betriebssystem: iOS
+Version: 12.0
+Auflösung: 828 x 1792
+Akkustand: 90%
+gesperrt: falsch</p>
+</section>
+
+
+<section>
+  <h2>OO-Analyse & OO-Design</h2>
+  <ul>
+    <li>Wie findet man heraus, welche Klassen und Objekte man in einem
+Projekt braucht?</li>
+<li>OO-Analyse → OO-Design → OO-Programmierung</li>
+<li>Objektorientierte Analyse (OOA)
+  <ul>
+    <li>Fachleute beschreiben zunächst das Verhalten der Software nach außen
+hin</li>
+<li>OOA „übersetzt“ diese Beschreibung in Klassen und Objekte aus dem
+Fachbereich</li>
+  <li>Man untersucht nur, was die Software tun soll (aber nicht, wie sie es tun
+soll)</li>
+  </ul>
+</li>
+  <li>Objektorientiertes Design (OOD)
+    <ul>
+      <li>Legt fest, wie die Software ihre Aufgaben erfüllen soll.</li>
+      <li>Mit Hilfe der Ergebnisse der OOA ermittelt das OOD die Klassen und
+Objekte für die spätere OOP.</li>
+    </ul>
+  </li>
+  </ul>
+</section>
+
+<section>
+  <h2>Klassen in Java</h2>
+</section>
+
+<section>
+  <h2>Klassen definieren</h2>
+  <ul>
+    <li>Schlüsselworte <code>public class</code>  → definiert eine neue Klasse</li>
+    <li><code>public</code> wird später erklärt, vorläufig verwenden wir es einfach.</li>
+    <li>Klassenname beginnt immer mit einem <em>Großbuchstaben</em>.</li>
+    <li>Eine Klasse pro Datei → gleichnamige Quelltextdatei *.java</li>
+  </ul>
+</section>
+
+<section>
+  <h2></h2>Klassen definieren</h2>
+<pre><code class="language-java">
+  public class Smartphone { // → Datei Smartphone.java
+// Attribute und Methoden von Personen
+...
+}
+public class Bruch { // → Datei Bruch.java
+// Attribute und Methoden von Bruch
+...
+}
+</code></pre>
+</section>
+
+<section>
+  <h2>Attribute einer Klasse definieren</h2>
+  <ul>
+    <li>Attribut → Eigenschaft der Objekte einer Klasse</li>
+    <li>Entspricht einer Variablen innerhalb der Klasse →
+Instanzvariable!</li>
+<li>Anfangswerte sind optional.</li>
+  </ul>
+<pre><code class="language-java">
+public class Smartphone {
+String osSystem; //Betriebssystem
+int gewicht;
+//Gewicht in g
+...
+}
+public class Bruch {
+int zaehler;
+//Zähler
+int nenner = 1;
+//Nenner mit Anfangswert
+...
+}
+</code></pre>
+</section>
+
+<section>
+  <h2>Methoden einer Klasse definieren</h2>
+  <ul>
+    <li>Methode → Fähigkeit der Objekte einer Klasse</li>
+    <li>Für jede Fähigkeit → passende Methode innerhalb der Klasse</li>
+  </ul>
+  <pre><code class="language-java">
+public class Smartphone {
+...
+void klingle() {
+System.out.println("Beep Beep Beep Beep");
+}
+}
+public class Bruch {
+...
+double alsKommazahl() {
+return (double) zaehler/nenner;
+}
+}
+  </code></pre>
+</section>
+
+
+<section>
+  <h2>Objekte erzeugen und speichern</h2>
+  <ul>
+    <li>Operator <code>new</code> → liefert ein neues Objekt einer Klasse</li>
+    <li>Neue Objekte können an beliebigen Programmstellen
+erzeugt werden.</li>
+    <li>Klassenname wird zu einem Datentyp wie <code>int</code>, <code>double</code>,
+<String>String</code> usw.</li>
+    <li>Klassenname = Datentyp für Variable, Parameter und
+Rückgabewerte</li>
+  </ul>
+
+  <pre><code class="language-java">
+    public class meinProgramm {
+public static void main(String[] args) {
+Bruch b = new Bruch();
+Bruch anotherBruch = new Bruch();
+Smartphone s1 = new Smartphone();
+}
+}
+  </code></pre>
+</section>
+
+
+<section>
+  <h2>Referenzvariablen vs. primitive
+Variablen</h2>
+  <ul>
+    <li>Referenzvariable → speichert die Adresse eines Objekts im
+Speicher</li>
+    <li>Primitive Variable → speichert den Wert direkt</li>
+    <li>Wir haben Referenzvariablen bereits beim <a href="../../sew1/14_Arrays/index.html#referenzvariablen">Thema Arrays</a>  im letzten Jahr kennen
+gelernt.</li>
+<li>Alle Variablen, die eine Klasse als Datentyp haben, sind Referenzvariablen.</li>
+</section>
 
     </div>
   </div>
