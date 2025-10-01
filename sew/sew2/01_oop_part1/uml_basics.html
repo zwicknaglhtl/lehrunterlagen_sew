@@ -120,6 +120,177 @@ Verhaltensdiagramme zeigen, <em>was passiert</em>.“</p>
         </ul>
       </section>
       
+      <!-- Beziehungen zwischen Klassen -->
+      <section>
+        <h2>Beziehungen zwischen Klassen</h2>
+        <p>Klassen stehen selten allein. Sie arbeiten oft zusammen. Diese Zusammenarbeit wird durch Beziehungen dargestellt.</p>
+        <ul>
+          <li class="fragment"><strong>Dependency:</strong> Eine Klasse "verwendet" eine andere (z.B. als Parameter)</li>
+          <li class="fragment"><strong>Assoziation:</strong> Eine allgemeine Beziehung ("kennt ein")</li>
+          <li class="fragment"><strong>Aggregation :</strong> Eine spezielle Art der Assoziation, die eine "hat ein"-Beziehung ausdrückt. (Teil des Ganzen, aber unabhängig)</li>
+          <li class="fragment"><strong>Komposition:</strong> Eine spezielle Art der Assoziation, die eine starke "besteht aus"-Beziehung ausdrückt. (Teil ist vom Ganzen abhängig)</li>
+        </ul>
+      </section>
+
+      <!-- Beziehung zwischen zwei Klassen (Verwendung) -->
+      <section>
+        <h2>Abhängigkeit (Dependency)</h2>
+        <p>Eine Klasse <strong>verwendet</strong> eine andere, wenn sie diese z.B. als Parameter in einer Methode benötigt. Die Beziehung ist meist kurzlebig.</p>
+        <pre>
++-------------------+      uses      +-------------------+
+|   Drucker         |-------------->|   Dokument        |
++-------------------+               +-------------------+
+| + drucken(d: Dok) |               |                   |
++-------------------+               +-------------------+
+        </pre>
+      </section>
+
+      <section>
+        <h3>Verwendung: Java-Beispiel</h3>
+        <pre><code class="java" data-trim data-noescape>
+public class Drucker {
+    // Der Drucker verwendet ein Dokument, besitzt es aber nicht.
+    // Das Dokument wird nur für die Dauer der Methode "gekannt".
+    public void drucken(Dokument dokument) {
+        System.out.println("Drucke: " + dokument.getInhalt());
+    }
+}
+
+public class Dokument {
+    private String inhalt;
+    // ... Konstruktor, Getter ...
+}
+        </code></pre>
+      </section>
+
+      <!-- Assoziation -->
+      <section>
+        <h2>Beziehung: Assoziation</h2>
+        <p>Zwei Klassen sind miteinander verbunden, aber keine ist ein Teil der anderen.</p>
+        <pre>
++-----------+       +---------+
+|  Schüler  |-------| Lehrer  |
++-----------+       +---------+
+        </pre>
+        <ul>
+          <li>Ein Schüler "kennt" einen Lehrer (z.B. hat Unterricht bei ihm).</li>
+          <li>Ein Lehrer "kennt" einen Schüler (z.B. unterrichtet ihn).</li>
+          <li>Beide Klassen existieren unabhängig voneinander.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Assoziation: Java-Beispiel</h3>
+        <pre><code class="java" data-trim data-noescape>
+// Ein Lehrer kennt seine Schüler und umgekehrt.
+public class Lehrer {
+    private List&lt;Schueler&gt; schueler;
+    // ...
+}
+
+public class Schueler {
+    private Lehrer lehrer;
+    // ...
+}
+        </code></pre>
+      </section>
+      
+      <!-- Multiplizität -->
+      <section>
+          <h2>Multiplizität bei Assoziationen</h2>
+          <p>Gibt an, wie viele Objekte einer Klasse mit wie vielen Objekten einer anderen Klasse in Beziehung stehen.</p>
+          <pre>
++-----------+ 1..*    1 +-----------+
+|  Schüler  |-----------| Lehrer    |
++-----------+           +-----------+
+          </pre>
+          <ul>
+              <li><code>1</code>: Genau ein Objekt.</li>
+              <li><code>*</code> oder <code>0..*</code>: Beliebig viele Objekte (auch keines).</li>
+              <li><code>1..*</code>: Mindestens ein Objekt.</li>
+              <li><code>0..1</code>: Kein oder genau ein Objekt.</li>
+          </ul>
+          <p>Im Beispiel: Ein oder mehrere Schüler lernen bei genau einem Lehrer.</p>
+      </section>
+
+      <!-- Aggregation -->
+      <section>
+        <h2>Aggregation ("hat ein")</h2>
+        <p>Eine Klasse ist Teil einer anderen Klasse, kann aber auch ohne sie existieren.</p>
+        <pre>
++-----------+<>----
+|  Abteilung|     |
++-----------+     |   +-------------+
+              1   * - | Mitarbeiter |
+                      +-------------+
+        </pre>
+        <ul>
+          <li>Eine Abteilung "hat ein" oder mehrere Mitarbeiter.</li>
+          <li>Der Mitarbeiter ist Teil der Abteilung.</li>
+          <li>Wird die Abteilung aufgelöst, existiert der Mitarbeiter weiter.</li>
+          <li>Symbol: Leere Raute (an der Seite des "Ganzen").</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Aggregation: Java-Beispiel</h3>
+        <pre><code class="java" data-trim data-noescape>
+public class Abteilung {
+    // Die Abteilung "hat" Mitarbeiter, aber erstellt sie nicht selbst.
+    private List&lt;Mitarbeiter&gt; mitarbeiter;
+
+    public Abteilung(List&lt;Mitarbeiter&gt; mitarbeiter) {
+        this.mitarbeiter = mitarbeiter;
+    }
+}
+
+public class Mitarbeiter {
+    // Kann auch ohne Abteilung existieren.
+}
+        </code></pre>
+      </section>
+
+      <!-- Komposition -->
+      <section>
+        <h2>Komposition ("besteht aus")</h2>
+        <p>Eine starke Form der Aggregation. Der Teil kann ohne das Ganze nicht existieren.</p>
+        <pre>
++-------+<#>----
+| Haus  |      |
++-------+      |  +------+
+        1    1..* | Raum |
+                  +------+
+        </pre>
+        <ul>
+          <li>Ein Haus "besteht aus" einem oder mehreren Räumen.</li>
+          <li>Der Raum ist ein fester Bestandteil des Hauses.</li>
+          <li>Wird das Haus abgerissen, existiert der Raum auch nicht mehr.</li>
+          <li>Symbol: Ausgefüllte Raute (an der Seite des "Ganzen").</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Komposition: Java-Beispiel</h3>
+        <pre><code class="java" data-trim data-noescape>
+public class Haus {
+    // Das Haus "besitzt" seine Räume.
+    // Die Räume werden vom Haus selbst erstellt.
+    private List&lt;Raum&gt; raeume;
+
+    public Haus() {
+        this.raeume = new ArrayList&lt;&gt;();
+        this.raeume.add(new Raum("Wohnzimmer"));
+        this.raeume.add(new Raum("Küche"));
+    }
+}
+
+public class Raum {
+    // Existiert logisch nicht ohne ein Haus.
+    private String name;
+    public Raum(String name) { this.name = name; }
+}
+        </code></pre>
+      </section>
 
       <!-- Fazit -->
       <section>
