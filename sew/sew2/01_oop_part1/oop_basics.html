@@ -285,7 +285,6 @@ public class meinProgramm {
   </code></pre>
 </section>
 
-
 <section>
   <h2>Referenzvariablen vs. primitive
 Variablen</h2>
@@ -297,6 +296,71 @@ Speicher</li>
 gelernt.</li>
 <li>Alle Variablen, die eine Klasse als Datentyp haben, sind Referenzvariablen.</li>
 </section>
+
+<!-- Neue Folien: Null-Referenz -->
+<section>
+  <h2>Null-Referenz (<code>null</code>)</h2>
+  <ul>
+    <li><code>null</code> bedeutet: die Referenz zeigt auf kein Objekt.</li>
+    <li>Referenzvariablen können den Wert <code>null</code> haben.</li>
+    <li>Typische Verwendung: keine Initialisierung oder absichtliches Kennzeichnen "kein Wert".</li>
+  </ul>
+  <pre><code class="language-java">
+// Beispiel
+Bruch b = null; // b zeigt auf kein Bruch-Objekt
+String s = null;  // s zeigt auf kein String-Objekt
+if (s == null) {
+  System.out.println("keine Referenz auf ein Objekt");
+}
+  </code></pre>
+</section>
+
+<section>
+  <h2>NullPointerException</h2>
+  <ul>
+    <li>Wird ausgelöst, wenn auf ein Mitglied (Methode/Attribut) einer <code>null</code>-Referenz zugegriffen wird.</li>
+    <li>Häufige Ursache von Laufzeitfehlern in Java.</li>
+  </ul>
+  <pre><code class="language-java">
+// NullPointerException Beispiel
+String s = null;
+int len = s.length(); // Exception: s ist null
+  </code></pre>
+</section>
+
+<section>
+  <h2>Vermeidung / Best Practices</h2>
+  <ul>
+    <li>Referenzen immer initialisieren, wenn möglich.</li>
+    <li>Null-Checks vor Zugriffen: <code>if (obj != null)</code>.</li>
+    <li>Java bietet auch noch weitere Möglichkeiten, die später besprochen werden (Optional, @Nullable)</li>
+  </ul>
+<!--     <li>Verwenden von <code>Objects.requireNonNull(obj)</code> zur frühen Validierung.</li>
+    <li>Optional für potenziell fehlende Werte: <code>Optional&lt;T&gt;</code>.</li>
+    <li>Annotationen: <code>@Nullable</code> / <code>@NotNull</code> zur Dokumentation.</li>
+  </ul>
+  <pre><code class="language-java">
+// Beispiel mit Optional
+Optional<String> maybe = Optional.ofNullable(s);
+maybe.ifPresent(str -> System.out.println(str.length()));
+  </code></pre> -->
+</section>
+
+ <!-- Zusammenfassungs-Folie -->
+    <section>
+      <h2>Zusammenfassung</h2>
+      <ul>
+        <li>In Objektorientierter Programmierung (OOP) werden Daten und Funktionen in Objekten gekapselt.</li>
+        <li>Attribute speichern Eigenschaften; Methoden definieren Verhalten.</li>
+        <li>Klasse = Bauplan; Objekt = konkrete Instanz mit Attributen und Methoden.</li>
+        <li>Mit dem Schlüsselwort <em><code>new</code></em> wird ein neues Objekt erzeugt.</li>
+        <li>Klassen definieren auch einen neuen Datentyp.</li>
+        <li>Objekte sind in Referenzvariablen gespeichert.</li>
+        <li><code>null</code> bedeutet "keine Referenz" → Vorsicht vor NullPointerException.</li>
+        </ul>
+    </section>
+
+
 
     </div>
   </div>
