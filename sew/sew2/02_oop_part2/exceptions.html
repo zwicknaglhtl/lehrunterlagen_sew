@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Objektorientierte Programmierung (OOP)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reset.min.css" integrity="sha512-Mjxkx+r7O/OLQeKeIBCQ2yspG1P5muhAtv/J+p2/aPnSenciZWm5Wlnt+NOUNA4SHbnBIE/R2ic0ZBiCXdQNUg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reveal.min.css" integrity="sha512-ZIo9ivf88U0L1S+0D/npMNTTkjez5B9cK5xIecN4IA2OmtbTNBbPAZo/0cBC195sq7FU7cEOVPwtit37f/+1rQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<link rel="stylesheet" href="../../../theme/htl.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-light.css" onerror="this.onerror=null;this.href='../../../../../node_modules/highlight.js/styles/stackoverflow-light.css';">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h1>Exceptions in Java</h1>
+        <p>Fehlerbehandlung einfach erklärt</p>
+        <p class="small">für Schüler*innen mit Grundkenntnissen in Java</p>
+      </section>
+
+      <section>
+        <h2>Warum kümmern wir uns um Fehler?</h2>
+        <ul>
+          <li>Programme laufen nicht immer wie geplant.</li>
+          <li>Ohne Behandlung stürzt das Programm ab.</li>
+          <li>Mit Exceptions kann man Fehler erkennen, melden und sinnvoll reagieren.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Was ist eine Exception?</h2>
+        <ul>
+          <li>Ein Objekt, das einen Fehler oder ungewöhnlichen Zustand beschreibt.</li>
+          <li>Wird geworfen (throw) und kann gefangen (catch) werden.</li>
+          <li>Beispiele: NullPointerException, ArithmeticException, IOException.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Fehlerarten kurz</h2>
+        <ul>
+          <li>Compile‑Errors: Code schreibt Java nicht korrekt — Programm startet gar nicht.</li>
+          <li>Runtime‑Errors / Exceptions: treten während der Ausführung auf.</li>
+          <li>Logical Errors: falsches Ergebnis, aber kein Fehler abgestoßen.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>try / catch: Grundstruktur</h2>
+        <pre><code class="language-java">try {
+    // Code, der Fehler verursachen könnte
+} catch (ExceptionTyp name) {
+    // Behandlung des Fehlers
+}</code></pre>
+      </section>
+
+      <section>
+        <h2>Beispiel: Division durch Null</h2>
+        <pre><code class="language-java">int a = 10;
+int b = 0;
+try {
+    int c = a / b; // ArithmeticException
+    System.out.println(c);
+} catch (ArithmeticException ex) {
+    System.out.println("Fehler: Division durch Null!");
+}</code></pre>
+      </section>
+
+      <section>
+        <h2>finally</h2>
+        <ul>
+          <li>Wird immer ausgeführt, egal ob eine Exception geworfen wurde.</li>
+          <li>Gut für Aufräumarbeiten, z.B. Streams schließen.</li>
+        </ul>
+        <pre><code class="language-java">try {
+    // ...
+} catch (Exception e) {
+    // ...
+} finally {
+    // immer ausführen
+}</code></pre>
+      </section>
+
+      <section>
+        <h2>checked vs. unchecked Exceptions</h2>
+        <ul>
+          <li>Checked: müssen zur Compilezeit behandelt oder weitergereicht werden (z.B. IOException).</li>
+          <li>Unchecked: RuntimeException und Unterklassen (z.B. NullPointerException) — Behandlung optional.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>throw und throws</h2>
+        <ul>
+          <li>throw new ExceptionType(...): selbst eine Exception auslösen.</li>
+          <li>throws ExceptionType in Methodensignatur: Methode gibt an, dass sie Exceptions weiterreicht.</li>
+        </ul>
+        <pre><code class="language-java">void readFile(String path) throws IOException {
+    if (path == null) throw new IllegalArgumentException("Pfad fehlt");
+    // ... kann IOException werfen ...
+}</code></pre>
+      </section>
+
+      <section>
+        <h2>Eigene Exception erstellen</h2>
+        <pre><code class="language-java">public class InvalidAgeException extends Exception {
+    public InvalidAgeException(String msg) {
+        super(msg);
+    }
+}</code></pre>
+        <p>Verwenden:</p>
+        <pre><code class="language-java">if (age &lt; 0) throw new InvalidAgeException("Alter ungültig");</code></pre>
+      </section>
+
+      <section>
+        <h2>Best Practices</h2>
+        <ul>
+          <li>Fange nur Exceptions, die du sinnvoll behandeln kannst.</li>
+          <li>Keine leeren catch-Blöcke (keine silent failures).</li>
+          <li>Gib informative Fehlermeldungen / Logging aus.</li>
+          <li>Räume Ressourcen immer auf (try-with-resources oder finally).</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>try-with-resources</h2>
+        <p>Automatisches Schließen von Ressourcen (seit Java 7).</p>
+        <pre><code class="language-java">try (BufferedReader r = new BufferedReader(new FileReader("file.txt"))) {
+    String line = r.readLine();
+} catch (IOException e) {
+    e.printStackTrace();
+}</code></pre>
+      </section>
+
+      <section>
+        <h2>Debugging von Exceptions</h2>
+        <ul>
+          <li>Stacktrace lesen: Zeigt Klasse, Methode und Zeilennummer.</li>
+          <li>Mit kleinen Tests Ursache eingrenzen.</li>
+          <li>IDE-Breakpoints bei Exceptions setzen.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Kurze Übung (für die Klasse)</h2>
+        <ol>
+          <li>Schreibe eine Methode, die zwei Zahlen einliest und teilt.</li>
+          <li>Fange eine mögliche Division durch Null und gib eine freundliche Meldung aus.</li>
+          <li>Erweitere: lese Zahlen aus einer Datei, benutze try-with-resources und behandle IOException.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Zusammenfassung</h2>
+        <ul>
+          <li>Exceptions machen Programme robuster.</li>
+          <li>try/catch/finally sind die Werkzeuge zur Fehlerbehandlung.</li>
+          <li>Checked vs. unchecked bestimmen, wann man verpflichtend behandelt.</li>
+          <li>Gute Fehlerbehandlung hilft beim Testen und beim Anwenderverständnis.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Weiterführende Links</h2>
+        <ul>
+          <li>Oracle Java Tutorials – Exceptions</li>
+          <li>StackOverflow für konkrete Fehlermeldungen</li>
+        </ul>
+      </section>
+
+    </div>
+  </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reveal.js" integrity="sha512-GvouLVZT+gJSJW5eOfpG46xTaBb2c3VeNnbzmDYTRQkFlgvxNhnzZQqiQ/jAyAYPh+a9roBvAHJP6zvXIVq34Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/notes/notes.min.js" integrity="sha512-6LAcdj7pQal9JkdALNexzVKd4zWuYUxOXuzdF21iOx7LJSlF5ibFi2TAR7GQ00XhfPAw7/R8f1dZ69gFGhzXtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/markdown/markdown.min.js" integrity="sha512-4exkEeyVuaWUFKozXl6L3UCugl6ai1cKnrVFkWUstdrNB2sDxxmPEaHBzTlYm9wX78EjPzEBG0s8k37oPeUFIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/highlight/highlight.min.js" integrity="sha512-IkPzJ3njtxNL2Frm7zr18CEj9HH+CEFAqh+jSKjXTHVFGtWG1+USbIXINU8zdGmyLpf/OBIVfpNLGNgwhlymkA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/search/search.min.js" integrity="sha512-hzXKyeT22k18jZdSR25sVbZqa1UAc8nLubaKsW7EwarLBRtFMZMmLQOc2n29Zv+9r2X8Iex9WJqLudXO8e2x6w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+	<script src="../../reveal-config.js"></script>
+</body>
+</html>

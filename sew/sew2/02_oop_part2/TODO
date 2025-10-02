@@ -6,5 +6,7 @@ bei Exceptions das Abfangen mehrerer Exceptions hinzufügen
         
 catch(ArithmeticException | ArrayIndexOutOfBoundsException | StringIndexOutOfBoundsException | NumberFormatException | NullPointerException e){
 
+Exceptions - reveal.js Präsentation mit AI erstellt - überarbeiten
+
 
 instanceOf unbedingt thematisieren!
