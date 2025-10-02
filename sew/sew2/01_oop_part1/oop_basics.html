@@ -148,6 +148,16 @@ Anwendungen,..</td>
 				</div>
  </section>
 
+<section>
+  <h2>Zustand/State</h2>
+  <ul>
+    <li>Der Zustand (State) eines Objekts ist die Gesamtheit seiner aktuellen <em>Attributwerte</em>  zu einem bestimmten Zeitpunkt.</li>
+    <li>Verhalten vs. Zustand: Methoden verändern oder lesen den Zustand; Verhalten beschreibt, was ein Objekt tun kann.</li>
+    <li>Zustand ändert sich durch Methodenaufrufe.</li>
+    <li>Jedes Objekt hat die gleichen <em>Attribute</em>, aber unterschiedliche <em>Werte</em> &RightArrow; unterschiedliche Zustände.</li>
+  </ul>
+</section>
+
 
 <section>
   <h2>Klasse vs Objekt</h2>
@@ -243,19 +253,20 @@ public class Bruch {
   <ul>
     <li>Methode → Fähigkeit der Objekte einer Klasse</li>
     <li>Für jede Fähigkeit → passende Methode innerhalb der Klasse</li>
+    <li><em>Achtung!</em> Diese Methoden haben <em>kein</em> <code>static</code> Keyword.</li>
   </ul>
   <pre><code class="language-java">
 
 public class Smartphone {
   ...
-  void klingle() {
+  public void klingle() {
     System.out.println("Beep Beep Beep Beep");
   }
 }
 
 public class Bruch {
   ...
-  double alsKommazahl() {
+  public double alsKommazahl() {
     return (double) zaehler/nenner;
   }
 }
