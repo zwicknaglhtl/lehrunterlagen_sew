@@ -27,7 +27,7 @@
     <li>Fundamentaler "Programmierstil"</li>
     <li>Programmiersprachen unterstützen meist mehrere Paradigmen, beruhen aber überwiegend auf einem.</li>
   </ul>
-  <table>
+  <table class="small">
     <tr>
       <th>Programmierparadigmen (Auswahl)</th>
       <th>Beschreibung</th>
@@ -45,7 +45,7 @@
       <td>Programme werden in kleinere Teilaufgaben (Prozeduren) aufgeteilt.</td>
     </tr>
     <tr>
-      <td>Objektorientierte Programmierung (OOP)</td>
+      <td> <em> Objektorientierte Programmierung (OOP)</em></td>
       <td>Programm als eine Menge interagierender
 Objekte; Klassen, Vererbung, Polymorphie</td>
     </tr>
@@ -64,7 +64,8 @@ Anwendungen,..</td>
   <ul>
     <li>Leistungsfähigkeit von Computern steigt exponentiell</li>
     <li>Software-Entwickler/-innen bleiben immer ungefähr gleich schlau</li>
-    <li>Ziel: Überblick behalten in immer komplexeren Programmen, neuere Programmierparadigmen helfen dabei.</li>
+    <li>Ziel: größere, komplexe Systeme entwickeln, die wartbar, erweiterbar und wiederverwendbar sind.</li>
+    <li>Neue Programmierparadigmen, wie OOP, helfen dabei.</li>
   </ul>
 </section>
 
@@ -73,17 +74,34 @@ Anwendungen,..</td>
 </section>
 
 <section>
-  <h2>Objektorientiere Programmierung
-(OOP)</h2>
-  <ul>
-    <li>OOP versucht Teile der (realen) Welt in einem Programm vereinfacht als Objekte abzubilden.</li>
-    <li>Jedes Objekt besitzt...</li>
-    <ul>
-      <li>Eigenschaften/Merkmale/Zustände</li>
-      <li>Fähigkeiten/Verhalten</li>
-    </ul>
-    <li>Beispiel Smartphone</li>
-    <ul>
+  <h2>Objekte</h2>
+<p>Objektorientierte Programmierung (OOP) versucht Teile der (realen) Welt in einem Programm vereinfacht als Objekte abzubilden.</p>
+<p class="center">Jedes Objekt besitzt...</p>
+    	<div class="columns">
+					<div class="col">
+						<p style="color:green">Eigenschaften/Merkmale/Zustände</p>
+					</div>
+					<div class="col"></div>
+					 <p style="color:blue">Fähigkeiten/Verhalten</p>
+				</div>
+
+ </section>
+
+<section>
+  <h2>Objekte</h2>
+  <p class="center">Jedes Objekt besitzt...</p>
+    	<div class="columns">
+					<div class="col">
+						<p style="color:green">Eigenschaften/Merkmale/Zustände</p>
+					</div>
+					<div class="col"></div>
+					 <p style="color:blue">Fähigkeiten/Verhalten</p>
+				</div>
+      <p class="center">Beispiel Smartphone:</p>
+      
+<div class="columns small" >
+					<div class="col" style="color:green">
+						<ul>
       <li>Farbe</li>
       <li>Gewicht</li>
       <li>Betriebssystem</li>
@@ -93,77 +111,59 @@ Anwendungen,..</td>
       <li>gesperrt</li>
       <li>....</li>
     </ul>
-    <ul>
-      <li>Telefonieren</li>
-      <li>Nachricht senden</li>
-      <li>App installieren</li>
-      <li>App deinstallieren</li>
-      <li>Einschalten</li>
-      <li>....</li>
-    </ul>
-</section>
-
+					</div>
+          <div class="">
+            <!--Elijah Mason, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons-->
+            <img height=140 src="images/smartphone.png" alt="Smartphone">
+          </div>
+					<div class="col" style="color:blue">
+            <ul>
+        <li>Telefonieren</li>
+        <li>Nachricht senden</li>
+        <li>App installieren</li>
+        <li>App deinstallieren</li>
+        <li>Einschalten</li>
+        <li>....</li>
+				</div>
+      </div>
+  </section>
 
 <section>
-  <h2>Objektorientierte Programmierung (OOP)</h2>
-<p>Objektorientiere Programmierung
-(OOP)
-» OOP versucht Teile der (realen) Welt in einem Programm
-vereinfacht als Objekte abzubilden.
-Jedes Objekt besitzt...
-Eigenschaften/Merkmale/Zustände
-
-Fähigkeiten/Verhalten
-
-OOP Bezeichnungen
-Attribute
-
-Methoden</p>
-</section>
+  <h2>Objekte</h2>
+<p class="center">Jedes Objekt besitzt...</p>
+    	<div class="columns">
+					<div class="col">
+						<p class="center" style="color:green">Eigenschaften/Merkmale/Zustände</p>
+					</div>
+					<div class="col"></div>
+					 <p class="center" style="color:blue">Fähigkeiten/Verhalten</p>
+				</div>
+<p class="center">...die in OOP abgebildet werden durch...</p>
+<div class="columns">
+					<div class="col">
+						<p class="center" style="color:green">Attribute</p>
+					</div>
+					<div class="col"></div>
+					 <p class="center"  style="color:blue">Methoden</p>
+				</div>
+ </section>
 
 
 <section>
   <h2>Klasse vs Objekt</h2>
   <ul>
-    <li>Eine Klasse ist der "Bauplan" für Objekte.</li>
+    <li>Eine <em>Klasse</em> ist ein Bauplan für Objekte.</li>
     <li>Von einer Klasse erzeugen wir Objekte.</li>
     <li>Ein Objekt ist eine konkrete Ausprägung einer Klasse.</li>
   </ul>
-  <p>Beispiel Smartphone:
-
-Haralds Smartphone (Objekt)
-
-Klasse Smartphone
-Farbe
-Gewicht
-Betriebssystem
-Version
-Auflösung
-Akkustand
-gesperrt
-
-Sandras Smartphone (Objekt)
-Farbe: weiß
-Gewicht: 212g
-Betriebssystem: android
-Version: 9.2
-Auflösung: 828 x 1792
-Akkustand: 30%
-gesperrt: falsch
-
-Farbe: schwarz
-Gewicht: 172g
-Betriebssystem: iOS
-Version: 12.0
-Auflösung: 828 x 1792
-Akkustand: 90%
-gesperrt: falsch</p>
+  <p>Beispiel Smartphone:</p>
+  <img src="diagrams/class_object.svg" alt="Klasse vs Objekt">
 </section>
 
 
 <section>
   <h2>OO-Analyse & OO-Design</h2>
-  <ul>
+  <ul class="small">
     <li>Wie findet man heraus, welche Klassen und Objekte man in einem
 Projekt braucht?</li>
 <li>OO-Analyse → OO-Design → OO-Programmierung</li>
@@ -202,39 +202,37 @@ Objekte für die spätere OOP.</li>
 </section>
 
 <section>
-  <h2></h2>Klassen definieren</h2>
+  <h2>Klassen definieren</h2>
 <pre><code class="language-java">
-  public class Smartphone { // → Datei Smartphone.java
-// Attribute und Methoden von Personen
-...
+public class Smartphone { // → Datei Smartphone.java
+  // Attribute und Methoden von Personen
+  ...
 }
+
 public class Bruch { // → Datei Bruch.java
-// Attribute und Methoden von Bruch
-...
+  // Attribute und Methoden von Bruch
+  ...
 }
 </code></pre>
 </section>
 
 <section>
   <h2>Attribute einer Klasse definieren</h2>
-  <ul>
-    <li>Attribut → Eigenschaft der Objekte einer Klasse</li>
-    <li>Entspricht einer Variablen innerhalb der Klasse →
-Instanzvariable!</li>
-<li>Anfangswerte sind optional.</li>
+  <ul >
+     <li>Ein Attribut entspricht einer "Variable" innerhalb der Klasse (i.e. eine "Instanzvariable")</li>
+     <li>Jedes Objekt bekommt eine Kopie der Attribute.</li>
+      <li>Anfangswerte können gesetzt werden (sonst Default-Werte der Datentypen).</li>
   </ul>
 <pre><code class="language-java">
 public class Smartphone {
-String osSystem; //Betriebssystem
-int gewicht;
-//Gewicht in g
-...
+  String osSystem; //Betriebssystem
+  int gewicht; //Gewicht in g
+  ...
 }
+
 public class Bruch {
-int zaehler;
-//Zähler
-int nenner = 1;
-//Nenner mit Anfangswert
+  int zaehler; //Zähler
+  int nenner = 1; //Nenner mit Anfangswert
 ...
 }
 </code></pre>
@@ -247,17 +245,19 @@ int nenner = 1;
     <li>Für jede Fähigkeit → passende Methode innerhalb der Klasse</li>
   </ul>
   <pre><code class="language-java">
+
 public class Smartphone {
-...
-void klingle() {
-System.out.println("Beep Beep Beep Beep");
+  ...
+  void klingle() {
+    System.out.println("Beep Beep Beep Beep");
+  }
 }
-}
+
 public class Bruch {
-...
-double alsKommazahl() {
-return (double) zaehler/nenner;
-}
+  ...
+  double alsKommazahl() {
+    return (double) zaehler/nenner;
+  }
 }
   </code></pre>
 </section>
@@ -266,22 +266,21 @@ return (double) zaehler/nenner;
 <section>
   <h2>Objekte erzeugen und speichern</h2>
   <ul>
-    <li>Operator <code>new</code> → liefert ein neues Objekt einer Klasse</li>
+    <li>Operator <em><code>new</code></em> → liefert ein neues Objekt einer Klasse</li>
     <li>Neue Objekte können an beliebigen Programmstellen
 erzeugt werden.</li>
     <li>Klassenname wird zu einem Datentyp wie <code>int</code>, <code>double</code>,
 <String>String</code> usw.</li>
-    <li>Klassenname = Datentyp für Variable, Parameter und
-Rückgabewerte</li>
+    <li>Klassenname = Datentyp (für Variable, Parameter, Rückgabewerte)</li>
   </ul>
 
   <pre><code class="language-java">
-    public class meinProgramm {
-public static void main(String[] args) {
-Bruch b = new Bruch();
-Bruch anotherBruch = new Bruch();
-Smartphone s1 = new Smartphone();
-}
+public class meinProgramm {
+  public static void main(String[] args) {
+    Bruch b = new Bruch();
+    Bruch anotherBruch = new Bruch();
+    Smartphone s1 = new Smartphone();
+  }
 }
   </code></pre>
 </section>
