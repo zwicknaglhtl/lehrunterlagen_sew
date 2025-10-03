@@ -308,7 +308,7 @@ gelernt.</li>
 <li>Alle Variablen, die eine Klasse als Datentyp haben, sind Referenzvariablen.</li>
 </section>
 
-<!-- Neue Folien: Null-Referenz -->
+
 <section>
   <h2>Null-Referenz (<code>null</code>)</h2>
   <ul>
@@ -316,14 +316,29 @@ gelernt.</li>
     <li>Referenzvariablen können den Wert <code>null</code> haben.</li>
     <li>Typische Verwendung: keine Initialisierung oder absichtliches Kennzeichnen "kein Wert".</li>
   </ul>
-  <pre><code class="language-java">
+
+  <div class="columns">
+					<div class="col ">
+						  <pre><code class="language-java">
 // Beispiel
-Bruch b = null; // b zeigt auf kein Bruch-Objekt
-String s = null;  // s zeigt auf kein String-Objekt
+// b zeigt auf kein Bruch-Objekt
+Bruch b = null; 
+// s zeigt auf kein String-Objekt
+String s = null;  
 if (s == null) {
   System.out.println("keine Referenz auf ein Objekt");
 }
+</code></pre>
+					</div>
+					<div class="col" >
+					  <pre><code class="language-java">
+public class Club {
+  //null, wenn Attribut nicht initialisiert.
+  Person president; 
+}
   </code></pre>
+</div>
+
 </section>
 
 <section>
