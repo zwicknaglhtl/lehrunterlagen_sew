@@ -105,6 +105,12 @@
   font-size: 0.9em;
 }
 
+.reveal .slides code.inline {
+  display: inline-block;
+  background-color: #eeeeee;
+  padding: 0 0.1em;
+}
+
 .reveal table tbody.border.cols.inner td:last-child {
   border-right: none;
 }
