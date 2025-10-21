@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Verzweigungen - ADV Stoff</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reset.min.css" integrity="sha512-Mjxkx+r7O/OLQeKeIBCQ2yspG1P5muhAtv/J+p2/aPnSenciZWm5Wlnt+NOUNA4SHbnBIE/R2ic0ZBiCXdQNUg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reveal.min.css" integrity="sha512-ZIo9ivf88U0L1S+0D/npMNTTkjez5B9cK5xIecN4IA2OmtbTNBbPAZo/0cBC195sq7FU7cEOVPwtit37f/+1rQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<link rel="stylesheet" href="../../../theme/htl.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<!-- <link rel="stylesheet" href="../../../../../plugin/highlight/zenburn.css"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-light.css" onerror="this.onerror=null;this.href='../../../../../node_modules/highlight.js/styles/stackoverflow-light.css';">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<section>
+				<h1>Verzweigungen - Advanced Topics</h1>
+				<h2> Softwareentwicklung 1</h2>
+			</section>
+
+
+			<section>
+				<h2>switch-Anweisung</h2>
+			</section>
+
+			<section>
+				<h3>switch-Anweisung - Syntax</h3>
+				<div class="r-fit-text left">
+					<p>Bei der <code>switch</code>-Anweisung bestimmt ein String oder ein ganzzahliger Ausdruck den Zweig, der ausgeführt wird.</p>
+					<p>Jeder <code>case</code>-Block muss mit einem <code>break</code> beendet werden (ansonsten würde - unabhängig von den Werten bei <code>case</code> - der Code bis zum nächsten <code>break</code> ausgeführt werden.) </p>
+				</div>
+				<pre><code data-trim class="language-java">
+					switch ( String oder ganzzahligerAusdruck ) { 
+						case Wert1:
+							// Anweisungen, wenn der Ausdruck den Wert1 hat
+							...
+							break;
+						case Wert2:
+							// Anweisungen, wenn der Ausdruck den Wert2 hat ...
+							break;
+						
+						... //weitere case-Statements
+						
+						default:	//kann man auch weglassen
+							//Anweisungen, falls kein passender Wert
+					}
+				</code></pre>
+			</section>
+
+
+<section>
+<h3>switch-Anweisung - Beispiel 1</h3>
+<pre><code data-trim data-line-numbers>
+int note;
+...
+
+switch (note) {
+	case 1:
+		println("Sehr gut");
+		break;
+	case 2:
+		println("Gut");
+		break;
+	case 3:
+		println("Befriedigend");
+		break;
+	case 4:
+		println("Genügend");
+		break;
+	case 5:
+		println("Nicht genügend");	
+		break;
+	default:
+		println("*** Hier stimmt etwas nicht! ***");
+		break;
+}
+</code></pre>
+</section>
+
+<section>
+	<h3>switch-Anweisung - Beispiel 2</h3>
+	<pre><code data-trim data-line-numbers>
+	String note;
+	...
+	
+	switch (note) {
+		case "Sehr gut":
+			println(1);
+			break;
+		case "Gut":
+			println(2);
+			break;
+		case "Befriedigend":
+			println(3);
+			break;
+		case "Genügend":
+			println(4);
+			break;
+		case "Nicht genügend":
+			println(5);	
+			break;
+		default:
+			println(note + " ist keine Note");
+			break;
+	}
+	</code></pre>
+	</section>
+
+
+		</div>
+	</div>
+
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reveal.js" integrity="sha512-GvouLVZT+gJSJW5eOfpG46xTaBb2c3VeNnbzmDYTRQkFlgvxNhnzZQqiQ/jAyAYPh+a9roBvAHJP6zvXIVq34Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/notes/notes.min.js" integrity="sha512-6LAcdj7pQal9JkdALNexzVKd4zWuYUxOXuzdF21iOx7LJSlF5ibFi2TAR7GQ00XhfPAw7/R8f1dZ69gFGhzXtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/markdown/markdown.min.js" integrity="sha512-4exkEeyVuaWUFKozXl6L3UCugl6ai1cKnrVFkWUstdrNB2sDxxmPEaHBzTlYm9wX78EjPzEBG0s8k37oPeUFIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/highlight/highlight.min.js" integrity="sha512-IkPzJ3njtxNL2Frm7zr18CEj9HH+CEFAqh+jSKjXTHVFGtWG1+USbIXINU8zdGmyLpf/OBIVfpNLGNgwhlymkA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/search/search.min.js" integrity="sha512-hzXKyeT22k18jZdSR25sVbZqa1UAc8nLubaKsW7EwarLBRtFMZMmLQOc2n29Zv+9r2X8Iex9WJqLudXO8e2x6w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+	<script src="../../reveal-config.js"></script>
+</body>
+
+</html>

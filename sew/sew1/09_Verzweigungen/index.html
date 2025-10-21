@@ -585,18 +585,18 @@ println("Speed ist "+speed); //Ausgabe: Speed ist 5 
 
 				<div style="position: relative;">
 					<pre><code data-trim data-line-numbers>
-int x = 401;
-int speed = 7;
+int x = 401;
+int speed = 7;
 
-if (x&lt;200) {
-    speed = 3;
-} else if (x&lt;400) {
-    speed = 5;
-} else {
-    speed = -2;
+if (x &lt; 200) {
+	speed = 3;
+} else if (x &lt; 400) {
+	speed = 5;
+} else {
+	speed = -2;
 }
 
-println("Speed ist "+speed); //Ausgabe: Speed ist -2 
+println("Speed ist " + speed); //Ausgabe: Speed ist -2
 		</code></pre>
 		<object data="diagrams/legende.drawio.svg" type="image/svg+xml"
 		style="position: absolute; left: -25px; top: 320px;" class="fragment"
@@ -638,93 +638,6 @@ if(x < 100) {
 
 </section>
 
-
-			<section>
-				<h2>switch-Anweisung</h2>
-			</section>
-
-			<section>
-				<h3>switch-Anweisung - Syntax</h3>
-				<div class="r-fit-text left">
-					<p>Bei der <code>switch</code>-Anweisung bestimmt ein String oder ein ganzzahliger Ausdruck den Zweig, der ausgeführt wird.</p>
-					<p>Jeder <code>case</code>-Block muss mit einem <code>break</code> beendet werden (ansonsten würde - unabhängig von den Werten bei <code>case</code> - der Code bis zum nächsten <code>break</code> ausgeführt werden.) </p>
-				</div>
-				<pre><code data-trim class="language-java">
-					switch ( String oder ganzzahligerAusdruck ) { 
-						case Wert1:
-							// Anweisungen, wenn der Ausdruck den Wert1 hat
-							...
-							break;
-						case Wert2:
-							// Anweisungen, wenn der Ausdruck den Wert2 hat ...
-							break;
-						
-						... //weitere case-Statements
-						
-						default:	//kann man auch weglassen
-							//Anweisungen, falls kein passender Wert
-					}
-				</code></pre>
-			</section>
-
-
-<section>
-<h3>switch-Anweisung - Beispiel 1</h3>
-<pre><code data-trim data-line-numbers>
-int note;
-...
-
-switch (note) {
-	case 1:
-		println("Sehr gut");
-		break;
-	case 2:
-		println("Gut");
-		break;
-	case 3:
-		println("Befriedigend");
-		break;
-	case 4:
-		println("Genügend");
-		break;
-	case 5:
-		println("Nicht genügend");	
-		break;
-	default:
-		println("*** Hier stimmt etwas nicht! ***");
-		break;
-}
-</code></pre>
-</section>
-
-<section>
-	<h3>switch-Anweisung - Beispiel 2</h3>
-	<pre><code data-trim data-line-numbers>
-	String note;
-	...
-	
-	switch (note) {
-		case "Sehr gut":
-			println(1);
-			break;
-		case "Gut":
-			println(2);
-			break;
-		case "Befriedigend":
-			println(3);
-			break;
-		case "Genügend":
-			println(4);
-			break;
-		case "Nicht genügend":
-			println(5);	
-			break;
-		default:
-			println(note + " ist keine Note");
-			break;
-	}
-	</code></pre>
-	</section>
 
 
 <section>
